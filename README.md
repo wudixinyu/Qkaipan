@@ -5,7 +5,42 @@
 > 引擎：**Godot 4.7.2**（Forward Plus，Windows 下走 D3D12）
 
 当前可玩内容：第一章《云上浮岛 · 初始之痕》全 10 关（含精英关、Boss 关、事件 / 休息节点）、
-4 张可养成卡牌、14 只怪物、**卡牌选择与编队**、3×3 半自动 ATB 战斗、星级评定与材料结算闭环。
+8 张卡牌（R / SR / SSR / UR 四档）、14 只怪物、**卡牌选择与编队**、卡片图鉴、
+**群星召唤（抽卡）**、3×3 半自动 ATB 战斗、星级评定与材料结算闭环。
+
+---
+
+## 界面一览
+
+以下截图均为 1920×1080 实机画面，可用 `tools/shot_*.gd` 复现（见 §6.2）。
+
+主界面（主城）：立体卡牌扇形陈列 + 右侧系统竖栏 + 底部 3×3 出战阵容预览条
+
+![主界面](shots/main_menu.png)
+
+| 冒险选关地图 | 卡牌选择与编队 |
+|---|---|
+| ![选关](shots/stage_select.png) | ![编队](shots/formation.png) |
+
+| 章节 Boss 战（3×3 等轴测九宫格 / 飘字 / 战报 / 行动顺序） | 精英关首通结算（星级评定 / 战利品 / 物资统计） |
+|---|---|
+| ![Boss 战](shots/battle_boss.png) | ![首通结算](shots/battle_result.png) |
+
+| 抽卡：十连结果汇总 | 抽卡：UR 彩虹光柱登场 |
+|---|---|
+| ![十连结果](shots/gacha_reveal10.png) | ![UR 光柱](shots/gacha_pillar_ur.png) |
+
+卡片图鉴：已获取 / 未获取筛选，未获得的卡走剪影 + 锁章 + `???` 名牌
+
+![卡片图鉴](shots/collection.png)
+
+其余可复现画面：`shots/battle_normal.png`（普通关胜利结算，非首通故无星级行）、
+`shots/gacha.png`（召唤静止界面）、`shots/gacha_reveal1.png`（单抽结果）、
+`shots/gacha_pillar_ssr.png`（SSR 紫光柱）、`shots/gacha_rate.png`（概率公示）、
+`shots/gacha_shop.png`（心愿水晶商店）、`shots/collection_detail.png`（图鉴详情弹层）、
+`shots/collection_owned.png` / `collection_unowned.png`（图鉴两档筛选）、
+`shots/formation_scroll_before.png` / `formation_scroll_after.png`（卡库滚动）、
+`shots/monsters_sheet.png`（14 只怪物头像表）。
 
 ---
 
@@ -71,27 +106,31 @@ G="D:/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe"
 │  ├─ main_menu.tscn          # 主界面（主城）
 │  ├─ stage_select.tscn       # 冒险关卡选择
 │  ├─ formation.tscn          # 卡牌选择与编队
-│  └─ battle.tscn             # 战斗界面
+│  ├─ battle.tscn             # 战斗界面
+│  ├─ gacha.tscn              # 群星召唤（抽卡）
+│  └─ collection.tscn         # 卡片图鉴（已获取 / 未获取）
 ├─ scripts/
 │  ├─ game_db.gd              # GameDB  — 只读配置层（autoload）
 │  ├─ save_db.gd              # SaveDB  — 存档读写层（autoload，含编队与阵容预设）
 │  ├─ realm_db.gd             # RealmDB — 派生属性层（autoload，含羁绊 / 克制推导）
 │  ├─ stamina.gd              # StaminaSys — 体力（autoload）
+│  ├─ gacha_sys.gd            # GachaSys — 抽卡结算（autoload，掷点 / 保底 / 发放）
 │  ├─ battle_ctx.gd           # BattleCtx — 单场战斗上下文（autoload）
 │  ├─ battle_core.gd          # 纯逻辑战斗内核（不含任何渲染）
 │  ├─ growth_core.gd          # 纯函数养成公式层（属性/星级系数/战力权重，构建脚本共用）
-│  ├─ battle.gd / stage_select.gd / main_menu.gd / formation.gd   # 四个界面的接线脚本
+│  ├─ main_menu.gd / stage_select.gd / formation.gd / battle.gd / gacha.gd / collection.gd
+│  │                          # 六个界面的接线脚本
 │  └─ card_fan.gd / card_view.gd                   # 卡牌扇形陈列与卡面（含选中态）
 ├─ assets/
 │  ├─ fonts/ui_font.tres      # 全局 UI 字体
 │  ├─ icons/*.svg             # 货币 / 元素 / 职业 / 关卡 / 卡牌 / 搜索图标
 │  └─ art/{characters,frames,bg}/  # 角色立绘、卡框、背景
 ├─ tools/                     # 构建、测试、截图、资源预处理（不参与游戏运行）
-│  ├─ build_*.gd              # 程序化生成四个场景（见 §6.3）
+│  ├─ build_*.gd              # 程序化生成六个场景（见 §6.3）
 │  ├─ smoke_*.gd + suites/    # 冒烟测试入口与套件（见 §6.1）
 │  ├─ shot_*.gd               # 截图自检（见 §6.2）
 │  └─ _inspect/apply_*.py     # 关卡数值反解、地图数据与编队配置写入（见 §5.1）
-├─ shots/                     # 截图产出
+├─ shots/                     # 截图产出（README「界面一览」引用这里的图）
 └─ .workbuddy/memory/         # 项目开发记忆（日志 + 长期约定）
 ```
 
@@ -104,6 +143,8 @@ G="D:/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe"
 ```
 main_menu.tscn（主城）
    ├─ 点右栏「召集」 → gacha.tscn（抽卡，见 §3.8）
+   ├─ 点右栏「图鉴」 → collection.tscn（卡片图鉴：已获取 / 未获取 + 详情弹层）
+   ├─ 点右栏「编队」 → formation.tscn（不选关直接逛阵容，见 §3.4）
    └─ 点「进入冒险」
         └─ stage_select.tscn（冒险关卡选择）
              └─ 选一个浮岛 → 点「进入关卡」（此刻只校验体力，不扣）
@@ -499,6 +540,7 @@ G="D:/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe"
 "$G" --headless --path . --script res://tools/smoke_main_menu.gd        # 158 断言
 "$G" --headless --path . --script res://tools/smoke_formation.gd        # 252 断言
 "$G" --headless --path . --script res://tools/smoke_gacha.gd            # 216 断言
+"$G" --headless --path . --script res://tools/smoke_collection.gd        # 92 断言
 
 # 抽卡分布诊断（只打印事实不做断言：改概率表 / UP 名单 / 保底尺后先看这里）
 "$G" --headless --path . --script res://tools/diag_gacha.gd
@@ -509,6 +551,8 @@ G="D:/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe"
 
 > `smoke_battle` / `smoke_stage_select` / `smoke_formation` 会临时改档并在结束时**自动还原**存档；
 > 若中途被杀进程，手动还原 `save.json.bak`。
+> `smoke_main_menu` / `smoke_gacha` / `smoke_collection` 起手就调 `SaveDB.reset_profile()`，
+> **会把 `user://save.json` 重置成新档且不还原**——手玩的进度要留就先自己备份一份。
 
 覆盖范围：配置自洽（关卡 / 怪物 / 战力反解）、战场几何（18 格落点与可视区）、
 战斗内核（ATB 顺序、伤害公式、克制、减伤、治疗、怒气、胜负、确定性）、
@@ -516,7 +560,9 @@ G="D:/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe"
 棋盘按 `slot_to_cell` 落位 / 筛选排序搜索 / 3 栏预设切换 / 确认扣体力与写档）、
 界面骨架与交互、结算入账与只升不降语义，
 抽卡（概率边界 / 两万抽分布 / UP 占比 / 小大保底触发时机与跨期继承 / 十连保底 /
-扣费与券优先 / 心愿水晶累积 / 商店兑换 / 星级封顶 / 招募记录 / 场景交互与弹层）。
+扣费与券优先 / 心愿水晶累积 / 商店兑换 / 星级封顶 / 招募记录 / 场景交互与弹层）、
+图鉴（全卡目录与 rarities 一致性 / 持卡判定位 / 未持有回落展演态 / 三档筛选 /
+锁章与剪影 / 详情弹层上一张下一张环游）。
 
 ### 6.2 截图自检（**必须带窗口**，headless 的假渲染器取不到画面）
 
@@ -549,7 +595,7 @@ G="D:/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe"
 
 ### 6.3 场景是程序化生成的，别手改 .tscn
 
-三个场景由 `tools/build_*.gd`（`extends SceneTree`）生成，**布局常量都写在构建脚本里**：
+六个场景由 `tools/build_*.gd`（`extends SceneTree`）生成，**布局常量都写在构建脚本里**：
 
 ```bash
 "$G" --headless --path . --script res://tools/build_main_menu.gd    # → scenes/main_menu.tscn
@@ -557,6 +603,7 @@ G="D:/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe"
 "$G" --headless --path . --script res://tools/build_formation.gd    # → scenes/formation.tscn
 "$G" --headless --path . --script res://tools/build_battle.gd       # → scenes/battle.tscn
 "$G" --headless --path . --script res://tools/build_gacha.gd        # → scenes/gacha.tscn
+"$G" --headless --path . --script res://tools/build_collection.gd   # → scenes/collection.tscn
 ```
 
 要调尺寸 / 位置，改构建脚本再重建，**不要手改 `.tscn`**（下次重建就没了）。

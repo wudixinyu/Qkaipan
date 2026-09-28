@@ -122,9 +122,9 @@ func _check_save() -> void:
 	_eq("金币", SaveDB.balance("gold"), 12500)
 	_eq("钻石", SaveDB.balance("gem"), 1280)
 
-	# 新号默认档：初始三卡已发放（名单 = menu.demo_team_slots），
-	# 图鉴 / 编队 / 主界面三处对「默认有哪些卡」共用这一份事实
-	_eq("新号默认持卡 = 初始三卡", SaveDB.cards().size(), 3)
+	# 新号默认档：不发任何卡（图鉴 / 编队 / 主界面共用这一份事实），
+	# 卡片全部靠抽卡获得，十连保底保证第一波抽取必得人物卡
+	_eq("新号默认持卡 = 0", SaveDB.cards().size(), 0)
 
 	var before: int = SaveDB.cards().size()
 	var card: Dictionary = SaveDB.grant_card("arcane_girl")
@@ -153,12 +153,12 @@ func _check_save() -> void:
 	_ok("余额不足时扣款失败", not SaveDB.spend_currency("gold", 999999))
 	SaveDB.add_currency("gold", 500)
 
-	# 清理：把测试发出的卡移出存档，还原成初始三卡。
+	# 清理：把测试发出的卡移出存档，回到默认无卡档。
 	# RealmDB.showcase_lineup() 会优先采用存档里的卡，留着会顶掉展演用的
-	# demo_level / demo_star，导致后续断言拿到 Lv.1 的数据。
+	# demo_level / demo_star，干扰后面的展演态断言。
 	SaveDB.profile["cards"] = SaveDB._starter_cards()
 	SaveDB.save_profile()
-	_eq("清理后只剩初始三卡", SaveDB.cards().size(), 3)
+	_eq("清理后回到无卡默认档", SaveDB.cards().size(), 0)
 
 
 # ---------------------------------------------------------------- 派生层
@@ -173,10 +173,9 @@ func _check_realm() -> void:
 	_eq("主界面展演阵容 4 张", lineup.size(), 4)
 	var first: Dictionary = lineup[0]
 	var st: Dictionary = first.stats
-	_eq("磐岩骑士 HP（基础+成长）", int(st.get("hp", 0)), int(round(1250 + 62.0 * 19)))
-	_eq("磐岩骑士 DEF", int(st.get("def", 0)), int(round(330 + 18.0 * 19)))
-	_eq("磐岩骑士 SPD（走成长并含星级取整）", int(st.get("spd", 0)),
-		int(round((92.0 + 0.35 * 19) * 1.0)))
+	_eq("磐岩骑士 HP（1级无成长）", int(st.get("hp", 0)), 1250)
+	_eq("磐岩骑士 DEF", int(st.get("def", 0)), 330)
+	_eq("磐岩骑士 SPD（1级1★，成长与星级增幅都是 0）", int(st.get("spd", 0)), 92)
 	_eq("暴击率不吃成长与星级", float(st.get("crit", 0.0)), 0.05)
 	_eq("暴伤不吃成长与星级", float(st.get("crit_dmg", 0.0)), 1.5)
 	_eq("磐岩骑士 星级", int((first.card as Dictionary).get("star", 0)), 1)
@@ -190,8 +189,7 @@ func _check_realm() -> void:
 	_ok("演示卡空槽同为空字符串", demo_eq.all(func(x): return x == ""), str(demo_eq))
 
 	var pyro: Dictionary = lineup[1]
-	_eq("紫焰少女 HP（含 3★加成）", int((pyro.stats as Dictionary).get("hp", 0)),
-		int(round((780.0 + 44.0 * 29) * 1.30)))
+	_eq("紫焰少女 HP（1级1★，就是基础值）", int((pyro.stats as Dictionary).get("hp", 0)), 780)
 
 	_eq("队伍预览 3 个位置", RealmDB.showcase_team().size(), 3)
 

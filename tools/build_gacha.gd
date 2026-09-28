@@ -615,10 +615,10 @@ func _mk_pull_button(node_name: String, text: String, sub: String, accent: Color
 	if primary:
 		var tag := UI.panel(Color("#FF6B6B"), 12, 2, Color("#7A1F1F"), 8, Color(0, 0, 0, 0.45))
 		tag.name = "TenTag"
-		UI.place(tag, 200, -16, 158, 36)
+		UI.place(tag, 130, -16, 200, 36)
 		btn.add_child(tag)
 
-		var tl := UI.label(str(_ten_guarantee().get("label", "必得 SR 及以上")), 17,
+		var tl := UI.label(str(_ten_guarantee().get("label", "必得 1 张人物卡")), 17,
 			Color("#FFF3D6"), 5)
 		tl.name = "TenTagLabel"
 		tl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

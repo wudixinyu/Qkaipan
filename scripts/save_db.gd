@@ -59,7 +59,7 @@ func _default_profile() -> Dictionary:
 			# 上次结算时刻（unix 秒）；为 0 表示从未结算，首次进入按满值处理
 			"accounted_at": 0,
 		},
-		"cards": _starter_cards(),   # [{ "char_id", "level", "star", "exp", "equipment": [String x slot_count] }] 新号先发默认三卡
+		"cards": [],           # [{ "char_id", "level", "star", "exp", "equipment": [String x slot_count] }] 新号默认无卡，卡片全部靠抽卡 / 兑换获得
 		"team": [],            # [{ "slot": int, "char_id": String }] 出战编队，只由编队页写
 		"team_presets": _default_presets(),   # 阵容预设：pid -> 条目数组（主线队 / PVP队 / 副本队）
 		"team_active_preset": _default_active_preset(),
@@ -88,30 +88,12 @@ func _new_player_items() -> Dictionary:
 	return {}
 
 
-## 新号初始卡：名单与主界面默认陈列队（menu.demo_team_slots）同一份，
-## 等级 / 星级取角色的展演态（demo_level / demo_star），
-## 保证图鉴 / 编队 / 主界面三处对同一张卡算出的数值完全一致。
+## 新号初始卡：按「默认无卡」的口径返回空表。
+## 名单曾取自 menu.demo_team_slots（主界面展演队），现在抽卡才是唯一入卡渠道：
+## 十连保底保证第一波抽取必得人物卡，所以这里可以放心留空。
+## 保留函数是为了给测试与旧脚本一个「清档回默认态」的统一入口。
 func _starter_cards() -> Array:
-	var out: Array = []
-	for raw in GameDB.menu().get("demo_team_slots", []):
-		var char_id := str(raw)
-		var cfg := GameDB.character(char_id)
-		if cfg.is_empty():
-			continue
-		out.append({
-			"char_id": char_id,
-			"level": int(cfg.get("demo_level", 1)),
-			"star": int(cfg.get("demo_star", 1)),
-			"exp": 0,
-			"equipment": GameDB.blank_equipment(),
-		})
-	return out
-
-
-## 旧档兼容：历史上默认档是 0 卡，载入时若整档无卡则补发初始三卡
-func _ensure_starter_cards() -> void:
-	if profile.get("cards", []).is_empty():
-		profile["cards"] = _starter_cards()
+	return []
 
 
 func _default_gacha() -> Dictionary:
@@ -180,7 +162,6 @@ func load_profile() -> void:
 			profile = parsed
 			_fill_defaults(profile, _default_profile())
 			_normalize_cards()
-			_ensure_starter_cards()
 			_migrate_gacha()
 			print("[SaveDB] 存档已载入：%s Lv.%d，持卡 %d 张"
 				% [profile.player.name, profile.player.level, profile.cards.size()])

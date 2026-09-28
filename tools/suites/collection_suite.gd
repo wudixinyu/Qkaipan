@@ -138,12 +138,9 @@ func _check_data() -> void:
 		if bool(e["owned"]):
 			owned0 += 1
 			owned_ids[str(e["char_id"])] = true
-	# 新档默认发三张初始卡（名单 = menu.demo_team_slots），
-	# 与主界面默认陈列 / 编队默认阵容同一批英雄，三处不再互相矛盾
-	_eq("新档默认已获取 = 初始三卡", owned0, 3)
-	_ok("已获取的正是默认三卡",
-		owned_ids.has("knight_rock") and owned_ids.has("pyro_girl")
-		and owned_ids.has("elf_ranger"), str(owned_ids.keys()))
+	# 新档默认不发卡：卡片只能靠抽卡 / 兑换获得（十连保底保证至少一张人物卡）
+	_eq("新档默认已获取 = 0", owned0, 0)
+	_ok("默认档一张卡都没有", owned_ids.is_empty(), str(owned_ids.keys()))
 	var demo_ok := true
 	for e in all:
 		if not bool(e["owned"]) \

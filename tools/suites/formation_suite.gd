@@ -48,9 +48,9 @@ func run(tree: SceneTree) -> Dictionary:
 	ALL_HEROES = GameDB.characters().map(func(c: Dictionary) -> String: return str(c.get("id", "")))
 	print("· 英雄总数 %d：%s" % [ALL_HEROES.size(), ALL_HEROES])
 
-	# 编队卡池只收已持有的卡：默认档只有初始三卡，
+	# 编队卡池只收已持有的卡：默认档不发卡（0 张），
 	# 后面的陈列 / 筛选 / 排序用例要覆盖全部英雄，先把全卡发放齐
-	_eq("新号默认持卡 = 初始三卡", SaveDB.cards().size(), 3)
+	_eq("新号默认持卡 = 0", SaveDB.cards().size(), 0)
 	for hid in ALL_HEROES:
 		SaveDB.grant_card(hid, false)
 	SaveDB.save_profile()

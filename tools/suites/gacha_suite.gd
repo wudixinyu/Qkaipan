@@ -78,7 +78,10 @@ func _check_config() -> void:
 	_ok("友情池不产 UR", not _rate_has("friend", "UR"),
 		"UR 概率 %s" % str(GameDB.gacha_rates("friend").get("UR", 0.0)))
 	_eq("十连保底品质", GameDB.gacha_ten_guarantee_rarity("standard"), "SR")
-	_eq("十连保底文案", str(GameDB.gacha_ten_guarantee().get("label", "")), "必得 SR 及以上")
+	_eq("十连保底文案", str(GameDB.gacha_ten_guarantee().get("label", "")), "必得 1 张人物卡")
+	# 人物卡地板只看「能不能出人物」：从最低品质往上取第一个含英雄的品质
+	_eq("人物卡地板品质（常驻池）", GameDB.gacha_hero_floor_rarity("standard"), "R")
+	_ok("地板品质里真有人物可出", GameDB.gacha_pool_has_hero("standard", "R"))
 
 	# 单价：券优先，其次是绑定钻石
 	var single: Array = GameDB.gacha_cost("standard").get("options", {}).get("single", [])
@@ -316,14 +319,17 @@ func _check_pity() -> void:
 	var res5 := GachaSys.pull("standard", 1, { "free": true, "seed": 11 })
 	_ok("常驻池不会触发大保底", not bool((res5.get("items", [{}])[0] as Dictionary).get("is_up_pity", false)))
 
-	# 十连保底：300 次十连，每次都至少一张 SR 及以上
-	var missing := 0
+	# 十连人物卡地板：300 次十连，每次至少出一张人物卡
+	var no_hero := 0
 	for i in 300:
 		var r := GachaSys.pull("standard", 10, { "free": true, "seed": 1000 + i })
-		var top := str(r.get("max_rarity", ""))
-		if not GameDB.rarity_at_least(top, "SR"):
-			missing += 1
-	_eq("300 次十连每次都含 SR 及以上", missing, 0)
+		var heroes := 0
+		for raw in r.get("items", []):
+			if str((raw as Dictionary).get("kind", "")) == "hero":
+				heroes += 1
+		if heroes == 0:
+			no_hero += 1
+	_eq("300 次十连每次都含人物卡", no_hero, 0)
 
 	# 计数按 pity_group 存放：抽过限时池后，存档里只有 "limited" 这一组，
 	# 没有跟着卡池期数走的独立副本 —— 换期复用同一 group 即「跨期全额继承」
@@ -372,9 +378,11 @@ func _check_pull_payment() -> void:
 	_eq("券仍是 9（没被拆着用）", SaveDB.material_count("ticket_basic"), 9)
 	_eq("水晶 +10 累计 11", SaveDB.balance("wish_crystal"), 11)
 	_eq("总抽数 1+10", SaveDB.total_pulls(), 11)
-	_ok("十连必得 SR 及以上",
-		GameDB.rarity_at_least(str(r2.get("max_rarity", "")), "SR"),
-		"max=%s" % str(r2.get("max_rarity", "")))
+	var ten_heroes := 0
+	for raw in r2.get("items", []):
+		if str((raw as Dictionary).get("kind", "")) == "hero":
+			ten_heroes += 1
+	_ok("十连必得至少一张人物卡", ten_heroes >= 1, "hero=%d" % ten_heroes)
 
 	# —— 资源耗尽：不该扣费、不该写档 ——
 	var pulls_before := SaveDB.total_pulls()
@@ -608,7 +616,7 @@ func _check_scene_panels(rate: Control, shop: Control) -> void:
 	_ok("公示层列出了品质行", rate_body != null and rate_body.get_child_count() >= 5,
 		"%d 行" % (rate_body.get_child_count() if rate_body else 0))
 	var rate_text := _collect_text(rate_body)
-	for expect in ["78.00%", "18.00%", "3.50%", "0.50%", "必得 SR 及以上"]:
+	for expect in ["78.00%", "18.00%", "3.50%", "0.50%", "必得 1 张人物卡"]:
 		_ok("公示层含「%s」" % expect, rate_text.contains(expect))
 	(_scene.get_node_or_null("%RateCloseButton") as Button).pressed.emit()
 	_ok("关闭后公示层隐藏", not rate.visible)

@@ -495,7 +495,8 @@ func gacha_ten_guarantee() -> Dictionary:
 	return raw if raw is Dictionary else {}
 
 
-## 十连保底品质：概率表里既要有它、卡池也要真能出，否则退到下一个更低的品质
+## 十连保底的品质：从配置想要的品质往下找，
+## 概率表里要有它、卡池也要真能出**人物卡**（只堆道具的品质不算），否则退到下一个更低的品质。
 func gacha_ten_guarantee_rarity(pool_id: String) -> String:
 	var want := str(gacha_ten_guarantee().get("rarity", "SR"))
 	var rates := gacha_rates(pool_id)
@@ -503,7 +504,25 @@ func gacha_ten_guarantee_rarity(pool_id: String) -> String:
 	var idx := maxi(0, order.find(want))
 	for i in range(idx, -1, -1):
 		var rid := str(order[i])
-		if rates.has(rid) and gacha_pool_has(pool_id, rid):
+		if rates.has(rid) and gacha_pool_has_hero(pool_id, rid):
+			return rid
+	return ""
+
+
+## 某品质能否出人物卡（卡池里该品质含 type==hero 的内容）
+func gacha_pool_has_hero(pool_id: String, rarity: String) -> bool:
+	for e in gacha_pool_entries(pool_id, rarity):
+		if str((e as Dictionary).get("type", "hero")) == "hero":
+			return true
+	return false
+
+
+## 十连「至少一张人物卡」的保底品质：只要卡池里真有人物可出，
+## 就从最低品质往上第一个含人物的品质 —— 不要求品质，只要求是一张人物卡。
+func gacha_hero_floor_rarity(pool_id: String) -> String:
+	for raw in rarity_order():
+		var rid := str(raw)
+		if gacha_pool_has_hero(pool_id, rid):
 			return rid
 	return ""
 

@@ -444,6 +444,32 @@ func _check_synergy_open() -> void:
 
 # ---------------------------------------------------------------- 战斗流程
 
+## 推进到「养成后」的阵容：名单取默认展演队，等级顶到各品质的 level_cap。
+## Boss 关那些长流程机制（满能量大招 / 眩晕）要求战斗撑够长，Boss 才能叠满怒气；
+## 而展演态现在跟新号一样是 Lv.1 —— 拿 1 级队测这些只会测到「被秒杀」。
+## RealmDB.roster_of 的属性来自 SaveDB.find_card，所以这里先把卡发到内存存档并拉高
+## 等级/星级，算完 roster 再把存档卡片还原，不污染后面的用例（不写盘）。
+func _progressed_team() -> Array:
+	var backup: Array = SaveDB.profile.get("cards", []).duplicate(true)
+	var entries: Array = []
+	for cid in GameDB.menu().get("demo_team_slots", []):
+		var cfg := GameDB.character(str(cid))
+		if cfg.is_empty():
+			continue
+		var cap := maxi(1, int(GameDB.rarity(str(cfg.get("rarity", "R"))).get("level_cap", 20)))
+		var card := SaveDB.grant_card(str(cid), false)
+		card["level"] = cap
+		card["star"] = clampi(int(cfg.get("demo_star", 1)) + 2, 1,
+			maxi(1, int(GameDB.rarity(str(cfg.get("rarity", "R"))).get("star_max", 3))))
+		entries.append({
+			"slot": int(cfg.get("prefer_slot", 1)),
+			"char_id": str(cid),
+		})
+	var roster := RealmDB.apply_synergies(RealmDB.roster_of(entries))
+	SaveDB.profile["cards"] = backup
+	return roster
+
+
 func _check_battle_flow() -> void:
 	print("\n· 战斗流程")
 
@@ -458,9 +484,9 @@ func _check_battle_flow() -> void:
 	_ok("战斗会结束", easy.finished)
 	_ok("战报有内容", easy.log_lines.size() > 5, "%d 行" % easy.log_lines.size())
 
-	# Boss 关：特性、大招、眩晕都在日志里出现
+	# Boss 关：特性、大招、眩晕都在日志里出现（用养成后的队伍，理由见 _progressed_team）
 	var hard: RefCounted = _core_script.new()
-	hard.setup(1010, _core_script.player_entries(), {"seed": SEED})
+	hard.setup(1010, _progressed_team(), {"seed": SEED})
 	_eq("1010 敌方 6 单位", hard.team_of("enemy").size(), 6)
 	var evs: Array = hard.run_all()
 	_ok("1010 会分出胜负", hard.winner in ["player", "enemy", "draw"], str(hard.winner))

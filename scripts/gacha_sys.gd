@@ -230,7 +230,9 @@ func pull(pool_id: String, count: int = 1, opts: Dictionary = {}) -> Dictionary:
 	var small_need := str(pity_cfg.get("small_guarantee", "SSR"))
 
 	var guarantee := GameDB.gacha_ten_guarantee_rarity(pool_id)
+	var hero_floor := GameDB.gacha_hero_floor_rarity(pool_id)
 	var ten_ok := false
+	var hero_ok := false
 	var items: Array = []
 	var best := ""
 
@@ -252,13 +254,20 @@ func pull(pool_id: String, count: int = 1, opts: Dictionary = {}) -> Dictionary:
 			want_min = guarantee
 			reason = REASON_TEN
 
-		var item := _roll(pool_id, want_min, force_up, reason)
+		var item: Dictionary = {}
+		if use_pity and n >= 10 and i == n - 1 and not hero_ok and hero_floor != "":
+			# 人物卡地板：十连到手最后一抽还没有人物卡，这一抽必出一张
+			item = _roll_hero(pool_id, hero_floor, REASON_TEN)
+		if item.is_empty():
+			item = _roll(pool_id, want_min, force_up, reason)
 		if item.is_empty():
 			continue
 		items.append(item)
 		var rarity := str(item.get("rarity", ""))
 		if best == "" or GameDB.rarity_rank(rarity) > GameDB.rarity_rank(best):
 			best = rarity
+		if str(item.get("kind", "")) == "hero":
+			hero_ok = true
 
 		# —— 保底推进（use_pity=false 时整段冻结，这样分布断言拿到的就是纯基础概率）——
 		if not use_pity:
@@ -452,6 +461,24 @@ func _roll(pool_id: String, want_min: String, force_up: String, reason: String) 
 		return {}
 	var entry: Dictionary = pick.get("entry", {})
 	return _make_item(pool_id, entry, rarity, bool(pick.get("from_up", false)), reason)
+
+
+## 十连人物卡地板专用：不掷品质，直接在「含人物的最低品质」里选一张英雄。
+## UP 分配规则照常走（保底抽也算进 up 占同品质 50% 那一刀）。
+func _roll_hero(pool_id: String, rarity: String, reason: String) -> Dictionary:
+	var entries: Array = []
+	for raw in GameDB.gacha_pool_entries(pool_id, rarity):
+		var e: Dictionary = raw
+		if str(e.get("type", "hero")) == "hero":
+			entries.append(e)
+	if entries.is_empty():
+		return {}
+	var pick := choose_entry(entries, GameDB.gacha_up(pool_id, rarity),
+		GameDB.gacha_up_rate(pool_id), _rng.randf(), _rng.randf())
+	if pick.is_empty():
+		return {}
+	return _make_item(pool_id, pick.get("entry", {}), rarity,
+		bool(pick.get("from_up", false)), reason)
 
 
 func _make_item(pool_id: String, entry: Dictionary, rarity: String,
