@@ -1,0 +1,9 @@
+schema_version: 1
+module_path: scenes
+title: Game Scene Definitions (Godot .tscn)
+scope:
+    - scenes/
+source_files: []
+depends_on: []
+related_to:
+    - path: tools

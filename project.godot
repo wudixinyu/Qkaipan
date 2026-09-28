@@ -1,5 +1,10 @@
 ; Engine configuration file.
-; 卡牌大冒险 —— 2.5D 策略卡牌放置 RPG
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
 
@@ -7,9 +12,9 @@ config_version=5
 
 config/name="卡牌大冒险"
 config/description="2.5D Q版策略卡牌放置 RPG · 卡牌收集养成 + 阵型位面战术"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
-run/main_scene="res://scenes/main_menu.tscn"
 
 [autoload]
 
@@ -17,8 +22,8 @@ GameDB="*res://scripts/game_db.gd"
 SaveDB="*res://scripts/save_db.gd"
 RealmDB="*res://scripts/realm_db.gd"
 StaminaSys="*res://scripts/stamina.gd"
-GachaSys="*res://scripts/gacha_sys.gd"
 BattleCtx="*res://scripts/battle_ctx.gd"
+GachaSys="*res://scripts/gacha_sys.gd"
 
 [display]
 
@@ -43,7 +48,3 @@ texture={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-
-[rendering]
-
-rendering_device/driver.windows="d3d12"

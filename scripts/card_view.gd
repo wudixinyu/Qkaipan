@@ -23,6 +23,10 @@ var card: Dictionary = {}
 var stats: Dictionary = {}
 var box: Vector2 = Vector2(336, 520)
 
+## 未获取态（图鉴用）：立绘压成剪影、数值隐藏、名牌变 ???。
+## 是 build 期状态：setup() 前用 set_locked() 置好，整卡只构建一次。
+var locked: bool = false
+
 var _rarity: Dictionary = {}
 var _element: Dictionary = {}
 
@@ -83,7 +87,8 @@ func _build() -> void:
 	shadow.size = box
 	_add(shadow)
 
-	var bed := UI.panel(Color(str(_rarity.get("bed_tint", "#222222"))), 20)
+	var bed := UI.panel(Color(str(_rarity.get("bed_tint", "#222222"))).darkened(0.45) if locked
+		else Color(str(_rarity.get("bed_tint", "#222222"))), 20)
 	bed.size = box
 	_add(bed)
 
@@ -94,6 +99,9 @@ func _build() -> void:
 	_add(_portrait_holder)
 
 	_portrait = UI.picture(str(config.get("portrait", "")), TextureRect.STRETCH_SCALE)
+	if locked:
+		# 剪影：黑到只留轮廓，图鉴里「没抽到」一眼可辨
+		_portrait.modulate = Color(0.10, 0.09, 0.14, 1.0)
 	_portrait_holder.add_child(_portrait)
 	_portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_layout_portrait()
@@ -144,8 +152,9 @@ func _build_info_band(inner: Rect2, accent: Color) -> void:
 	]
 	for i in entries.size():
 		var e: Array = entries[i]
-		var ic := UI.icon(e[0], 18.0, e[1])
-		var lb := UI.label(UI.fmt_num(e[2]), 18, UI.CREAM, 4)
+		var ic := UI.icon(e[0], 18.0, e[1] if not locked else Color(0.55, 0.55, 0.6, 0.75))
+		var lb := UI.label("—" if locked else UI.fmt_num(e[2]), 18,
+			UI.CREAM if not locked else Color(0.75, 0.75, 0.82, 0.7), 4)
 		var lb_w: float = maxf(30.0, lb.get_minimum_size().x)
 		var content := 18.0 + 3.0 + lb_w
 		var x0 := float(i) * cell_w + (cell_w - content) * 0.5
@@ -164,14 +173,16 @@ func _build_info_band(inner: Rect2, accent: Color) -> void:
 	plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_add(plate, "NamePlate")
 
-	var name_label := UI.label(str(config.get("name", "???")), 26, UI.CREAM, 6)
+	var name_label := UI.label("???" if locked else str(config.get("name", "???")), 26,
+		UI.CREAM if not locked else Color(0.82, 0.82, 0.9, 0.85), 6)
 	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	name_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	name_label.set_anchors_preset(Control.PRESET_FULL_RECT)
 	plate.add_child(name_label)
 
 	# ---- 等级（名牌右上方） ----
-	var lv := UI.label("Lv.%d" % int(card.get("level", 1)), 21, Color("#FFE9A8"), 5)
+	var lv := UI.label("未获得" if locked else "Lv.%d" % int(card.get("level", 1)), 21,
+		Color(0.9, 0.9, 0.96, 0.75) if locked else Color("#FFE9A8"), 5)
 	lv.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	lv.position = Vector2(band_left, plate_y - 30.0)
 	lv.size = Vector2(band_w, 28.0)
@@ -204,7 +215,7 @@ func _build_rarity_marks(inner: Rect2) -> void:
 	rar_label.size = Vector2(180.0, 46.0)
 	_add(rar_label)
 
-	var star := clampi(int(card.get("star", 1)), 0, int(_rarity.get("star_max", 3)))
+	var star := 0 if locked else clampi(int(card.get("star", 1)), 0, int(_rarity.get("star_max", 3)))
 	if star <= 0:
 		return
 	var star_row := HBoxContainer.new()
@@ -328,6 +339,11 @@ func inner_px() -> Rect2:
 		float(r[0]) * box.x, float(r[1]) * box.y,
 		(float(r[2]) - float(r[0])) * box.x,
 		(float(r[3]) - float(r[1])) * box.y)
+
+
+## 图鉴的未获取态。必须在 setup() 之前调用（_build 只跑一次）。
+func set_locked(on: bool) -> void:
+	locked = on
 
 
 func _ready() -> void:

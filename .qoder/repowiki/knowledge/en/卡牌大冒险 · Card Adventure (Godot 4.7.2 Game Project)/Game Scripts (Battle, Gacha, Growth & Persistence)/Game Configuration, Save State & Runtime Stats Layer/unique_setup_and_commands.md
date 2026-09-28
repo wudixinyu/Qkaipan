@@ -1,0 +1,1 @@
+GameDB auto-loads its config in `_ready()` by reading `res://data/game_data.json`; SaveDB auto-loads/saves `user://save.json` in `_ready()`. A new profile is created on first launch using defaults derived from `GameDB.menu().get('player', {})` and `gacha.new_player_gift`.

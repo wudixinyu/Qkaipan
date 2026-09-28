@@ -32,7 +32,7 @@ const BASE := Vector2(1920, 1080)
 const UNIQUE_NAMES := [
 	"PlayerName", "PlayerLevel", "AvatarTex", "ExpBar", "GoldLabel", "GemLabel",
 	"StaminaValue", "StaminaNext", "Toast", "ToastLabel", "CardFan", "TeamSlots",
-	"StartButton", "FooterInfo",
+	"TeamPowerLabel", "StartButton", "FooterInfo",
 ]
 
 var _root: Control
@@ -364,14 +364,20 @@ func _build_right_rail(hud: Control) -> void:
 		y += RAIL_EH + RAIL_GAP
 
 
-## 一条竖栏入口：图标 + 名称 + 角标
+## 一条竖栏入口：图标 + 名称 + 角标。
+## prefix=="Mode" 的是玩法占位（尚无 route）：整条降亮 + 右上角挂一枚「待开放」徒章，
+## 让“能进的”（Sys_）与“占位的”（Mode_）一眼可分。徒章是按钮的子节点，
+## 不会新增竖栏直接子节点（不影响分隔线计数）；且加在名称 Label 之后（不影响取文案）。
 func _make_rail_entry(cfg: Dictionary, prefix: String, index: int, y: float) -> Button:
+	var placeholder := prefix == "Mode"
 	var accent := Color(str(cfg.get("color", "#FFC94A")))
 	var btn := Button.new()
 	btn.name = "%s_%s" % [prefix, str(cfg.get("id", index))]
 	btn.tooltip_text = str(cfg.get("hint", ""))
+	var bg_a := 0.42 if placeholder else 0.66
+	var border := accent.darkened(0.25) if not placeholder else accent.darkened(0.45)
 	btn.add_theme_stylebox_override("normal",
-		UI.style(Color(0.09, 0.07, 0.13, 0.66), 18, 2, accent.darkened(0.25), 8))
+		UI.style(Color(0.09, 0.07, 0.13, bg_a), 18, 2, border, 8))
 	btn.add_theme_stylebox_override("hover",
 		UI.style(Color(0.14, 0.11, 0.19, 0.80), 18, 2, accent.lightened(0.15), 12))
 	btn.add_theme_stylebox_override("pressed",
@@ -381,16 +387,32 @@ func _make_rail_entry(cfg: Dictionary, prefix: String, index: int, y: float) -> 
 	UI.place(btn, 0, y, RAIL_W, RAIL_EH)
 
 	var ic := UI.icon(str(cfg.get("icon", "")), 36.0, accent)
+	if placeholder:
+		ic.modulate = Color(1, 1, 1, 0.5)
 	UI.place(ic, 14, 16, 36, 36)
 	btn.add_child(ic)
 
 	var nm := UI.label(str(cfg.get("name", "")), 24, UI.CREAM, 6)
+	if placeholder:
+		nm.modulate = Color(1, 1, 1, 0.72)
 	UI.place(nm, 60, 8, 164, 30)
 	btn.add_child(nm)
 
 	var tag := UI.label(str(cfg.get("tag", "")), 16, accent.lightened(0.25), 5)
+	if placeholder:
+		tag.modulate = Color(1, 1, 1, 0.6)
 	UI.place(tag, 60, 38, 164, 22)
 	btn.add_child(tag)
+
+	if placeholder:
+		var soon_bg := UI.panel(Color(0.30, 0.26, 0.36, 0.92), 10, 1, Color(1, 1, 1, 0.22))
+		UI.place(soon_bg, RAIL_W - 78, 7, 68, 22)
+		btn.add_child(soon_bg)
+		var soon := UI.label("待开放", 14, Color(1, 1, 1, 0.82), 4)
+		soon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		soon.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		UI.place(soon, RAIL_W - 78, 7, 68, 22)
+		btn.add_child(soon)
 
 	return btn
 
@@ -424,13 +446,19 @@ func _build_card_fan(hud: Control) -> int:
 	fan.custom_minimum_size = BASE
 	fan.size = BASE
 	UI.fill(fan)
+	# 扇形容器铺满整屏且叠在右侧竖栏之上：默认 STOP 会吞掉整屏点击，
+	# 让竖栏按钮（召集 / 卡牌 / 玩法模式）点不动。改 IGNORE 让空白处穿透，
+	# 卡面子节点各自是 STOP，卡牌点击不受影响。
+	fan.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_mk(hud, fan, "CardFan", true)
 
 	# —— 编辑器预览用的一份数据（运行时会被 main_menu.gd 用 RealmDB 真值覆盖）
+	# 预览取 demo_team_slots（与底部出战阵容栏同一批），而非 demo_lineup，
+	# 这样编辑器里看到的扇形 = 运行时「大卡跟随出战阵容」的效果。
 	var rarities: Dictionary = _section("rarities").get("table", {})
 	var elements: Dictionary = _section("elements").get("table", {})
 	var items: Array = []
-	for char_id in _menu().get("demo_lineup", []):
+	for char_id in _menu().get("demo_team_slots", []):
 		var cfg := _character(str(char_id))
 		if cfg.is_empty():
 			continue
@@ -458,30 +486,48 @@ func _preview_stats(cfg: Dictionary, level: int, star: int) -> Dictionary:
 
 func _build_team_bar(hud: Control) -> void:
 	var bar := _mk(hud, UI.panel(Color(0.09, 0.07, 0.13, 0.68), 24, 2, Color(1.0, 0.85, 0.45, 0.5), 12), "TeamBar")
-	UI.anchor_bottom_center(bar, 470, 88, 152)
+	# 槽位 68×68；个数与运行时同源（formation.team.max_members），不足补空槽。
+	var n := maxi(1, int(_section("formation").get("team", {}).get("max_members", 5)))
+	var slot_sz := 68.0
+	var slot_gap := 12.0
+	var slots_w := slot_sz * float(n) + slot_gap * float(n - 1)
+	var info_x := 156.0 + slots_w + 12.0
+	var bar_w := info_x + 164.0 + 20.0
+	UI.anchor_bottom_center(bar, bar_w, 104, 152)
 
 	var grid := UI.label("3 × 3", 30, Color("#FFD98A"), 7)
 	grid.name = "GridLabel"
 	grid.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	UI.place(grid, 20, 0, 118, 88)
+	UI.place(grid, 22, 0, 110, 104)
 	bar.add_child(grid)
 
 	var divider := ColorRect.new()
 	divider.color = Color(1.0, 0.85, 0.45, 0.28)
-	UI.place(divider, 142, 18, 2, 52)
+	UI.place(divider, 140, 26, 2, 52)
 	divider.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	bar.add_child(divider)
 
+	# N 个 68 槽 + (N-1) 段 12 间距；容器给足宽，空槽也占位，预览永远铺满 N 格
 	var slots := HBoxContainer.new()
 	slots.name = "TeamSlots"
-	slots.add_theme_constant_override("separation", 12)
-	UI.place(slots, 160, 16, 196, 56)
+	slots.add_theme_constant_override("separation", int(slot_gap))
+	UI.place(slots, 156, 18, slots_w, slot_sz)
 	bar.add_child(slots)
 
 	var hint := UI.label("出战阵容", 18, Color(0.88, 0.92, 0.98, 0.7), 5)
+	hint.name = "TeamHint"
 	hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	UI.place(hint, 362, 0, 96, 88)
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	UI.place(hint, info_x, 22, 164, 30)
 	bar.add_child(hint)
+
+	# 队伍总战力：运行时由 main_menu.gd 按当前上阵（含羁绊）刷新
+	var power := UI.label("战力 —", 24, Color("#FFD45E"), 6)
+	power.name = "TeamPowerLabel"
+	power.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	power.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	UI.place(power, info_x, 52, 164, 34)
+	bar.add_child(power)
 
 
 # ---------------------------------------------------------------- 底部：开始冒险

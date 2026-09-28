@@ -1,0 +1,1 @@
+Godot scene and logic for the 3×3 ATB turn-based battle: a pure-logic BattleCore that simulates combat deterministically, a UI layer that only plays events, and a thin autoload context bridging stage select into a fight.

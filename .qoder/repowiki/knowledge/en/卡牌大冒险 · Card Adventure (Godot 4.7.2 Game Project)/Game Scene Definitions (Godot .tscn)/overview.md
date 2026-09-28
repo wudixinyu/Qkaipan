@@ -1,0 +1,1 @@
+Godot 4 scene files defining the five top-level screens of the card game: main menu, stage select, battle, formation editor, and gacha pull screen.

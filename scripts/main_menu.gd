@@ -16,6 +16,7 @@ var auto_transition := true
 
 @onready var _fan: CardFan = %CardFan
 @onready var _team_slots: HBoxContainer = %TeamSlots
+@onready var _team_power_label: Label = %TeamPowerLabel
 @onready var _start: Button = %StartButton
 @onready var _toast: Panel = %Toast
 @onready var _toast_label: Label = %ToastLabel
@@ -58,37 +59,165 @@ func _bind_player() -> void:
 	_gem.text = UI.fmt_num(SaveDB.balance("gem"))
 
 
-## 卡牌陈列：用 RealmDB 的展演阵容（等级 / 星级 / 属性都来自存档与配置的合成）
+## 卡牌陈列（上方大卡）：与底部「出战阵容」栏共用同一份预览数据，
+## 让扇形里的大卡永远等于阵容栏里的那几个英雄（真实编队优先、回落展演队）。
 func _build_showcase() -> void:
-	var items := RealmDB.showcase_lineup()
+	var items := _preview_units()
 	_fan.configure(items, {
 		"rarities": GameDB.rarity_table(),
 		"elements": GameDB.element_table(),
-	}, _card_box(), GameDB.menu().get("fan", {}))
+	}, _card_box(), _fan_cfg(items.size()))
 
 
+## 底部阵容预览条：优先显示玩家真实上阵（RealmDB.roster 已含羁绊），
+## 存档没编队时回落到当前预设（与编队页同一口径），铺满上阵上限（不足补空槽），并刷新总战力。
 func _build_team() -> void:
+	# 先 remove_child 再 queue_free：queue_free 延迟到帧尾，同一帧重建时
+	# 旧槽仍会在树上，会与新槽叠成双份（从编队页返回后重跑接线的场景）。
 	for c in _team_slots.get_children():
+		_team_slots.remove_child(c)
 		c.queue_free()
 
-	for unit in RealmDB.showcase_team():
-		var cfg: Dictionary = unit.get("config", {})
-		var rar := GameDB.rarity(str(cfg.get("rarity", "R")))
-		var accent := Color(str(rar.get("color", "#FFFFFF")))
+	var units := _lineup_units()
+	for i in GameDB.team_max():
+		if i < units.size():
+			_team_slots.add_child(_make_team_slot(units[i]))
+		else:
+			_team_slots.add_child(_make_empty_slot())
+	_refresh_team_power()
 
-		var slot := Panel.new()
-		slot.custom_minimum_size = Vector2(56, 56)
-		slot.add_theme_stylebox_override("panel",
-			UI.style(Color(0.06, 0.05, 0.09, 0.85), 16, 2, accent, 0))
-		_team_slots.add_child(slot)
 
-		var pic := UI.picture(str(cfg.get("portrait", "")), TextureRect.STRETCH_KEEP_ASPECT_CENTERED)
-		pic.set_anchors_preset(Control.PRESET_FULL_RECT)
-		pic.offset_left = 4
-		pic.offset_top = 4
-		pic.offset_right = -4
-		pic.offset_bottom = -4
-		slot.add_child(pic)
+## 预览数据源：真实编队优先，空档时回落到当前预设（与编队页共用 SaveDB.resolved_team）。
+## 返回的是**未含羁绊的基础 unit**：大卡上显示的三围与编队页扇形
+## 卡面同一口径（都取 stats_of 基础值）；羁绊只影响下面的「队伍总战力」读数。
+func _lineup_units() -> Array:
+	var real: Array = RealmDB.roster_of(SaveDB.resolved_team())
+	if not real.is_empty():
+		return real
+	return RealmDB.showcase_team()
+
+
+## 队伍总战力：与编队页头部完全同一算法（formation_report 的 total_power，含羁绊）。
+## 数据源同 _lineup_units（SaveDB.resolved_team），保证两处读数一致。
+func _lineup_power() -> int:
+	return int(RealmDB.formation_report(SaveDB.resolved_team()).get("total_power", 0))
+
+
+## 上方扇形与下方阵容栏共用的预览队：口径同 _lineup_units，最多取上阵上限个
+## （与编队页人数口径一致）。这样「大卡」与「小头像」指向的永远是同一批英雄。
+func _preview_units() -> Array:
+	return _lineup_units().slice(0, GameDB.team_max())
+
+
+## 按实际卡数（1~上阵上限）现算一组左右对称的扇形排布：卡数随编队变化时扇形仍居中、
+## 不歪向一边。4/5 张时额外收紧整体缩放与间距，保证末卡不压到右侧入口栏；
+## 1~3 张沿用配置里的整体参数（menu.fan.scale / spacing_x）。
+func _fan_cfg(n: int) -> Dictionary:
+	var cfg: Dictionary = GameDB.menu().get("fan", {}).duplicate(true)
+	var per: Array = []
+	match n:
+		1:
+			per = [_fan_slot(0.0, -10.0, 1.08, 3)]
+		2:
+			per = [_fan_slot(-4.0, 8.0, 0.99, 1), _fan_slot(4.0, 8.0, 0.99, 2)]
+		3:
+			per = [
+				_fan_slot(-7.0, 26.0, 0.93, 1),
+				_fan_slot(0.0, -22.0, 1.05, 3),
+				_fan_slot(7.0, 26.0, 0.93, 2),
+			]
+		4:
+			cfg["scale"] = 0.74
+			cfg["spacing_x"] = 320.0
+			per = [
+				_fan_slot(-11.0, 34.0, 0.90, 1),
+				_fan_slot(-4.0, -18.0, 1.02, 4),
+				_fan_slot(4.0, -18.0, 1.00, 3),
+				_fan_slot(11.0, 34.0, 0.90, 2),
+			]
+		_:
+			cfg["scale"] = 0.62
+			cfg["spacing_x"] = 300.0
+			per = [
+				_fan_slot(-14.0, 46.0, 0.86, 1),
+				_fan_slot(-7.0, 8.0, 0.96, 3),
+				_fan_slot(0.0, -26.0, 1.04, 5),
+				_fan_slot(7.0, 8.0, 0.96, 4),
+				_fan_slot(14.0, 46.0, 0.86, 2),
+			]
+	cfg["per_index"] = per
+	return cfg
+
+
+func _fan_slot(rot: float, y: float, sc: float, z: int) -> Dictionary:
+	return { "rot_deg": rot, "y": y, "scale": sc, "z": z }
+
+
+const SLOT_SIZE := 68.0
+
+
+## 单个上阵槽：品质描边头像 + 底部等级条 + 右上星级角标，tooltip 给全名与战力
+func _make_team_slot(unit: Dictionary) -> Control:
+	var cfg: Dictionary = unit.get("config", {})
+	var card: Dictionary = unit.get("card", {})
+	var rar := GameDB.rarity(str(cfg.get("rarity", "R")))
+	var accent := Color(str(rar.get("color", "#FFFFFF")))
+
+	var slot := Panel.new()
+	slot.custom_minimum_size = Vector2(SLOT_SIZE, SLOT_SIZE)
+	slot.add_theme_stylebox_override("panel",
+		UI.style(Color(0.06, 0.05, 0.09, 0.9), 14, 2, accent, 0))
+	slot.tooltip_text = "%s  ·  战力 %s" % [str(cfg.get("name", "")), UI.fmt_num(int(unit.get("power", 0)))]
+
+	var pic := UI.picture(str(cfg.get("portrait", "")), TextureRect.STRETCH_KEEP_ASPECT_COVERED)
+	pic.set_anchors_preset(Control.PRESET_FULL_RECT)
+	pic.offset_left = 3
+	pic.offset_top = 3
+	pic.offset_right = -3
+	pic.offset_bottom = -17
+	slot.add_child(pic)
+
+	# 底部等级条
+	var band := Panel.new()
+	UI.place(band, 0, SLOT_SIZE - 18, SLOT_SIZE, 18)
+	band.add_theme_stylebox_override("panel", UI.style(Color(0.04, 0.03, 0.07, 0.82), 0))
+	slot.add_child(band)
+	var lv := UI.label("Lv.%d" % int(card.get("level", 1)), 12, UI.CREAM, 3)
+	lv.set_anchors_preset(Control.PRESET_FULL_RECT)
+	lv.offset_left = 5
+	lv.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	lv.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	band.add_child(lv)
+
+	# 右上星级角标
+	var star := clampi(int(card.get("star", 1)), 0, int(rar.get("star_max", 3)))
+	if star > 0:
+		var st := UI.label("★".repeat(star), 12, Color("#FFD45E"), 3)
+		UI.place(st, 0, 2, SLOT_SIZE - 4, 16)
+		st.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		slot.add_child(st)
+	return slot
+
+
+## 空槽占位：编队没满上阵上限时补位，保持预览条布局稳定
+func _make_empty_slot() -> Control:
+	var slot := Panel.new()
+	slot.custom_minimum_size = Vector2(SLOT_SIZE, SLOT_SIZE)
+	slot.add_theme_stylebox_override("panel",
+		UI.style(Color(0.06, 0.05, 0.09, 0.5), 14, 2, Color(1, 1, 1, 0.18), 0))
+	var lb := UI.label("空", 16, Color(1, 1, 1, 0.35), 4)
+	lb.set_anchors_preset(Control.PRESET_FULL_RECT)
+	lb.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lb.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	slot.add_child(lb)
+	return slot
+
+
+## 队伍总战力：走 _lineup_power（formation_report 同算法，含羁绊），与编队页头部一致
+func _refresh_team_power() -> void:
+	if _team_power_label == null:
+		return
+	_team_power_label.text = "战力 %s" % UI.fmt_num(_lineup_power())
 
 
 func _bind_inputs() -> void:
@@ -130,23 +259,17 @@ func _system_entries() -> Array:
 
 
 func _refresh_footer() -> void:
+	# 阵容战力与底部栏 / 编队页头部同一算法（_lineup_power，含羁绊），三处读数一致
 	var s := "v%s · 配置 %d 卡 / %d 品质 / %d 元素 · 存档 %d 卡 · 阵容战力 %d · %s" % [
 		GameDB.version(),
 		GameDB.characters().size(),
 		GameDB.rarities().size(),
 		GameDB.elements().size(),
 		SaveDB.cards().size(),
-		RealmDB.team_power() if not SaveDB.team().is_empty() else _showcase_power(),
+		_lineup_power(),
 		"游戏数据包就绪",
 	]
 	_footer.text = "GameDB · SaveDB · RealmDB · StaminaSys  |  " + s
-
-
-func _showcase_power() -> int:
-	var total := 0
-	for item in RealmDB.showcase_lineup():
-		total += int(item.get("power", 0))
-	return total
 
 
 # ---------------------------------------------------------------- 体力
@@ -172,8 +295,10 @@ func _refresh_stamina() -> void:
 
 func _on_card_pressed(char_id: String) -> void:
 	var item := {}
-	for it in RealmDB.showcase_lineup():
-		if it.char_id == char_id:
+	# 在「扇形实际陈列的那批」里找，而不是固定的展演队 —— 编队换成别的英雄时，
+	# 点卡才能查到对应数据。
+	for it in _preview_units():
+		if str(it.get("char_id", "")) == char_id:
 			item = it
 			break
 	if item.is_empty():
@@ -211,7 +336,7 @@ func _on_mode_pressed(id: String) -> void:
 			label = "邮件"
 		"event":
 			label = "活动"
-	_show_toast("%s · 模块待接入" % label)
+	_show_toast("%s · 模块待接入，敬请期待" % label)
 
 
 ## 「进入冒险」跳转冒险关卡选择页。

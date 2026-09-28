@@ -1,0 +1,1 @@
+Godot 4.7.2 (Forward Plus, D3D12 on Windows, Jolt Physics), GDScript autoloads as the global DI mechanism, JSON-backed configuration (`data/game_data.json`) plus `user://save.json` persistence, Python helper scripts for value inversion under `tools/_inspect/`.

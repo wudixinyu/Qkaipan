@@ -1,39 +1,36 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dj67d"]
-[ext_resource type="Texture2D" path="res://assets/art/bg/bg_islands.png" id="2_6vcge"]
-[ext_resource type="Texture2D" path="res://assets/art/characters/char_knight.png" id="3_ip0br"]
-[ext_resource type="SystemFont" path="res://assets/fonts/ui_font.tres" id="4_xyero"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_coin.svg" id="5_tcusk"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_gem.svg" id="6_4puye"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_stamina.svg" id="7_q13xq"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_star.svg" id="8_u43bj"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_gear.svg" id="9_jvjdd"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_mail.svg" id="10_yxnar"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_gift.svg" id="11_eku7s"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_tower.svg" id="12_c6nra"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_maze.svg" id="13_qw82i"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_arena.svg" id="14_1468l"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_gacha.svg" id="15_01xyg"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_cards.svg" id="16_764ux"]
-[ext_resource type="Script" path="res://scripts/card_fan.gd" id="17_wadof"]
-[ext_resource type="Script" path="res://scripts/card_view.gd" id="18_b4jiv"]
-[ext_resource type="Texture2D" path="res://assets/art/frames/frame_r.png" id="19_68b7m"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_hp.svg" id="20_vanrq"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_atk.svg" id="21_ybca7"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_def.svg" id="22_k5xsf"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_earth.svg" id="23_71lbq"]
-[ext_resource type="Texture2D" path="res://assets/art/characters/char_pyromancer.png" id="24_akqfu"]
-[ext_resource type="Texture2D" path="res://assets/art/frames/frame_ssr.png" id="25_mb34c"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_fire.svg" id="26_sgh51"]
-[ext_resource type="Texture2D" path="res://assets/art/characters/char_ranger.png" id="27_hjv1c"]
-[ext_resource type="Texture2D" path="res://assets/art/frames/frame_sr.png" id="28_41a2d"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_wind.svg" id="29_f5cck"]
-[ext_resource type="Texture2D" path="res://assets/art/characters/char_priest.png" id="30_s4ogs"]
-[ext_resource type="Texture2D" path="res://assets/art/frames/frame_ur.png" id="31_ew011"]
-[ext_resource type="Texture2D" path="res://assets/icons/icon_light.svg" id="32_tcyl8"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_hl5e0"]
+[ext_resource type="Texture2D" path="res://assets/art/bg/bg_islands.png" id="2_engjn"]
+[ext_resource type="Texture2D" path="res://assets/art/characters/char_knight.png" id="3_6h3lr"]
+[ext_resource type="SystemFont" path="res://assets/fonts/ui_font.tres" id="4_dj67d"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_coin.svg" id="5_6vcge"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_gem.svg" id="6_ip0br"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_stamina.svg" id="7_xyero"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_star.svg" id="8_tcusk"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_gear.svg" id="9_4puye"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_mail.svg" id="10_q13xq"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_gift.svg" id="11_u43bj"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_tower.svg" id="12_jvjdd"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_maze.svg" id="13_yxnar"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_arena.svg" id="14_eku7s"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_gacha.svg" id="15_c6nra"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_cards.svg" id="16_qw82i"]
+[ext_resource type="Script" path="res://scripts/card_fan.gd" id="17_1468l"]
+[ext_resource type="Script" path="res://scripts/card_view.gd" id="18_01xyg"]
+[ext_resource type="Texture2D" path="res://assets/art/frames/frame_r.png" id="19_764ux"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_hp.svg" id="20_wadof"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_atk.svg" id="21_b4jiv"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_def.svg" id="22_68b7m"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_earth.svg" id="23_vanrq"]
+[ext_resource type="Texture2D" path="res://assets/art/characters/char_pyromancer.png" id="24_ybca7"]
+[ext_resource type="Texture2D" path="res://assets/art/frames/frame_ssr.png" id="25_k5xsf"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_fire.svg" id="26_71lbq"]
+[ext_resource type="Texture2D" path="res://assets/art/characters/char_ranger.png" id="27_akqfu"]
+[ext_resource type="Texture2D" path="res://assets/art/frames/frame_sr.png" id="28_mb34c"]
+[ext_resource type="Texture2D" path="res://assets/icons/icon_wind.svg" id="29_sgh51"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgcit"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjv1c"]
 bg_color = Color(0.09, 0.07, 0.13, 0.62)
 border_width_left = 2
 border_width_top = 2
@@ -48,7 +45,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 10
 shadow_offset = Vector2(0, 5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5053t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41a2d"]
 bg_color = Color(0.06, 0.05, 0.09, 0.85)
 border_width_left = 3
 border_width_top = 3
@@ -63,7 +60,7 @@ shadow_color = Color(0, 0, 0, 0.5)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wgix"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5cck"]
 bg_color = Color(1, 0.7882353, 0.2901961, 1)
 border_width_left = 2
 border_width_top = 2
@@ -75,7 +72,7 @@ corner_radius_top_right = 14
 corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b56yx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4ogs"]
 bg_color = Color(0, 0, 0, 0.5)
 border_width_left = 2
 border_width_top = 2
@@ -87,14 +84,14 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5mb6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew011"]
 bg_color = Color(0.35686275, 0.8392157, 0.6509804, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1l3m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcyl8"]
 bg_color = Color(0.09, 0.07, 0.13, 0.6)
 border_width_left = 2
 border_width_top = 2
@@ -109,7 +106,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7u5pb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgcit"]
 bg_color = Color(0.13, 0.1, 0.18, 0.78)
 border_width_left = 3
 border_width_top = 3
@@ -123,155 +120,155 @@ corner_radius_bottom_left = 41
 shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5053t"]
+bg_color = Color(0.1118, 0.086, 0.15480001, 0.78)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.85, 0.45, 0.65)
+corner_radius_top_left = 41
+corner_radius_top_right = 41
+corner_radius_bottom_right = 41
+corner_radius_bottom_left = 41
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wgix"]
+bg_color = Color(0.2518, 0.22600001, 0.2948, 0.78)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.88, 0.56, 0.65)
+corner_radius_top_left = 41
+corner_radius_top_right = 41
+corner_radius_bottom_right = 41
+corner_radius_bottom_left = 41
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b56yx"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 41
+corner_radius_top_right = 41
+corner_radius_bottom_right = 41
+corner_radius_bottom_left = 41
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5mb6"]
+bg_color = Color(0.13, 0.1, 0.18, 0.78)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.85, 0.45, 0.65)
+corner_radius_top_left = 41
+corner_radius_top_right = 41
+corner_radius_bottom_right = 41
+corner_radius_bottom_left = 41
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1l3m"]
+bg_color = Color(0.1118, 0.086, 0.15480001, 0.78)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.85, 0.45, 0.65)
+corner_radius_top_left = 41
+corner_radius_top_right = 41
+corner_radius_bottom_right = 41
+corner_radius_bottom_left = 41
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7u5pb"]
+bg_color = Color(0.2518, 0.22600001, 0.2948, 0.78)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.88, 0.56, 0.65)
+corner_radius_top_left = 41
+corner_radius_top_right = 41
+corner_radius_bottom_right = 41
+corner_radius_bottom_left = 41
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxl5i"]
-bg_color = Color(0.1118, 0.086, 0.15480001, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.85, 0.45, 0.65)
+bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 41
 corner_radius_top_right = 41
 corner_radius_bottom_right = 41
 corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mafwa"]
-bg_color = Color(0.2518, 0.22600001, 0.2948, 0.78)
+bg_color = Color(0.13, 0.1, 0.18, 0.78)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(1, 0.88, 0.56, 0.65)
+border_color = Color(1, 0.85, 0.45, 0.65)
 corner_radius_top_left = 41
 corner_radius_top_right = 41
 corner_radius_bottom_right = 41
 corner_radius_bottom_left = 41
 shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 10
-shadow_offset = Vector2(0, 5)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2q617"]
-bg_color = Color(0, 0, 0, 0)
+bg_color = Color(0.1118, 0.086, 0.15480001, 0.78)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.85, 0.45, 0.65)
 corner_radius_top_left = 41
 corner_radius_top_right = 41
 corner_radius_bottom_right = 41
 corner_radius_bottom_left = 41
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyc35"]
-bg_color = Color(0.13, 0.1, 0.18, 0.78)
+bg_color = Color(0.2518, 0.22600001, 0.2948, 0.78)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(1, 0.85, 0.45, 0.65)
+border_color = Color(1, 0.88, 0.56, 0.65)
 corner_radius_top_left = 41
 corner_radius_top_right = 41
 corner_radius_bottom_right = 41
 corner_radius_bottom_left = 41
 shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 8
-shadow_offset = Vector2(0, 4)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g074s"]
-bg_color = Color(0.1118, 0.086, 0.15480001, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.85, 0.45, 0.65)
+bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 41
 corner_radius_top_right = 41
 corner_radius_bottom_right = 41
 corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g2t1"]
-bg_color = Color(0.2518, 0.22600001, 0.2948, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.88, 0.56, 0.65)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 10
-shadow_offset = Vector2(0, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8gp1"]
-bg_color = Color(0, 0, 0, 0)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_laml6"]
-bg_color = Color(0.13, 0.1, 0.18, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.85, 0.45, 0.65)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 8
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txsih"]
-bg_color = Color(0.1118, 0.086, 0.15480001, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.85, 0.45, 0.65)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_063o2"]
-bg_color = Color(0.2518, 0.22600001, 0.2948, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.88, 0.56, 0.65)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 10
-shadow_offset = Vector2(0, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0y1u"]
-bg_color = Color(0, 0, 0, 0)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh7mv"]
-bg_color = Color(0.09, 0.07, 0.13, 0.66)
+bg_color = Color(0.09, 0.07, 0.13, 0.42)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.75, 0.5911765, 0.21764708, 1)
+border_color = Color(0.55, 0.43352944, 0.15960786, 1)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
@@ -280,7 +277,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv0go"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8gp1"]
 bg_color = Color(0.07, 0.05, 0.1, 0.8)
 border_width_left = 2
 border_width_top = 2
@@ -295,7 +292,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 4
 shadow_offset = Vector2(0, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hp6e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_laml6"]
 bg_color = Color(0.14, 0.11, 0.19, 0.8)
 border_width_left = 2
 border_width_top = 2
@@ -310,20 +307,32 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 12
 shadow_offset = Vector2(0, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvfbv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txsih"]
 bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vmgj"]
-bg_color = Color(0.09, 0.07, 0.13, 0.66)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_063o2"]
+bg_color = Color(0.3, 0.26, 0.36, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.22)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0y1u"]
+bg_color = Color(0.09, 0.07, 0.13, 0.42)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.3, 0.62058824, 0.5176471, 1)
+border_color = Color(0.22000001, 0.45509806, 0.37960786, 1)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
@@ -332,7 +341,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6j0h"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh7mv"]
 bg_color = Color(0.07, 0.05, 0.1, 0.8)
 border_width_left = 2
 border_width_top = 2
@@ -347,13 +356,77 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 4
 shadow_offset = Vector2(0, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woojs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv0go"]
 bg_color = Color(0.14, 0.11, 0.19, 0.8)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.49, 0.85333335, 0.7366667, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hp6e"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvfbv"]
+bg_color = Color(0.3, 0.26, 0.36, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.22)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vmgj"]
+bg_color = Color(0.09, 0.07, 0.13, 0.42)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.34078434, 0.23078433, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6j0h"]
+bg_color = Color(0.07, 0.05, 0.1, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.61960787, 0.41960785, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woojs"]
+bg_color = Color(0.14, 0.11, 0.19, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.6766667, 0.50666666, 1)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
@@ -370,110 +443,82 @@ corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0rbc"]
-bg_color = Color(0.09, 0.07, 0.13, 0.66)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.75, 0.46470588, 0.31470588, 1)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 8
-shadow_offset = Vector2(0, 4)
+bg_color = Color(0.3, 0.26, 0.36, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.22)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u42ic"]
-bg_color = Color(0.07, 0.05, 0.1, 0.8)
+bg_color = Color(0.09, 0.07, 0.13, 0.42)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(1, 0.61960787, 0.41960785, 1)
+border_color = Color(0.41411766, 0.29980394, 0.55, 1)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6kpd"]
-bg_color = Color(0.14, 0.11, 0.19, 0.8)
+bg_color = Color(0.07, 0.05, 0.1, 0.8)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(1, 0.6766667, 0.50666666, 1)
+border_color = Color(0.7529412, 0.54509807, 1, 1)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 12
-shadow_offset = Vector2(0, 6)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mkqg"]
-bg_color = Color(0, 0, 0, 0)
+bg_color = Color(0.14, 0.11, 0.19, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.79, 0.61333334, 1, 1)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8m0w"]
-bg_color = Color(0.09, 0.07, 0.13, 0.66)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.5647059, 0.40882355, 0.75, 1)
+bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 8
-shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilfvj"]
-bg_color = Color(0.07, 0.05, 0.1, 0.8)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.7529412, 0.54509807, 1, 1)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
+bg_color = Color(0.3, 0.26, 0.36, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.22)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8u31"]
-bg_color = Color(0.14, 0.11, 0.19, 0.8)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.79, 0.61333334, 1, 1)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 12
-shadow_offset = Vector2(0, 6)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkw73"]
-bg_color = Color(0, 0, 0, 0)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p070q"]
 bg_color = Color(0.09, 0.07, 0.13, 0.66)
 border_width_left = 2
 border_width_top = 2
@@ -488,7 +533,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3uov"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkw73"]
 bg_color = Color(0.07, 0.05, 0.1, 0.8)
 border_width_left = 2
 border_width_top = 2
@@ -503,7 +548,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 4
 shadow_offset = Vector2(0, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o50lk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p070q"]
 bg_color = Color(0.14, 0.11, 0.19, 0.8)
 border_width_left = 2
 border_width_top = 2
@@ -518,14 +563,14 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 12
 shadow_offset = Vector2(0, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwehi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3uov"]
 bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlkg2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o50lk"]
 bg_color = Color(0.09, 0.07, 0.13, 0.66)
 border_width_left = 2
 border_width_top = 2
@@ -540,7 +585,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w878i"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwehi"]
 bg_color = Color(0.07, 0.05, 0.1, 0.8)
 border_width_left = 2
 border_width_top = 2
@@ -555,7 +600,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 4
 shadow_offset = Vector2(0, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddpda"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlkg2"]
 bg_color = Color(0.14, 0.11, 0.19, 0.8)
 border_width_left = 2
 border_width_top = 2
@@ -570,14 +615,66 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 12
 shadow_offset = Vector2(0, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrw3o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w878i"]
 bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddpda"]
+bg_color = Color(0.09, 0.07, 0.13, 0.66)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.75, 0.62352943, 0.2764706, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrw3o"]
+bg_color = Color(0.07, 0.05, 0.1, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.83137256, 0.36862746, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkah4"]
+bg_color = Color(0.14, 0.11, 0.19, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8566667, 0.46333334, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70wm6"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48n1g"]
 bg_color = Color(0.09, 0.07, 0.13, 0.82)
 border_width_left = 2
 border_width_top = 2
@@ -592,30 +689,30 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 10
 shadow_offset = Vector2(0, 5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70wm6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2w2k"]
 bg_color = Color(0, 0, 0, 0.32)
 corner_radius_top_left = 26
 corner_radius_top_right = 26
 corner_radius_bottom_right = 26
 corner_radius_bottom_left = 26
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48n1g"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tpeu"]
 bg_color = Color(0.24705882, 0.1882353, 0.15686275, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Gradient" id="Gradient_y2w2k"]
+[sub_resource type="Gradient" id="Gradient_idywq"]
 colors = PackedColorArray(0.05, 0.04, 0.08, 0, 0.05, 0.04, 0.08, 0.9)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6tpeu"]
-gradient = SubResource("Gradient_y2w2k")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pv0qh"]
+gradient = SubResource("Gradient_idywq")
 width = 16
 height = 256
 fill_to = Vector2(0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idywq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oacue"]
 bg_color = Color(0.09, 0.07, 0.13, 0.68)
 border_width_left = 2
 border_width_top = 2
@@ -627,7 +724,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv0qh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuyip"]
 bg_color = Color(0.5177255, 0.43733335, 0.40839216, 1)
 border_width_left = 3
 border_width_top = 3
@@ -642,18 +739,18 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 6
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="Gradient" id="Gradient_oacue"]
+[sub_resource type="Gradient" id="Gradient_a163f"]
 colors = PackedColorArray(1, 0.7882353, 0.2901961, 0.45, 1, 0.7882353, 0.2901961, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nuyip"]
-gradient = SubResource("Gradient_oacue")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3frc"]
+gradient = SubResource("Gradient_a163f")
 width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a163f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w44i"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 7
 border_width_top = 7
@@ -668,7 +765,7 @@ shadow_color = Color(0.34, 0.18, 0.02, 0.55)
 shadow_size = 26
 shadow_offset = Vector2(0, 13)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3frc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_holjs"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 2
 border_width_top = 2
@@ -680,41 +777,41 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Gradient" id="Gradient_5w44i"]
+[sub_resource type="Gradient" id="Gradient_w6w5p"]
 colors = PackedColorArray(0.6901961, 0.41960785, 0.9098039, 0.4, 0.6901961, 0.41960785, 0.9098039, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_holjs"]
-gradient = SubResource("Gradient_5w44i")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ofga3"]
+gradient = SubResource("Gradient_w6w5p")
 width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6w5p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07xnu"]
 bg_color = Color(0, 0, 0, 0.32)
 corner_radius_top_left = 26
 corner_radius_top_right = 26
 corner_radius_bottom_right = 26
 corner_radius_bottom_left = 26
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofga3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yor0q"]
 bg_color = Color(0.18039216, 0.105882354, 0.26666668, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Gradient" id="Gradient_07xnu"]
+[sub_resource type="Gradient" id="Gradient_pvas3"]
 colors = PackedColorArray(0.05, 0.04, 0.08, 0, 0.05, 0.04, 0.08, 0.9)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yor0q"]
-gradient = SubResource("Gradient_07xnu")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_45ngp"]
+gradient = SubResource("Gradient_pvas3")
 width = 16
 height = 256
 fill_to = Vector2(0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvas3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gveg0"]
 bg_color = Color(0.09, 0.07, 0.13, 0.68)
 border_width_left = 2
 border_width_top = 2
@@ -726,7 +823,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45ngp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47ay2"]
 bg_color = Color(0.82, 0.36015686, 0.21545099, 1)
 border_width_left = 3
 border_width_top = 3
@@ -741,18 +838,18 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 6
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="Gradient" id="Gradient_gveg0"]
+[sub_resource type="Gradient" id="Gradient_mnxk2"]
 colors = PackedColorArray(1, 0.7882353, 0.2901961, 0.45, 1, 0.7882353, 0.2901961, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_47ay2"]
-gradient = SubResource("Gradient_gveg0")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_et4go"]
+gradient = SubResource("Gradient_mnxk2")
 width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnxk2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elmm4"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 7
 border_width_top = 7
@@ -767,7 +864,7 @@ shadow_color = Color(0.34, 0.18, 0.02, 0.55)
 shadow_size = 26
 shadow_offset = Vector2(0, 13)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et4go"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5use4"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 2
 border_width_top = 2
@@ -779,41 +876,41 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Gradient" id="Gradient_elmm4"]
+[sub_resource type="Gradient" id="Gradient_dfvos"]
 colors = PackedColorArray(0.3019608, 0.8156863, 0.88235295, 0.4, 0.3019608, 0.8156863, 0.88235295, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5use4"]
-gradient = SubResource("Gradient_elmm4")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4jfy1"]
+gradient = SubResource("Gradient_dfvos")
 width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfvos"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owjxu"]
 bg_color = Color(0, 0, 0, 0.32)
 corner_radius_top_left = 26
 corner_radius_top_right = 26
 corner_radius_bottom_right = 26
 corner_radius_bottom_left = 26
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jfy1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6skjv"]
 bg_color = Color(0.07058824, 0.22745098, 0.27450982, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Gradient" id="Gradient_owjxu"]
+[sub_resource type="Gradient" id="Gradient_lu4g0"]
 colors = PackedColorArray(0.05, 0.04, 0.08, 0, 0.05, 0.04, 0.08, 0.9)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6skjv"]
-gradient = SubResource("Gradient_owjxu")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnbnf"]
+gradient = SubResource("Gradient_lu4g0")
 width = 16
 height = 256
 fill_to = Vector2(0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu4g0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmmqw"]
 bg_color = Color(0.09, 0.07, 0.13, 0.68)
 border_width_left = 2
 border_width_top = 2
@@ -825,7 +922,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnbnf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jueod"]
 bg_color = Color(0.328, 0.6013333, 0.34086275, 1)
 border_width_left = 3
 border_width_top = 3
@@ -840,18 +937,18 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 6
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="Gradient" id="Gradient_dmmqw"]
+[sub_resource type="Gradient" id="Gradient_3bt7l"]
 colors = PackedColorArray(1, 0.7882353, 0.2901961, 0.45, 1, 0.7882353, 0.2901961, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jueod"]
-gradient = SubResource("Gradient_dmmqw")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_euwuw"]
+gradient = SubResource("Gradient_3bt7l")
 width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bt7l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjylm"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 7
 border_width_top = 7
@@ -866,7 +963,7 @@ shadow_color = Color(0.34, 0.18, 0.02, 0.55)
 shadow_size = 26
 shadow_offset = Vector2(0, 13)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euwuw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lrqt"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 2
 border_width_top = 2
@@ -878,106 +975,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Gradient" id="Gradient_sjylm"]
-colors = PackedColorArray(1, 0.7019608, 0, 0.4, 1, 0.7019608, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7lrqt"]
-gradient = SubResource("Gradient_sjylm")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia2h2"]
-bg_color = Color(0, 0, 0, 0.32)
-corner_radius_top_left = 26
-corner_radius_top_right = 26
-corner_radius_bottom_right = 26
-corner_radius_bottom_left = 26
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hc3qo"]
-bg_color = Color(0.22745098, 0.16470589, 0.07058824, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="Gradient" id="Gradient_xohfp"]
-colors = PackedColorArray(0.05, 0.04, 0.08, 0, 0.05, 0.04, 0.08, 0.9)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qlaxm"]
-gradient = SubResource("Gradient_xohfp")
-width = 16
-height = 256
-fill_to = Vector2(0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lp16j"]
-bg_color = Color(0.09, 0.07, 0.13, 0.68)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.7, 0.5819608, 0.2580392, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxi5y"]
-bg_color = Color(0.82, 0.6849412, 0.25403923, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 0.85)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-shadow_color = Color(0, 0, 0, 0.45)
-shadow_size = 6
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="Gradient" id="Gradient_41b8q"]
-colors = PackedColorArray(1, 0.7882353, 0.2901961, 0.45, 1, 0.7882353, 0.2901961, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1fcto"]
-gradient = SubResource("Gradient_41b8q")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33pj3"]
-bg_color = Color(0, 0, 0, 0)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(1, 0.83137256, 0.36862746, 1)
-corner_radius_top_left = 26
-corner_radius_top_right = 26
-corner_radius_bottom_right = 26
-corner_radius_bottom_left = 26
-shadow_color = Color(0.34, 0.18, 0.02, 0.55)
-shadow_size = 26
-shadow_offset = Vector2(0, 13)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqqcj"]
-bg_color = Color(0, 0, 0, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 0.91568625, 0.6843138, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnnt5"]
 bg_color = Color(0.09, 0.07, 0.13, 0.68)
 border_width_left = 2
 border_width_top = 2
@@ -992,7 +990,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 12
 shadow_offset = Vector2(0, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wsmg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hc3qo"]
 bg_color = Color(1, 0.7882353, 0.2901961, 1)
 border_width_left = 5
 border_width_top = 5
@@ -1007,7 +1005,7 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 18
 shadow_offset = Vector2(0, 9)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2q217"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xohfp"]
 bg_color = Color(0.9098039, 0.6862745, 0.2, 1)
 border_width_left = 5
 border_width_top = 5
@@ -1022,7 +1020,7 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdw67"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlaxm"]
 bg_color = Color(1, 0.8509804, 0.45882353, 1)
 border_width_left = 5
 border_width_top = 5
@@ -1037,44 +1035,44 @@ shadow_color = Color(0, 0, 0, 0.5)
 shadow_size = 24
 shadow_offset = Vector2(0, 12)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk5pf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lp16j"]
 bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 26
 corner_radius_top_right = 26
 corner_radius_bottom_right = 26
 corner_radius_bottom_left = 26
 
-[node name="MainMenu" type="Control" unique_id=1456361935]
+[node name="MainMenu" type="Control" unique_id=1358527219]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("1_dj67d")
+script = ExtResource("1_hl5e0")
 
-[node name="Background" type="TextureRect" parent="." unique_id=769905449]
+[node name="Background" type="TextureRect" parent="." unique_id=1503594506]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource("2_6vcge")
+texture = ExtResource("2_engjn")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="WarmTint" type="ColorRect" parent="." unique_id=2044390414]
+[node name="WarmTint" type="ColorRect" parent="." unique_id=668687905]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0.18, 0.08, 0.24, 0.12)
 
-[node name="Hud" type="Control" parent="." unique_id=289584387]
+[node name="Hud" type="Control" parent="." unique_id=1487012906]
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="PlayerPlate" type="Control" parent="Hud" unique_id=149671183]
+[node name="PlayerPlate" type="Control" parent="Hud" unique_id=2106542896]
 custom_minimum_size = Vector2(500, 152)
 anchors_preset = 0
 offset_left = 26.0
@@ -1082,24 +1080,24 @@ offset_top = 18.0
 offset_right = 526.0
 offset_bottom = 170.0
 
-[node name="@Panel@3" type="Panel" parent="Hud/PlayerPlate" unique_id=1479345866]
+[node name="@Panel@3" type="Panel" parent="Hud/PlayerPlate" unique_id=531730844]
 custom_minimum_size = Vector2(500, 142)
 layout_mode = 0
 offset_top = 10.0
 offset_right = 500.0
 offset_bottom = 152.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tgcit")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hjv1c")
 
-[node name="@Panel@4" type="Panel" parent="Hud/PlayerPlate" unique_id=1437360981]
+[node name="@Panel@4" type="Panel" parent="Hud/PlayerPlate" unique_id=1180069696]
 custom_minimum_size = Vector2(106, 106)
 layout_mode = 0
 offset_left = 16.0
 offset_top = 22.0
 offset_right = 122.0
 offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5053t")
+theme_override_styles/panel = SubResource("StyleBoxFlat_41a2d")
 
-[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=58108523]
+[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=492874924]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(92, 92)
 layout_mode = 0
@@ -1108,11 +1106,11 @@ offset_top = 29.0
 offset_right = 115.0
 offset_bottom = 121.0
 mouse_filter = 2
-texture = ExtResource("3_ip0br")
+texture = ExtResource("3_6h3lr")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=719971618]
+[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=979292798]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 40)
 layout_mode = 0
@@ -1123,32 +1121,32 @@ offset_bottom = 66.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 30
 text = "云上旅人"
 
-[node name="@Panel@5" type="Panel" parent="Hud/PlayerPlate" unique_id=788203099]
+[node name="@Panel@5" type="Panel" parent="Hud/PlayerPlate" unique_id=1309960679]
 custom_minimum_size = Vector2(78, 28)
 layout_mode = 0
 offset_left = 136.0
 offset_top = 72.0
 offset_right = 214.0
 offset_bottom = 100.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wgix")
+theme_override_styles/panel = SubResource("StyleBoxFlat_f5cck")
 
-[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@5" unique_id=368206292]
+[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@5" unique_id=276208228]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_colors/font_color = Color(0.16470589, 0.12156863, 0.09019608, 1)
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 20
 text = "Lv.10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=382861437]
+[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=1848966641]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(152, 16)
 layout_mode = 0
@@ -1156,13 +1154,13 @@ offset_left = 224.0
 offset_top = 78.0
 offset_right = 376.0
 offset_bottom = 94.0
-theme_override_styles/background = SubResource("StyleBoxFlat_b56yx")
-theme_override_styles/fill = SubResource("StyleBoxFlat_h5mb6")
+theme_override_styles/background = SubResource("StyleBoxFlat_s4ogs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ew011")
 max_value = 800.0
 value = 320.0
 show_percentage = false
 
-[node name="@TextureRect@6" type="TextureRect" parent="Hud/PlayerPlate" unique_id=767901747]
+[node name="@TextureRect@6" type="TextureRect" parent="Hud/PlayerPlate" unique_id=2035434931]
 modulate = Color(1, 0.7882353, 0.2901961, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -1171,11 +1169,11 @@ offset_top = 108.0
 offset_right = 162.0
 offset_bottom = 134.0
 mouse_filter = 2
-texture = ExtResource("5_tcusk")
+texture = ExtResource("5_6vcge")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate" unique_id=572857545]
+[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate" unique_id=271926042]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 0
@@ -1186,11 +1184,11 @@ offset_bottom = 136.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 23
 text = "12,500"
 
-[node name="@TextureRect@7" type="TextureRect" parent="Hud/PlayerPlate" unique_id=1233221099]
+[node name="@TextureRect@7" type="TextureRect" parent="Hud/PlayerPlate" unique_id=1912495911]
 modulate = Color(0.48235294, 0.8784314, 1, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -1199,11 +1197,11 @@ offset_top = 108.0
 offset_right = 332.0
 offset_bottom = 134.0
 mouse_filter = 2
-texture = ExtResource("6_4puye")
+texture = ExtResource("6_ip0br")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GemLabel" type="Label" parent="Hud/PlayerPlate" unique_id=1769373691]
+[node name="GemLabel" type="Label" parent="Hud/PlayerPlate" unique_id=1842040357]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 0
@@ -1214,11 +1212,11 @@ offset_bottom = 136.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 23
 text = "1,280"
 
-[node name="StaminaBadge" type="Control" parent="Hud" unique_id=1144421400]
+[node name="StaminaBadge" type="Control" parent="Hud" unique_id=1211873669]
 custom_minimum_size = Vector2(268, 48)
 anchors_preset = 0
 offset_left = 26.0
@@ -1226,14 +1224,14 @@ offset_top = 182.0
 offset_right = 294.0
 offset_bottom = 230.0
 
-[node name="@Panel@8" type="Panel" parent="Hud/StaminaBadge" unique_id=1568950087]
+[node name="@Panel@8" type="Panel" parent="Hud/StaminaBadge" unique_id=333444463]
 custom_minimum_size = Vector2(268, 48)
 layout_mode = 0
 offset_right = 268.0
 offset_bottom = 48.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_q1l3m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tcyl8")
 
-[node name="@TextureRect@9" type="TextureRect" parent="Hud/StaminaBadge" unique_id=619492866]
+[node name="@TextureRect@9" type="TextureRect" parent="Hud/StaminaBadge" unique_id=1151394819]
 modulate = Color(0.48235294, 0.8784314, 0.65882355, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -1242,11 +1240,11 @@ offset_top = 11.0
 offset_right = 40.0
 offset_bottom = 37.0
 mouse_filter = 2
-texture = ExtResource("7_q13xq")
+texture = ExtResource("7_xyero")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StaminaValue" type="Label" parent="Hud/StaminaBadge" unique_id=1043848370]
+[node name="StaminaValue" type="Label" parent="Hud/StaminaBadge" unique_id=9869835]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 28)
 layout_mode = 0
@@ -1257,11 +1255,11 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(0.72156864, 0.9607843, 0.84705883, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 22
 text = "--/--"
 
-[node name="StaminaNext" type="Label" parent="Hud/StaminaBadge" unique_id=424473963]
+[node name="StaminaNext" type="Label" parent="Hud/StaminaBadge" unique_id=1871124995]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 0
@@ -1272,10 +1270,10 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(0.86, 0.92, 0.88, 0.72)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 
-[node name="TitleGroup" type="Control" parent="Hud" unique_id=1148136745]
+[node name="TitleGroup" type="Control" parent="Hud" unique_id=225341109]
 custom_minimum_size = Vector2(760, 208)
 anchors_preset = 0
 anchor_left = 0.5
@@ -1285,7 +1283,7 @@ offset_top = 12.0
 offset_right = 380.0
 offset_bottom = 220.0
 
-[node name="StarRow" type="HBoxContainer" parent="Hud/TitleGroup" unique_id=1250088863]
+[node name="StarRow" type="HBoxContainer" parent="Hud/TitleGroup" unique_id=1003728965]
 custom_minimum_size = Vector2(200, 46)
 layout_mode = 0
 offset_left = 280.0
@@ -1294,57 +1292,57 @@ offset_right = 480.0
 offset_bottom = 48.0
 theme_override_constants/separation = 6
 
-[node name="@TextureRect@10" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=863026634]
+[node name="@TextureRect@10" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=1381691424]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@11" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=1800468393]
+[node name="@TextureRect@11" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=1075075287]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@12" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=134066100]
+[node name="@TextureRect@12" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=984733610]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@13" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=598281582]
+[node name="@TextureRect@13" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=1674542156]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@14" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=1724686358]
+[node name="@TextureRect@14" type="TextureRect" parent="Hud/TitleGroup/StarRow" unique_id=996102488]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Title" type="Control" parent="Hud/TitleGroup" unique_id=1210788691]
+[node name="Title" type="Control" parent="Hud/TitleGroup" unique_id=75062880]
 custom_minimum_size = Vector2(760, 124)
 anchors_preset = 0
 offset_top = 44.0
@@ -1352,7 +1350,7 @@ offset_right = 760.0
 offset_bottom = 168.0
 mouse_filter = 2
 
-[node name="@Label@15" type="Label" parent="Hud/TitleGroup/Title" unique_id=1985047977]
+[node name="@Label@15" type="Label" parent="Hud/TitleGroup/Title" unique_id=196469385]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1361,26 +1359,26 @@ offset_bottom = 9.0
 theme_override_colors/font_color = Color(0.2901961, 0.14117648, 0.03137255, 1)
 theme_override_colors/font_outline_color = Color(0.2901961, 0.14117648, 0.03137255, 1)
 theme_override_constants/outline_size = 16
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 96
 text = "卡牌大冒险"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="@Label@16" type="Label" parent="Hud/TitleGroup/Title" unique_id=1618107223]
+[node name="@Label@16" type="Label" parent="Hud/TitleGroup/Title" unique_id=867544191]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_colors/font_color = Color(1, 0.9137255, 0.65882355, 1)
 theme_override_colors/font_outline_color = Color(0.41960785, 0.22745098, 0.08627451, 1)
 theme_override_constants/outline_size = 16
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 96
 text = "卡牌大冒险"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="Label" parent="Hud/TitleGroup" unique_id=2099366313]
+[node name="Subtitle" type="Label" parent="Hud/TitleGroup" unique_id=557225688]
 custom_minimum_size = Vector2(760, 34)
 layout_mode = 0
 offset_top = 166.0
@@ -1389,12 +1387,12 @@ offset_bottom = 200.0
 theme_override_colors/font_color = Color(1, 0.8509804, 0.5411765, 1)
 theme_override_colors/font_outline_color = Color(0.28, 0.14, 0.03, 0.85)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 26
 text = "PROJECT: CARD ADVENTURE"
 horizontal_alignment = 1
 
-[node name="TopRight" type="Control" parent="Hud" unique_id=1714422636]
+[node name="TopRight" type="Control" parent="Hud" unique_id=1527220478]
 custom_minimum_size = Vector2(278, 108)
 anchors_preset = 0
 anchor_left = 1.0
@@ -1404,34 +1402,34 @@ offset_top = 20.0
 offset_right = -26.0
 offset_bottom = 128.0
 
-[node name="Entry_settings" type="Control" parent="Hud/TopRight" unique_id=1103009386]
+[node name="Entry_settings" type="Control" parent="Hud/TopRight" unique_id=1056093144]
 custom_minimum_size = Vector2(82, 108)
 anchors_preset = 0
 offset_right = 82.0
 offset_bottom = 108.0
 
-[node name="Btn_settings" type="Button" parent="Hud/TopRight/Entry_settings" unique_id=582950877]
+[node name="Btn_settings" type="Button" parent="Hud/TopRight/Entry_settings" unique_id=678123952]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 0
 offset_right = 82.0
 offset_bottom = 82.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_7u5pb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mxl5i")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mafwa")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2q617")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tgcit")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5053t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2wgix")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b56yx")
 
-[node name="@TextureRect@17" type="TextureRect" parent="Hud/TopRight/Entry_settings/Btn_settings" unique_id=586726634]
+[node name="@TextureRect@17" type="TextureRect" parent="Hud/TopRight/Entry_settings/Btn_settings" unique_id=1359098113]
 custom_minimum_size = Vector2(41, 41)
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource("9_jvjdd")
+texture = ExtResource("9_4puye")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@18" type="Label" parent="Hud/TopRight/Entry_settings" unique_id=1513044465]
+[node name="@Label@18" type="Label" parent="Hud/TopRight/Entry_settings" unique_id=2090012800]
 custom_minimum_size = Vector2(82, 26)
 layout_mode = 0
 offset_top = 88.0
@@ -1440,40 +1438,40 @@ offset_bottom = 114.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 20
 text = "设置"
 horizontal_alignment = 1
 
-[node name="Entry_mail" type="Control" parent="Hud/TopRight" unique_id=210918441]
+[node name="Entry_mail" type="Control" parent="Hud/TopRight" unique_id=940760072]
 custom_minimum_size = Vector2(82, 108)
 anchors_preset = 0
 offset_left = 98.0
 offset_right = 180.0
 offset_bottom = 108.0
 
-[node name="Btn_mail" type="Button" parent="Hud/TopRight/Entry_mail" unique_id=2078654712]
+[node name="Btn_mail" type="Button" parent="Hud/TopRight/Entry_mail" unique_id=1761962168]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 0
 offset_right = 82.0
 offset_bottom = 82.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_iyc35")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_g074s")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5g2t1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_m8gp1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5mb6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q1l3m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7u5pb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mxl5i")
 
-[node name="@TextureRect@19" type="TextureRect" parent="Hud/TopRight/Entry_mail/Btn_mail" unique_id=2006337889]
+[node name="@TextureRect@19" type="TextureRect" parent="Hud/TopRight/Entry_mail/Btn_mail" unique_id=1490663702]
 custom_minimum_size = Vector2(41, 41)
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource("10_yxnar")
+texture = ExtResource("10_q13xq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@20" type="Label" parent="Hud/TopRight/Entry_mail" unique_id=1672170923]
+[node name="@Label@20" type="Label" parent="Hud/TopRight/Entry_mail" unique_id=518349937]
 custom_minimum_size = Vector2(82, 26)
 layout_mode = 0
 offset_top = 88.0
@@ -1482,40 +1480,40 @@ offset_bottom = 114.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 20
 text = "邮件"
 horizontal_alignment = 1
 
-[node name="Entry_event" type="Control" parent="Hud/TopRight" unique_id=1665940228]
+[node name="Entry_event" type="Control" parent="Hud/TopRight" unique_id=1896709947]
 custom_minimum_size = Vector2(82, 108)
 anchors_preset = 0
 offset_left = 196.0
 offset_right = 278.0
 offset_bottom = 108.0
 
-[node name="Btn_event" type="Button" parent="Hud/TopRight/Entry_event" unique_id=257671175]
+[node name="Btn_event" type="Button" parent="Hud/TopRight/Entry_event" unique_id=122599815]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 0
 offset_right = 82.0
 offset_bottom = 82.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_laml6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_txsih")
-theme_override_styles/hover = SubResource("StyleBoxFlat_063o2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_n0y1u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mafwa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2q617")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iyc35")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g074s")
 
-[node name="@TextureRect@21" type="TextureRect" parent="Hud/TopRight/Entry_event/Btn_event" unique_id=1607567181]
+[node name="@TextureRect@21" type="TextureRect" parent="Hud/TopRight/Entry_event/Btn_event" unique_id=978574194]
 custom_minimum_size = Vector2(41, 41)
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource("11_eku7s")
+texture = ExtResource("11_u43bj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@22" type="Label" parent="Hud/TopRight/Entry_event" unique_id=2138035789]
+[node name="@Label@22" type="Label" parent="Hud/TopRight/Entry_event" unique_id=1880959163]
 custom_minimum_size = Vector2(82, 26)
 layout_mode = 0
 offset_top = 88.0
@@ -1524,36 +1522,36 @@ offset_bottom = 114.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 20
 text = "活动"
 horizontal_alignment = 1
 
-[node name="RightRail" type="Control" parent="Hud" unique_id=325949188]
-custom_minimum_size = Vector2(232, 494)
+[node name="RightRail" type="Control" parent="Hud" unique_id=176745425]
+custom_minimum_size = Vector2(232, 576)
 anchors_preset = 0
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -258.0
-offset_top = -247.0
+offset_top = -288.0
 offset_right = -26.0
-offset_bottom = 247.0
+offset_bottom = 288.0
 
-[node name="Mode_tower" type="Button" parent="Hud/RightRail" unique_id=1002018015]
+[node name="Mode_tower" type="Button" parent="Hud/RightRail" unique_id=1313208223]
 custom_minimum_size = Vector2(232, 68)
 layout_mode = 0
 offset_right = 232.0
 offset_bottom = 68.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_oh7mv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_bv0go")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3hp6e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_uvfbv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5g2t1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8gp1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_laml6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_txsih")
 
-[node name="@TextureRect@23" type="TextureRect" parent="Hud/RightRail/Mode_tower" unique_id=136777654]
-modulate = Color(1, 0.7882353, 0.2901961, 1)
+[node name="@TextureRect@23" type="TextureRect" parent="Hud/RightRail/Mode_tower" unique_id=1006491655]
+modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 0
 offset_left = 14.0
@@ -1561,11 +1559,12 @@ offset_top = 16.0
 offset_right = 50.0
 offset_bottom = 52.0
 mouse_filter = 2
-texture = ExtResource("12_c6nra")
+texture = ExtResource("12_jvjdd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@24" type="Label" parent="Hud/RightRail/Mode_tower" unique_id=1546089363]
+[node name="@Label@24" type="Label" parent="Hud/RightRail/Mode_tower" unique_id=895792461]
+modulate = Color(1, 1, 1, 0.72)
 custom_minimum_size = Vector2(164, 30)
 layout_mode = 0
 offset_left = 60.0
@@ -1575,11 +1574,12 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 24
 text = "无限之塔"
 
-[node name="@Label@25" type="Label" parent="Hud/RightRail/Mode_tower" unique_id=345177568]
+[node name="@Label@25" type="Label" parent="Hud/RightRail/Mode_tower" unique_id=1802741731]
+modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(164, 22)
 layout_mode = 0
 offset_left = 60.0
@@ -1589,24 +1589,49 @@ offset_bottom = 60.0
 theme_override_colors/font_color = Color(1, 0.8411765, 0.46764708, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 16
 text = "PVE"
 
-[node name="Mode_maze" type="Button" parent="Hud/RightRail" unique_id=2043692605]
+[node name="@Panel@26" type="Panel" parent="Hud/RightRail/Mode_tower" unique_id=693113984]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_063o2")
+
+[node name="@Label@27" type="Label" parent="Hud/RightRail/Mode_tower" unique_id=1549692335]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.82)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_dj67d")
+theme_override_font_sizes/font_size = 14
+text = "待开放"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mode_maze" type="Button" parent="Hud/RightRail" unique_id=350997528]
 custom_minimum_size = Vector2(232, 68)
 layout_mode = 0
 offset_top = 82.0
 offset_right = 232.0
 offset_bottom = 150.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_4vmgj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o6j0h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_woojs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_5mo7p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n0y1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oh7mv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bv0go")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3hp6e")
 
-[node name="@TextureRect@26" type="TextureRect" parent="Hud/RightRail/Mode_maze" unique_id=70274057]
-modulate = Color(0.4, 0.827451, 0.6901961, 1)
+[node name="@TextureRect@28" type="TextureRect" parent="Hud/RightRail/Mode_maze" unique_id=1760254538]
+modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 0
 offset_left = 14.0
@@ -1614,11 +1639,12 @@ offset_top = 16.0
 offset_right = 50.0
 offset_bottom = 52.0
 mouse_filter = 2
-texture = ExtResource("13_qw82i")
+texture = ExtResource("13_yxnar")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@27" type="Label" parent="Hud/RightRail/Mode_maze" unique_id=1569768462]
+[node name="@Label@29" type="Label" parent="Hud/RightRail/Mode_maze" unique_id=1058405827]
+modulate = Color(1, 1, 1, 0.72)
 custom_minimum_size = Vector2(164, 30)
 layout_mode = 0
 offset_left = 60.0
@@ -1628,11 +1654,12 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 24
 text = "迷宫探索"
 
-[node name="@Label@28" type="Label" parent="Hud/RightRail/Mode_maze" unique_id=2085939196]
+[node name="@Label@30" type="Label" parent="Hud/RightRail/Mode_maze" unique_id=615167060]
+modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(164, 22)
 layout_mode = 0
 offset_left = 60.0
@@ -1642,24 +1669,49 @@ offset_bottom = 60.0
 theme_override_colors/font_color = Color(0.55, 0.87058824, 0.7676471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 16
 text = "Rogue-lite"
 
-[node name="Mode_arena" type="Button" parent="Hud/RightRail" unique_id=1663310081]
+[node name="@Panel@31" type="Panel" parent="Hud/RightRail/Mode_maze" unique_id=566788330]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uvfbv")
+
+[node name="@Label@32" type="Label" parent="Hud/RightRail/Mode_maze" unique_id=1340812957]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.82)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_dj67d")
+theme_override_font_sizes/font_size = 14
+text = "待开放"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mode_arena" type="Button" parent="Hud/RightRail" unique_id=1437844906]
 custom_minimum_size = Vector2(232, 68)
 layout_mode = 0
 offset_top = 164.0
 offset_right = 232.0
 offset_bottom = 232.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_w0rbc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_u42ic")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d6kpd")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1mkqg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vmgj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6j0h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_woojs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5mo7p")
 
-[node name="@TextureRect@29" type="TextureRect" parent="Hud/RightRail/Mode_arena" unique_id=7234927]
-modulate = Color(1, 0.61960787, 0.41960785, 1)
+[node name="@TextureRect@33" type="TextureRect" parent="Hud/RightRail/Mode_arena" unique_id=1528846268]
+modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 0
 offset_left = 14.0
@@ -1667,11 +1719,12 @@ offset_top = 16.0
 offset_right = 50.0
 offset_bottom = 52.0
 mouse_filter = 2
-texture = ExtResource("14_1468l")
+texture = ExtResource("14_eku7s")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@30" type="Label" parent="Hud/RightRail/Mode_arena" unique_id=385013391]
+[node name="@Label@34" type="Label" parent="Hud/RightRail/Mode_arena" unique_id=82505490]
+modulate = Color(1, 1, 1, 0.72)
 custom_minimum_size = Vector2(164, 30)
 layout_mode = 0
 offset_left = 60.0
@@ -1681,11 +1734,12 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 24
 text = "竞技场"
 
-[node name="@Label@31" type="Label" parent="Hud/RightRail/Mode_arena" unique_id=462159541]
+[node name="@Label@35" type="Label" parent="Hud/RightRail/Mode_arena" unique_id=672839909]
+modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(164, 22)
 layout_mode = 0
 offset_left = 60.0
@@ -1695,24 +1749,49 @@ offset_bottom = 60.0
 theme_override_colors/font_color = Color(1, 0.7147059, 0.56470585, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 16
 text = "异步 PVP"
 
-[node name="Mode_peak" type="Button" parent="Hud/RightRail" unique_id=969708483]
+[node name="@Panel@36" type="Panel" parent="Hud/RightRail/Mode_arena" unique_id=565996514]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0rbc")
+
+[node name="@Label@37" type="Label" parent="Hud/RightRail/Mode_arena" unique_id=564970431]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.82)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_dj67d")
+theme_override_font_sizes/font_size = 14
+text = "待开放"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mode_peak" type="Button" parent="Hud/RightRail" unique_id=1229922621]
 custom_minimum_size = Vector2(232, 68)
 layout_mode = 0
 offset_top = 246.0
 offset_right = 232.0
 offset_bottom = 314.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_v8m0w")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ilfvj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e8u31")
-theme_override_styles/focus = SubResource("StyleBoxFlat_nkw73")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u42ic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d6kpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1mkqg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v8m0w")
 
-[node name="@TextureRect@32" type="TextureRect" parent="Hud/RightRail/Mode_peak" unique_id=1796916262]
-modulate = Color(0.7529412, 0.54509807, 1, 1)
+[node name="@TextureRect@38" type="TextureRect" parent="Hud/RightRail/Mode_peak" unique_id=1313422872]
+modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 0
 offset_left = 14.0
@@ -1720,11 +1799,12 @@ offset_top = 16.0
 offset_right = 50.0
 offset_bottom = 52.0
 mouse_filter = 2
-texture = ExtResource("15_01xyg")
+texture = ExtResource("15_c6nra")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@33" type="Label" parent="Hud/RightRail/Mode_peak" unique_id=2059082901]
+[node name="@Label@39" type="Label" parent="Hud/RightRail/Mode_peak" unique_id=1993967813]
+modulate = Color(1, 1, 1, 0.72)
 custom_minimum_size = Vector2(164, 30)
 layout_mode = 0
 offset_left = 60.0
@@ -1734,11 +1814,12 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 24
 text = "巅峰对决"
 
-[node name="@Label@34" type="Label" parent="Hud/RightRail/Mode_peak" unique_id=600923910]
+[node name="@Label@40" type="Label" parent="Hud/RightRail/Mode_peak" unique_id=1942397130]
+modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(164, 22)
 layout_mode = 0
 offset_left = 60.0
@@ -1748,11 +1829,36 @@ offset_bottom = 60.0
 theme_override_colors/font_color = Color(0.8147059, 0.65882355, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 16
 text = "实时 BP"
 
-[node name="RailDivider" type="ColorRect" parent="Hud/RightRail" unique_id=2122053507]
+[node name="@Panel@41" type="Panel" parent="Hud/RightRail/Mode_peak" unique_id=1985236384]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ilfvj")
+
+[node name="@Label@42" type="Label" parent="Hud/RightRail/Mode_peak" unique_id=1565624125]
+custom_minimum_size = Vector2(68, 22)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.82)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_dj67d")
+theme_override_font_sizes/font_size = 14
+text = "待开放"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RailDivider" type="ColorRect" parent="Hud/RightRail" unique_id=1753979658]
 custom_minimum_size = Vector2(208, 2)
 layout_mode = 0
 offset_left = 12.0
@@ -1762,7 +1868,7 @@ offset_bottom = 344.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0.16)
 
-[node name="Sys_gacha" type="Button" parent="Hud/RightRail" unique_id=1547203050]
+[node name="Sys_gacha" type="Button" parent="Hud/RightRail" unique_id=943728983]
 custom_minimum_size = Vector2(232, 68)
 layout_mode = 0
 offset_top = 358.0
@@ -1770,12 +1876,12 @@ offset_right = 232.0
 offset_bottom = 426.0
 tooltip_text = "群星召唤：常驻 / 限时 UP 卡池与心愿水晶商店"
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_p070q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_e3uov")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o50lk")
-theme_override_styles/focus = SubResource("StyleBoxFlat_kwehi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e8u31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nkw73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p070q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e3uov")
 
-[node name="@TextureRect@35" type="TextureRect" parent="Hud/RightRail/Sys_gacha" unique_id=1345629689]
+[node name="@TextureRect@43" type="TextureRect" parent="Hud/RightRail/Sys_gacha" unique_id=799110729]
 modulate = Color(0.7529412, 0.54509807, 1, 1)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 0
@@ -1784,11 +1890,11 @@ offset_top = 16.0
 offset_right = 50.0
 offset_bottom = 52.0
 mouse_filter = 2
-texture = ExtResource("15_01xyg")
+texture = ExtResource("15_c6nra")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@36" type="Label" parent="Hud/RightRail/Sys_gacha" unique_id=1271739789]
+[node name="@Label@44" type="Label" parent="Hud/RightRail/Sys_gacha" unique_id=1262750134]
 custom_minimum_size = Vector2(164, 30)
 layout_mode = 0
 offset_left = 60.0
@@ -1798,11 +1904,11 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 24
 text = "召集"
 
-[node name="@Label@37" type="Label" parent="Hud/RightRail/Sys_gacha" unique_id=2010226427]
+[node name="@Label@45" type="Label" parent="Hud/RightRail/Sys_gacha" unique_id=1143909158]
 custom_minimum_size = Vector2(164, 22)
 layout_mode = 0
 offset_left = 60.0
@@ -1812,24 +1918,24 @@ offset_bottom = 60.0
 theme_override_colors/font_color = Color(0.8147059, 0.65882355, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 16
 text = "抽卡 / 水晶商店"
 
-[node name="Sys_cards" type="Button" parent="Hud/RightRail" unique_id=1015920057]
+[node name="Sys_cards" type="Button" parent="Hud/RightRail" unique_id=1621846087]
 custom_minimum_size = Vector2(232, 68)
 layout_mode = 0
 offset_top = 440.0
 offset_right = 232.0
 offset_bottom = 508.0
-tooltip_text = "查看全部英雄、调整上阵阵容与羁绊"
+tooltip_text = "调整出战阵容与上阵羁绊"
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_vlkg2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w878i")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ddpda")
-theme_override_styles/focus = SubResource("StyleBoxFlat_hrw3o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o50lk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kwehi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vlkg2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_w878i")
 
-[node name="@TextureRect@38" type="TextureRect" parent="Hud/RightRail/Sys_cards" unique_id=1305372606]
+[node name="@TextureRect@46" type="TextureRect" parent="Hud/RightRail/Sys_cards" unique_id=1438391336]
 modulate = Color(0.48235294, 0.8784314, 1, 1)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 0
@@ -1838,11 +1944,11 @@ offset_top = 16.0
 offset_right = 50.0
 offset_bottom = 52.0
 mouse_filter = 2
-texture = ExtResource("16_764ux")
+texture = ExtResource("16_qw82i")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@39" type="Label" parent="Hud/RightRail/Sys_cards" unique_id=278197276]
+[node name="@Label@47" type="Label" parent="Hud/RightRail/Sys_cards" unique_id=1909556035]
 custom_minimum_size = Vector2(164, 30)
 layout_mode = 0
 offset_left = 60.0
@@ -1852,11 +1958,11 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 24
-text = "卡牌"
+text = "编队"
 
-[node name="@Label@40" type="Label" parent="Hud/RightRail/Sys_cards" unique_id=12513990]
+[node name="@Label@48" type="Label" parent="Hud/RightRail/Sys_cards" unique_id=2020841075]
 custom_minimum_size = Vector2(164, 22)
 layout_mode = 0
 offset_left = 60.0
@@ -1866,11 +1972,65 @@ offset_bottom = 60.0
 theme_override_colors/font_color = Color(0.61176467, 0.90882355, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 16
-text = "编队 / 收藏"
+text = "上阵 / 羁绊"
 
-[node name="Toast" type="Panel" parent="Hud" unique_id=519960932]
+[node name="Sys_collection" type="Button" parent="Hud/RightRail" unique_id=196218079]
+custom_minimum_size = Vector2(232, 68)
+layout_mode = 0
+offset_top = 522.0
+offset_right = 232.0
+offset_bottom = 590.0
+tooltip_text = "卡片图鉴：已获取与未获取的全部卡片一览"
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ddpda")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrw3o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rkah4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_70wm6")
+
+[node name="@TextureRect@49" type="TextureRect" parent="Hud/RightRail/Sys_collection" unique_id=1555727442]
+modulate = Color(1, 0.83137256, 0.36862746, 1)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 50.0
+offset_bottom = 52.0
+mouse_filter = 2
+texture = ExtResource("8_tcusk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="@Label@50" type="Label" parent="Hud/RightRail/Sys_collection" unique_id=1185994972]
+custom_minimum_size = Vector2(164, 30)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 8.0
+offset_right = 224.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_dj67d")
+theme_override_font_sizes/font_size = 24
+text = "图鉴"
+
+[node name="@Label@51" type="Label" parent="Hud/RightRail/Sys_collection" unique_id=1646491441]
+custom_minimum_size = Vector2(164, 22)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 38.0
+offset_right = 224.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 0.87352943, 0.5264706, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_dj67d")
+theme_override_font_sizes/font_size = 16
+text = "全部卡片"
+
+[node name="Toast" type="Panel" parent="Hud" unique_id=1051462335]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(344, 108)
@@ -1881,9 +2041,9 @@ offset_left = 26.0
 offset_top = -408.0
 offset_right = 370.0
 offset_bottom = -300.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rkah4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_48n1g")
 
-[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=610914223]
+[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=1821907928]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -1893,48 +2053,49 @@ offset_right = -14.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 21
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CardFan" type="Control" parent="Hud" unique_id=1519477989]
+[node name="CardFan" type="Control" parent="Hud" unique_id=1592166363]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("17_wadof")
+mouse_filter = 2
+script = ExtResource("17_1468l")
 
-[node name="Card_knight_rock" type="Control" parent="Hud/CardFan" unique_id=218789690]
+[node name="Card_knight_rock" type="Control" parent="Hud/CardFan" unique_id=2134967351]
 custom_minimum_size = Vector2(336, 520)
 anchors_preset = 0
-offset_left = 315.95
+offset_left = 461.3
 offset_top = 309.8
-offset_right = 651.95
+offset_right = 797.3
 offset_bottom = 829.8
 rotation = -0.12217305
 scale = Vector2(0.7905, 0.7905)
 pivot_offset = Vector2(168, 260)
-script = ExtResource("18_b4jiv")
+script = ExtResource("18_01xyg")
 
-[node name="@Panel@41" type="Panel" parent="Hud/CardFan/Card_knight_rock" unique_id=1443089371]
+[node name="@Panel@52" type="Panel" parent="Hud/CardFan/Card_knight_rock" unique_id=1484665319]
 layout_mode = 0
 offset_top = 12.0
 offset_right = 336.0
 offset_bottom = 532.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_70wm6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y2w2k")
 
-[node name="@Panel@42" type="Panel" parent="Hud/CardFan/Card_knight_rock" unique_id=538199925]
+[node name="@Panel@53" type="Panel" parent="Hud/CardFan/Card_knight_rock" unique_id=1813245043]
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_48n1g")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6tpeu")
 
-[node name="@Control@43" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=1360267386]
+[node name="@Control@54" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=1928280585]
 clip_contents = true
 anchors_preset = 0
 offset_left = 16.8
@@ -1943,34 +2104,34 @@ offset_right = 319.53598
 offset_bottom = 502.84003
 mouse_filter = 2
 
-[node name="@TextureRect@44" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/@Control@43" unique_id=981980430]
+[node name="@TextureRect@55" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/@Control@54" unique_id=219128733]
 layout_mode = 0
 offset_left = -15.13681
 offset_top = 135.52368
 offset_right = 317.8728
 offset_bottom = 500.786
 mouse_filter = 2
-texture = ExtResource("3_ip0br")
+texture = ExtResource("3_6h3lr")
 expand_mode = 1
 
-[node name="@TextureRect@45" type="TextureRect" parent="Hud/CardFan/Card_knight_rock" unique_id=2035470239]
+[node name="@TextureRect@56" type="TextureRect" parent="Hud/CardFan/Card_knight_rock" unique_id=1831900945]
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-texture = ExtResource("19_68b7m")
+texture = ExtResource("19_764ux")
 expand_mode = 1
 
-[node name="@TextureRect@46" type="TextureRect" parent="Hud/CardFan/Card_knight_rock" unique_id=543855280]
+[node name="@TextureRect@57" type="TextureRect" parent="Hud/CardFan/Card_knight_rock" unique_id=930107057]
 layout_mode = 0
 offset_top = 269.46402
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_6tpeu")
+texture = SubResource("GradientTexture2D_pv0qh")
 expand_mode = 1
 
-[node name="StatRow" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=1492807191]
+[node name="StatRow" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=843092335]
 anchors_preset = 0
 offset_left = 24.8
 offset_top = 464.84003
@@ -1978,7 +2139,7 @@ offset_right = 311.53598
 offset_bottom = 496.84003
 mouse_filter = 2
 
-[node name="StatIcon0" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=682815683]
+[node name="StatIcon0" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=247297254]
 modulate = Color(1, 0.41960785, 0.41960785, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -1987,11 +2148,11 @@ offset_top = 7.0
 offset_right = 34.28933
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("20_vanrq")
+texture = ExtResource("20_wadof")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue0" type="Label" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1672458556]
+[node name="StatValue0" type="Label" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1681391400]
 custom_minimum_size = Vector2(42, 32)
 layout_mode = 0
 offset_left = 37.289333
@@ -2000,12 +2161,12 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "2,428"
 vertical_alignment = 1
 
-[node name="StatIcon1" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1661793493]
+[node name="StatIcon1" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1784693258]
 modulate = Color(1, 0.7019608, 0.2784314, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2014,11 +2175,11 @@ offset_top = 7.0
 offset_right = 135.868
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("21_ybca7")
+texture = ExtResource("21_b4jiv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue1" type="Label" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=52739450]
+[node name="StatValue1" type="Label" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1234222498]
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 0
 offset_left = 138.868
@@ -2027,12 +2188,12 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "150"
 vertical_alignment = 1
 
-[node name="StatIcon2" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1224995278]
+[node name="StatIcon2" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1423436425]
 modulate = Color(0.48235294, 0.78431374, 0.9647059, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2041,11 +2202,11 @@ offset_top = 7.0
 offset_right = 231.44666
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("22_k5xsf")
+texture = ExtResource("22_68b7m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue2" type="Label" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=633268468]
+[node name="StatValue2" type="Label" parent="Hud/CardFan/Card_knight_rock/StatRow" unique_id=1407142187]
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 0
 offset_left = 234.44666
@@ -2054,34 +2215,34 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "672"
 vertical_alignment = 1
 
-[node name="NamePlate" type="Panel" parent="Hud/CardFan/Card_knight_rock" unique_id=1947000681]
+[node name="NamePlate" type="Panel" parent="Hud/CardFan/Card_knight_rock" unique_id=1116834923]
 layout_mode = 0
 offset_left = 24.8
 offset_top = 421.84003
 offset_right = 311.53598
 offset_bottom = 459.84003
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_idywq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_oacue")
 
-[node name="@Label@47" type="Label" parent="Hud/CardFan/Card_knight_rock/NamePlate" unique_id=945227444]
+[node name="@Label@58" type="Label" parent="Hud/CardFan/Card_knight_rock/NamePlate" unique_id=300379563]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 26
 text = "磐岩骑士"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelLabel" type="Label" parent="Hud/CardFan/Card_knight_rock" unique_id=24889607]
+[node name="LevelLabel" type="Label" parent="Hud/CardFan/Card_knight_rock" unique_id=1500933936]
 layout_mode = 0
 offset_left = 24.8
 offset_top = 391.84003
@@ -2090,12 +2251,12 @@ offset_bottom = 419.84003
 theme_override_colors/font_color = Color(1, 0.9137255, 0.65882355, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 21
 text = "Lv.20"
 horizontal_alignment = 2
 
-[node name="ElementBadge" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=1583728316]
+[node name="ElementBadge" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=1150493992]
 anchors_preset = 0
 offset_left = 26.8
 offset_top = 26.64
@@ -2103,23 +2264,23 @@ offset_right = 76.8
 offset_bottom = 76.64
 mouse_filter = 2
 
-[node name="@Panel@48" type="Panel" parent="Hud/CardFan/Card_knight_rock/ElementBadge" unique_id=2063112317]
+[node name="@Panel@59" type="Panel" parent="Hud/CardFan/Card_knight_rock/ElementBadge" unique_id=1481987545]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pv0qh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nuyip")
 
-[node name="@TextureRect@49" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/ElementBadge" unique_id=1314108843]
+[node name="@TextureRect@60" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/ElementBadge" unique_id=362860078]
 custom_minimum_size = Vector2(29, 29)
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource("23_71lbq")
+texture = ExtResource("23_vanrq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@50" type="Label" parent="Hud/CardFan/Card_knight_rock" unique_id=1037138171]
+[node name="@Label@61" type="Label" parent="Hud/CardFan/Card_knight_rock" unique_id=1722073382]
 layout_mode = 0
 offset_left = 127.535995
 offset_top = 18.64
@@ -2128,12 +2289,12 @@ offset_bottom = 64.64
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.82)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 38
 text = "R"
 horizontal_alignment = 2
 
-[node name="@HBoxContainer@51" type="HBoxContainer" parent="Hud/CardFan/Card_knight_rock" unique_id=1616076699]
+[node name="@HBoxContainer@62" type="HBoxContainer" parent="Hud/CardFan/Card_knight_rock" unique_id=1254966771]
 layout_mode = 0
 offset_left = 285.53598
 offset_top = 68.64
@@ -2142,21 +2303,21 @@ offset_bottom = 94.64
 mouse_filter = 2
 theme_override_constants/separation = -2
 
-[node name="@TextureRect@52" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/@HBoxContainer@51" unique_id=77314774]
+[node name="@TextureRect@63" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/@HBoxContainer@62" unique_id=2140845103]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SelectionRing" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=1696226322]
+[node name="SelectionRing" type="Control" parent="Hud/CardFan/Card_knight_rock" unique_id=801682708]
 visible = false
 anchors_preset = 0
 mouse_filter = 2
 
-[node name="@TextureRect@53" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/SelectionRing" unique_id=1001137110]
+[node name="@TextureRect@64" type="TextureRect" parent="Hud/CardFan/Card_knight_rock/SelectionRing" unique_id=1614581950]
 custom_minimum_size = Vector2(416, 588)
 layout_mode = 0
 offset_left = -40.0
@@ -2164,10 +2325,10 @@ offset_top = -34.0
 offset_right = 376.0
 offset_bottom = 554.0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_nuyip")
+texture = SubResource("GradientTexture2D_w3frc")
 expand_mode = 1
 
-[node name="@Panel@54" type="Panel" parent="Hud/CardFan/Card_knight_rock/SelectionRing" unique_id=1269406316]
+[node name="@Panel@65" type="Panel" parent="Hud/CardFan/Card_knight_rock/SelectionRing" unique_id=278816160]
 custom_minimum_size = Vector2(362, 546)
 layout_mode = 0
 offset_left = -13.0
@@ -2175,9 +2336,9 @@ offset_top = -13.0
 offset_right = 349.0
 offset_bottom = 533.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_a163f")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5w44i")
 
-[node name="@Panel@55" type="Panel" parent="Hud/CardFan/Card_knight_rock/SelectionRing" unique_id=676210591]
+[node name="@Panel@66" type="Panel" parent="Hud/CardFan/Card_knight_rock/SelectionRing" unique_id=1089650349]
 custom_minimum_size = Vector2(346, 530)
 layout_mode = 0
 offset_left = -5.0
@@ -2185,47 +2346,47 @@ offset_top = -5.0
 offset_right = 341.0
 offset_bottom = 525.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w3frc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_holjs")
 
-[node name="Card_pyro_girl" type="Control" parent="Hud/CardFan" unique_id=996066692]
+[node name="Card_pyro_girl" type="Control" parent="Hud/CardFan" unique_id=928973757]
 z_index = 3
 custom_minimum_size = Vector2(336, 520)
 anchors_preset = 0
-offset_left = 606.65
+offset_left = 752.0
 offset_top = 263.90002
-offset_right = 942.65
+offset_right = 1088.0
 offset_bottom = 783.9
 rotation = -0.034906585
 scale = Vector2(0.867, 0.867)
 pivot_offset = Vector2(168, 260)
-script = ExtResource("18_b4jiv")
+script = ExtResource("18_01xyg")
 
-[node name="@TextureRect@56" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl" unique_id=1839385347]
+[node name="@TextureRect@67" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl" unique_id=1074607631]
 layout_mode = 0
 offset_left = -53.76
 offset_top = -62.4
 offset_right = 389.75998
 offset_bottom = 582.39996
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_holjs")
+texture = SubResource("GradientTexture2D_ofga3")
 expand_mode = 1
 
-[node name="@Panel@57" type="Panel" parent="Hud/CardFan/Card_pyro_girl" unique_id=1308621679]
+[node name="@Panel@68" type="Panel" parent="Hud/CardFan/Card_pyro_girl" unique_id=1771128871]
 layout_mode = 0
 offset_top = 12.0
 offset_right = 336.0
 offset_bottom = 532.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w6w5p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_07xnu")
 
-[node name="@Panel@58" type="Panel" parent="Hud/CardFan/Card_pyro_girl" unique_id=736104151]
+[node name="@Panel@69" type="Panel" parent="Hud/CardFan/Card_pyro_girl" unique_id=1527118793]
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ofga3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yor0q")
 
-[node name="@Control@59" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=1571427378]
+[node name="@Control@70" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=2096975475]
 clip_contents = true
 anchors_preset = 0
 offset_left = 36.96
@@ -2234,34 +2395,34 @@ offset_right = 299.37598
 offset_bottom = 449.28
 mouse_filter = 2
 
-[node name="@TextureRect@60" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@Control@59" unique_id=1995669447]
+[node name="@TextureRect@71" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@Control@70" unique_id=144265314]
 layout_mode = 0
 offset_left = -13.120789
 offset_top = 57.43198
 offset_right = 275.53677
 offset_bottom = 409.1984
 mouse_filter = 2
-texture = ExtResource("24_akqfu")
+texture = ExtResource("24_ybca7")
 expand_mode = 1
 
-[node name="@TextureRect@61" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl" unique_id=2056768672]
+[node name="@TextureRect@72" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl" unique_id=1210760246]
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-texture = ExtResource("25_mb34c")
+texture = ExtResource("25_k5xsf")
 expand_mode = 1
 
-[node name="@TextureRect@62" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl" unique_id=685720642]
+[node name="@TextureRect@73" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl" unique_id=148053665]
 layout_mode = 0
 offset_top = 258.5856
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_yor0q")
+texture = SubResource("GradientTexture2D_45ngp")
 expand_mode = 1
 
-[node name="StatRow" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=836110655]
+[node name="StatRow" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=1961593653]
 anchors_preset = 0
 offset_left = 44.96
 offset_top = 411.28
@@ -2269,7 +2430,7 @@ offset_right = 291.37598
 offset_bottom = 443.28
 mouse_filter = 2
 
-[node name="StatIcon0" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=1078391834]
+[node name="StatIcon0" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=1299730816]
 modulate = Color(1, 0.41960785, 0.41960785, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2278,11 +2439,11 @@ offset_top = 7.0
 offset_right = 27.569332
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("20_vanrq")
+texture = ExtResource("20_wadof")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue0" type="Label" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=1052227756]
+[node name="StatValue0" type="Label" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=1331125959]
 custom_minimum_size = Vector2(42, 32)
 layout_mode = 0
 offset_left = 30.56933
@@ -2291,12 +2452,12 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "2,673"
 vertical_alignment = 1
 
-[node name="StatIcon1" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=769757316]
+[node name="StatIcon1" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=631631136]
 modulate = Color(1, 0.7019608, 0.2784314, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2305,11 +2466,11 @@ offset_top = 7.0
 offset_right = 115.70799
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("21_ybca7")
+texture = ExtResource("21_b4jiv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue1" type="Label" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=1652334859]
+[node name="StatValue1" type="Label" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=341536801]
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 0
 offset_left = 118.70799
@@ -2318,12 +2479,12 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "667"
 vertical_alignment = 1
 
-[node name="StatIcon2" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=1146365097]
+[node name="StatIcon2" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=152462863]
 modulate = Color(0.48235294, 0.78431374, 0.9647059, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2332,11 +2493,11 @@ offset_top = 7.0
 offset_right = 197.84665
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("22_k5xsf")
+texture = ExtResource("22_68b7m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue2" type="Label" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=279449663]
+[node name="StatValue2" type="Label" parent="Hud/CardFan/Card_pyro_girl/StatRow" unique_id=1268416326]
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 0
 offset_left = 200.84665
@@ -2345,34 +2506,34 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "321"
 vertical_alignment = 1
 
-[node name="NamePlate" type="Panel" parent="Hud/CardFan/Card_pyro_girl" unique_id=125419126]
+[node name="NamePlate" type="Panel" parent="Hud/CardFan/Card_pyro_girl" unique_id=1143537811]
 layout_mode = 0
 offset_left = 44.96
 offset_top = 368.28
 offset_right = 291.37598
 offset_bottom = 406.28
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pvas3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gveg0")
 
-[node name="@Label@63" type="Label" parent="Hud/CardFan/Card_pyro_girl/NamePlate" unique_id=219244266]
+[node name="@Label@74" type="Label" parent="Hud/CardFan/Card_pyro_girl/NamePlate" unique_id=288927444]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 26
 text = "紫焰少女"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelLabel" type="Label" parent="Hud/CardFan/Card_pyro_girl" unique_id=265444996]
+[node name="LevelLabel" type="Label" parent="Hud/CardFan/Card_pyro_girl" unique_id=789764505]
 layout_mode = 0
 offset_left = 44.96
 offset_top = 338.28
@@ -2381,12 +2542,12 @@ offset_bottom = 366.28
 theme_override_colors/font_color = Color(1, 0.9137255, 0.65882355, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 21
 text = "Lv.30"
 horizontal_alignment = 2
 
-[node name="ElementBadge" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=1605149857]
+[node name="ElementBadge" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=432344811]
 anchors_preset = 0
 offset_left = 46.96
 offset_top = 62.0
@@ -2394,23 +2555,23 @@ offset_right = 96.96
 offset_bottom = 112.0
 mouse_filter = 2
 
-[node name="@Panel@64" type="Panel" parent="Hud/CardFan/Card_pyro_girl/ElementBadge" unique_id=276745120]
+[node name="@Panel@75" type="Panel" parent="Hud/CardFan/Card_pyro_girl/ElementBadge" unique_id=66072609]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_45ngp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_47ay2")
 
-[node name="@TextureRect@65" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/ElementBadge" unique_id=324264307]
+[node name="@TextureRect@76" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/ElementBadge" unique_id=1841033835]
 custom_minimum_size = Vector2(29, 29)
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource("26_sgh51")
+texture = ExtResource("26_71lbq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@66" type="Label" parent="Hud/CardFan/Card_pyro_girl" unique_id=59238417]
+[node name="@Label@77" type="Label" parent="Hud/CardFan/Card_pyro_girl" unique_id=160805179]
 layout_mode = 0
 offset_left = 107.375984
 offset_top = 54.0
@@ -2419,12 +2580,12 @@ offset_bottom = 100.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.82)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 38
 text = "SSR"
 horizontal_alignment = 2
 
-[node name="@HBoxContainer@67" type="HBoxContainer" parent="Hud/CardFan/Card_pyro_girl" unique_id=428652234]
+[node name="@HBoxContainer@78" type="HBoxContainer" parent="Hud/CardFan/Card_pyro_girl" unique_id=2072788092]
 layout_mode = 0
 offset_left = 225.37598
 offset_top = 104.0
@@ -2433,39 +2594,39 @@ offset_bottom = 130.0
 mouse_filter = 2
 theme_override_constants/separation = -2
 
-[node name="@TextureRect@68" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@HBoxContainer@67" unique_id=1864921604]
+[node name="@TextureRect@79" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@HBoxContainer@78" unique_id=366525169]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@69" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@HBoxContainer@67" unique_id=1970691131]
+[node name="@TextureRect@80" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@HBoxContainer@78" unique_id=1894804221]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@70" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@HBoxContainer@67" unique_id=1597407657]
+[node name="@TextureRect@81" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/@HBoxContainer@78" unique_id=785197445]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SelectionRing" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=586321662]
+[node name="SelectionRing" type="Control" parent="Hud/CardFan/Card_pyro_girl" unique_id=578992458]
 visible = false
 anchors_preset = 0
 mouse_filter = 2
 
-[node name="@TextureRect@71" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/SelectionRing" unique_id=1836453816]
+[node name="@TextureRect@82" type="TextureRect" parent="Hud/CardFan/Card_pyro_girl/SelectionRing" unique_id=1942672298]
 custom_minimum_size = Vector2(416, 588)
 layout_mode = 0
 offset_left = -40.0
@@ -2473,10 +2634,10 @@ offset_top = -34.0
 offset_right = 376.0
 offset_bottom = 554.0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_47ay2")
+texture = SubResource("GradientTexture2D_et4go")
 expand_mode = 1
 
-[node name="@Panel@72" type="Panel" parent="Hud/CardFan/Card_pyro_girl/SelectionRing" unique_id=465227786]
+[node name="@Panel@83" type="Panel" parent="Hud/CardFan/Card_pyro_girl/SelectionRing" unique_id=3705730]
 custom_minimum_size = Vector2(362, 546)
 layout_mode = 0
 offset_left = -13.0
@@ -2484,9 +2645,9 @@ offset_top = -13.0
 offset_right = 349.0
 offset_bottom = 533.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mnxk2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_elmm4")
 
-[node name="@Panel@73" type="Panel" parent="Hud/CardFan/Card_pyro_girl/SelectionRing" unique_id=1031895080]
+[node name="@Panel@84" type="Panel" parent="Hud/CardFan/Card_pyro_girl/SelectionRing" unique_id=2005062058]
 custom_minimum_size = Vector2(346, 530)
 layout_mode = 0
 offset_left = -5.0
@@ -2494,47 +2655,47 @@ offset_top = -5.0
 offset_right = 341.0
 offset_bottom = 525.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_et4go")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5use4")
 
-[node name="Card_elf_ranger" type="Control" parent="Hud/CardFan" unique_id=314595429]
+[node name="Card_elf_ranger" type="Control" parent="Hud/CardFan" unique_id=497621671]
 z_index = 2
 custom_minimum_size = Vector2(336, 520)
 anchors_preset = 0
-offset_left = 897.35
+offset_left = 1042.7
 offset_top = 279.2
-offset_right = 1233.35
+offset_right = 1378.7
 offset_bottom = 799.2
 rotation = 0.034906585
 scale = Vector2(0.8245, 0.8245)
 pivot_offset = Vector2(168, 260)
-script = ExtResource("18_b4jiv")
+script = ExtResource("18_01xyg")
 
-[node name="@TextureRect@74" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger" unique_id=1481505477]
+[node name="@TextureRect@85" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger" unique_id=1000751192]
 layout_mode = 0
 offset_left = -53.76
 offset_top = -62.4
 offset_right = 389.75998
 offset_bottom = 582.39996
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_5use4")
+texture = SubResource("GradientTexture2D_4jfy1")
 expand_mode = 1
 
-[node name="@Panel@75" type="Panel" parent="Hud/CardFan/Card_elf_ranger" unique_id=1566831339]
+[node name="@Panel@86" type="Panel" parent="Hud/CardFan/Card_elf_ranger" unique_id=1903900405]
 layout_mode = 0
 offset_top = 12.0
 offset_right = 336.0
 offset_bottom = 532.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dfvos")
+theme_override_styles/panel = SubResource("StyleBoxFlat_owjxu")
 
-[node name="@Panel@76" type="Panel" parent="Hud/CardFan/Card_elf_ranger" unique_id=178475295]
+[node name="@Panel@87" type="Panel" parent="Hud/CardFan/Card_elf_ranger" unique_id=595330062]
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4jfy1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6skjv")
 
-[node name="@Control@77" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=1863588476]
+[node name="@Control@88" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=44438184]
 clip_contents = true
 anchors_preset = 0
 offset_left = 31.248
@@ -2543,34 +2704,34 @@ offset_right = 303.744
 offset_bottom = 484.63998
 mouse_filter = 2
 
-[node name="@TextureRect@78" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/@Control@77" unique_id=964180004]
+[node name="@TextureRect@89" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/@Control@88" unique_id=1421580503]
 layout_mode = 0
 offset_left = -13.624802
 offset_top = 98.80832
 offset_right = 286.1208
 offset_bottom = 464.9008
 mouse_filter = 2
-texture = ExtResource("27_hjv1c")
+texture = ExtResource("27_akqfu")
 expand_mode = 1
 
-[node name="@TextureRect@79" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger" unique_id=388536229]
+[node name="@TextureRect@90" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger" unique_id=222483870]
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-texture = ExtResource("28_41a2d")
+texture = ExtResource("28_mb34c")
 expand_mode = 1
 
-[node name="@TextureRect@80" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger" unique_id=1450116331]
+[node name="@TextureRect@91" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger" unique_id=1219358249]
 layout_mode = 0
 offset_top = 267.98718
 offset_right = 336.0
 offset_bottom = 520.0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_6skjv")
+texture = SubResource("GradientTexture2D_cnbnf")
 expand_mode = 1
 
-[node name="StatRow" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=1948632786]
+[node name="StatRow" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=342640000]
 anchors_preset = 0
 offset_left = 39.248
 offset_top = 446.63998
@@ -2578,7 +2739,7 @@ offset_right = 295.74402
 offset_bottom = 478.63998
 mouse_filter = 2
 
-[node name="StatIcon0" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=1966990189]
+[node name="StatIcon0" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=1220466430]
 modulate = Color(1, 0.41960785, 0.41960785, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2587,11 +2748,11 @@ offset_top = 7.0
 offset_right = 29.249332
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("20_vanrq")
+texture = ExtResource("20_wadof")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue0" type="Label" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=2087194233]
+[node name="StatValue0" type="Label" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=1988200556]
 custom_minimum_size = Vector2(42, 32)
 layout_mode = 0
 offset_left = 32.249332
@@ -2600,12 +2761,12 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "2,590"
 vertical_alignment = 1
 
-[node name="StatIcon1" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=782402284]
+[node name="StatIcon1" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=456063600]
 modulate = Color(1, 0.7019608, 0.2784314, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2614,11 +2775,11 @@ offset_top = 7.0
 offset_right = 120.748
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("21_ybca7")
+texture = ExtResource("21_b4jiv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue1" type="Label" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=1332379281]
+[node name="StatValue1" type="Label" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=1016318850]
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 0
 offset_left = 123.748
@@ -2627,12 +2788,12 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "509"
 vertical_alignment = 1
 
-[node name="StatIcon2" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=655900999]
+[node name="StatIcon2" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=155339222]
 modulate = Color(0.48235294, 0.78431374, 0.9647059, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 0
@@ -2641,11 +2802,11 @@ offset_top = 7.0
 offset_right = 206.24667
 offset_bottom = 25.0
 mouse_filter = 2
-texture = ExtResource("22_k5xsf")
+texture = ExtResource("22_68b7m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StatValue2" type="Label" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=138840335]
+[node name="StatValue2" type="Label" parent="Hud/CardFan/Card_elf_ranger/StatRow" unique_id=723917935]
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 0
 offset_left = 209.24667
@@ -2654,34 +2815,34 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "327"
 vertical_alignment = 1
 
-[node name="NamePlate" type="Panel" parent="Hud/CardFan/Card_elf_ranger" unique_id=838178391]
+[node name="NamePlate" type="Panel" parent="Hud/CardFan/Card_elf_ranger" unique_id=1585439412]
 layout_mode = 0
 offset_left = 39.248
 offset_top = 403.63998
 offset_right = 295.74402
 offset_bottom = 441.63998
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lu4g0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dmmqw")
 
-[node name="@Label@81" type="Label" parent="Hud/CardFan/Card_elf_ranger/NamePlate" unique_id=1300914859]
+[node name="@Label@92" type="Label" parent="Hud/CardFan/Card_elf_ranger/NamePlate" unique_id=1496002665]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 26
 text = "精灵游侠"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelLabel" type="Label" parent="Hud/CardFan/Card_elf_ranger" unique_id=312360943]
+[node name="LevelLabel" type="Label" parent="Hud/CardFan/Card_elf_ranger" unique_id=562407938]
 layout_mode = 0
 offset_left = 39.248
 offset_top = 373.63998
@@ -2690,12 +2851,12 @@ offset_bottom = 401.63998
 theme_override_colors/font_color = Color(1, 0.9137255, 0.65882355, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 21
 text = "Lv.30"
 horizontal_alignment = 2
 
-[node name="ElementBadge" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=2082229240]
+[node name="ElementBadge" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=242157490]
 anchors_preset = 0
 offset_left = 41.248
 offset_top = 43.28
@@ -2703,23 +2864,23 @@ offset_right = 91.248
 offset_bottom = 93.28
 mouse_filter = 2
 
-[node name="@Panel@82" type="Panel" parent="Hud/CardFan/Card_elf_ranger/ElementBadge" unique_id=1065742689]
+[node name="@Panel@93" type="Panel" parent="Hud/CardFan/Card_elf_ranger/ElementBadge" unique_id=341364992]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_cnbnf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jueod")
 
-[node name="@TextureRect@83" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/ElementBadge" unique_id=703775765]
+[node name="@TextureRect@94" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/ElementBadge" unique_id=1319704147]
 custom_minimum_size = Vector2(29, 29)
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource("29_f5cck")
+texture = ExtResource("29_sgh51")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@84" type="Label" parent="Hud/CardFan/Card_elf_ranger" unique_id=521972040]
+[node name="@Label@95" type="Label" parent="Hud/CardFan/Card_elf_ranger" unique_id=302598385]
 layout_mode = 0
 offset_left = 111.744
 offset_top = 35.28
@@ -2728,12 +2889,12 @@ offset_bottom = 81.28
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.82)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 38
 text = "SR"
 horizontal_alignment = 2
 
-[node name="@HBoxContainer@85" type="HBoxContainer" parent="Hud/CardFan/Card_elf_ranger" unique_id=1971752849]
+[node name="@HBoxContainer@96" type="HBoxContainer" parent="Hud/CardFan/Card_elf_ranger" unique_id=1269001586]
 layout_mode = 0
 offset_left = 249.744
 offset_top = 85.28
@@ -2742,30 +2903,30 @@ offset_bottom = 111.28
 mouse_filter = 2
 theme_override_constants/separation = -2
 
-[node name="@TextureRect@86" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/@HBoxContainer@85" unique_id=1407607303]
+[node name="@TextureRect@97" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/@HBoxContainer@96" unique_id=738764125]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@87" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/@HBoxContainer@85" unique_id=402468515]
+[node name="@TextureRect@98" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/@HBoxContainer@96" unique_id=702439505]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("8_u43bj")
+texture = ExtResource("8_tcusk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SelectionRing" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=450544749]
+[node name="SelectionRing" type="Control" parent="Hud/CardFan/Card_elf_ranger" unique_id=1862055728]
 visible = false
 anchors_preset = 0
 mouse_filter = 2
 
-[node name="@TextureRect@88" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/SelectionRing" unique_id=15377959]
+[node name="@TextureRect@99" type="TextureRect" parent="Hud/CardFan/Card_elf_ranger/SelectionRing" unique_id=721093545]
 custom_minimum_size = Vector2(416, 588)
 layout_mode = 0
 offset_left = -40.0
@@ -2773,10 +2934,10 @@ offset_top = -34.0
 offset_right = 376.0
 offset_bottom = 554.0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_jueod")
+texture = SubResource("GradientTexture2D_euwuw")
 expand_mode = 1
 
-[node name="@Panel@89" type="Panel" parent="Hud/CardFan/Card_elf_ranger/SelectionRing" unique_id=15901885]
+[node name="@Panel@100" type="Panel" parent="Hud/CardFan/Card_elf_ranger/SelectionRing" unique_id=1973762745]
 custom_minimum_size = Vector2(362, 546)
 layout_mode = 0
 offset_left = -13.0
@@ -2784,9 +2945,9 @@ offset_top = -13.0
 offset_right = 349.0
 offset_bottom = 533.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3bt7l")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sjylm")
 
-[node name="@Panel@90" type="Panel" parent="Hud/CardFan/Card_elf_ranger/SelectionRing" unique_id=326063917]
+[node name="@Panel@101" type="Panel" parent="Hud/CardFan/Card_elf_ranger/SelectionRing" unique_id=575780167]
 custom_minimum_size = Vector2(346, 530)
 layout_mode = 0
 offset_left = -5.0
@@ -2794,379 +2955,89 @@ offset_top = -5.0
 offset_right = 341.0
 offset_bottom = 525.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_euwuw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7lrqt")
 
-[node name="Card_holy_priest" type="Control" parent="Hud/CardFan" unique_id=1196552817]
-z_index = 1
-custom_minimum_size = Vector2(336, 520)
-anchors_preset = 0
-offset_left = 1188.05
-offset_top = 304.7
-offset_right = 1524.05
-offset_bottom = 824.7
-rotation = 0.1134464
-scale = Vector2(0.7905, 0.7905)
-pivot_offset = Vector2(168, 260)
-script = ExtResource("18_b4jiv")
-
-[node name="@TextureRect@91" type="TextureRect" parent="Hud/CardFan/Card_holy_priest" unique_id=516923738]
-layout_mode = 0
-offset_left = -53.76
-offset_top = -62.4
-offset_right = 389.75998
-offset_bottom = 582.39996
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_7lrqt")
-expand_mode = 1
-
-[node name="@Panel@92" type="Panel" parent="Hud/CardFan/Card_holy_priest" unique_id=1416023474]
-layout_mode = 0
-offset_top = 12.0
-offset_right = 336.0
-offset_bottom = 532.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ia2h2")
-
-[node name="@Panel@93" type="Panel" parent="Hud/CardFan/Card_holy_priest" unique_id=1027079944]
-layout_mode = 0
-offset_right = 336.0
-offset_bottom = 520.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hc3qo")
-
-[node name="@Control@94" type="Control" parent="Hud/CardFan/Card_holy_priest" unique_id=445896564]
-clip_contents = true
-anchors_preset = 0
-offset_left = 51.408
-offset_top = 76.96
-offset_right = 284.928
-offset_bottom = 464.36
-mouse_filter = 2
-
-[node name="@TextureRect@95" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/@Control@94" unique_id=1093435096]
-layout_mode = 0
-offset_left = -11.6760025
-offset_top = 107.14968
-offset_right = 245.19601
-offset_bottom = 399.022
-mouse_filter = 2
-texture = ExtResource("30_s4ogs")
-expand_mode = 1
-
-[node name="@TextureRect@96" type="TextureRect" parent="Hud/CardFan/Card_holy_priest" unique_id=1957616684]
-layout_mode = 0
-offset_right = 336.0
-offset_bottom = 520.0
-mouse_filter = 2
-texture = ExtResource("31_ew011")
-expand_mode = 1
-
-[node name="@TextureRect@97" type="TextureRect" parent="Hud/CardFan/Card_holy_priest" unique_id=792240391]
-layout_mode = 0
-offset_top = 278.408
-offset_right = 336.0
-offset_bottom = 520.0
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_qlaxm")
-expand_mode = 1
-
-[node name="StatRow" type="Control" parent="Hud/CardFan/Card_holy_priest" unique_id=1687762674]
-anchors_preset = 0
-offset_left = 59.408
-offset_top = 426.36
-offset_right = 276.928
-offset_bottom = 458.36
-mouse_filter = 2
-
-[node name="StatIcon0" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/StatRow" unique_id=1590960373]
-modulate = Color(1, 0.41960785, 0.41960785, 1)
-custom_minimum_size = Vector2(18, 18)
-layout_mode = 0
-offset_left = 4.753334
-offset_top = 7.0
-offset_right = 22.753334
-offset_bottom = 25.0
-mouse_filter = 2
-texture = ExtResource("20_vanrq")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="StatValue0" type="Label" parent="Hud/CardFan/Card_holy_priest/StatRow" unique_id=1410070485]
-custom_minimum_size = Vector2(42, 32)
-layout_mode = 0
-offset_left = 25.753334
-offset_right = 67.753334
-offset_bottom = 32.0
-theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
-theme_override_font_sizes/font_size = 18
-text = "3,130"
-vertical_alignment = 1
-
-[node name="StatIcon1" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/StatRow" unique_id=1938302522]
-modulate = Color(1, 0.7019608, 0.2784314, 1)
-custom_minimum_size = Vector2(18, 18)
-layout_mode = 0
-offset_left = 83.26
-offset_top = 7.0
-offset_right = 101.26
-offset_bottom = 25.0
-mouse_filter = 2
-texture = ExtResource("21_ybca7")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="StatValue1" type="Label" parent="Hud/CardFan/Card_holy_priest/StatRow" unique_id=2011254499]
-custom_minimum_size = Vector2(30, 32)
-layout_mode = 0
-offset_left = 104.26
-offset_right = 134.26001
-offset_bottom = 32.0
-theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
-theme_override_font_sizes/font_size = 18
-text = "408"
-vertical_alignment = 1
-
-[node name="StatIcon2" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/StatRow" unique_id=1323324797]
-modulate = Color(0.48235294, 0.78431374, 0.9647059, 1)
-custom_minimum_size = Vector2(18, 18)
-layout_mode = 0
-offset_left = 155.76666
-offset_top = 7.0
-offset_right = 173.76666
-offset_bottom = 25.0
-mouse_filter = 2
-texture = ExtResource("22_k5xsf")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="StatValue2" type="Label" parent="Hud/CardFan/Card_holy_priest/StatRow" unique_id=238602732]
-custom_minimum_size = Vector2(30, 32)
-layout_mode = 0
-offset_left = 176.76666
-offset_right = 206.76666
-offset_bottom = 32.0
-theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_xyero")
-theme_override_font_sizes/font_size = 18
-text = "263"
-vertical_alignment = 1
-
-[node name="NamePlate" type="Panel" parent="Hud/CardFan/Card_holy_priest" unique_id=1777197239]
-layout_mode = 0
-offset_left = 59.408
-offset_top = 383.36
-offset_right = 276.928
-offset_bottom = 421.36
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lp16j")
-
-[node name="@Label@98" type="Label" parent="Hud/CardFan/Card_holy_priest/NamePlate" unique_id=1342195099]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_xyero")
-theme_override_font_sizes/font_size = 26
-text = "神圣牧师"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LevelLabel" type="Label" parent="Hud/CardFan/Card_holy_priest" unique_id=147478578]
-layout_mode = 0
-offset_left = 59.408
-offset_top = 353.36
-offset_right = 276.928
-offset_bottom = 381.36
-theme_override_colors/font_color = Color(1, 0.9137255, 0.65882355, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
-theme_override_font_sizes/font_size = 21
-text = "Lv.30"
-horizontal_alignment = 2
-
-[node name="ElementBadge" type="Control" parent="Hud/CardFan/Card_holy_priest" unique_id=2039167663]
-anchors_preset = 0
-offset_left = 61.408
-offset_top = 86.96
-offset_right = 111.408005
-offset_bottom = 136.95999
-mouse_filter = 2
-
-[node name="@Panel@99" type="Panel" parent="Hud/CardFan/Card_holy_priest/ElementBadge" unique_id=1211309405]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rxi5y")
-
-[node name="@TextureRect@100" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/ElementBadge" unique_id=1514480190]
-custom_minimum_size = Vector2(29, 29)
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource("32_tcyl8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="@Label@101" type="Label" parent="Hud/CardFan/Card_holy_priest" unique_id=442388275]
-layout_mode = 0
-offset_left = 92.92801
-offset_top = 78.96
-offset_right = 272.928
-offset_bottom = 124.96
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.82)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_xyero")
-theme_override_font_sizes/font_size = 38
-text = "UR"
-horizontal_alignment = 2
-
-[node name="@HBoxContainer@102" type="HBoxContainer" parent="Hud/CardFan/Card_holy_priest" unique_id=1686985061]
-layout_mode = 0
-offset_left = 210.92801
-offset_top = 128.95999
-offset_right = 272.928
-offset_bottom = 154.95999
-mouse_filter = 2
-theme_override_constants/separation = -2
-
-[node name="@TextureRect@103" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/@HBoxContainer@102" unique_id=621389386]
-modulate = Color(1, 0.83137256, 0.36862746, 1)
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("8_u43bj")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="@TextureRect@104" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/@HBoxContainer@102" unique_id=2030858278]
-modulate = Color(1, 0.83137256, 0.36862746, 1)
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("8_u43bj")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="@TextureRect@105" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/@HBoxContainer@102" unique_id=1225145659]
-modulate = Color(1, 0.83137256, 0.36862746, 1)
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("8_u43bj")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="SelectionRing" type="Control" parent="Hud/CardFan/Card_holy_priest" unique_id=849329861]
-visible = false
-anchors_preset = 0
-mouse_filter = 2
-
-[node name="@TextureRect@106" type="TextureRect" parent="Hud/CardFan/Card_holy_priest/SelectionRing" unique_id=703490947]
-custom_minimum_size = Vector2(416, 588)
-layout_mode = 0
-offset_left = -40.0
-offset_top = -34.0
-offset_right = 376.0
-offset_bottom = 554.0
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_1fcto")
-expand_mode = 1
-
-[node name="@Panel@107" type="Panel" parent="Hud/CardFan/Card_holy_priest/SelectionRing" unique_id=2015004485]
-custom_minimum_size = Vector2(362, 546)
-layout_mode = 0
-offset_left = -13.0
-offset_top = -13.0
-offset_right = 349.0
-offset_bottom = 533.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_33pj3")
-
-[node name="@Panel@108" type="Panel" parent="Hud/CardFan/Card_holy_priest/SelectionRing" unique_id=567055186]
-custom_minimum_size = Vector2(346, 530)
-layout_mode = 0
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 341.0
-offset_bottom = 525.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wqqcj")
-
-[node name="TeamBar" type="Panel" parent="Hud" unique_id=442141010]
-custom_minimum_size = Vector2(470, 88)
+[node name="TeamBar" type="Panel" parent="Hud" unique_id=1764429600]
+custom_minimum_size = Vector2(740, 104)
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -235.0
-offset_top = -240.0
-offset_right = 235.0
+offset_left = -370.0
+offset_top = -256.0
+offset_right = 370.0
 offset_bottom = -152.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_cnnt5")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ia2h2")
 
-[node name="GridLabel" type="Label" parent="Hud/TeamBar" unique_id=154171773]
-custom_minimum_size = Vector2(118, 88)
+[node name="GridLabel" type="Label" parent="Hud/TeamBar" unique_id=1030905805]
+custom_minimum_size = Vector2(110, 104)
 layout_mode = 0
-offset_left = 20.0
-offset_right = 138.0
-offset_bottom = 88.0
+offset_left = 22.0
+offset_right = 132.0
+offset_bottom = 104.0
 theme_override_colors/font_color = Color(1, 0.8509804, 0.5411765, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 30
 text = "3 × 3"
 vertical_alignment = 1
 
-[node name="@ColorRect@109" type="ColorRect" parent="Hud/TeamBar" unique_id=1784326766]
+[node name="@ColorRect@102" type="ColorRect" parent="Hud/TeamBar" unique_id=599965440]
 custom_minimum_size = Vector2(2, 52)
 layout_mode = 0
-offset_left = 142.0
-offset_top = 18.0
-offset_right = 144.0
-offset_bottom = 70.0
+offset_left = 140.0
+offset_top = 26.0
+offset_right = 142.0
+offset_bottom = 78.0
 mouse_filter = 2
 color = Color(1, 0.85, 0.45, 0.28)
 
-[node name="TeamSlots" type="HBoxContainer" parent="Hud/TeamBar" unique_id=1458179706]
+[node name="TeamSlots" type="HBoxContainer" parent="Hud/TeamBar" unique_id=472712797]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(196, 56)
+custom_minimum_size = Vector2(388, 68)
 layout_mode = 0
-offset_left = 160.0
-offset_top = 16.0
-offset_right = 356.0
-offset_bottom = 72.0
+offset_left = 156.0
+offset_top = 18.0
+offset_right = 544.0
+offset_bottom = 86.0
 theme_override_constants/separation = 12
 
-[node name="@Label@110" type="Label" parent="Hud/TeamBar" unique_id=823865662]
-custom_minimum_size = Vector2(96, 88)
+[node name="TeamHint" type="Label" parent="Hud/TeamBar" unique_id=287839930]
+custom_minimum_size = Vector2(164, 30)
 layout_mode = 0
-offset_left = 362.0
-offset_right = 458.0
-offset_bottom = 88.0
+offset_left = 556.0
+offset_top = 22.0
+offset_right = 720.0
+offset_bottom = 52.0
 theme_override_colors/font_color = Color(0.88, 0.92, 0.98, 0.7)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 text = "出战阵容"
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="StartButton" type="Button" parent="Hud" unique_id=1479514019]
+[node name="TeamPowerLabel" type="Label" parent="Hud/TeamBar" unique_id=1908495887]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 34)
+layout_mode = 0
+offset_left = 556.0
+offset_top = 52.0
+offset_right = 720.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(1, 0.83137256, 0.36862746, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_dj67d")
+theme_override_font_sizes/font_size = 24
+text = "战力 —"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="Hud" unique_id=731470139]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(460, 104)
 layout_mode = 0
@@ -3183,27 +3054,27 @@ theme_override_colors/font_color = Color(0.2901961, 0.14117648, 0.03137255, 1)
 theme_override_colors/font_pressed_color = Color(0.36078432, 0.19607843, 0.05882353, 1)
 theme_override_colors/font_hover_color = Color(0.22745098, 0.105882354, 0.019607844, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_5wsmg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2q217")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qdw67")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fk5pf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hc3qo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xohfp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qlaxm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lp16j")
 text = "进入冒险"
 
-[node name="StartSub" type="Label" parent="Hud/StartButton" unique_id=19233380]
+[node name="StartSub" type="Label" parent="Hud/StartButton" unique_id=2034462806]
 custom_minimum_size = Vector2(460, 26)
 layout_mode = 0
 offset_top = 68.0
 offset_right = 460.0
 offset_bottom = 94.0
 theme_override_colors/font_color = Color(0.36, 0.2, 0.05, 0.85)
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 20
 text = "START GAME"
 horizontal_alignment = 1
 
-[node name="FooterInfo" type="Label" parent="Hud" unique_id=217631732]
+[node name="FooterInfo" type="Label" parent="Hud" unique_id=1155642347]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 62)
 layout_mode = 0
@@ -3216,6 +3087,6 @@ offset_bottom = -22.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.78)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_xyero")
+theme_override_fonts/font = ExtResource("4_dj67d")
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 2

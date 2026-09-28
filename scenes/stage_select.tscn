@@ -191,70 +191,18 @@ corner_radius_top_right = 41
 corner_radius_bottom_right = 41
 corner_radius_bottom_left = 41
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhqa3"]
-bg_color = Color(0.13, 0.1, 0.18, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.85, 0.45, 0.65)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 8
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kouq7"]
-bg_color = Color(0.1118, 0.086, 0.15480001, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.85, 0.45, 0.65)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stc4r"]
-bg_color = Color(0.2518, 0.22600001, 0.2948, 0.78)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.88, 0.56, 0.65)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 10
-shadow_offset = Vector2(0, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lin0"]
-bg_color = Color(0, 0, 0, 0)
-corner_radius_top_left = 41
-corner_radius_top_right = 41
-corner_radius_bottom_right = 41
-corner_radius_bottom_left = 41
-
-[sub_resource type="Gradient" id="Gradient_4dqx8"]
+[sub_resource type="Gradient" id="Gradient_mhqa3"]
 colors = PackedColorArray(1, 0.7882353, 0.2901961, 0.45, 1, 0.7882353, 0.2901961, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kya25"]
-gradient = SubResource("Gradient_4dqx8")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kouq7"]
+gradient = SubResource("Gradient_mhqa3")
 width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqm8b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stc4r"]
 bg_color = Color(0.16, 0.11, 0.2, 0.85)
 border_width_left = 3
 border_width_top = 3
@@ -269,7 +217,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efic5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lin0"]
 bg_color = Color(0.1376, 0.0946, 0.172, 0.85)
 border_width_left = 3
 border_width_top = 3
@@ -284,7 +232,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 4
 shadow_offset = Vector2(0, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84oxx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dqx8"]
 bg_color = Color(0.2776, 0.23460001, 0.312, 0.85)
 border_width_left = 3
 border_width_top = 3
@@ -299,14 +247,14 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 10
 shadow_offset = Vector2(0, 5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iny3i"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kya25"]
 bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 44
 corner_radius_top_right = 44
 corner_radius_bottom_right = 44
 corner_radius_bottom_left = 44
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k111l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqm8b"]
 bg_color = Color(0.09, 0.07, 0.13, 0.86)
 border_width_left = 2
 border_width_top = 2
@@ -321,7 +269,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 10
 shadow_offset = Vector2(0, 5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdt0v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efic5"]
 bg_color = Color(0.09, 0.07, 0.13, 0.88)
 border_width_left = 2
 border_width_top = 2
@@ -336,7 +284,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jnp3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84oxx"]
 bg_color = Color(0.09, 0.07, 0.13, 0.72)
 border_width_left = 2
 border_width_top = 2
@@ -351,7 +299,7 @@ shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 12
 shadow_offset = Vector2(0, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qp4y6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iny3i"]
 bg_color = Color(1, 0.7882353, 0.2901961, 1)
 border_width_left = 5
 border_width_top = 5
@@ -366,7 +314,7 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 18
 shadow_offset = Vector2(0, 9)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oll5a"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k111l"]
 bg_color = Color(0.9098039, 0.6862745, 0.2, 1)
 border_width_left = 5
 border_width_top = 5
@@ -381,7 +329,7 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt3oq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdt0v"]
 bg_color = Color(1, 0.8509804, 0.45882353, 1)
 border_width_left = 5
 border_width_top = 5
@@ -396,14 +344,14 @@ shadow_color = Color(0, 0, 0, 0.5)
 shadow_size = 24
 shadow_offset = Vector2(0, 12)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b21hm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jnp3"]
 bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 26
 corner_radius_top_right = 26
 corner_radius_bottom_right = 26
 corner_radius_bottom_left = 26
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4je7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qp4y6"]
 bg_color = Color(0.1, 0.08, 0.14, 0.74)
 border_width_left = 4
 border_width_top = 4
@@ -418,7 +366,7 @@ shadow_color = Color(0, 0, 0, 0.42)
 shadow_size = 12
 shadow_offset = Vector2(0, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dq7ik"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oll5a"]
 bg_color = Color(0.088, 0.0704, 0.1232, 0.74)
 border_width_left = 4
 border_width_top = 4
@@ -433,7 +381,7 @@ shadow_color = Color(0, 0, 0, 0.42)
 shadow_size = 6
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on50e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt3oq"]
 bg_color = Color(0.19, 0.17199999, 0.22600001, 0.74)
 border_width_left = 4
 border_width_top = 4
@@ -448,14 +396,14 @@ shadow_color = Color(0, 0, 0, 0.45)
 shadow_size = 16
 shadow_offset = Vector2(0, 8)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_853lq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b21hm"]
 bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
-[node name="StageSelect" type="Control" unique_id=1831192344]
+[node name="StageSelect" type="Control" unique_id=1750472245]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
@@ -463,7 +411,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_jkdq6")
 
-[node name="Background" type="TextureRect" parent="." unique_id=275445750]
+[node name="Background" type="TextureRect" parent="." unique_id=84677924]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -472,20 +420,20 @@ texture = ExtResource("2_j22uw")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="WarmTint" type="ColorRect" parent="." unique_id=479006957]
+[node name="WarmTint" type="ColorRect" parent="." unique_id=1946982818]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0.12, 0.07, 0.2, 0.08)
 
-[node name="Hud" type="Control" parent="." unique_id=989740606]
+[node name="Hud" type="Control" parent="." unique_id=1473235688]
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="PlayerPlate" type="Control" parent="Hud" unique_id=467148124]
+[node name="PlayerPlate" type="Control" parent="Hud" unique_id=701378679]
 custom_minimum_size = Vector2(500, 152)
 anchors_preset = 0
 offset_left = 26.0
@@ -493,7 +441,7 @@ offset_top = 18.0
 offset_right = 526.0
 offset_bottom = 170.0
 
-[node name="@Panel@3" type="Panel" parent="Hud/PlayerPlate" unique_id=1093868860]
+[node name="@Panel@3" type="Panel" parent="Hud/PlayerPlate" unique_id=137289045]
 custom_minimum_size = Vector2(500, 142)
 layout_mode = 0
 offset_top = 10.0
@@ -501,7 +449,7 @@ offset_right = 500.0
 offset_bottom = 152.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wt7i0")
 
-[node name="@Panel@4" type="Panel" parent="Hud/PlayerPlate" unique_id=1841715953]
+[node name="@Panel@4" type="Panel" parent="Hud/PlayerPlate" unique_id=883491000]
 custom_minimum_size = Vector2(106, 106)
 layout_mode = 0
 offset_left = 16.0
@@ -510,7 +458,7 @@ offset_right = 122.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hlh6r")
 
-[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=230988369]
+[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=743193258]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(92, 92)
 layout_mode = 0
@@ -523,7 +471,7 @@ texture = ExtResource("3_2usko")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=1571748751]
+[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=2089739496]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 40)
 layout_mode = 0
@@ -538,7 +486,7 @@ theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 30
 text = "云上旅人"
 
-[node name="@Panel@5" type="Panel" parent="Hud/PlayerPlate" unique_id=995073691]
+[node name="@Panel@5" type="Panel" parent="Hud/PlayerPlate" unique_id=524932669]
 custom_minimum_size = Vector2(78, 28)
 layout_mode = 0
 offset_left = 136.0
@@ -547,7 +495,7 @@ offset_right = 214.0
 offset_bottom = 100.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pha4k")
 
-[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@5" unique_id=320059905]
+[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@5" unique_id=1048119136]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -559,7 +507,7 @@ text = "Lv.10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=1504605812]
+[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=2030677755]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(152, 16)
 layout_mode = 0
@@ -573,7 +521,7 @@ max_value = 800.0
 value = 320.0
 show_percentage = false
 
-[node name="@TextureRect@6" type="TextureRect" parent="Hud/PlayerPlate" unique_id=1950135523]
+[node name="@TextureRect@6" type="TextureRect" parent="Hud/PlayerPlate" unique_id=1430560113]
 modulate = Color(1, 0.7882353, 0.2901961, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -586,7 +534,7 @@ texture = ExtResource("5_3rajb")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate" unique_id=1647981564]
+[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate" unique_id=545336198]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 0
@@ -601,7 +549,7 @@ theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 23
 text = "12,500"
 
-[node name="@TextureRect@7" type="TextureRect" parent="Hud/PlayerPlate" unique_id=2068010120]
+[node name="@TextureRect@7" type="TextureRect" parent="Hud/PlayerPlate" unique_id=2011546949]
 modulate = Color(0.48235294, 0.8784314, 1, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -614,7 +562,7 @@ texture = ExtResource("6_l127o")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GemLabel" type="Label" parent="Hud/PlayerPlate" unique_id=1997539039]
+[node name="GemLabel" type="Label" parent="Hud/PlayerPlate" unique_id=1677256098]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 0
@@ -629,7 +577,7 @@ theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 23
 text = "1,280"
 
-[node name="StaminaBadge" type="Control" parent="Hud" unique_id=1454622259]
+[node name="StaminaBadge" type="Control" parent="Hud" unique_id=919159479]
 custom_minimum_size = Vector2(268, 48)
 anchors_preset = 0
 offset_left = 26.0
@@ -637,14 +585,14 @@ offset_top = 182.0
 offset_right = 294.0
 offset_bottom = 230.0
 
-[node name="@Panel@8" type="Panel" parent="Hud/StaminaBadge" unique_id=606296492]
+[node name="@Panel@8" type="Panel" parent="Hud/StaminaBadge" unique_id=1411440587]
 custom_minimum_size = Vector2(268, 48)
 layout_mode = 0
 offset_right = 268.0
 offset_bottom = 48.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_olgpm")
 
-[node name="@TextureRect@9" type="TextureRect" parent="Hud/StaminaBadge" unique_id=1898130978]
+[node name="@TextureRect@9" type="TextureRect" parent="Hud/StaminaBadge" unique_id=1745126930]
 modulate = Color(0.48235294, 0.8784314, 0.65882355, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -657,7 +605,7 @@ texture = ExtResource("7_wxryi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StaminaValue" type="Label" parent="Hud/StaminaBadge" unique_id=1701992905]
+[node name="StaminaValue" type="Label" parent="Hud/StaminaBadge" unique_id=265204046]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 28)
 layout_mode = 0
@@ -672,7 +620,7 @@ theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 22
 text = "--/--"
 
-[node name="StaminaNext" type="Label" parent="Hud/StaminaBadge" unique_id=2000747604]
+[node name="StaminaNext" type="Label" parent="Hud/StaminaBadge" unique_id=1028921309]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 0
@@ -686,7 +634,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 18
 
-[node name="TitleGroup" type="Control" parent="Hud" unique_id=163319496]
+[node name="TitleGroup" type="Control" parent="Hud" unique_id=1508818848]
 custom_minimum_size = Vector2(700, 104)
 anchors_preset = 0
 anchor_left = 0.5
@@ -697,7 +645,7 @@ offset_right = 350.0
 offset_bottom = 122.0
 mouse_filter = 2
 
-[node name="@Label@10" type="Label" parent="Hud/TitleGroup" unique_id=433216777]
+[node name="@Label@10" type="Label" parent="Hud/TitleGroup" unique_id=247866033]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -712,7 +660,7 @@ text = "冒险关卡选择"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Hud/TitleGroup" unique_id=677676103]
+[node name="TitleLabel" type="Label" parent="Hud/TitleGroup" unique_id=1289863526]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -726,23 +674,23 @@ text = "冒险关卡选择"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TopRight" type="Control" parent="Hud" unique_id=1372151857]
-custom_minimum_size = Vector2(278, 108)
+[node name="TopRight" type="Control" parent="Hud" unique_id=1093546463]
+custom_minimum_size = Vector2(180, 108)
 anchors_preset = 0
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -304.0
+offset_left = -206.0
 offset_top = 20.0
 offset_right = -26.0
 offset_bottom = 128.0
 
-[node name="Entry_settings" type="Control" parent="Hud/TopRight" unique_id=18017835]
+[node name="Entry_settings" type="Control" parent="Hud/TopRight" unique_id=1907544459]
 custom_minimum_size = Vector2(82, 108)
 anchors_preset = 0
 offset_right = 82.0
 offset_bottom = 108.0
 
-[node name="Btn_settings" type="Button" parent="Hud/TopRight/Entry_settings" unique_id=925112828]
+[node name="Btn_settings" type="Button" parent="Hud/TopRight/Entry_settings" unique_id=1844520188]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 0
 offset_right = 82.0
@@ -753,7 +701,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_73yuf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pkn7t")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y5f5n")
 
-[node name="@TextureRect@12" type="TextureRect" parent="Hud/TopRight/Entry_settings/Btn_settings" unique_id=1122510544]
+[node name="@TextureRect@12" type="TextureRect" parent="Hud/TopRight/Entry_settings/Btn_settings" unique_id=1941049536]
 custom_minimum_size = Vector2(41, 41)
 layout_mode = 0
 anchor_right = 1.0
@@ -763,7 +711,7 @@ texture = ExtResource("8_crcap")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@13" type="Label" parent="Hud/TopRight/Entry_settings" unique_id=395579839]
+[node name="@Label@13" type="Label" parent="Hud/TopRight/Entry_settings" unique_id=1177344435]
 custom_minimum_size = Vector2(82, 26)
 layout_mode = 0
 offset_top = 88.0
@@ -777,14 +725,14 @@ theme_override_font_sizes/font_size = 20
 text = "设置"
 horizontal_alignment = 1
 
-[node name="Entry_mail" type="Control" parent="Hud/TopRight" unique_id=490716065]
+[node name="Entry_mail" type="Control" parent="Hud/TopRight" unique_id=1530329391]
 custom_minimum_size = Vector2(82, 108)
 anchors_preset = 0
 offset_left = 98.0
 offset_right = 180.0
 offset_bottom = 108.0
 
-[node name="Btn_mail" type="Button" parent="Hud/TopRight/Entry_mail" unique_id=1573788839]
+[node name="Btn_mail" type="Button" parent="Hud/TopRight/Entry_mail" unique_id=336868060]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 0
 offset_right = 82.0
@@ -795,7 +743,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_30b53")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g0s3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_i17ve")
 
-[node name="@TextureRect@14" type="TextureRect" parent="Hud/TopRight/Entry_mail/Btn_mail" unique_id=73103364]
+[node name="@TextureRect@14" type="TextureRect" parent="Hud/TopRight/Entry_mail/Btn_mail" unique_id=477074566]
 custom_minimum_size = Vector2(41, 41)
 layout_mode = 0
 anchor_right = 1.0
@@ -805,7 +753,7 @@ texture = ExtResource("9_7hj7s")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@15" type="Label" parent="Hud/TopRight/Entry_mail" unique_id=2010420400]
+[node name="@Label@15" type="Label" parent="Hud/TopRight/Entry_mail" unique_id=1058356813]
 custom_minimum_size = Vector2(82, 26)
 layout_mode = 0
 offset_top = 88.0
@@ -819,49 +767,7 @@ theme_override_font_sizes/font_size = 20
 text = "邮件"
 horizontal_alignment = 1
 
-[node name="Entry_event" type="Control" parent="Hud/TopRight" unique_id=1050171974]
-custom_minimum_size = Vector2(82, 108)
-anchors_preset = 0
-offset_left = 196.0
-offset_right = 278.0
-offset_bottom = 108.0
-
-[node name="Btn_event" type="Button" parent="Hud/TopRight/Entry_event" unique_id=1177749984]
-custom_minimum_size = Vector2(82, 82)
-layout_mode = 0
-offset_right = 82.0
-offset_bottom = 82.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_mhqa3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kouq7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_stc4r")
-theme_override_styles/focus = SubResource("StyleBoxFlat_6lin0")
-
-[node name="@TextureRect@16" type="TextureRect" parent="Hud/TopRight/Entry_event/Btn_event" unique_id=1971842696]
-custom_minimum_size = Vector2(41, 41)
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource("10_5rsa8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="@Label@17" type="Label" parent="Hud/TopRight/Entry_event" unique_id=2141740340]
-custom_minimum_size = Vector2(82, 26)
-layout_mode = 0
-offset_top = 88.0
-offset_right = 82.0
-offset_bottom = 114.0
-theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_fyqsd")
-theme_override_font_sizes/font_size = 20
-text = "活动"
-horizontal_alignment = 1
-
-[node name="PromoEntry" type="Control" parent="Hud" unique_id=409227039]
+[node name="PromoEntry" type="Control" parent="Hud" unique_id=1175345652]
 custom_minimum_size = Vector2(96, 124)
 anchors_preset = 0
 anchor_left = 1.0
@@ -871,7 +777,7 @@ offset_top = 158.0
 offset_right = -26.0
 offset_bottom = 282.0
 
-[node name="@TextureRect@18" type="TextureRect" parent="Hud/PromoEntry" unique_id=1527942248]
+[node name="@TextureRect@16" type="TextureRect" parent="Hud/PromoEntry" unique_id=2004071479]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
 offset_left = -16.0
@@ -879,10 +785,10 @@ offset_top = -16.0
 offset_right = 112.0
 offset_bottom = 112.0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_kya25")
+texture = SubResource("GradientTexture2D_kouq7")
 expand_mode = 1
 
-[node name="Btn_promo" type="Button" parent="Hud/PromoEntry" unique_id=493331646]
+[node name="Btn_promo" type="Button" parent="Hud/PromoEntry" unique_id=1621026283]
 custom_minimum_size = Vector2(88, 88)
 layout_mode = 0
 offset_left = 4.0
@@ -890,12 +796,12 @@ offset_top = 4.0
 offset_right = 92.0
 offset_bottom = 92.0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_aqm8b")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_efic5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_84oxx")
-theme_override_styles/focus = SubResource("StyleBoxFlat_iny3i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_stc4r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6lin0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4dqx8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kya25")
 
-[node name="@TextureRect@19" type="TextureRect" parent="Hud/PromoEntry/Btn_promo" unique_id=2048806022]
+[node name="@TextureRect@17" type="TextureRect" parent="Hud/PromoEntry/Btn_promo" unique_id=142872670]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 0
 anchor_right = 1.0
@@ -905,7 +811,7 @@ texture = ExtResource("10_5rsa8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@20" type="Label" parent="Hud/PromoEntry" unique_id=303473256]
+[node name="@Label@18" type="Label" parent="Hud/PromoEntry" unique_id=220999517]
 custom_minimum_size = Vector2(96, 26)
 layout_mode = 0
 offset_top = 92.0
@@ -919,34 +825,34 @@ theme_override_font_sizes/font_size = 20
 text = "活动"
 horizontal_alignment = 1
 
-[node name="MapLayer" type="Control" parent="Hud" unique_id=534802035]
+[node name="MapLayer" type="Control" parent="Hud" unique_id=333979257]
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="DecorLayer" type="Control" parent="Hud/MapLayer" unique_id=835128788]
+[node name="DecorLayer" type="Control" parent="Hud/MapLayer" unique_id=969884253]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="GuideLayer" type="Control" parent="Hud/MapLayer" unique_id=1571937804]
+[node name="GuideLayer" type="Control" parent="Hud/MapLayer" unique_id=260687357]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="NodeLayer" type="Control" parent="Hud/MapLayer" unique_id=1245404681]
+[node name="NodeLayer" type="Control" parent="Hud/MapLayer" unique_id=1950382789]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Toast" type="Panel" parent="Hud" unique_id=710848942]
+[node name="Toast" type="Panel" parent="Hud" unique_id=1181121688]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(344, 112)
@@ -957,9 +863,9 @@ offset_left = 26.0
 offset_top = -412.0
 offset_right = 370.0
 offset_bottom = -300.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_k111l")
+theme_override_styles/panel = SubResource("StyleBoxFlat_aqm8b")
 
-[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=1987725430]
+[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=2101533865]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -975,7 +881,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="TeamBadge" type="Panel" parent="Hud" unique_id=1923003381]
+[node name="TeamBadge" type="Panel" parent="Hud" unique_id=1433610994]
 custom_minimum_size = Vector2(204, 40)
 layout_mode = 0
 anchor_left = 0.5
@@ -986,9 +892,9 @@ offset_left = -102.0
 offset_top = -315.0
 offset_right = 102.0
 offset_bottom = -275.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_fdt0v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_efic5")
 
-[node name="TeamLabel" type="Label" parent="Hud/TeamBadge" unique_id=417911013]
+[node name="TeamLabel" type="Label" parent="Hud/TeamBadge" unique_id=506362433]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -1002,7 +908,7 @@ text = "3x3 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TeamPanel" type="Panel" parent="Hud" unique_id=748263645]
+[node name="TeamPanel" type="Panel" parent="Hud" unique_id=578443262]
 custom_minimum_size = Vector2(290, 97)
 layout_mode = 0
 anchor_left = 0.5
@@ -1013,9 +919,9 @@ offset_left = -145.0
 offset_top = -285.0
 offset_right = 145.0
 offset_bottom = -188.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_3jnp3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_84oxx")
 
-[node name="TeamSlots" type="HBoxContainer" parent="Hud/TeamPanel" unique_id=1205795798]
+[node name="TeamSlots" type="HBoxContainer" parent="Hud/TeamPanel" unique_id=1502864113]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 72)
 layout_mode = 0
@@ -1025,7 +931,7 @@ offset_right = 275.0
 offset_bottom = 84.0
 theme_override_constants/separation = 22
 
-[node name="EnterButton" type="Button" parent="Hud" unique_id=1930913274]
+[node name="EnterButton" type="Button" parent="Hud" unique_id=1366942212]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 130)
 layout_mode = 0
@@ -1044,13 +950,13 @@ theme_override_colors/font_hover_color = Color(0.22745098, 0.105882354, 0.019607
 theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 44
-theme_override_styles/normal = SubResource("StyleBoxFlat_qp4y6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_oll5a")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lt3oq")
-theme_override_styles/focus = SubResource("StyleBoxFlat_b21hm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iny3i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k111l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fdt0v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3jnp3")
 text = "进入关卡"
 
-[node name="EnterSub" type="Label" parent="Hud/EnterButton" unique_id=1771863171]
+[node name="EnterSub" type="Label" parent="Hud/EnterButton" unique_id=1460981417]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 26)
 layout_mode = 0
@@ -1064,7 +970,7 @@ text = "START LEVEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="Button" parent="Hud" unique_id=847018788]
+[node name="BackButton" type="Button" parent="Hud" unique_id=1553192368]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 56)
 layout_mode = 0
@@ -1080,13 +986,13 @@ theme_override_colors/font_pressed_color = Color(0.85, 0.82000005, 0.7533334, 1)
 theme_override_colors/font_hover_color = Color(1, 0.97, 0.90333337, 1)
 theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_n4je7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dq7ik")
-theme_override_styles/hover = SubResource("StyleBoxFlat_on50e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_853lq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qp4y6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oll5a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lt3oq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b21hm")
 text = "返回"
 
-[node name="FooterInfo" type="Label" parent="Hud" unique_id=339368532]
+[node name="FooterInfo" type="Label" parent="Hud" unique_id=1155142682]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 30)
 layout_mode = 0

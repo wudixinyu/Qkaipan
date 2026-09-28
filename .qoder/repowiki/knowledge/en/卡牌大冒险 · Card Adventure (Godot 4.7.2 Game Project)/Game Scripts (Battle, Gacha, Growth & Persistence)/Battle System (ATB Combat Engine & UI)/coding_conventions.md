@@ -1,0 +1,5 @@
+- Combat outcomes are emitted as typed event dictionaries (`{"t": ..., ...}`) from BattleCore and consumed by Battle's `_play` via a `match` on `e.t` — the UI never re-evaluates game state.
+- Unit state is represented as plain Dictionaries created by `_base_unit`, with fields like `hp`, `shield`, `energy`, `time`, `actions` mutated in place rather than via typed classes.
+- Target selection strings (e.g. `nearest_front`, `back_row`, `lowest_hp_back`, `self_and_adjacent_front`) are resolved centrally in `resolve_targets` and passed through configs instead of being hard-coded at call sites.
+- Determinism is enforced by seeding `RandomNumberGenerator` from `BattleCtx.seed_override` (or a time-derived fallback) so both headless runs and in-game battles reproduce identically.
+- External modifiers (altar buffs, arena environment, synergy open effects) are applied as separate setup phases (`_apply_env`, `_apply_open_traits`, `_apply_synergy_open`) after units are built but before scheduling.

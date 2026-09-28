@@ -1,0 +1,1 @@
+Godot Engine 4 scene format (`[gd_scene format=3]`) with GDScript-linked nodes, `StyleBoxFlat` for theming, `SystemFont` for text, and `GradientTexture2D` / `ColorRect` for background gradients.

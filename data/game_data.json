@@ -2480,12 +2480,21 @@
       },
       {
         "id": "cards",
-        "name": "卡牌",
-        "tag": "编队 / 收藏",
+        "name": "编队",
+        "tag": "上阵 / 羁绊",
         "icon": "res://assets/icons/icon_cards.svg",
         "color": "#7BE0FF",
         "route": "res://scenes/formation.tscn",
-        "hint": "查看全部英雄、调整上阵阵容与羁绊"
+        "hint": "调整出战阵容与上阵羁绊"
+      },
+      {
+        "id": "collection",
+        "name": "图鉴",
+        "tag": "全部卡片",
+        "icon": "res://assets/icons/icon_star.svg",
+        "color": "#FFD45E",
+        "route": "res://scenes/collection.tscn",
+        "hint": "卡片图鉴：已获取与未获取的全部卡片一览"
       }
     ]
   },
@@ -3392,10 +3401,16 @@
       "text": "返回主界面",
       "route": "res://scenes/main_menu.tscn"
     },
+    "save_button": {
+      "text": "保存编队",
+      "note": "把当前编队存进出战编队与当前预设（编队改动其实已即时保存）"
+    },
     "battle_scene": "res://scenes/battle.tscn",
     "toast": {
       "deployed": "已上阵 %s（%s · 槽位 %d）",
       "removed": "已下阵 %s",
+      "cleared": "已清空编队（改动已保存）",
+      "saved": "编队已保存（%d 人）",
       "team_full": "上阵已满 %d 人，请先下阵",
       "dup": "%s 已在阵中",
       "auto_filled": "一键上阵：%d 人 · 队伍战力 %s",

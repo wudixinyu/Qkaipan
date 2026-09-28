@@ -48,7 +48,7 @@ const UNIQUE_NAMES := [
 	"TacticalPanel",
 	"CommandPanel", "PresetTitle", "PresetBar", "PresetHint",
 	"QuickFillButton", "ClearButton", "DeployButton", "RemoveButton",
-	"ConfirmButton", "ConfirmSub",
+	"ConfirmButton", "ConfirmSub", "SaveButton",
 	"Toast", "ToastLabel",
 	"PopupLayer", "FilterPanel", "FilterTitle", "FilterGroups",
 	"FilterResetButton", "FilterApplyButton",
@@ -521,7 +521,7 @@ func _build_command_panel(hud: Control) -> void:
 		UI.style(Color("#E8AF33"), 24, 5, Color("#9C6413"), 8, Color(0, 0, 0, 0.45)))
 	btn.add_theme_stylebox_override("focus", UI.style(Color(0, 0, 0, 0), 24))
 	btn.focus_mode = Control.FOCUS_NONE
-	UI.place(btn, 14, 234, CMD_W - 28, 80)
+	UI.place(btn, 14, 230, CMD_W - 28, 70)
 	panel.add_child(btn)
 
 	var sub := UI.label(str(cfg.get("sub_text", "FORMATION")), 19,
@@ -529,8 +529,13 @@ func _build_command_panel(hud: Control) -> void:
 	sub.name = "ConfirmSub"
 	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	sub.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	UI.place(sub, 0, 54, CMD_W - 28, 24)
+	UI.place(sub, 0, 46, CMD_W - 28, 22)
 	btn.add_child(sub)
+
+	# ---- 保存（在确认按钮下方：把当前编队写进「出战编队 + 当前预设」）----
+	var save_cfg: Dictionary = _formation().get("save_button", {})
+	panel.add_child(_mk_button("SaveButton",
+		str(save_cfg.get("text", "保存编队")), 14, 306, CMD_W - 28, 46, true))
 
 
 func _mk_button(node_name: String, text: String, x: float, y: float,

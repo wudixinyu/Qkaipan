@@ -48,6 +48,13 @@ func run(tree: SceneTree) -> Dictionary:
 	ALL_HEROES = GameDB.characters().map(func(c: Dictionary) -> String: return str(c.get("id", "")))
 	print("· 英雄总数 %d：%s" % [ALL_HEROES.size(), ALL_HEROES])
 
+	# 编队卡池只收已持有的卡：默认档只有初始三卡，
+	# 后面的陈列 / 筛选 / 排序用例要覆盖全部英雄，先把全卡发放齐
+	_eq("新号默认持卡 = 初始三卡", SaveDB.cards().size(), 3)
+	for hid in ALL_HEROES:
+		SaveDB.grant_card(hid, false)
+	SaveDB.save_profile()
+
 	_check_config()
 	_check_team_normalize()
 	_check_synergy()
@@ -349,6 +356,7 @@ func _check_skeleton() -> void:
 			"LibraryPanel", "LibraryScroll", "LibraryGrid", "LibraryCount",
 			"TacticalPanel", "CommandPanel", "PresetBar", "QuickFillButton",
 			"ClearButton", "DeployButton", "RemoveButton", "ConfirmButton", "ConfirmSub",
+			"SaveButton",
 			"Toast", "ToastLabel", "FilterPanel", "FilterGroups", "SortPanel", "SortOptions"]:
 		_ok("唯一名 %%%s 可解析" % u, _scene.get_node_or_null("%%%s" % u) != null)
 
@@ -597,10 +605,14 @@ func _check_team_ops() -> void:
 	(_find("BoardCell_2") as Button).pressed.emit()
 	_eq("点空位后上阵 1 人", _team_size(), 1)
 	_eq("落在被点的那一格", int(_scene.call("_slot_of", "knight_rock")), 2)
+	# 改动即时落盘：不点「确认选择」也是永久的（从主界面编队入口进来直接走也保得住）
+	_eq("上阵即时写进出战编队", SaveDB.team().size(), 1)
+	_eq("上阵即时写进当前预设", SaveDB.preset_entries(str(_scene.get("_preset_id"))).size(), 1)
 
 	# 点已上阵的人 + 下阵按钮
 	remove_btn.pressed.emit()
 	_eq("下阵按钮把人撤下来", _team_size(), 0)
+	_eq("下阵即时同步存档", SaveDB.team().size(), 0)
 
 	# 同一个英雄不能上两次
 	_scene.call("_select", "pyro_girl")
@@ -774,6 +786,21 @@ func _check_confirm() -> void:
 	confirm.pressed.emit()
 	_eq("体力不足时不扣体力", StaminaSys.current(), 0)
 	_ok("提示条说明体力不足", tl.text.contains("体力不足"), tl.text.replace("\n", " / "))
+
+	# ---- 保存按钮：显式点一次，存档与界面必须对上 ----
+	var save_btn: Button = _scene.get_node_or_null("%SaveButton")
+	_ok("保存按钮存在", save_btn != null)
+	if save_btn != null:
+		_ok("保存按钮已接信号", save_btn.pressed.get_connections().size() > 0)
+		_ok("保存按钮文案取自配置",
+			save_btn.text == str(GameDB.formation_section("save_button").get("text", "保存编队")),
+			save_btn.text)
+		(_find("ClearButton") as Button).pressed.emit()
+		_scene.call("_deploy", "knight_rock")
+		save_btn.pressed.emit()
+		_eq("点保存后出战编队落盘 1 人", SaveDB.team().size(), 1)
+		_eq("点保存后当前预设同步", SaveDB.preset_entries(str(_scene.get("_preset_id"))).size(), 1)
+		_ok("保存给出确认反馈", tl.text.contains("已保存"), tl.text)
 
 	# ---- 返回按钮 ----
 	var back: Button = _scene.get_node_or_null("%BackButton")

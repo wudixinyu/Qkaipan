@@ -1,0 +1,1 @@
+Godot 4 GDScript autoload singletons used as global service providers; JSON files for game configuration; plain-file or built-in resource storage for persistent save data.

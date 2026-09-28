@@ -263,7 +263,17 @@ func _build_title(hud: Control) -> void:
 # ---------------------------------------------------------------- 右上：功能入口
 
 func _build_top_right(hud: Control) -> void:
-	var entries: Array = _menu().get("top_right_entries", [])
+	# 与主界面共用 menu.top_right_entries，但选关页下方还有带光晕的 promo 悬浮入口；
+	# 同 id（或与 promo 同名）的条目在这里跳过，避免右上角出现两个「活动」。
+	var promo: Dictionary = _select_map().get("promo_entry", {})
+	var promo_id := str(promo.get("id", "promo"))
+	var promo_name := str(promo.get("name", ""))
+	var entries: Array = []
+	for e: Variant in _menu().get("top_right_entries", []):
+		var id := str((e as Dictionary).get("id", ""))
+		if id == promo_id or (promo_name != "" and str((e as Dictionary).get("name", "")) == promo_name):
+			continue
+		entries.append(e)
 	if not entries.is_empty():
 		var ew := 82.0
 		var gap := 16.0

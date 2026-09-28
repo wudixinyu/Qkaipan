@@ -1,0 +1,1 @@
+Godot 4 GDScript; uses `RandomNumberGenerator` with explicit seeds for deterministic replay, `Tween` for floating-text and flash animations, and `RefCounted` for the headless-capable core class.

@@ -122,8 +122,12 @@ func _check_save() -> void:
 	_eq("金币", SaveDB.balance("gold"), 12500)
 	_eq("钻石", SaveDB.balance("gem"), 1280)
 
+	# 新号默认档：初始三卡已发放（名单 = menu.demo_team_slots），
+	# 图鉴 / 编队 / 主界面三处对「默认有哪些卡」共用这一份事实
+	_eq("新号默认持卡 = 初始三卡", SaveDB.cards().size(), 3)
+
 	var before: int = SaveDB.cards().size()
-	var card: Dictionary = SaveDB.grant_card("knight_rock")
+	var card: Dictionary = SaveDB.grant_card("arcane_girl")
 	_eq("发卡后持卡数 +1", SaveDB.cards().size(), before + 1)
 	var slot_count := GameDB.equipment_slot_count()
 	_eq("装备槽位数量", (card.get("equipment", []) as Array).size(), slot_count)
@@ -140,7 +144,7 @@ func _check_save() -> void:
 	# grant_card 返回的是存档里那份字典的引用，升星会原地改写，
 	# 所以先把首次星级取成值再比对
 	var star_first := int(card.get("star", 0))
-	var again: Dictionary = SaveDB.grant_card("knight_rock")
+	var again: Dictionary = SaveDB.grant_card("arcane_girl")
 	_eq("重复发卡为升星", int(again.get("star", 0)), star_first + 1)
 	_eq("重复发卡不增加持卡数", SaveDB.cards().size(), before + 2)
 
@@ -149,12 +153,12 @@ func _check_save() -> void:
 	_ok("余额不足时扣款失败", not SaveDB.spend_currency("gold", 999999))
 	SaveDB.add_currency("gold", 500)
 
-	# 清理：把测试发出的卡移出存档。
+	# 清理：把测试发出的卡移出存档，还原成初始三卡。
 	# RealmDB.showcase_lineup() 会优先采用存档里的卡，留着会顶掉展演用的
 	# demo_level / demo_star，导致后续断言拿到 Lv.1 的数据。
-	SaveDB.profile["cards"] = []
+	SaveDB.profile["cards"] = SaveDB._starter_cards()
 	SaveDB.save_profile()
-	_eq("清理后无残留持卡", SaveDB.cards().size(), 0)
+	_eq("清理后只剩初始三卡", SaveDB.cards().size(), 3)
 
 
 # ---------------------------------------------------------------- 派生层
@@ -474,9 +478,9 @@ func _check_scene() -> void:
 	var fan: CardFan = _scene.get_node_or_null("%CardFan")
 	_ok("CardFan 唯一名可解析", fan != null)
 	if fan != null:
-		_eq("运行时重建卡牌 4 张", fan.cards.size(), 4)
-		# 场景里烘焙了 4 张预览卡，运行时必须被清干净，否则会叠出 8 张
-		_eq("CardFan 子节点只剩 4 个（预览卡已清）", fan.get_child_count(), 4)
+		_eq("运行时重建卡牌 3 张（与出战阵容一致）", fan.cards.size(), 3)
+		# 场景里烘焙了 3 张预览卡，运行时必须被清干净重建，否则会叠出幽灵卡
+		_eq("CardFan 子节点只剩 3 个（预览卡已清）", fan.get_child_count(), 3)
 		var ids: Array = []
 		var rots: Array = []
 		for c in fan.cards:
@@ -487,9 +491,10 @@ func _check_scene() -> void:
 				c.rotation_degrees, c.scale.x, c.z_index])
 		print("      卡牌顺序：%s" % str(ids))
 		print("      扇形旋转：%s" % str(rots))
-		_ok("卡牌顺序与配置一致",
-			ids == ["knight_rock", "pyro_girl", "elf_ranger", "holy_priest"])
-		_ok("扇形旋转有正有负", rots.size() == 4 and rots[0] < 0.0 and rots[3] > 0.0)
+		# 扇形现在跟随出战阵容（展演队前 3 位），与底部阵容栏同一批
+		_ok("卡牌顺序与出战阵容一致",
+			ids == ["knight_rock", "pyro_girl", "elf_ranger"])
+		_ok("扇形旋转有正有负", rots.size() == 3 and rots[0] < 0.0 and rots[2] > 0.0)
 
 		# 只校验宽度：headless 下视口高度不是 1080，纵向尺寸不作断言。
 		# 这条专门看守 UI.fill() 把 size 与 anchor 叠加成双倍尺寸那类塌陷。
@@ -517,8 +522,8 @@ func _check_scene() -> void:
 			fan.cards[0].position.x > 60.0 and fan.cards[0].position.x < center_x,
 			"x=%.0f" % fan.cards[0].position.x)
 		_ok("末卡在视口内且未贴边",
-			fan.cards[3].position.x + box_w < view_w - 60.0 and fan.cards[3].position.x > center_x,
-			"right=%.0f" % (fan.cards[3].position.x + box_w))
+			fan.cards[2].position.x + box_w < view_w - 60.0 and fan.cards[2].position.x > center_x,
+			"right=%.0f" % (fan.cards[2].position.x + box_w))
 
 		# 末卡（含旋转外扩）不能压到右侧玩法入口栏上
 		var rail: Control = _scene.get_node_or_null("Hud/RightRail")
@@ -535,25 +540,25 @@ func _check_scene() -> void:
 
 		_check_occlusion(fan)
 
-		var cv: CardView = fan.find_card("holy_priest")
-		_ok("UR 卡可定位", cv != null)
+		var cv: CardView = fan.find_card("pyro_girl")
+		_ok("SSR 卡可定位", cv != null)
 		if cv != null:
 			var inner: Rect2 = cv.inner_px()
-			_ok("UR 卡内腔有效", inner.size.x > 100.0 and inner.size.y > 100.0,
+			_ok("SSR 卡内腔有效", inner.size.x > 100.0 and inner.size.y > 100.0,
 				"inner=%.0fx%.0f" % [inner.size.x, inner.size.y])
 
-		var kv: CardView = fan.find_card("knight_rock")
-		if kv != null:
-			var kin: Rect2 = kv.inner_px()
-			_ok("R 卡内腔比 UR 更宽（卡框更细）", kin.size.x > cv.inner_px().size.x,
-				"R=%.0f UR=%.0f" % [kin.size.x, cv.inner_px().size.x])
+			var kv: CardView = fan.find_card("knight_rock")
+			if kv != null:
+				var kin: Rect2 = kv.inner_px()
+				_ok("R 卡内腔比 SSR 更宽（卡框更细）", kin.size.x > cv.inner_px().size.x,
+					"R=%.0f SSR=%.0f" % [kin.size.x, cv.inner_px().size.x])
 
 		_check_stat_rows(fan)
 
 	var slots: HBoxContainer = _scene.get_node_or_null("%TeamSlots")
 	_ok("TeamSlots 存在", slots != null)
 	if slots != null:
-		_eq("队伍预览 3 个槽位", slots.get_child_count(), 3)
+		_eq("队伍预览铺满上阵上限槽位", slots.get_child_count(), GameDB.team_max())
 
 	var start: Button = _scene.get_node_or_null("%StartButton")
 	_ok("开始冒险按钮存在", start != null)
@@ -610,3 +615,51 @@ func _check_scene() -> void:
 			var tl2: Label = _scene.get_node_or_null("%ToastLabel")
 			_ok("点击卡牌弹出详情", tl2 != null and tl2.text.contains("紫焰少女"),
 				tl2.text.replace("\n", " / ") if tl2 else "null")
+
+	# ---- 编队同步：主界面必须反映「解析后的出战编队」，最多铺满上阵上限 ----
+	_check_team_preview(fan, slots, rail)
+
+
+## 主界面与编队页共用 SaveDB.resolved_team：验证空档回落口径一致、
+## 满编队时扇形与阵容栏都同步到 N 人（模拟从编队页返回后重跑接线）、
+## 且 N 张扇形不压右侧入口栏。
+func _check_team_preview(fan: CardFan, slots: HBoxContainer, rail: Control) -> void:
+	print("\n· 主界面同步出战编队")
+	if fan == null or slots == null:
+		_ok("扇形与阵容栏齐备", false)
+		return
+	var max_members := GameDB.team_max()
+	# 空档回落口径：存档 team 为空时，主界面取当前预设（与编队页同一份）
+	SaveDB.profile["team"] = []
+	_eq("空档回落 = 当前预设（与编队页同口径）",
+		SaveDB.resolved_team().size(), SaveDB.preset_entries(SaveDB.active_preset()).size())
+
+	# 造一套满编队（取前 N 个英雄），模拟「编队页保存后返回主界面」重跑数据接线
+	var ids: Array = GameDB.characters().map(func(c: Dictionary) -> String: return str(c.get("id", "")))
+	var entries: Array = []
+	for i in mini(max_members, ids.size()):
+		entries.append({"slot": i + 1, "char_id": str(ids[i])})
+	SaveDB.set_team(entries)
+	_scene.call("_build_showcase")
+	_scene.call("_build_team")
+	var want := entries.size()
+	_eq("满编队时扇形显示 %d 张" % want, fan.cards.size(), want)
+	_eq("满编队时阵容栏仍铺满上限", slots.get_child_count(), max_members)
+	var shown: Array = []
+	for c in fan.cards:
+		shown.append((c as CardView).char_id)
+	_ok("扇形反映最新保存的编队", shown == ids.slice(0, want), str(shown))
+
+	# N 张扇形（含旋转外扩）不能压到右侧入口栏
+	if rail != null:
+		var rightmost := 0.0
+		for c in fan.cards:
+			var cv: CardView = c
+			for q in _card_poly(cv):
+				rightmost = maxf(rightmost, q.x + cv.get_parent().position.x)
+			var rail_left: float = rail.position.x + rail.get_parent().position.x
+			_ok("满编队扇形不压右侧入口栏", rightmost <= rail_left - 8.0,
+				"最右=%.0f 栏左=%.0f" % [rightmost, rail_left])
+
+	# 还原默认档，保持幂等（不污染后续）
+	SaveDB.reset_profile()

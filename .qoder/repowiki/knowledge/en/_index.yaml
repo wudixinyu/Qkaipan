@@ -1,0 +1,92 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: master
+nodes_managed: true
+exported_at: "2026-09-28T03:32:14Z"
+modules:
+    "":
+        dir_name: 卡牌大冒险 · Card Adventure (Godot 4.7.2 Game Project)
+        title: 卡牌大冒险 · Card Adventure (Godot 4.7.2 Game Project)
+        scope:
+            - README.md
+            - .gitignore
+            - .gitattributes
+            - .editorconfig
+            - project.godot
+            - icon.svg
+            - icon.svg.import
+        source_files: []
+        children:
+            - assets
+            - game_scripts
+            - scenes
+            - tools
+        depends_on: []
+        related_to: []
+    assets:
+        dir_name: Game Art Assets & Resources
+        title: Game Art Assets & Resources
+        scope:
+            - assets/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    game_scripts:
+        dir_name: Game Scripts (Battle, Gacha, Growth & Persistence)
+        title: Game Scripts (Battle, Gacha, Growth & Persistence)
+        scope:
+            - scripts/
+        source_files: []
+        children:
+            - game_scripts/battle_system
+            - game_scripts/persistence_and_growth
+        depends_on: []
+        related_to: []
+    game_scripts/battle_system:
+        dir_name: Battle System (ATB Combat Engine & UI)
+        title: Battle System (ATB Combat Engine & UI)
+        scope:
+            - scripts/battle.gd
+            - scripts/battle_core.gd
+            - scripts/battle_ctx.gd
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: tools
+    game_scripts/persistence_and_growth:
+        dir_name: Game Configuration, Save State & Runtime Stats Layer
+        title: Game Configuration, Save State & Runtime Stats Layer
+        scope:
+            - scripts/game_db.gd
+            - scripts/realm_db.gd
+            - scripts/save_db.gd
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: tools
+    scenes:
+        dir_name: Game Scene Definitions (Godot .tscn)
+        title: Game Scene Definitions (Godot .tscn)
+        scope:
+            - scenes/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: tools
+    tools:
+        dir_name: Game Tooling & Smoke-Test Harness
+        title: Game Tooling & Smoke-Test Harness
+        scope:
+            - tools/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: game_scripts/battle_system
+            - path: game_scripts/persistence_and_growth
+            - path: scenes

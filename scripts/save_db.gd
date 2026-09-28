@@ -59,7 +59,7 @@ func _default_profile() -> Dictionary:
 			# 上次结算时刻（unix 秒）；为 0 表示从未结算，首次进入按满值处理
 			"accounted_at": 0,
 		},
-		"cards": [],           # [{ "char_id", "level", "star", "exp", "equipment": [String x slot_count] }]
+		"cards": _starter_cards(),   # [{ "char_id", "level", "star", "exp", "equipment": [String x slot_count] }] 新号先发默认三卡
 		"team": [],            # [{ "slot": int, "char_id": String }] 出战编队，只由编队页写
 		"team_presets": _default_presets(),   # 阵容预设：pid -> 条目数组（主线队 / PVP队 / 副本队）
 		"team_active_preset": _default_active_preset(),
@@ -86,6 +86,32 @@ func _default_profile() -> Dictionary:
 ## 这里只保证「券有地方放」，具体数额不写死在代码里。
 func _new_player_items() -> Dictionary:
 	return {}
+
+
+## 新号初始卡：名单与主界面默认陈列队（menu.demo_team_slots）同一份，
+## 等级 / 星级取角色的展演态（demo_level / demo_star），
+## 保证图鉴 / 编队 / 主界面三处对同一张卡算出的数值完全一致。
+func _starter_cards() -> Array:
+	var out: Array = []
+	for raw in GameDB.menu().get("demo_team_slots", []):
+		var char_id := str(raw)
+		var cfg := GameDB.character(char_id)
+		if cfg.is_empty():
+			continue
+		out.append({
+			"char_id": char_id,
+			"level": int(cfg.get("demo_level", 1)),
+			"star": int(cfg.get("demo_star", 1)),
+			"exp": 0,
+			"equipment": GameDB.blank_equipment(),
+		})
+	return out
+
+
+## 旧档兼容：历史上默认档是 0 卡，载入时若整档无卡则补发初始三卡
+func _ensure_starter_cards() -> void:
+	if profile.get("cards", []).is_empty():
+		profile["cards"] = _starter_cards()
 
 
 func _default_gacha() -> Dictionary:
@@ -154,6 +180,7 @@ func load_profile() -> void:
 			profile = parsed
 			_fill_defaults(profile, _default_profile())
 			_normalize_cards()
+			_ensure_starter_cards()
 			_migrate_gacha()
 			print("[SaveDB] 存档已载入：%s Lv.%d，持卡 %d 张"
 				% [profile.player.name, profile.player.level, profile.cards.size()])
@@ -284,6 +311,15 @@ func grant_card(char_id: String, save: bool = true) -> Dictionary:
 
 func team() -> Array:
 	return profile.get("team", [])
+
+
+## 解析「当前该展示的出战编队」：存档 team 优先，空档回落到当前预设。
+## 编队页与主界面共用这一份口径，保证两处永远显示同一批英雄（含新号）。
+func resolved_team() -> Array:
+	var t: Array = team()
+	if not t.is_empty():
+		return normalize_team(t)
+	return normalize_team(preset_entries(active_preset()))
 
 
 func team_max() -> int:

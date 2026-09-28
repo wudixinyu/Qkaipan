@@ -1,0 +1,1 @@
+Provides read-only game configuration from JSON, persistent player save/profile management, and runtime stat derivation (growth + synergies) for cards and teams.

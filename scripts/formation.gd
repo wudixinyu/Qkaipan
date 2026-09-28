@@ -9,7 +9,7 @@ extends Control
 ## 分工约定：
 ##   * 静态版面像素全部在 build_formation.gd 里（本脚本只按节点尺寸摆动态元素）；
 ##   * 规则（上阵上限 / 同名限制 / 羁绊条件 / 克制表）一律读配置，不在代码里写死；
-##   * 写档只走 SaveDB，本脚本不碰 FileAccess。
+##   * 写档只走 SaveDB，本脚本不碰 FileAccess；编队改动即时落盘（见 _persist）。
 
 const UI := preload("res://tools/ui_kit.gd")
 const FALLBACK_BATTLE_SCENE := "res://scenes/battle.tscn"
@@ -46,6 +46,7 @@ const TAC_BOX_W := 249.0
 @onready var _deploy_btn: Button = %DeployButton
 @onready var _remove_btn: Button = %RemoveButton
 @onready var _confirm: Button = %ConfirmButton
+@onready var _save_btn: Button = %SaveButton
 @onready var _back: Button = %BackButton
 @onready var _search: LineEdit = %SearchEdit
 @onready var _toast: Panel = %Toast
@@ -55,7 +56,7 @@ const TAC_BOX_W := 249.0
 @onready var _sort_panel: Control = %SortPanel
 @onready var _sort_options: Control = %SortOptions
 
-var _all_items: Array = []          ## 全部英雄（口径 = RealmDB.all_heroes，与图鉴同一份）
+var _all_items: Array = []          ## 已持有英雄（存档里有的卡；未持有的不进编队卡池，与图鉴口径一致）
 var _view: Array = []               ## 筛选 + 排序后的列表
 var _team: Array = []               ## 工作编队 [{ slot, char_id }]
 var _report: Dictionary = {}        ## RealmDB.formation_report(_team)
@@ -76,11 +77,12 @@ var _boot_ready := false
 
 func _ready() -> void:
 	battle_scene = str(GameDB.formation().get("battle_scene", FALLBACK_BATTLE_SCENE))
-	_all_items = RealmDB.all_heroes()
+	# 卡池只收已持有的卡：新号 = 默认三卡，与主界面默认陈列/图鉴已获取完全对齐；
+	# 未持有的英雄在图鉴里看剪影，抽到后才进编队。
+	_all_items = RealmDB.all_heroes().filter(
+		func(item: Dictionary) -> bool: return not SaveDB.find_card(str(item.get("char_id", ""))).is_empty())
 	_preset_id = SaveDB.active_preset()
-	var saved: Array = SaveDB.team()
-	_team = SaveDB.normalize_team(saved) if not saved.is_empty() \
-		else SaveDB.normalize_team(SaveDB.preset_entries(_preset_id))
+	_team = SaveDB.resolved_team()
 
 	_build_tabs()
 	_build_preset_bar()
@@ -367,6 +369,7 @@ func _bind_inputs() -> void:
 	_deploy_btn.pressed.connect(_on_deploy_pressed)
 	_remove_btn.pressed.connect(_on_remove_pressed)
 	_confirm.pressed.connect(_on_confirm)
+	_save_btn.pressed.connect(_on_save)
 	_back.pressed.connect(_on_back)
 
 	var reset_btn: Button = get_node_or_null("Hud/PopupLayer/FilterPanel/FilterResetButton")
@@ -380,6 +383,7 @@ func _bind_inputs() -> void:
 	_quick_fill.tooltip_text = str(qf.get("note", ""))
 	_deploy_btn.tooltip_text = str(_fsec("quick_deploy").get("note", ""))
 	_search.tooltip_text = str(_fsec("search").get("hint", ""))
+	_save_btn.tooltip_text = str(_fsec("save_button").get("note", ""))
 	if reset_btn != null:
 		reset_btn.tooltip_text = "清空全部筛选条件"
 	if apply_btn != null:
@@ -737,6 +741,7 @@ func _deploy(char_id: String, slot: int = 0) -> bool:
 
 	_team.append({"slot": target, "char_id": char_id})
 	_team = SaveDB.normalize_team(_team)
+	_persist()
 	_refresh_team()
 	_show_toast(_t("deployed", "已上阵 %s（%s · 槽位 %d）")
 		% [_name_of(char_id), GameDB.row_name(GameDB.row_of_slot(target)), target])
@@ -754,6 +759,7 @@ func _undeploy(char_id: String) -> void:
 	if not hit:
 		return
 	_team = out
+	_persist()
 	_refresh_team()
 	_show_toast(_t("removed", "已下阵 %s") % _name_of(char_id))
 
@@ -775,7 +781,9 @@ func _on_clear() -> void:
 	if _team.is_empty():
 		return
 	_team = []
+	_persist()
 	_refresh_team()
+	_show_toast(_t("cleared", "已清空编队（改动已保存）"))
 
 
 ## 一键上阵：按「战力 + 本关克制收益」排序，填满到上限
@@ -799,6 +807,7 @@ func _on_quick_fill() -> void:
 		picked.append({"slot": slot, "char_id": char_id})
 
 	_team = SaveDB.normalize_team(picked)
+	_persist()
 	_refresh_team()
 	_show_toast(_t("auto_filled", "一键上阵：%d 人 · 队伍战力 %s")
 		% [_team.size(), UI.fmt_num(int(_report.get("total_power", 0)))])
@@ -1083,6 +1092,24 @@ func _count_values(table: Variant) -> int:
 	return n
 
 
+# ---------------------------------------------------------------- 即时落盘
+
+## 编队改动即时写档：同时写进「当前预设 + 出战编队（profile.team）」，
+## 从主界面「编队」入口进来改完就走，不点「确认选择」也是永久的；
+## 主界面阵容栏 / 扇形大卡读的正是这份档。
+## 「确认选择」因此只负责扣体力与切战斗场景，不再兼任保存。
+func _persist() -> void:
+	SaveDB.save_preset(_preset_id, _team)
+	SaveDB.set_team(_team)
+
+
+## 保存按钮：改动本就即时落盘，这里再显式存一次并给确认反馈；
+## 空队也允许存（清空本身就是一种编队选择）。
+func _on_save() -> void:
+	_persist()
+	_show_toast(_t("saved", "编队已保存（%d 人）") % _team.size())
+
+
 # ---------------------------------------------------------------- 确认 / 返回
 
 func _on_confirm() -> void:
@@ -1100,8 +1127,7 @@ func _on_confirm() -> void:
 			% [cost, StaminaSys.current(), StaminaSys.format_next()])
 		return
 
-	_team = SaveDB.save_preset(_preset_id, _team)
-	SaveDB.set_team(_team)
+	_persist()
 	_show_toast(_t("ready", "阵容就绪 · 进入关卡 %d") \
 		% [stage_id, UI.fmt_num(int(_report.get("total_power", 0)))])
 	if auto_transition:

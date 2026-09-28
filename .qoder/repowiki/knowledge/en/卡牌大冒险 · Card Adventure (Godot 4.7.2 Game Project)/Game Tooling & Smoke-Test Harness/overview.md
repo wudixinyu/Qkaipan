@@ -1,0 +1,1 @@
+Godot headless tool scripts that build scenes, generate assets, seed the SQLite config database, and run smoke tests against battle/formation/gacha/main-menu systems.
