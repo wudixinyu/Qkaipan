@@ -396,8 +396,9 @@ func _on_enter_pressed() -> void:
 			% [cost, StaminaSys.current(), StaminaSys.format_next()])
 		return
 
+	# 进关只登记「这一场打哪」，不清 buff：祭坛「祈祷」下发的增益要能撑到
+	# 下一场真正战斗，故其消费放在 battle.gd 结算处（_show_result），不在这里抹掉。
 	BattleCtx.begin_from_stage(_selected, "stage_select")
-	BattleCtx.consume_buff()
 
 	# 提示条顺带报一次本关历史最佳：结算评星写档后，这里能直接看到同步结果
 	var best := _best_stars_of(_selected)

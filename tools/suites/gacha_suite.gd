@@ -83,21 +83,24 @@ func _check_config() -> void:
 	_eq("人物卡地板品质（常驻池）", GameDB.gacha_hero_floor_rarity("standard"), "R")
 	_ok("地板品质里真有人物可出", GameDB.gacha_pool_has_hero("standard", "R"))
 
-	# 单价：券优先，其次是绑定钻石
+	# 单价：券优先 → 绑定钻石 → 金币兜底（三档）
 	var single: Array = GameDB.gacha_cost("standard").get("options", {}).get("single", [])
-	_eq("单抽候选支付方式 2 种", single.size(), 2)
-	if single.size() == 2:
+	_eq("单抽候选支付方式 3 种", single.size(), 3)
+	if single.size() == 3:
 		_eq("单抽首选召唤券", str(single[0].get("kind", "")) + ":" + str(single[0].get("id", "")),
 			"ticket:ticket_basic")
 		_eq("单抽券量", int(single[0].get("amount", 0)), 1)
 		_eq("单抽备选绑定钻石", str(single[1].get("id", "")), "bound_gem")
 		_eq("单抽钻石价", int(single[1].get("amount", 0)), 160)
+		_eq("单抽金币兜底档", str(single[2].get("id", "")), "gold")
+		_eq("单抽金币价", int(single[2].get("amount", 0)), 1600)
 
 	var ten: Array = GameDB.gacha_cost("standard").get("options", {}).get("ten", [])
-	_eq("十连候选支付方式 2 种", ten.size(), 2)
-	if ten.size() == 2:
+	_eq("十连候选支付方式 3 种", ten.size(), 3)
+	if ten.size() == 3:
 		_eq("十连券量", int(ten[0].get("amount", 0)), 10)
 		_eq("十连钻石价", int(ten[1].get("amount", 0)), 1600)
+		_eq("十连金币价", int(ten[2].get("amount", 0)), 16000)
 
 	var friend_single: Array = GameDB.gacha_cost("friend").get("options", {}).get("single", [])
 	_eq("友情池只有一种支付方式", friend_single.size(), 1)

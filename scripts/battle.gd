@@ -88,6 +88,9 @@ var _rewards: Array = []
 var _grade: Dictionary = {}      ## 本场星级评定（{stars, max, prev, best, hits}）
 var _result_open := false
 var _toast_tween: Tween
+## 非战斗（祭坛 / 事件）节点的选项交互：选一次即锁定，按钮置灰
+var _event_done := false
+var _event_buttons: Array = []
 
 
 func _ready() -> void:
@@ -925,6 +928,8 @@ func _show_result() -> void:
 	if _result_open:
 		return
 	_result_open = true
+	# 本场已把祭坛增益吃进伤害公式（core.atk_bonus），结算即消费，不带到下一场。
+	BattleCtx.consume_buff()
 	var win: bool = str(core.winner) == "player"
 	var retreat: bool = str(core.winner) == "retreat"
 	_result_title.text = "战斗失败" if (not win and not retreat) else ("撤退" if retreat else "战斗胜利")
@@ -1187,12 +1192,12 @@ func _setup_non_battle() -> void:
 	_power_rec.text = "无需上阵 · 不消耗体力"
 	_footer.text = "GameDB  |  v%s · 事件节点" % GameDB.version()
 
-	var rows: Array = [str(stage.get("mechanic", ""))]
 	var options: Array = stage.get("options", [])
+	var rows: Array = [str(stage.get("mechanic", ""))]
 	for raw in options:
 		var o: Dictionary = raw
-		var cost := str(o.get("cost", {}))
-		rows.append("· %s%s" % [str(o.get("name", "")), ("（消耗 %s）" % cost) if cost != "{}" else ""])
+		rows.append("· %s%s" % [str(o.get("name", "")),
+			("（消耗 %s）" % _option_cost_text(o.get("cost", {}))) if not (o.get("cost", {}) as Dictionary).is_empty() else ""])
 	_env_label.text = "\n".join(rows)
 
 	_result_title.text = str(stage.get("name", "事件节点"))
@@ -1204,17 +1209,12 @@ func _setup_non_battle() -> void:
 		_result_box.remove_child(c)
 		c.queue_free()
 
-	# 事件节点的奖励同样入账（材料统计口径与战斗结算一致），但只发一次：
-	# 已经领过的节点再进来只复述奖励内容，不再重复发。
+	# 固定掉落（若有）照旧入账一次：已领过的节点再进来只复述，不重复发。
 	var rewards: Array = stage.get("rewards", [])
 	var first_visit := SaveDB.stage_clear_count(stage_id) == 0
 	if first_visit:
 		_grant_rewards()
-	if rewards.is_empty():
-		# 祭坛这类节点本来就没有固定掉落，收益在选择里 —— 别让面板空着
-		_add_reward_line("节点奖励", Color("#BFE3FF"), 24)
-		_add_reward_line("本节点没有固定掉落，收益由你的选择决定", Color(0.86, 0.9, 0.96, 0.7), 20)
-	else:
+	if not rewards.is_empty():
 		_add_reward_line("节点奖励" if first_visit else "节点奖励（已领取）",
 			Color("#BFE3FF"), 24)
 		for raw in rewards:
@@ -1226,7 +1226,81 @@ func _setup_non_battle() -> void:
 				int(r.get("count", 0)), owned)
 		if not first_visit:
 			_add_reward_line("该节点的奖励此前已发放，不再重复计算", Color(0.86, 0.9, 0.96, 0.7), 19)
+
+	# 交互选项：可点击，真实扣费（金币 / 体力）并下发收益（增益 / 道具）。
+	if not options.is_empty():
+		_add_reward_line("你的选择", Color("#BFE3FF"), 24)
+		_event_done = false
+		_event_buttons.clear()
+		for raw in options:
+			_add_event_option_button(raw as Dictionary)
 	_result.visible = true
+
+
+## 单个事件选项按钮：文案带上消耗，点击走 _on_event_option 真实结算
+func _add_event_option_button(o: Dictionary) -> void:
+	var nm := str(o.get("name", o.get("id", "")))
+	var cost: Dictionary = o.get("cost", {})
+	var txt := nm if cost.is_empty() else "%s（%s）" % [nm, _option_cost_text(cost)]
+	var btn := UI.text_button(txt, 22, Color(0.12, 0.10, 0.18, 0.95), UI.GOLD, UI.CREAM, 14)
+	btn.custom_minimum_size = Vector2(480, 52)
+	btn.pressed.connect(_on_event_option.bind(o))
+	_result_box.add_child(btn)
+	_event_buttons.append(btn)
+
+
+## 消耗文案：货币读经济表名字，体力直接标注
+func _option_cost_text(cost: Dictionary) -> String:
+	if cost.has("currency"):
+		var cid := str(cost.get("currency", ""))
+		return "%s ×%s" % [str(GameDB.currency(cid).get("name", cid)), UI.fmt_num(int(cost.get("count", 0)))]
+	if cost.has("stamina"):
+		return "体力 ×%d" % int(cost.get("stamina", 0))
+	return ""
+
+
+## 事件选项结算：先校验并扣费，失败即回退；成功后发放 buff / 道具并锁定所有选项
+func _on_event_option(o: Dictionary) -> void:
+	if _event_done:
+		return
+	if str(o.get("id", "")) == "leave":
+		_leave()
+		return
+	var cost: Dictionary = o.get("cost", {})
+	if cost.has("currency"):
+		var cid := str(cost.get("currency", ""))
+		var need := int(cost.get("count", 0))
+		if need > 0 and not SaveDB.spend_currency(cid, need):
+			_show_toast("%s不足：需要 %d，当前 %d"
+				% [str(GameDB.currency(cid).get("name", cid)), need, SaveDB.balance(cid)])
+			return
+	if cost.has("stamina"):
+		var sn := int(cost.get("stamina", 0))
+		if sn > 0 and not StaminaSys.spend(sn):
+			_show_toast("体力不足：需要 %d 点，当前 %d 点" % [sn, StaminaSys.current()])
+			return
+	var grant: Dictionary = o.get("grant", {})
+	var buff: Dictionary = grant.get("buff", {})
+	var item: Dictionary = grant.get("item", {})
+	var gained := false
+	if not buff.is_empty():
+		BattleCtx.grant_buff(float(buff.get("mult", 1.0)),
+			str(buff.get("name", "")), str(buff.get("desc", "")))
+		_add_reward_line("已获【%s】：%s" % [str(buff.get("name", "祝福")), str(buff.get("desc", ""))],
+			Color("#BFE3FF"), 20)
+		gained = true
+	if not item.is_empty():
+		var iid := str(item.get("id", ""))
+		var owned := SaveDB.add_material(iid, int(item.get("count", 1)))
+		_add_reward_row(str(item.get("icon", "")), str(item.get("name", iid)),
+			int(item.get("count", 1)), owned)
+		gained = true
+	if gained:
+		SaveDB.save_profile()
+		_event_done = true
+		for b in _event_buttons:
+			(b as Button).disabled = true
+		_show_toast("选择已生效")
 
 
 # ---------------------------------------------------------------- Toast

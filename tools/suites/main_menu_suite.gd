@@ -118,8 +118,8 @@ func _check_save() -> void:
 	print("\n· 存档层 SaveDB")
 	var p: Dictionary = SaveDB.profile.get("player", {})
 	_eq("玩家名", str(p.get("name", "")), "云上旅人")
-	_eq("等级", int(p.get("level", 0)), 10)
-	_eq("金币", SaveDB.balance("gold"), 12500)
+	_eq("等级", int(p.get("level", 0)), 1)
+	_eq("金币（新号置 0，靠战斗产出）", SaveDB.balance("gold"), 0)
 	_eq("钻石", SaveDB.balance("gem"), 1280)
 
 	# 新号默认档：不发任何卡（图鉴 / 编队 / 主界面共用这一份事实），
@@ -148,10 +148,13 @@ func _check_save() -> void:
 	_eq("重复发卡为升星", int(again.get("star", 0)), star_first + 1)
 	_eq("重复发卡不增加持卡数", SaveDB.cards().size(), before + 2)
 
+	# 金币消费闭环：新号 0 金币，先注一笔再扣，最后归零回到默认档（不影响后面场景断言）
+	SaveDB.add_currency("gold", 2000)
 	_ok("扣金币成功", SaveDB.spend_currency("gold", 500))
-	_eq("金币扣减正确", SaveDB.balance("gold"), 12000)
+	_eq("金币扣减正确", SaveDB.balance("gold"), 1500)
 	_ok("余额不足时扣款失败", not SaveDB.spend_currency("gold", 999999))
-	SaveDB.add_currency("gold", 500)
+	SaveDB.add_currency("gold", -SaveDB.balance("gold"))
+	_eq("金币归零回默认档", SaveDB.balance("gold"), 0)
 
 	# 清理：把测试发出的卡移出存档，回到默认无卡档。
 	# RealmDB.showcase_lineup() 会优先采用存档里的卡，留着会顶掉展演用的
@@ -468,10 +471,24 @@ func _check_scene() -> void:
 	if ps == null:
 		return
 
+	# 新口径：0 卡时主界面进入空状态（扇形 / 阵容清空 + 引导抽卡）。
+	# 先让存档「有卡」，下面的扇形布局 / 遮挡 / 三围条断言才能在有卡态下校验；
+	# 只发 knight_rock 一张即可打开 _owns_cards 开关，其余两位走展演回落，
+	# 卡面星级与旧展演态一致，不影响这些布局断言。
+	SaveDB.grant_card("knight_rock", false)
+	SaveDB.save_profile()
+
 	_scene = ps.instantiate()
 	_ok("场景根节点为 Control", _scene is Control, str(_scene.get_class()))
 	_tree.root.add_child(_scene)
 	_ok("根节点已挂 main_menu.gd", _scene.get_script() != null)
+
+	# 玩家信息：等级与经验条均按新档（1 级 / 0 经验）如实回写
+	var plabel: Label = _scene.get_node_or_null("%PlayerLevel")
+	_eq("等级标签显示 Lv.1", plabel.text if plabel else "", "Lv.1")
+	var expbar: ProgressBar = _scene.get_node_or_null("%ExpBar")
+	_ok("经验条按存档回写为 0", expbar != null and int(expbar.value) == 0,
+		"value=%s" % (str(expbar.value) if expbar else "null"))
 
 	var fan: CardFan = _scene.get_node_or_null("%CardFan")
 	_ok("CardFan 唯一名可解析", fan != null)
@@ -572,7 +589,7 @@ func _check_scene() -> void:
 		"text=%s" % (nx.text if nx else "null"))
 
 	var gold: Label = _scene.get_node_or_null("%GoldLabel")
-	_eq("金币文本", gold.text if gold else "", "12,500")
+	_eq("金币文本", gold.text if gold else "", "0")
 	var gem: Label = _scene.get_node_or_null("%GemLabel")
 	_eq("钻石文本", gem.text if gem else "", "1,280")
 
@@ -614,8 +631,47 @@ func _check_scene() -> void:
 			_ok("点击卡牌弹出详情", tl2 != null and tl2.text.contains("紫焰少女"),
 				tl2.text.replace("\n", " / ") if tl2 else "null")
 
+	# ---- 空状态：0 卡时扇形清空 + 引导层 + 阵容全空槽 + 战力归 0 ----
+	_check_empty_state(fan, slots)
+
 	# ---- 编队同步：主界面必须反映「解析后的出战编队」，最多铺满上阵上限 ----
 	_check_team_preview(fan, slots, rail)
+
+
+## 空状态：新号 0 卡时，扇形清空并挂引导层、阵容栏全空槽、战力读数归 0；
+## 校验完把卡发回，恢复成「有卡」态供后续编队同步断言继续。
+func _check_empty_state(fan: CardFan, slots: HBoxContainer) -> void:
+	print("\n· 主界面空状态（0 卡引导抽卡）")
+	SaveDB.profile["cards"] = []
+	SaveDB.save_profile()
+	_scene.call("_build_showcase")
+	_scene.call("_build_team")
+
+	_eq("0 卡时扇形清空", fan.cards.size(), 0)
+	var hint: Control = fan.get_node_or_null("EmptyHint")
+	_ok("0 卡时显示引导层", hint != null)
+	if hint != null:
+		var btn: Button = hint.get_node_or_null("EmptyGachaBtn") as Button
+		_ok("引导层含「前往召集」按钮", btn != null)
+		if btn != null:
+			_scene.set("auto_transition", false)
+			var tl: Label = _scene.get_node_or_null("%ToastLabel")
+			btn.pressed.emit()
+			_ok("引导按钮不会报「模块待接入」",
+				tl != null and not tl.text.contains("模块待接入"),
+				tl.text if tl else "null")
+	if slots != null:
+		_eq("0 卡时阵容栏仍铺满上限（全空槽）", slots.get_child_count(), GameDB.team_max())
+	var pw: Label = _scene.get_node_or_null("%TeamPowerLabel")
+	_ok("0 卡时战力读数为 0", pw != null and pw.text.contains("0"), pw.text if pw else "null")
+
+	# 还原「有卡」态（发回一张卡），让 _check_team_preview 继续在扇形上校验编队同步
+	SaveDB.grant_card("knight_rock", false)
+	SaveDB.save_profile()
+	_scene.call("_build_showcase")
+	_scene.call("_build_team")
+	_eq("还原后扇形重新有 3 张", fan.cards.size(), 3)
+	_ok("还原后引导层已移除", fan.get_node_or_null("EmptyHint") == null)
 
 
 ## 主界面与编队页共用 SaveDB.resolved_team：验证空档回落口径一致、

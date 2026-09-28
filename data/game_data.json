@@ -1119,15 +1119,18 @@
     "cost": {
       "single": {
         "ticket": 1,
-        "gem": 160
+        "gem": 160,
+        "gold": 1600
       },
       "ten": {
         "ticket": 10,
-        "gem": 1600
+        "gem": 1600,
+        "gold": 16000
       },
       "pay_order": [
         "ticket",
-        "gem"
+        "gem",
+        "gold"
       ]
     },
     "gem_currency": "bound_gem",
@@ -2444,11 +2447,11 @@
     ],
     "player": {
       "name": "云上旅人",
-      "level": 10,
-      "exp": 320,
+      "level": 1,
+      "exp": 0,
       "exp_max": 800,
-      "gold": 12500,
-      "gem": 1280,
+      "gold": 0,
+      "gem": 0,
       "stamina": 52
     },
     "top_right_entries": [

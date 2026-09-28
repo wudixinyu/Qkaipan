@@ -403,7 +403,7 @@ corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
-[node name="StageSelect" type="Control" unique_id=1750472245]
+[node name="StageSelect" type="Control" unique_id=1859220002]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
@@ -411,7 +411,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_jkdq6")
 
-[node name="Background" type="TextureRect" parent="." unique_id=84677924]
+[node name="Background" type="TextureRect" parent="." unique_id=1683111420]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -420,20 +420,20 @@ texture = ExtResource("2_j22uw")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="WarmTint" type="ColorRect" parent="." unique_id=1946982818]
+[node name="WarmTint" type="ColorRect" parent="." unique_id=1416034698]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0.12, 0.07, 0.2, 0.08)
 
-[node name="Hud" type="Control" parent="." unique_id=1473235688]
+[node name="Hud" type="Control" parent="." unique_id=661961730]
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="PlayerPlate" type="Control" parent="Hud" unique_id=701378679]
+[node name="PlayerPlate" type="Control" parent="Hud" unique_id=2075225634]
 custom_minimum_size = Vector2(500, 152)
 anchors_preset = 0
 offset_left = 26.0
@@ -441,7 +441,7 @@ offset_top = 18.0
 offset_right = 526.0
 offset_bottom = 170.0
 
-[node name="@Panel@3" type="Panel" parent="Hud/PlayerPlate" unique_id=137289045]
+[node name="@Panel@3" type="Panel" parent="Hud/PlayerPlate" unique_id=1368078380]
 custom_minimum_size = Vector2(500, 142)
 layout_mode = 0
 offset_top = 10.0
@@ -449,7 +449,7 @@ offset_right = 500.0
 offset_bottom = 152.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wt7i0")
 
-[node name="@Panel@4" type="Panel" parent="Hud/PlayerPlate" unique_id=883491000]
+[node name="@Panel@4" type="Panel" parent="Hud/PlayerPlate" unique_id=1391718134]
 custom_minimum_size = Vector2(106, 106)
 layout_mode = 0
 offset_left = 16.0
@@ -458,7 +458,7 @@ offset_right = 122.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hlh6r")
 
-[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=743193258]
+[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=145848202]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(92, 92)
 layout_mode = 0
@@ -471,7 +471,7 @@ texture = ExtResource("3_2usko")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=2089739496]
+[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=1922745019]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 40)
 layout_mode = 0
@@ -486,7 +486,7 @@ theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 30
 text = "云上旅人"
 
-[node name="@Panel@5" type="Panel" parent="Hud/PlayerPlate" unique_id=524932669]
+[node name="@Panel@5" type="Panel" parent="Hud/PlayerPlate" unique_id=1510209977]
 custom_minimum_size = Vector2(78, 28)
 layout_mode = 0
 offset_left = 136.0
@@ -495,7 +495,7 @@ offset_right = 214.0
 offset_bottom = 100.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pha4k")
 
-[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@5" unique_id=1048119136]
+[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@5" unique_id=1889517117]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -503,11 +503,11 @@ anchor_bottom = 1.0
 theme_override_colors/font_color = Color(0.16470589, 0.12156863, 0.09019608, 1)
 theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 20
-text = "Lv.10"
+text = "Lv.1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=2030677755]
+[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=1351825283]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(152, 16)
 layout_mode = 0
@@ -518,10 +518,9 @@ offset_bottom = 94.0
 theme_override_styles/background = SubResource("StyleBoxFlat_owofi")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ak7lf")
 max_value = 800.0
-value = 320.0
 show_percentage = false
 
-[node name="@TextureRect@6" type="TextureRect" parent="Hud/PlayerPlate" unique_id=1430560113]
+[node name="@TextureRect@6" type="TextureRect" parent="Hud/PlayerPlate" unique_id=617810696]
 modulate = Color(1, 0.7882353, 0.2901961, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -534,7 +533,7 @@ texture = ExtResource("5_3rajb")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate" unique_id=545336198]
+[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate" unique_id=1551655987]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 0
@@ -547,9 +546,9 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 23
-text = "12,500"
+text = "0"
 
-[node name="@TextureRect@7" type="TextureRect" parent="Hud/PlayerPlate" unique_id=2011546949]
+[node name="@TextureRect@7" type="TextureRect" parent="Hud/PlayerPlate" unique_id=2069522562]
 modulate = Color(0.48235294, 0.8784314, 1, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -562,7 +561,7 @@ texture = ExtResource("6_l127o")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GemLabel" type="Label" parent="Hud/PlayerPlate" unique_id=1677256098]
+[node name="GemLabel" type="Label" parent="Hud/PlayerPlate" unique_id=308066952]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 0
@@ -577,7 +576,7 @@ theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 23
 text = "1,280"
 
-[node name="StaminaBadge" type="Control" parent="Hud" unique_id=919159479]
+[node name="StaminaBadge" type="Control" parent="Hud" unique_id=1488939670]
 custom_minimum_size = Vector2(268, 48)
 anchors_preset = 0
 offset_left = 26.0
@@ -585,14 +584,14 @@ offset_top = 182.0
 offset_right = 294.0
 offset_bottom = 230.0
 
-[node name="@Panel@8" type="Panel" parent="Hud/StaminaBadge" unique_id=1411440587]
+[node name="@Panel@8" type="Panel" parent="Hud/StaminaBadge" unique_id=994788788]
 custom_minimum_size = Vector2(268, 48)
 layout_mode = 0
 offset_right = 268.0
 offset_bottom = 48.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_olgpm")
 
-[node name="@TextureRect@9" type="TextureRect" parent="Hud/StaminaBadge" unique_id=1745126930]
+[node name="@TextureRect@9" type="TextureRect" parent="Hud/StaminaBadge" unique_id=755119428]
 modulate = Color(0.48235294, 0.8784314, 0.65882355, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -605,7 +604,7 @@ texture = ExtResource("7_wxryi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="StaminaValue" type="Label" parent="Hud/StaminaBadge" unique_id=265204046]
+[node name="StaminaValue" type="Label" parent="Hud/StaminaBadge" unique_id=1074615789]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 28)
 layout_mode = 0
@@ -620,7 +619,7 @@ theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 22
 text = "--/--"
 
-[node name="StaminaNext" type="Label" parent="Hud/StaminaBadge" unique_id=1028921309]
+[node name="StaminaNext" type="Label" parent="Hud/StaminaBadge" unique_id=802905887]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 0
@@ -634,7 +633,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_fyqsd")
 theme_override_font_sizes/font_size = 18
 
-[node name="TitleGroup" type="Control" parent="Hud" unique_id=1508818848]
+[node name="TitleGroup" type="Control" parent="Hud" unique_id=352032642]
 custom_minimum_size = Vector2(700, 104)
 anchors_preset = 0
 anchor_left = 0.5
@@ -645,7 +644,7 @@ offset_right = 350.0
 offset_bottom = 122.0
 mouse_filter = 2
 
-[node name="@Label@10" type="Label" parent="Hud/TitleGroup" unique_id=247866033]
+[node name="@Label@10" type="Label" parent="Hud/TitleGroup" unique_id=713171995]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -660,7 +659,7 @@ text = "冒险关卡选择"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Hud/TitleGroup" unique_id=1289863526]
+[node name="TitleLabel" type="Label" parent="Hud/TitleGroup" unique_id=459223521]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -674,7 +673,7 @@ text = "冒险关卡选择"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TopRight" type="Control" parent="Hud" unique_id=1093546463]
+[node name="TopRight" type="Control" parent="Hud" unique_id=421592080]
 custom_minimum_size = Vector2(180, 108)
 anchors_preset = 0
 anchor_left = 1.0
@@ -684,13 +683,13 @@ offset_top = 20.0
 offset_right = -26.0
 offset_bottom = 128.0
 
-[node name="Entry_settings" type="Control" parent="Hud/TopRight" unique_id=1907544459]
+[node name="Entry_settings" type="Control" parent="Hud/TopRight" unique_id=762253088]
 custom_minimum_size = Vector2(82, 108)
 anchors_preset = 0
 offset_right = 82.0
 offset_bottom = 108.0
 
-[node name="Btn_settings" type="Button" parent="Hud/TopRight/Entry_settings" unique_id=1844520188]
+[node name="Btn_settings" type="Button" parent="Hud/TopRight/Entry_settings" unique_id=1800603467]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 0
 offset_right = 82.0
@@ -701,7 +700,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_73yuf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pkn7t")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y5f5n")
 
-[node name="@TextureRect@12" type="TextureRect" parent="Hud/TopRight/Entry_settings/Btn_settings" unique_id=1941049536]
+[node name="@TextureRect@12" type="TextureRect" parent="Hud/TopRight/Entry_settings/Btn_settings" unique_id=1705296456]
 custom_minimum_size = Vector2(41, 41)
 layout_mode = 0
 anchor_right = 1.0
@@ -711,7 +710,7 @@ texture = ExtResource("8_crcap")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@13" type="Label" parent="Hud/TopRight/Entry_settings" unique_id=1177344435]
+[node name="@Label@13" type="Label" parent="Hud/TopRight/Entry_settings" unique_id=1862483750]
 custom_minimum_size = Vector2(82, 26)
 layout_mode = 0
 offset_top = 88.0
@@ -725,14 +724,14 @@ theme_override_font_sizes/font_size = 20
 text = "设置"
 horizontal_alignment = 1
 
-[node name="Entry_mail" type="Control" parent="Hud/TopRight" unique_id=1530329391]
+[node name="Entry_mail" type="Control" parent="Hud/TopRight" unique_id=1848704777]
 custom_minimum_size = Vector2(82, 108)
 anchors_preset = 0
 offset_left = 98.0
 offset_right = 180.0
 offset_bottom = 108.0
 
-[node name="Btn_mail" type="Button" parent="Hud/TopRight/Entry_mail" unique_id=336868060]
+[node name="Btn_mail" type="Button" parent="Hud/TopRight/Entry_mail" unique_id=1357575711]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 0
 offset_right = 82.0
@@ -743,7 +742,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_30b53")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g0s3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_i17ve")
 
-[node name="@TextureRect@14" type="TextureRect" parent="Hud/TopRight/Entry_mail/Btn_mail" unique_id=477074566]
+[node name="@TextureRect@14" type="TextureRect" parent="Hud/TopRight/Entry_mail/Btn_mail" unique_id=1349074223]
 custom_minimum_size = Vector2(41, 41)
 layout_mode = 0
 anchor_right = 1.0
@@ -753,7 +752,7 @@ texture = ExtResource("9_7hj7s")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@15" type="Label" parent="Hud/TopRight/Entry_mail" unique_id=1058356813]
+[node name="@Label@15" type="Label" parent="Hud/TopRight/Entry_mail" unique_id=534207125]
 custom_minimum_size = Vector2(82, 26)
 layout_mode = 0
 offset_top = 88.0
@@ -767,7 +766,7 @@ theme_override_font_sizes/font_size = 20
 text = "邮件"
 horizontal_alignment = 1
 
-[node name="PromoEntry" type="Control" parent="Hud" unique_id=1175345652]
+[node name="PromoEntry" type="Control" parent="Hud" unique_id=86780519]
 custom_minimum_size = Vector2(96, 124)
 anchors_preset = 0
 anchor_left = 1.0
@@ -777,7 +776,7 @@ offset_top = 158.0
 offset_right = -26.0
 offset_bottom = 282.0
 
-[node name="@TextureRect@16" type="TextureRect" parent="Hud/PromoEntry" unique_id=2004071479]
+[node name="@TextureRect@16" type="TextureRect" parent="Hud/PromoEntry" unique_id=1220046003]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
 offset_left = -16.0
@@ -788,7 +787,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_kouq7")
 expand_mode = 1
 
-[node name="Btn_promo" type="Button" parent="Hud/PromoEntry" unique_id=1621026283]
+[node name="Btn_promo" type="Button" parent="Hud/PromoEntry" unique_id=546350675]
 custom_minimum_size = Vector2(88, 88)
 layout_mode = 0
 offset_left = 4.0
@@ -801,7 +800,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_6lin0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4dqx8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_kya25")
 
-[node name="@TextureRect@17" type="TextureRect" parent="Hud/PromoEntry/Btn_promo" unique_id=142872670]
+[node name="@TextureRect@17" type="TextureRect" parent="Hud/PromoEntry/Btn_promo" unique_id=232176197]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 0
 anchor_right = 1.0
@@ -811,7 +810,7 @@ texture = ExtResource("10_5rsa8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@18" type="Label" parent="Hud/PromoEntry" unique_id=220999517]
+[node name="@Label@18" type="Label" parent="Hud/PromoEntry" unique_id=1444362747]
 custom_minimum_size = Vector2(96, 26)
 layout_mode = 0
 offset_top = 92.0
@@ -825,34 +824,34 @@ theme_override_font_sizes/font_size = 20
 text = "活动"
 horizontal_alignment = 1
 
-[node name="MapLayer" type="Control" parent="Hud" unique_id=333979257]
+[node name="MapLayer" type="Control" parent="Hud" unique_id=70104758]
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="DecorLayer" type="Control" parent="Hud/MapLayer" unique_id=969884253]
+[node name="DecorLayer" type="Control" parent="Hud/MapLayer" unique_id=1531056697]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="GuideLayer" type="Control" parent="Hud/MapLayer" unique_id=260687357]
+[node name="GuideLayer" type="Control" parent="Hud/MapLayer" unique_id=1410843672]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="NodeLayer" type="Control" parent="Hud/MapLayer" unique_id=1950382789]
+[node name="NodeLayer" type="Control" parent="Hud/MapLayer" unique_id=1086343004]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Toast" type="Panel" parent="Hud" unique_id=1181121688]
+[node name="Toast" type="Panel" parent="Hud" unique_id=1891029328]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(344, 112)
@@ -865,7 +864,7 @@ offset_right = 370.0
 offset_bottom = -300.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aqm8b")
 
-[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=2101533865]
+[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=190376395]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -881,7 +880,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="TeamBadge" type="Panel" parent="Hud" unique_id=1433610994]
+[node name="TeamBadge" type="Panel" parent="Hud" unique_id=1324325858]
 custom_minimum_size = Vector2(204, 40)
 layout_mode = 0
 anchor_left = 0.5
@@ -894,7 +893,7 @@ offset_right = 102.0
 offset_bottom = -275.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_efic5")
 
-[node name="TeamLabel" type="Label" parent="Hud/TeamBadge" unique_id=506362433]
+[node name="TeamLabel" type="Label" parent="Hud/TeamBadge" unique_id=856991785]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -908,7 +907,7 @@ text = "3x3 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TeamPanel" type="Panel" parent="Hud" unique_id=578443262]
+[node name="TeamPanel" type="Panel" parent="Hud" unique_id=362813389]
 custom_minimum_size = Vector2(290, 97)
 layout_mode = 0
 anchor_left = 0.5
@@ -921,7 +920,7 @@ offset_right = 145.0
 offset_bottom = -188.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_84oxx")
 
-[node name="TeamSlots" type="HBoxContainer" parent="Hud/TeamPanel" unique_id=1502864113]
+[node name="TeamSlots" type="HBoxContainer" parent="Hud/TeamPanel" unique_id=646147320]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 72)
 layout_mode = 0
@@ -931,7 +930,7 @@ offset_right = 275.0
 offset_bottom = 84.0
 theme_override_constants/separation = 22
 
-[node name="EnterButton" type="Button" parent="Hud" unique_id=1366942212]
+[node name="EnterButton" type="Button" parent="Hud" unique_id=2126124424]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 130)
 layout_mode = 0
@@ -956,7 +955,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_fdt0v")
 theme_override_styles/focus = SubResource("StyleBoxFlat_3jnp3")
 text = "进入关卡"
 
-[node name="EnterSub" type="Label" parent="Hud/EnterButton" unique_id=1460981417]
+[node name="EnterSub" type="Label" parent="Hud/EnterButton" unique_id=1034146019]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 26)
 layout_mode = 0
@@ -970,7 +969,7 @@ text = "START LEVEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="Button" parent="Hud" unique_id=1553192368]
+[node name="BackButton" type="Button" parent="Hud" unique_id=345372501]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 56)
 layout_mode = 0
@@ -992,7 +991,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_lt3oq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_b21hm")
 text = "返回"
 
-[node name="FooterInfo" type="Label" parent="Hud" unique_id=1155142682]
+[node name="FooterInfo" type="Label" parent="Hud" unique_id=1182396729]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 30)
 layout_mode = 0

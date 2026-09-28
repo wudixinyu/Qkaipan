@@ -439,6 +439,10 @@ func _cost_options(pool_id: String, spec: Variant, key: String) -> Array:
 	if gem > 0:
 		var cid := gacha_gem_currency()
 		out.append(_cost_row("currency", cid, gem, currency(cid)))
+	# 金币兜底档：券 / 钻石都不够时才轮到它（pay_order 里排最后）
+	var gold := int(s.get("gold", defaults.get("gold", 0)))
+	if gold > 0:
+		out.append(_cost_row("currency", "gold", gold, currency("gold")))
 	return out
 
 

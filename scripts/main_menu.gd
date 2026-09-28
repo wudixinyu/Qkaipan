@@ -28,9 +28,12 @@ var auto_transition := true
 @onready var _player_name: Label = %PlayerName
 @onready var _player_level: Label = %PlayerLevel
 @onready var _avatar: TextureRect = %AvatarTex
+@onready var _exp_bar: ProgressBar = %ExpBar
 
 var _toast_tween: Tween
 var _clock: Timer
+## 空档引导层（0 卡时才创建并挂到 CardFan 下，有卡后移除）
+var _empty_hint: Control = null
 
 
 func _ready() -> void:
@@ -50,6 +53,11 @@ func _bind_player() -> void:
 	var p: Dictionary = SaveDB.profile.get("player", {})
 	_player_name.text = str(p.get("name", "云上旅人"))
 	_player_level.text = "Lv.%d" % int(p.get("level", 1))
+	# 经验条是场景里烘焙的，运行时以存档为准回写，避免「等级读存档、经验条读配置」两张皮
+	var exp_max := maxi(1, int(p.get("exp_max", 800)))
+	if _exp_bar != null:
+		_exp_bar.max_value = exp_max
+		_exp_bar.value = clampi(int(p.get("exp", 0)), 0, exp_max)
 
 	var av := str(p.get("avatar", ""))
 	if av != "" and ResourceLoader.exists(av):
@@ -67,6 +75,11 @@ func _build_showcase() -> void:
 		"rarities": GameDB.rarity_table(),
 		"elements": GameDB.element_table(),
 	}, _card_box(), _fan_cfg(items.size()))
+	# 0 卡（新号）时扇形清空，改挂一层「去抽卡」引导；有卡则把这层移除
+	if items.is_empty():
+		_show_empty_hint()
+	else:
+		_hide_empty_hint()
 
 
 ## 底部阵容预览条：优先显示玩家真实上阵（RealmDB.roster 已含羁绊），
@@ -91,6 +104,9 @@ func _build_team() -> void:
 ## 返回的是**未含羁绊的基础 unit**：大卡上显示的三围与编队页扇形
 ## 卡面同一口径（都取 stats_of 基础值）；羁绊只影响下面的「队伍总战力」读数。
 func _lineup_units() -> Array:
+	# 新号一张卡都没有时不再回落到展演种子队 —— 主界面如实显示空状态，引导去抽卡
+	if not _owns_cards():
+		return []
 	var real: Array = RealmDB.roster_of(SaveDB.resolved_team())
 	if not real.is_empty():
 		return real
@@ -100,6 +116,8 @@ func _lineup_units() -> Array:
 ## 队伍总战力：与编队页头部完全同一算法（formation_report 的 total_power，含羁绊）。
 ## 数据源同 _lineup_units（SaveDB.resolved_team），保证两处读数一致。
 func _lineup_power() -> int:
+	if not _owns_cards():
+		return 0
 	return int(RealmDB.formation_report(SaveDB.resolved_team()).get("total_power", 0))
 
 
@@ -107,6 +125,56 @@ func _lineup_power() -> int:
 ## （与编队页人数口径一致）。这样「大卡」与「小头像」指向的永远是同一批英雄。
 func _preview_units() -> Array:
 	return _lineup_units().slice(0, GameDB.team_max())
+
+
+## 是否已拥有任意英雄卡：主界面「大卡扇形 / 出战阵容 / 战力」三项共用的开关。
+## 新号默认 0 卡 → 三处一起进入空状态，不再拿展演种子队冒充已拥有。
+func _owns_cards() -> bool:
+	return not SaveDB.cards().is_empty()
+
+
+## 空档引导层：0 卡时挂在 CardFan 下（configure([]) 只清 CardView，不会误删它），
+## 给一句提示 + 一个直达「召集」抽卡的按钮；一旦有卡，_hide_empty_hint 整层移除。
+func _show_empty_hint() -> void:
+	if _empty_hint != null and is_instance_valid(_empty_hint):
+		return
+	var cx := float(GameDB.menu().get("fan", {}).get("center_x_offset", 0.0))
+	var w := 600.0
+	var h := 250.0
+	var holder := UI.panel(Color(0.08, 0.07, 0.12, 0.66), 26, 2, Color(1.0, 0.85, 0.45, 0.45), 12)
+	holder.name = "EmptyHint"
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_fan.add_child(holder)
+	UI.place(holder, BASE.x * 0.5 + cx - w * 0.5, BASE.y * 0.5 - h * 0.5, w, h)
+	_empty_hint = holder
+
+	var title := UI.label("还没有英雄卡牌", 44, UI.CREAM, 5)
+	UI.place(title, 0, 40, w, 64)
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	holder.add_child(title)
+
+	var sub := UI.label("前往「召集」抽卡 · 十连必得 1 张人物卡", 24, Color(1, 1, 1, 0.78), 3)
+	UI.place(sub, 0, 108, w, 40)
+	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	holder.add_child(sub)
+
+	var btn := UI.text_button("前往召集 · 十连抽卡", 28, UI.GOLD, UI.GOLD_DEEP, UI.INK, 22)
+	btn.name = "EmptyGachaBtn"
+	btn.mouse_filter = Control.MOUSE_FILTER_STOP
+	var bw := 380.0
+	UI.place(btn, (w - bw) * 0.5, 168, bw, 62)
+	btn.pressed.connect(func(): _on_system_pressed("gacha"))
+	holder.add_child(btn)
+
+
+## 移除引导层：先 remove_child 再 queue_free，保证同一帧重建时子节点数立即归位
+func _hide_empty_hint() -> void:
+	if _empty_hint != null and is_instance_valid(_empty_hint):
+		var parent := _empty_hint.get_parent()
+		if parent != null:
+			parent.remove_child(_empty_hint)
+		_empty_hint.queue_free()
+	_empty_hint = null
 
 
 ## 按实际卡数（1~上阵上限）现算一组左右对称的扇形排布：卡数随编队变化时扇形仍居中、

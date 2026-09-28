@@ -31,6 +31,14 @@ func begin_with_buff(p_stage_id: int, mult: float, name_text: String, desc: Stri
 	buff_desc = desc
 
 
+## 祭坛「祈祷」这类非战斗节点直接下一场增益：只写 buff 字段，不改当前 stage_id。
+## 增益在下一场真正战斗的结算处（battle.gd _show_result）被消费，故能跨场景存活。
+func grant_buff(mult: float, name_text: String, desc: String) -> void:
+	atk_bonus = maxf(1.0, mult)
+	buff_name = name_text
+	buff_desc = desc
+
+
 ## 战斗结束后清掉临时增益，避免带到下一场
 func consume_buff() -> void:
 	atk_bonus = 1.0
