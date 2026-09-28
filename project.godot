@@ -1,0 +1,49 @@
+; Engine configuration file.
+; 卡牌大冒险 —— 2.5D 策略卡牌放置 RPG
+
+config_version=5
+
+[application]
+
+config/name="卡牌大冒险"
+config/description="2.5D Q版策略卡牌放置 RPG · 卡牌收集养成 + 阵型位面战术"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="res://icon.svg"
+run/main_scene="res://scenes/main_menu.tscn"
+
+[autoload]
+
+GameDB="*res://scripts/game_db.gd"
+SaveDB="*res://scripts/save_db.gd"
+RealmDB="*res://scripts/realm_db.gd"
+StaminaSys="*res://scripts/stamina.gd"
+GachaSys="*res://scripts/gacha_sys.gd"
+BattleCtx="*res://scripts/battle_ctx.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom_font="res://assets/fonts/ui_font.tres"
+
+[importer_defaults]
+
+svg={
+"svg/scale": 3.0
+}
+texture={
+"mipmaps/generate": true
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"

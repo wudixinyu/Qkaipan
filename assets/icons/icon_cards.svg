@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><!-- 卡牌：后面一张描边牌露出左上一条 L，前面一张实心牌压在上面 -->
+  <rect x="3.2" y="2.4" width="10.4" height="14.6" rx="1.8" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+  <rect x="10.4" y="7" width="10.4" height="14.6" rx="1.8" fill="#ffffff"/>
+</svg>

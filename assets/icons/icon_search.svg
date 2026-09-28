@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 搜索：镜片 + 手柄，纯描边，颜色由节点 modulate 决定 -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round">
+    <circle cx="20.5" cy="20.5" r="12.5"/>
+    <path d="M30.2 30.2 L41 41"/>
+  </g>
+</svg>

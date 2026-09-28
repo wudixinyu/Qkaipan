@@ -1,0 +1,3468 @@
+{
+  "version": "0.1.0",
+  "meta": {
+    "title": "卡牌大冒险",
+    "subtitle": "PROJECT: CARD ADVENTURE",
+    "genre": "2.5D 策略卡牌放置 RPG",
+    "art_style": "Q版手绘潮玩风格 + 正等轴测 2.5D",
+    "viewport": {
+      "base_width": 1920,
+      "base_height": 1080,
+      "stretch": "canvas_items",
+      "aspect": "expand"
+    },
+    "iso_tilt_deg": [
+      30,
+      45
+    ]
+  },
+  "economy": {
+    "currencies": {
+      "gem": {
+        "name": "彩虹钻石",
+        "kind": "hard",
+        "icon": "res://assets/icons/icon_gem.svg",
+        "color": "#7BE0FF"
+      },
+      "gold": {
+        "name": "金币",
+        "kind": "soft",
+        "icon": "res://assets/icons/icon_coin.svg",
+        "color": "#FFC94A"
+      },
+      "bound_gem": {
+        "name": "绑定钻石",
+        "kind": "soft",
+        "icon": "res://assets/icons/icon_gem.svg",
+        "color": "#9AA7FF"
+      },
+      "arena_token": {
+        "name": "竞技场代币",
+        "kind": "soft",
+        "icon": "res://assets/icons/icon_arena.svg",
+        "color": "#FF9E6B"
+      },
+      "guild_token": {
+        "name": "公会代币",
+        "kind": "soft",
+        "icon": "res://assets/icons/icon_gift.svg",
+        "color": "#8FD98F"
+      },
+      "wish_crystal": {
+        "name": "心愿水晶",
+        "kind": "soft",
+        "icon": "res://assets/icons/icon_gem.svg",
+        "color": "#C08BFF"
+      }
+    }
+  },
+  "elements": {
+    "order": [
+      "water",
+      "fire",
+      "wind",
+      "earth",
+      "light",
+      "dark"
+    ],
+    "table": {
+      "water": {
+        "name": "水",
+        "strong_against": [
+          "fire"
+        ],
+        "color": "#4FC3F7",
+        "icon": "res://assets/icons/icon_water.svg"
+      },
+      "fire": {
+        "name": "火",
+        "strong_against": [
+          "wind"
+        ],
+        "color": "#FF7043",
+        "icon": "res://assets/icons/icon_fire.svg"
+      },
+      "wind": {
+        "name": "风",
+        "strong_against": [
+          "earth"
+        ],
+        "color": "#66BB6A",
+        "icon": "res://assets/icons/icon_wind.svg"
+      },
+      "earth": {
+        "name": "地",
+        "strong_against": [
+          "water"
+        ],
+        "color": "#A1887F",
+        "icon": "res://assets/icons/icon_earth.svg"
+      },
+      "light": {
+        "name": "光",
+        "strong_against": [
+          "dark"
+        ],
+        "color": "#FFD54F",
+        "icon": "res://assets/icons/icon_light.svg"
+      },
+      "dark": {
+        "name": "暗",
+        "strong_against": [
+          "light"
+        ],
+        "color": "#7E57C2",
+        "icon": "res://assets/icons/icon_dark.svg"
+      }
+    }
+  },
+  "combat": {
+    "counter_damage_mult": 1.25,
+    "counter_crit_bonus": 0.1,
+    "base_crit_damage": 1.5,
+    "damage_variance": 0.05,
+    "def_reduction_k": 300,
+    "action_mode": "atb_semi_auto",
+    "atb": {
+      "gauge_max": 1000,
+      "base_speed_ref": 100,
+      "ult_energy_max": 100,
+      "ult_energy_per_hit": 12,
+      "ult_energy_per_taken": 8
+    },
+    "board": {
+      "columns": 3,
+      "rows": 3,
+      "row_names": {
+        "front": "前排",
+        "middle": "中排",
+        "back": "后排"
+      },
+      "row_slots": {
+        "front": [
+          1,
+          2,
+          3
+        ],
+        "middle": [
+          4,
+          5,
+          6
+        ],
+        "back": [
+          7,
+          8,
+          9
+        ]
+      },
+      "row_role_hint": {
+        "front": "承受伤害 / 嘲讽控制",
+        "middle": "物理魔法输出 / 群攻",
+        "back": "治疗 / 辅助增益 / 刺客突袭"
+      },
+      "slot_to_cell": {
+        "enemy": {
+          "7": [
+            0,
+            0
+          ],
+          "8": [
+            1,
+            0
+          ],
+          "9": [
+            2,
+            0
+          ],
+          "4": [
+            0,
+            1
+          ],
+          "5": [
+            1,
+            1
+          ],
+          "6": [
+            2,
+            1
+          ],
+          "1": [
+            0,
+            2
+          ],
+          "2": [
+            1,
+            2
+          ],
+          "3": [
+            2,
+            2
+          ]
+        },
+        "player": {
+          "1": [
+            2,
+            3
+          ],
+          "2": [
+            1,
+            3
+          ],
+          "3": [
+            0,
+            3
+          ],
+          "4": [
+            2,
+            4
+          ],
+          "5": [
+            1,
+            4
+          ],
+          "6": [
+            0,
+            4
+          ],
+          "7": [
+            2,
+            5
+          ],
+          "8": [
+            1,
+            5
+          ],
+          "9": [
+            0,
+            5
+          ]
+        }
+      },
+      "cell_px": {
+        "w": 210,
+        "h": 116,
+        "gap_x": 12,
+        "gap_y": 96
+      },
+      "iso": {
+        "x_step": [
+          1.0,
+          0.5
+        ],
+        "y_step": [
+          -1.0,
+          0.5
+        ]
+      }
+    },
+    "battle": {
+      "layout_note": "战场坐标同样按 1920x1080 视口像素。格子位置 = origin + col_step*(col-1) + 该侧的 depth_step*相对排数，相对排数：两侧都以前排为 0、中排 1、后排 2。敌方 depth_step 朝左上、我方朝左下，于是两块棋盘各自往后收窄，合起来是一片菱形场地，两侧前排在中线附近正对。",
+      "col_step": [
+        220,
+        0
+      ],
+      "row_step": [
+        -80,
+        -132
+      ],
+      "player_row_step": [
+        -80,
+        132
+      ],
+      "step_note": "row_step 与 player_row_step 的 x 相同、y 相反：后排一律往左收，纵深方向各自朝远离中线的方向走。",
+      "enemy_origin": [
+        880,
+        552
+      ],
+      "player_origin": [
+        880,
+        724
+      ],
+      "origin_note": "origin = 该侧前排中间格（slot 2 / slot 8）的地面锚点。竖向占用实测：敌方后排脚下 276、我方后排脚下 984，可视范围 116..984（立绘 112~132 高、名牌挂在头顶上方 42px），刚好让开顶部信息条（0-108）和底部行动顺序条（996+）。",
+      "anchor_note": "格子锚点 = 单位脚下的地面点，立绘以该点向上生长；名牌与血条挂在锚点下方",
+      "token": {
+        "w": 156,
+        "px_h": 140,
+        "monster_h": 120,
+        "block_h": 42,
+        "block_w": 116
+      },
+      "block_layer_note": "名牌/血条不挂在立绘下方而是挂在**头顶上方**，并单独放 %PlateLayer 盖在所有立绘之上：一是 2.5D 棋盘上后排单位的血条必然会被前一排立绘压住，掐到独立图层才永远读得到；二是挂在脚下会正好落进前一排的脑袋上（排间距 132 < 立绘 112 + 名牌 42），挂头顶就落在空处。",
+      "shield_hint": "护盾条绘制在血条之上，用浅蓝描边区分",
+      "max_actions": 400,
+      "overtime_note": "超过 max_actions 仍未分胜负，按双方剩余血量百分比裁定（高者胜）",
+      "screen_rect": [
+        400,
+        110,
+        1344,
+        992
+      ],
+      "screen_rect_note": "战场可视区，左右两侧留给队伍面板与战报面板，冒烟测试按它断言单位不出框"
+    }
+  },
+  "roles": {
+    "tank": {
+      "name": "重装",
+      "icon": "res://assets/icons/icon_def.svg",
+      "prefer_rows": [
+        "front"
+      ],
+      "desc": "承受伤害、嘲讽控制",
+      "class": "front"
+    },
+    "warrior": {
+      "name": "战士",
+      "icon": "res://assets/icons/icon_atk.svg",
+      "prefer_rows": [
+        "front",
+        "middle"
+      ],
+      "desc": "近战物理输出",
+      "class": "front"
+    },
+    "mage": {
+      "name": "法师",
+      "icon": "res://assets/icons/icon_fire.svg",
+      "prefer_rows": [
+        "middle"
+      ],
+      "desc": "魔法群攻输出",
+      "class": "dps"
+    },
+    "archer": {
+      "name": "游侠",
+      "icon": "res://assets/icons/icon_wind.svg",
+      "prefer_rows": [
+        "middle",
+        "back"
+      ],
+      "desc": "远程物理输出",
+      "class": "agile"
+    },
+    "assassin": {
+      "name": "刺客",
+      "icon": "res://assets/icons/icon_dark.svg",
+      "prefer_rows": [
+        "back"
+      ],
+      "desc": "突袭后排脆皮",
+      "class": "agile"
+    },
+    "healer": {
+      "name": "牧师",
+      "icon": "res://assets/icons/icon_light.svg",
+      "prefer_rows": [
+        "back"
+      ],
+      "desc": "治疗与驱散",
+      "class": "support"
+    },
+    "support": {
+      "name": "辅助",
+      "icon": "res://assets/icons/icon_star.svg",
+      "prefer_rows": [
+        "back"
+      ],
+      "desc": "增益与控制",
+      "class": "support"
+    }
+  },
+  "rarities": {
+    "order": [
+      "R",
+      "SR",
+      "SSR",
+      "UR"
+    ],
+    "table": {
+      "R": {
+        "name": "普通",
+        "material": "matte_paper",
+        "material_desc": "哑光纸质质感卡框",
+        "color": "#8D6E63",
+        "glow": "#8D6E63",
+        "star_max": 3,
+        "star_default": 1,
+        "level_cap": 20,
+        "bed_tint": "#3F3028",
+        "frame": "res://assets/art/frames/frame_r.png",
+        "inner_rect": [
+          0.05,
+          0.032,
+          0.951,
+          0.967
+        ],
+        "frame_glow": false
+      },
+      "SR": {
+        "name": "稀有",
+        "material": "glossy_acrylic",
+        "material_desc": "亮面亚克力质感卡框",
+        "color": "#4DD0E1",
+        "glow": "#4DD0E1",
+        "star_max": 3,
+        "star_default": 2,
+        "level_cap": 30,
+        "bed_tint": "#123A46",
+        "frame": "res://assets/art/frames/frame_sr.png",
+        "inner_rect": [
+          0.093,
+          0.064,
+          0.904,
+          0.932
+        ],
+        "frame_glow": true
+      },
+      "SSR": {
+        "name": "史诗",
+        "material": "holo_foil_emboss",
+        "material_desc": "炫彩烫金 / 流光浮雕卡框",
+        "color": "#C08BFF",
+        "glow": "#B06BE8",
+        "star_max": 4,
+        "star_default": 3,
+        "level_cap": 40,
+        "bed_tint": "#2E1B44",
+        "frame": "res://assets/art/frames/frame_ssr.png",
+        "inner_rect": [
+          0.11,
+          0.1,
+          0.891,
+          0.864
+        ],
+        "frame_glow": true
+      },
+      "UR": {
+        "name": "传说",
+        "material": "lenticular_3d",
+        "material_desc": "3D 裸眼透视卡框 + 专属登场光效",
+        "color": "#FFD45E",
+        "glow": "#FFB300",
+        "star_max": 5,
+        "star_default": 3,
+        "level_cap": 50,
+        "bed_tint": "#3A2A12",
+        "frame": "res://assets/art/frames/frame_ur.png",
+        "inner_rect": [
+          0.153,
+          0.148,
+          0.848,
+          0.893
+        ],
+        "frame_glow": true
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "knight_rock",
+      "name": "磐岩骑士",
+      "title": "不屈的岩盾",
+      "rarity": "R",
+      "element": "earth",
+      "role": "tank",
+      "portrait": "res://assets/art/characters/char_knight.png",
+      "prefer_slot": 1,
+      "demo_level": 20,
+      "demo_star": 1,
+      "base": {
+        "hp": 1250,
+        "atk": 85,
+        "def": 330,
+        "mres": 120,
+        "crit": 0.05,
+        "crit_dmg": 1.5,
+        "hit": 0.0,
+        "spd": 92
+      },
+      "growth": {
+        "hp": 62.0,
+        "atk": 3.4,
+        "def": 18.0,
+        "mres": 6.0,
+        "spd": 0.35
+      },
+      "skill": {
+        "name": "磐岩壁垒",
+        "type": "ult",
+        "cost": 100,
+        "target": "self_and_adjacent_front",
+        "desc": "为自身与相邻前排单位附加等同于自身 DEF 220% 的护盾，持续 2 回合。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "护盾量提升至 280%，并免疫击退"
+          }
+        ],
+        "effect": {
+          "name": "磐岩壁垒",
+          "kind": "shield_all",
+          "target": "self_and_adjacent_front",
+          "from": "def",
+          "mult": 2.2,
+          "turns": 2,
+          "note": "护盾量 = 自身防御 × 220%，与技能描述一致"
+        }
+      },
+      "codex": {
+        "class": "front",
+        "battle_role": "前排承伤 / 群体护盾",
+        "attack": {
+          "name": "岩盾冲撞",
+          "desc": "对敌方前排单体造成 100% 物理伤害。"
+        },
+        "ult": {
+          "name": "磐岩壁垒",
+          "desc": "为自身与相邻前排单位附加等同于自身 DEF 220% 的护盾，持续 2 回合。"
+        },
+        "passive": {
+          "name": "磐石意志",
+          "desc": "自身受到的物理伤害降低，护盾存在期间额外减伤。"
+        },
+        "source": "项目既有英雄，战斗数值保持不变，图鉴文案据现有配置归纳"
+      }
+    },
+    {
+      "id": "pyro_girl",
+      "name": "紫焰少女",
+      "title": "燎原的魔女",
+      "rarity": "SSR",
+      "element": "fire",
+      "role": "mage",
+      "portrait": "res://assets/art/characters/char_pyromancer.png",
+      "prefer_slot": 5,
+      "demo_level": 30,
+      "demo_star": 3,
+      "base": {
+        "hp": 780,
+        "atk": 235,
+        "def": 90,
+        "mres": 160,
+        "crit": 0.12,
+        "crit_dmg": 1.65,
+        "hit": 0.08,
+        "spd": 108
+      },
+      "growth": {
+        "hp": 44.0,
+        "atk": 9.6,
+        "def": 5.4,
+        "mres": 8.2,
+        "spd": 0.42
+      },
+      "skill": {
+        "name": "紫焰风暴",
+        "type": "ult",
+        "cost": 100,
+        "target": "enemy_middle_row",
+        "desc": "对敌方中排全体造成 185% 火属性伤害，并附加 3 回合灼烧（每回合 35% ATK）。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "灼烧可叠加 2 层"
+          },
+          {
+            "star": 5,
+            "desc": "命中灼烧目标时伤害 +30%"
+          }
+        ],
+        "effect": {
+          "name": "紫焰风暴",
+          "kind": "attack",
+          "target": "enemy_middle_row",
+          "damage": "magic",
+          "mult": 1.35,
+          "aoe": true
+        }
+      },
+      "codex": {
+        "class": "dps",
+        "battle_role": "中排群体魔法 / 持续灼烧",
+        "attack": {
+          "name": "魔焰弹",
+          "desc": "对敌方中排单体造成 100% 魔法伤害。"
+        },
+        "ult": {
+          "name": "紫焰风暴",
+          "desc": "对敌方中排全体造成 185% 火属性伤害，并附加 3 回合灼烧。"
+        },
+        "passive": {
+          "name": "焰心",
+          "desc": "灼烧目标受到的伤害提高。"
+        },
+        "source": "项目既有英雄，战斗数值保持不变，图鉴文案据现有配置归纳"
+      }
+    },
+    {
+      "id": "elf_ranger",
+      "name": "精灵游侠",
+      "title": "穿云的箭",
+      "rarity": "SR",
+      "element": "wind",
+      "role": "archer",
+      "portrait": "res://assets/art/characters/char_ranger.png",
+      "prefer_slot": 6,
+      "demo_level": 30,
+      "demo_star": 2,
+      "base": {
+        "hp": 860,
+        "atk": 205,
+        "def": 110,
+        "mres": 105,
+        "crit": 0.18,
+        "crit_dmg": 1.6,
+        "hit": 0.12,
+        "spd": 118
+      },
+      "growth": {
+        "hp": 48.0,
+        "atk": 8.2,
+        "def": 6.0,
+        "mres": 5.6,
+        "spd": 0.5
+      },
+      "skill": {
+        "name": "穿云箭",
+        "type": "ult",
+        "cost": 100,
+        "target": "enemy_back_lowest_hp",
+        "desc": "对敌方后排血量最低单位造成 320% 风属性伤害，无视目标 40% 防御。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "击杀后立即再行动一次"
+          }
+        ],
+        "effect": {
+          "name": "穿云箭",
+          "kind": "attack",
+          "target": "enemy_back_lowest_hp",
+          "damage": "phys",
+          "mult": 2.2
+        }
+      },
+      "hero_name": "莱恩",
+      "codex": {
+        "class": "agile",
+        "battle_role": "后排单体点杀 / 减速控场",
+        "gdd_panel_lv30": {
+          "hp": 1500,
+          "atk": 410,
+          "def": 130,
+          "mres": 140,
+          "spd": 125
+        },
+        "attack": {
+          "name": "疾风射击",
+          "desc": "射出快速风箭，造成 110% 物理伤害。"
+        },
+        "ult": {
+          "name": "风行连矢",
+          "desc": "连续射出 3 支风箭，每支造成 100% 物理伤害，并降低目标 20% 攻击速度，持续 2 回合。"
+        },
+        "passive": {
+          "name": "专注",
+          "desc": "对距离自身越远的敌方目标，造成的伤害越高（最高提升 20%）。"
+        }
+      }
+    },
+    {
+      "id": "holy_priest",
+      "name": "神圣牧师",
+      "title": "黎明祷告者",
+      "rarity": "UR",
+      "element": "light",
+      "role": "healer",
+      "portrait": "res://assets/art/characters/char_priest.png",
+      "prefer_slot": 8,
+      "demo_level": 30,
+      "demo_star": 3,
+      "base": {
+        "hp": 900,
+        "atk": 140,
+        "def": 75,
+        "mres": 210,
+        "crit": 0.06,
+        "crit_dmg": 1.5,
+        "hit": 0.1,
+        "spd": 100
+      },
+      "growth": {
+        "hp": 52.0,
+        "atk": 6.0,
+        "def": 4.4,
+        "mres": 10.0,
+        "spd": 0.38
+      },
+      "skill": {
+        "name": "圣光洗礼",
+        "type": "ult",
+        "cost": 100,
+        "target": "all_allies",
+        "desc": "为全队恢复 150% ATK 生命，并解除 1 个负面状态。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "额外附加 1 回合免控护罩"
+          },
+          {
+            "star": 5,
+            "desc": "治疗量提升至 200%"
+          }
+        ],
+        "effect": {
+          "name": "圣光洗礼",
+          "kind": "heal",
+          "target": "all_allies",
+          "heal_pct": 0.28,
+          "note": "治疗量按目标最大生命值的 28% 计，避免牧师攻击力过低导致奶量失真"
+        }
+      },
+      "hero_name": "依莲",
+      "codex": {
+        "class": "support",
+        "battle_role": "后排群体治疗 / 无敌护盾 / 净化负面效果",
+        "gdd_panel_lv30": {
+          "hp": 2200,
+          "atk": 320,
+          "def": 180,
+          "mres": 250,
+          "spd": 105
+        },
+        "attack": {
+          "name": "圣光弹",
+          "desc": "对敌方前排单体造成 100% 魔法伤害。"
+        },
+        "ult": {
+          "name": "神圣降临",
+          "desc": "为己方全队恢复相当于自身攻击力 280% 的生命值，并赋予最虚弱的队友 1 回合【免疫伤害】效果。"
+        },
+        "passive": {
+          "name": "光辉庇佑",
+          "desc": "场上每存在一名光系队友，全队受到的魔法伤害降低 8%。"
+        }
+      }
+    },
+    {
+      "id": "arcane_girl",
+      "name": "秘法少女",
+      "hero_name": "许知夏",
+      "title": "燎原的星火",
+      "rarity": "SSR",
+      "element": "fire",
+      "role": "mage",
+      "portrait": "res://assets/art/characters/char_arcane_girl.png",
+      "prefer_slot": 5,
+      "demo_level": 30,
+      "demo_star": 3,
+      "base": {
+        "hp": 626,
+        "atk": 238,
+        "def": 44,
+        "mres": 76,
+        "crit": 0.12,
+        "crit_dmg": 1.65,
+        "hit": 0.08,
+        "spd": 100
+      },
+      "growth": {
+        "hp": 35.3,
+        "atk": 9.7,
+        "def": 2.6,
+        "mres": 3.9,
+        "spd": 0.35
+      },
+      "codex": {
+        "class": "dps",
+        "battle_role": "中排群体魔法 / 范围破盾 / 持续灼烧",
+        "gdd_panel_lv30": {
+          "hp": 1650,
+          "atk": 520,
+          "def": 120,
+          "mres": 190,
+          "spd": 110
+        },
+        "attack": {
+          "name": "火球术",
+          "desc": "对敌方单体造成 120% 魔法伤害。"
+        },
+        "ult": {
+          "name": "陨星风暴",
+          "desc": "呼唤流星砸向敌方全体，造成 210% 魔法伤害，对带有护盾的目标额外造成 50% 破盾伤害，并附加 2 回合【灼烧】。"
+        },
+        "passive": {
+          "name": "元素共鸣",
+          "desc": "同阵营存在前排英雄时，自身基础魔法攻击力提升 15%。"
+        }
+      },
+      "skill": {
+        "name": "陨星风暴",
+        "type": "ult",
+        "cost": 100,
+        "target": "enemy_all_foes",
+        "desc": "呼唤流星砸向敌方全体，造成 210% 魔法伤害，并附加 2 回合【灼烧】。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "对带护盾目标额外造成 50% 破盾伤害"
+          },
+          {
+            "star": 5,
+            "desc": "灼烧可叠加 2 层"
+          }
+        ],
+        "effect": {
+          "name": "陨星风暴",
+          "kind": "attack",
+          "target": "enemy_all_foes",
+          "damage": "magic",
+          "mult": 1.3,
+          "aoe": true,
+          "note": "GDD 描述为 210% 全体 + 破盾 + 灼烧；战斗内核当前按 130% 全体魔法结算，破盾与灼烧为待接入项"
+        }
+      }
+    },
+    {
+      "id": "shadow_assassin",
+      "name": "暗夜刺客",
+      "hero_name": "影刃",
+      "title": "无声的刃",
+      "rarity": "SSR",
+      "element": "dark",
+      "role": "assassin",
+      "portrait": "res://assets/art/characters/char_shadow_assassin.png",
+      "prefer_slot": 7,
+      "demo_level": 30,
+      "demo_star": 3,
+      "base": {
+        "hp": 535,
+        "atk": 268,
+        "def": 39,
+        "mres": 43,
+        "crit": 0.24,
+        "crit_dmg": 1.78,
+        "hit": 0.1,
+        "spd": 120
+      },
+      "growth": {
+        "hp": 29.8,
+        "atk": 10.8,
+        "def": 2.1,
+        "mres": 2.3,
+        "spd": 0.52
+      },
+      "codex": {
+        "class": "agile",
+        "battle_role": "后排斩杀 / 隐身避伤 / 高暴击",
+        "gdd_panel_lv30": {
+          "hp": 1400,
+          "atk": 580,
+          "def": 100,
+          "mres": 110,
+          "spd": 135
+        },
+        "attack": {
+          "name": "暗影刺击",
+          "desc": "跳跃至敌方后排，对血量最低的单位造成 150% 物理伤害。"
+        },
+        "ult": {
+          "name": "瞬狱影杀阵",
+          "desc": "对敌方后排目标进行 5 次连续穿刺，总计造成 450% 物理伤害，若击杀目标则立即恢复 50% 能量。"
+        },
+        "passive": {
+          "name": "夜色掩护",
+          "desc": "开局前 2 回合进入隐身状态，无法被单体技能选中。"
+        }
+      },
+      "skill": {
+        "name": "瞬狱影杀阵",
+        "type": "ult",
+        "cost": 100,
+        "target": "enemy_back_lowest_hp",
+        "desc": "对敌方后排血量最低单位连续穿刺，造成 320% 物理伤害，击杀目标则恢复 50% 能量。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "击杀后立即再行动一次"
+          },
+          {
+            "star": 5,
+            "desc": "穿刺段数提升至 7 段"
+          }
+        ],
+        "effect": {
+          "name": "瞬狱影杀阵",
+          "kind": "attack",
+          "target": "enemy_back_lowest_hp",
+          "damage": "phys",
+          "mult": 2.6,
+          "note": "GDD 描述为 5 段共 450%；战斗内核按单次 260% 结算，多段拆分与击杀回能为待接入项"
+        }
+      }
+    },
+    {
+      "id": "earth_guardian",
+      "name": "大地守卫",
+      "hero_name": "托尔",
+      "title": "移动的山峦",
+      "rarity": "SR",
+      "element": "earth",
+      "role": "tank",
+      "portrait": "res://assets/art/characters/char_earth_guardian.png",
+      "prefer_slot": 2,
+      "demo_level": 30,
+      "demo_star": 2,
+      "base": {
+        "hp": 1441,
+        "atk": 119,
+        "def": 152,
+        "mres": 113,
+        "crit": 0.05,
+        "crit_dmg": 1.5,
+        "hit": 0.0,
+        "spd": 85
+      },
+      "growth": {
+        "hp": 46.9,
+        "atk": 3.1,
+        "def": 5.4,
+        "mres": 3.7,
+        "spd": 0.17
+      },
+      "codex": {
+        "class": "front",
+        "battle_role": "前排承伤 / 嘲讽 / 减伤",
+        "gdd_panel_lv30": {
+          "hp": 2800,
+          "atk": 210,
+          "def": 310,
+          "mres": 220,
+          "spd": 90
+        },
+        "attack": {
+          "name": "重锤打击",
+          "desc": "造成 80% 基于防御力的物理伤害。"
+        },
+        "ult": {
+          "name": "大地咆哮",
+          "desc": "嘲讽敌方前排与中排所有单位，强制其攻击自己，同时自身获得 30% 伤害减免，持续 2 回合。"
+        },
+        "passive": {
+          "name": "岩石体魄",
+          "desc": "生命值每降低 10%，自身物理防御力提升 5%。"
+        }
+      },
+      "skill": {
+        "name": "大地咆哮",
+        "type": "ult",
+        "cost": 100,
+        "target": "all_allies",
+        "desc": "为全队附加等同于自身 30% 最大生命的护盾，持续 2 回合（等价于 30% 伤害减免）。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "护盾量提升至 45% 最大生命，并免疫击退"
+          }
+        ],
+        "effect": {
+          "name": "大地咆哮",
+          "kind": "shield_all",
+          "target": "all_allies",
+          "from": "max_hp",
+          "mult": 0.3,
+          "turns": 2,
+          "note": "GDD 的【嘲讽】尚未接入战斗内核，当前用「全队 30% 最大生命护盾」承载同一条绝技的减伤语义"
+        }
+      }
+    },
+    {
+      "id": "flame_knight",
+      "name": "炎赫骑士",
+      "hero_name": "亚瑟",
+      "title": "烈焰的誓约",
+      "rarity": "R",
+      "element": "fire",
+      "role": "warrior",
+      "portrait": "res://assets/art/characters/char_flame_knight.png",
+      "prefer_slot": 1,
+      "demo_level": 20,
+      "demo_star": 1,
+      "base": {
+        "hp": 927,
+        "atk": 102,
+        "def": 93,
+        "mres": 67,
+        "crit": 0.08,
+        "crit_dmg": 1.6,
+        "hit": 0.04,
+        "spd": 92
+      },
+      "growth": {
+        "hp": 45.9,
+        "atk": 4.1,
+        "def": 5.1,
+        "mres": 3.3,
+        "spd": 0.16
+      },
+      "codex": {
+        "class": "front",
+        "battle_role": "前排基础承伤 / 反击",
+        "gdd_panel_lv20": {
+          "hp": 1800,
+          "atk": 180,
+          "def": 190,
+          "mres": 130,
+          "spd": 95
+        },
+        "attack": {
+          "name": "挥剑斩击",
+          "desc": "造成 100% 物理伤害。"
+        },
+        "ult": {
+          "name": "烈焰斩",
+          "desc": "对敌方前排单体造成 180% 物理伤害，并恢复自身 10% 最大生命值。"
+        },
+        "passive": {
+          "name": "热血",
+          "desc": "受击时有 15% 概率触发反击，造成 80% 伤害。"
+        }
+      },
+      "skill": {
+        "name": "烈焰斩",
+        "type": "ult",
+        "cost": 100,
+        "target": "enemy_front_row",
+        "desc": "对敌方前排单体造成 180% 物理伤害，并恢复自身 10% 最大生命值。",
+        "shards": [
+          {
+            "star": 3,
+            "desc": "自愈提升至 20% 最大生命"
+          }
+        ],
+        "effect": {
+          "name": "烈焰斩",
+          "kind": "attack",
+          "target": "enemy_front_row",
+          "damage": "phys",
+          "mult": 1.8,
+          "note": "自愈与反击被动为待接入项，当前只结算 180% 物理伤害"
+        }
+      }
+    }
+  ],
+  "growth": {
+    "level_up": {
+      "cost_gold_per_level": 120,
+      "cost_exp_per_level": 300,
+      "stat_scale": "linear_growth_field"
+    },
+    "breakthrough": {
+      "every_levels": 20,
+      "cost_item": "break_stone",
+      "unlock": "提升等级上限"
+    },
+    "star_up": {
+      "cost": "同名卡 / 同系狗粮卡",
+      "effect": "全属性百分比增幅，并解锁或强化被动技能",
+      "per_star_attr_bonus": [
+        0.0,
+        0.15,
+        0.3,
+        0.5,
+        0.75
+      ]
+    },
+    "equipment": {
+      "slot_count": 4,
+      "cost": "装备强化石",
+      "effect": "专项属性加成",
+      "set_bonus": [
+        {
+          "pieces": 2,
+          "desc": "触发 2 件套特效（如：吸血 8%）"
+        },
+        {
+          "pieces": 4,
+          "desc": "触发 4 件套特效（如：开场护盾）"
+        }
+      ],
+      "empty_slot_semantic": "空槽写空字符串，加载时视为显式卸下，不得回退默认配置"
+    },
+    "bond": {
+      "cost": "收集指定组合卡牌",
+      "effect": "团队全员属性增益，激活羁绊剧情与战斗外观特效"
+    }
+  },
+  "gacha": {
+    "title": "群星召唤",
+    "subtitle": "SUMMONING ALTAR",
+    "scene": "res://scenes/gacha.tscn",
+    "back_button": {
+      "text": "返回主界面",
+      "sub_text": "BACK",
+      "route": "res://scenes/main_menu.tscn"
+    },
+    "tickets": {
+      "basic": {
+        "id": "ticket_basic",
+        "name": "基础召唤券",
+        "icon": "res://assets/icons/icon_gift.svg",
+        "color": "#7BE0FF"
+      },
+      "advanced": {
+        "id": "ticket_advanced",
+        "name": "高级召唤卷轴",
+        "icon": "res://assets/icons/icon_gift.svg",
+        "color": "#C08BFF"
+      }
+    },
+    "cost": {
+      "single": {
+        "ticket": 1,
+        "gem": 160
+      },
+      "ten": {
+        "ticket": 10,
+        "gem": 1600
+      },
+      "pay_order": [
+        "ticket",
+        "gem"
+      ]
+    },
+    "gem_currency": "bound_gem",
+    "ten_guarantee": {
+      "rarity": "SR",
+      "label": "必得 SR 及以上",
+      "desc": "十连抽中若前 9 抽没有 SR 及以上品质，第 10 抽必定为 SR 或更高。"
+    },
+    "crystal": {
+      "currency": "wish_crystal",
+      "name": "心愿水晶",
+      "icon": "res://assets/icons/icon_gem.svg",
+      "color": "#C08BFF",
+      "per_pull": 1,
+      "exchange_cost": {
+        "UR": 120,
+        "SSR": 120
+      },
+      "desc": "每抽卡 1 次获得 1 点心愿水晶，累积 120 点可在招募商店内指定兑换当期 UP 的 UR / SSR 英雄。"
+    },
+    "new_player_gift": {
+      "bound_gem": 1600,
+      "ticket_basic": 10,
+      "ticket_advanced": 10
+    },
+    "reveal": {
+      "pack_raise_seconds": 0.55,
+      "pack_burst_seconds": 0.42,
+      "card_stagger": 0.12,
+      "card_in_seconds": 0.34,
+      "pillar_colors": {
+        "SSR": "#B06BE8",
+        "UR": "#FFD45E",
+        "default": "#BFE3FF"
+      },
+      "rainbow": [
+        "#FF6B6B",
+        "#FFB347",
+        "#FFE9A8",
+        "#7BE0A8",
+        "#7BC8FF",
+        "#C08BFF"
+      ],
+      "shake": {
+        "SSR": 9.0,
+        "UR": 16.0,
+        "seconds": 0.55
+      },
+      "voice": {
+        "R": "",
+        "SR": "",
+        "SSR": "",
+        "UR": ""
+      },
+      "sfx": {
+        "pack": "",
+        "burst": "",
+        "reveal": ""
+      },
+      "note": "voice / sfx 为空表示暂无音频资源，界面会跳过播放；填入 res:// 路径即生效。"
+    },
+    "rate_notice": [
+      "本卡池所有可获取内容与概率均在此公示，抽取结果由随机数决定。",
+      "卡池概率为单次抽取的独立概率，历史抽取结果不影响后续概率（保底机制除外）。",
+      "保底计数在不同期数的同类型卡池之间全额继承，不会因卡池结束而清空。",
+      "每抽卡 1 次获得 1 点心愿水晶，可在招募商店内兑换当期 UP 英雄。"
+    ],
+    "pity": {
+      "small": {
+        "count": 50,
+        "guarantee": "SSR",
+        "desc": "连续 49 抽未获得 SSR 及以上品质卡牌时，第 50 抽必定产出 SSR 或 UR。"
+      },
+      "large": {
+        "count": 100,
+        "guarantee": "UP",
+        "desc": "连续 99 抽未获得当期 UP 英雄时，第 100 抽必定产出现期限定 UP 英雄。"
+      }
+    },
+    "pools": [
+      {
+        "id": "standard",
+        "name": "常驻召唤",
+        "subtitle": "STANDARD SUMMON",
+        "tag": "常驻",
+        "kind": "standard",
+        "accent": "#7BE0FF",
+        "desc": "全套英雄常驻开放，无当期 UP，抽取结果全池均匀。",
+        "ticket": "basic",
+        "rates": {
+          "UR": 0.005,
+          "SSR": 0.035,
+          "SR": 0.18,
+          "R": 0.78
+        },
+        "pity_group": "standard",
+        "pity": {
+          "small": true,
+          "large": false,
+          "inherit": true
+        },
+        "featured": [
+          "pyro_girl",
+          "elf_ranger",
+          "holy_priest",
+          "knight_rock"
+        ],
+        "pool": {
+          "UR": [
+            {
+              "type": "hero",
+              "id": "holy_priest",
+              "weight": 1
+            }
+          ],
+          "SSR": [
+            {
+              "type": "hero",
+              "id": "pyro_girl",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "arcane_girl",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "shadow_assassin",
+              "weight": 1
+            }
+          ],
+          "SR": [
+            {
+              "type": "hero",
+              "id": "elf_ranger",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "earth_guardian",
+              "weight": 1
+            }
+          ],
+          "R": [
+            {
+              "type": "hero",
+              "id": "knight_rock",
+              "weight": 4
+            },
+            {
+              "type": "hero",
+              "id": "flame_knight",
+              "weight": 3
+            },
+            {
+              "type": "item",
+              "id": "hero_exp",
+              "name": "英雄经验",
+              "count": 200,
+              "weight": 3,
+              "icon": "res://assets/icons/icon_star.svg"
+            },
+            {
+              "type": "item",
+              "id": "break_stone_1",
+              "name": "初级突破石",
+              "count": 3,
+              "weight": 1,
+              "icon": "res://assets/icons/icon_earth.svg"
+            }
+          ]
+        }
+      },
+      {
+        "id": "limited",
+        "name": "星辉召唤 · 神圣牧师",
+        "subtitle": "LIMITED EVENT BANNER",
+        "tag": "限时 UP",
+        "kind": "limited",
+        "accent": "#C08BFF",
+        "desc": "当期 UR【神圣牧师】与 SSR【紫焰少女】获取概率提升，占同品质产出率的 50%。",
+        "ticket": "advanced",
+        "rates": {
+          "UR": 0.005,
+          "SSR": 0.035,
+          "SR": 0.18,
+          "R": 0.78
+        },
+        "pity_group": "limited",
+        "pity": {
+          "small": true,
+          "large": true,
+          "inherit": true
+        },
+        "up_rate": 0.5,
+        "up": {
+          "UR": [
+            "holy_priest"
+          ],
+          "SSR": [
+            "pyro_girl"
+          ]
+        },
+        "up_note": "特定 UR / SSR 英雄获取概率提升（占同品质卡牌产出率的 50%）。",
+        "period": {
+          "start": "2026-09-25",
+          "end": "2026-10-09",
+          "inherit": true
+        },
+        "featured": [
+          "holy_priest"
+        ],
+        "pool": {
+          "UR": [
+            {
+              "type": "hero",
+              "id": "holy_priest",
+              "weight": 1
+            }
+          ],
+          "SSR": [
+            {
+              "type": "hero",
+              "id": "pyro_girl",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "arcane_girl",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "shadow_assassin",
+              "weight": 1
+            }
+          ],
+          "SR": [
+            {
+              "type": "hero",
+              "id": "elf_ranger",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "earth_guardian",
+              "weight": 1
+            }
+          ],
+          "R": [
+            {
+              "type": "hero",
+              "id": "knight_rock",
+              "weight": 4
+            },
+            {
+              "type": "hero",
+              "id": "flame_knight",
+              "weight": 3
+            },
+            {
+              "type": "item",
+              "id": "hero_exp",
+              "name": "英雄经验",
+              "count": 300,
+              "weight": 3,
+              "icon": "res://assets/icons/icon_star.svg"
+            }
+          ]
+        }
+      },
+      {
+        "id": "friend",
+        "name": "友情召唤",
+        "subtitle": "FRIEND SUMMON",
+        "tag": "友情点",
+        "kind": "friend",
+        "accent": "#8FD98F",
+        "desc": "消耗公会代币的友情池，不出 UR，适合日常清点数。",
+        "ticket": "",
+        "cost": {
+          "single": {
+            "currency": "guild_token",
+            "amount": 10
+          },
+          "ten": {
+            "currency": "guild_token",
+            "amount": 100
+          }
+        },
+        "rates": {
+          "UR": 0.0,
+          "SSR": 0.01,
+          "SR": 0.15,
+          "R": 0.84
+        },
+        "pity_group": "friend",
+        "pity": {
+          "small": false,
+          "large": false,
+          "inherit": false
+        },
+        "featured": [
+          "elf_ranger",
+          "knight_rock"
+        ],
+        "pool": {
+          "UR": [],
+          "SSR": [
+            {
+              "type": "hero",
+              "id": "pyro_girl",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "arcane_girl",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "shadow_assassin",
+              "weight": 1
+            }
+          ],
+          "SR": [
+            {
+              "type": "hero",
+              "id": "elf_ranger",
+              "weight": 1
+            },
+            {
+              "type": "hero",
+              "id": "earth_guardian",
+              "weight": 1
+            }
+          ],
+          "R": [
+            {
+              "type": "hero",
+              "id": "knight_rock",
+              "weight": 4
+            },
+            {
+              "type": "hero",
+              "id": "flame_knight",
+              "weight": 3
+            },
+            {
+              "type": "item",
+              "id": "hero_exp",
+              "name": "英雄经验",
+              "count": 100,
+              "weight": 4,
+              "icon": "res://assets/icons/icon_star.svg"
+            }
+          ]
+        }
+      }
+    ],
+    "shop": {
+      "title": "心愿水晶商店",
+      "subtitle": "WISH CRYSTAL SHOP",
+      "hint": "累积心愿水晶，指定兑换当期 UP 的 UR / SSR 英雄，防止极度非酋体验。",
+      "button_text": "兑换",
+      "owned_text": "已持有",
+      "empty_text": "当前卡池没有可兑换的 UP 英雄"
+    },
+    "history_max": 30,
+    "monetization": [
+      {
+        "id": "first_charge",
+        "desc": "首充赠送强力前排 SSR 卡牌"
+      },
+      {
+        "id": "battle_pass",
+        "desc": "战令（通行证）：等级战令与推图战令"
+      },
+      {
+        "id": "cosmetic",
+        "desc": "专属卡面装扮 / Q 版潮玩皮肤售卖"
+      },
+      {
+        "id": "gacha_pass",
+        "desc": "召唤特权：每日折扣单抽 + 心愿水晶加成"
+      }
+    ]
+  },
+  "idle": {
+    "offline_max_hours": [
+      12,
+      24
+    ],
+    "outputs": [
+      "hero_exp",
+      "gold",
+      "basic_equipment"
+    ]
+  },
+  "stamina": {
+    "max": 60,
+    "seconds_per_point": 300,
+    "regen_note": "1 点 / 5 分钟，离线累计"
+  },
+  "adventure": {
+    "mode": "chapter_stage",
+    "move_style": "卡牌跳跃",
+    "stamina_per_stage": 6,
+    "star_rating": {
+      "max": 3,
+      "note": "关卡星级评定。撤退 / 失败 0★；胜利 1★ 起评，规则按 rules 从上往下累加。结果写入存档 progress.stage_stars 且只升不降（取历史最佳），选关地图的星星读的就是这份记录。",
+      "labels": {
+        "unrated": "未评级",
+        "first": "首次通关",
+        "new_best": "刷新最佳",
+        "keep_best": "历史最佳"
+      },
+      "rules": [
+        {
+          "star": 1,
+          "cond": "win",
+          "desc": "通关"
+        },
+        {
+          "star": 2,
+          "cond": "wipe",
+          "desc": "全歼敌方"
+        },
+        {
+          "star": 3,
+          "cond": "hp_ratio",
+          "value": 0.6,
+          "desc": "我方存活率 ≥ 60%"
+        }
+      ]
+    },
+    "stage_kinds": [
+      {
+        "id": "battle",
+        "name": "普通战斗"
+      },
+      {
+        "id": "elite",
+        "name": "精英 Boss 战"
+      },
+      {
+        "id": "event",
+        "name": "随机事件",
+        "branches": [
+          "选择分支",
+          "突发宝箱",
+          "祝福祭坛"
+        ]
+      },
+      {
+        "id": "rest",
+        "name": "休息 / 宝箱"
+      },
+      {
+        "id": "boss",
+        "name": "章节 Boss 战"
+      }
+    ],
+    "chapters": [
+      {
+        "id": "ch1",
+        "name": "云上浮岛·初始之痕",
+        "stages": 10,
+        "recommend_power": 1000,
+        "boss": "巨石守卫",
+        "chapter_stages": "res://data/game_data.json#adventure.chapter_stages"
+      },
+      {
+        "id": "ch2",
+        "name": "熔金回廊",
+        "stages": 8,
+        "recommend_power": 2600,
+        "boss": "熔岩暴君"
+      },
+      {
+        "id": "ch3",
+        "name": "星辉圣殿",
+        "stages": 12,
+        "recommend_power": 4200,
+        "boss": "星穹审判者"
+      }
+    ],
+    "select_map": {
+      "title": "冒险关卡选择",
+      "chapter_id": "ch1",
+      "coord_note": "pos = 节点锚点（该关浮岛的中心），1920x1080 视口像素坐标（左上原点）；z 越大越靠前",
+      "anchor_note": "锚点为概念稿实测值经 cover 映射换算；背景 bg_stage_select.png 即该概念稿底图，故锚点与背景浮岛一一对位",
+      "label_dy": "标签首行中心相对锚点的纵向偏移（像素），各节点按概念稿实测，故三个值不同",
+      "radius": "该关浮岛在背景里的视觉半径（像素）。引导线两端各按这个半径从节点中心收回，于是只在浮岛之间露出一小段 —— 概念稿里就是这样，不是贯穿全场的连线",
+      "icon_note": "icon 为空 = 该关浮岛由背景自带，不再叠加图标（叠了会和背景重复）；仅 1004 风暴元素的雷云在背景里不存在，需叠加 stage_isle_storm.svg",
+      "enter_button": {
+        "text": "进入关卡",
+        "sub_text": "START LEVEL"
+      },
+      "team_panel": {
+        "rows": 3,
+        "cols": 3,
+        "deployed": 3,
+        "label": "3x3 3",
+        "lineup": [
+          "knight_rock",
+          "pyro_girl",
+          "elf_ranger"
+        ]
+      },
+      "promo_entry": {
+        "id": "promo",
+        "name": "活动",
+        "icon": "res://assets/icons/icon_gift.svg"
+      },
+      "nodes": [
+        {
+          "stage_id": 1001,
+          "__r": 110,
+          "name": "初始之地",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "",
+          "icon_size": 0,
+          "label_order": "name_level",
+          "pos": [
+            649,
+            587
+          ],
+          "label_dy": 56,
+          "radius": 95,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 0,
+          "recommend_power": 1000
+        },
+        {
+          "stage_id": 1003,
+          "__r": 122,
+          "name": "云端城堡",
+          "level": 1,
+          "kind": "elite",
+          "tag": "精",
+          "icon": "",
+          "icon_size": 0,
+          "label_order": "name_level",
+          "pos": [
+            937,
+            400
+          ],
+          "label_dy": 99,
+          "radius": 100,
+          "z": 2,
+          "pre_stage_id": 1001,
+          "demo_stars": 1,
+          "demo_selected": true,
+          "stamina": 8,
+          "recommend_power": 4800
+        },
+        {
+          "stage_id": 1004,
+          "__r": 90,
+          "name": "风暴元素",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_storm.svg",
+          "icon_size": 208,
+          "label_order": "level_name",
+          "pos": [
+            1207,
+            643
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 3,
+          "pre_stage_id": 1003,
+          "demo_stars": 2,
+          "demo_selected": false,
+          "stamina": 6,
+          "recommend_power": 6200
+        }
+      ],
+      "decor_islands": [
+        {
+          "id": "island_castle_far",
+          "pos": [
+            514,
+            247
+          ],
+          "scale": 1.0,
+          "icon": "res://assets/icons/stage_isle_castle.svg"
+        },
+        {
+          "id": "island_forest_left",
+          "pos": [
+            174,
+            213
+          ],
+          "scale": 0.9,
+          "icon": "res://assets/icons/stage_isle_plain.svg"
+        },
+        {
+          "id": "island_tower_top",
+          "pos": [
+            1517,
+            178
+          ],
+          "scale": 0.8,
+          "icon": "res://assets/icons/stage_isle_castle.svg"
+        },
+        {
+          "id": "island_farm_right",
+          "pos": [
+            1696,
+            580
+          ],
+          "scale": 0.9,
+          "icon": "res://assets/icons/stage_isle_plain.svg"
+        },
+        {
+          "id": "island_cabin_bottom",
+          "pos": [
+            1648,
+            941
+          ],
+          "scale": 1.0,
+          "icon": "res://assets/icons/stage_isle_plain.svg"
+        },
+        {
+          "id": "island_ruins_left",
+          "pos": [
+            497,
+            734
+          ],
+          "scale": 0.8,
+          "icon": "res://assets/icons/stage_isle_plain.svg"
+        }
+      ],
+      "stamina_note": "每关体力以关卡自身的 stamina 为准（1001 引导关免费、1003 精英 8 点、1008 高难支线 10 点）；adventure.stamina_per_stage 只作为缺省值。"
+    },
+    "chapter_stages": {
+      "chapter_id": "ch1",
+      "title": "云上浮岛 · 初始之痕",
+      "note": "第一章全 10 关。power_scale = 使敌方总战力达到「建议战力 × difficulty」的缩放比，由 tools/_inspect/apply_chapter1.py 反解，改建议战力后重跑即可。",
+      "slot_note": "enemies[].slot 取 combat.board.row_slots（1-3 前排 / 4-6 中排 / 7-9 后排）",
+      "list": [
+        {
+          "id": 1001,
+          "name": "初始之地",
+          "kind": "battle",
+          "subtitle": "新手引导关",
+          "recommend_power": 1000,
+          "stamina": 0,
+          "pre_stage_id": 0,
+          "is_boss": false,
+          "difficulty": 0.6,
+          "enemies": [
+            {
+              "slot": 1,
+              "mob": "slime"
+            },
+            {
+              "slot": 3,
+              "mob": "slime"
+            }
+          ],
+          "mechanic": "引导玩家完成基础卡牌上阵与「进入冒险」点击操作。",
+          "tactics": "两只会撞人的软泥怪，随便打。",
+          "rewards": [
+            {
+              "id": "gold",
+              "name": "金币",
+              "count": 500,
+              "icon": "res://assets/icons/icon_coin.svg"
+            },
+            {
+              "id": "hero_exp",
+              "name": "英雄经验",
+              "count": 500,
+              "icon": "res://assets/icons/icon_star.svg"
+            },
+            {
+              "id": "ticket_basic",
+              "name": "基础召唤券",
+              "count": 1,
+              "icon": "res://assets/icons/icon_gift.svg"
+            }
+          ],
+          "no": 1,
+          "power_scale": 0.4354,
+          "theme": {
+            "sky_top": "#FFDCA8",
+            "sky_bottom": "#FFF6E4",
+            "sun": "#FFE7A8",
+            "ground": "#9CCB74",
+            "rim": "#5FA83C",
+            "haze": "#5B7FA8"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1002,
+          "name": "浮空森林",
+          "kind": "battle",
+          "subtitle": "普通战斗",
+          "recommend_power": 2500,
+          "stamina": 6,
+          "pre_stage_id": 1001,
+          "is_boss": false,
+          "difficulty": 0.85,
+          "enemies": [
+            {
+              "slot": 1,
+              "mob": "nut_soldier"
+            },
+            {
+              "slot": 3,
+              "mob": "nut_soldier"
+            },
+            {
+              "slot": 8,
+              "mob": "forest_archer"
+            }
+          ],
+          "mechanic": "介绍前排保护与后排输出的基本定位，引导玩家关注攻击顺序。",
+          "tactics": "两只坚果小兵顶在前排，弓箭手在后排点名最脆的单位 —— 先拆后排，前排自然崩。",
+          "rewards": [
+            {
+              "id": "gold",
+              "name": "金币",
+              "count": 1000,
+              "icon": "res://assets/icons/icon_coin.svg"
+            },
+            {
+              "id": "hero_exp",
+              "name": "英雄经验",
+              "count": 1200,
+              "icon": "res://assets/icons/icon_star.svg"
+            },
+            {
+              "id": "break_stone_1",
+              "name": "1阶突破石",
+              "count": 5,
+              "icon": "res://assets/icons/icon_def.svg"
+            }
+          ],
+          "no": 2,
+          "power_scale": 1.1498,
+          "theme": {
+            "sky_top": "#A9D9B3",
+            "sky_bottom": "#EDF8E6",
+            "sun": "#D8F0B0",
+            "ground": "#6E9B5A",
+            "rim": "#3F6B34",
+            "haze": "#3F7A6A"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1003,
+          "name": "云端城堡",
+          "kind": "elite",
+          "subtitle": "精英挑战 · 首个小精英",
+          "recommend_power": 4800,
+          "stamina": 8,
+          "pre_stage_id": 1001,
+          "is_boss": false,
+          "difficulty": 0.85,
+          "enemies": [
+            {
+              "slot": 1,
+              "mob": "castle_guard"
+            },
+            {
+              "slot": 5,
+              "mob": "ballista"
+            },
+            {
+              "slot": 8,
+              "mob": "castle_bard"
+            }
+          ],
+          "mechanic": "后排军乐手会不断为全队增加攻击力，需优先使用切后排技能清理。",
+          "tactics": "重装卫兵挡正面、弩箭车扫中排，号声一响对面越打越猛 —— 拖得越久越难，必须抢节奏切后排。",
+          "rewards": [
+            {
+              "id": "bound_gem",
+              "name": "绑钻",
+              "count": 50,
+              "icon": "res://assets/icons/icon_gem.svg"
+            },
+            {
+              "id": "equip_wood_chest",
+              "name": "R级套装装备【木质护胸】",
+              "count": 1,
+              "icon": "res://assets/icons/icon_def.svg"
+            },
+            {
+              "id": "hero_exp",
+              "name": "英雄经验",
+              "count": 2000,
+              "icon": "res://assets/icons/icon_star.svg"
+            }
+          ],
+          "no": 3,
+          "power_scale": 2.1473,
+          "theme": {
+            "sky_top": "#FFC58C",
+            "sky_bottom": "#FFF1DE",
+            "sun": "#FFD9A0",
+            "ground": "#B9A48C",
+            "rim": "#7C664E",
+            "haze": "#8A6E9E"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1004,
+          "name": "风暴元素",
+          "kind": "battle",
+          "subtitle": "支线 · 元素考验",
+          "recommend_power": 6200,
+          "stamina": 6,
+          "pre_stage_id": 1003,
+          "is_boss": false,
+          "difficulty": 0.85,
+          "enemies": [
+            {
+              "slot": 4,
+              "mob": "storm_elemental"
+            },
+            {
+              "slot": 6,
+              "mob": "storm_elemental"
+            },
+            {
+              "slot": 8,
+              "mob": "cloud_sprite"
+            }
+          ],
+          "env": {
+            "id": "storm_aura",
+            "name": "风暴气场",
+            "desc": "场上所有风属性单位攻击速度提升 20%",
+            "element": "wind",
+            "stat": "spd",
+            "mult": 1.2
+          },
+          "mechanic": "环境效果【风暴气场】：场上所有风属性单位攻击速度提升 20%。",
+          "tactics": "三只风属性单位全部吃满气场加速，出手极快；用土系打风可以打出克制。",
+          "rewards": [
+            {
+              "id": "bound_gem",
+              "name": "绑钻",
+              "count": 100,
+              "icon": "res://assets/icons/icon_gem.svg"
+            },
+            {
+              "id": "scroll_wind",
+              "name": "风元素召唤卷轴",
+              "count": 1,
+              "icon": "res://assets/icons/icon_wind.svg"
+            }
+          ],
+          "no": 4,
+          "power_scale": 2.5466,
+          "theme": {
+            "sky_top": "#7E93C4",
+            "sky_bottom": "#DFE9F8",
+            "sun": "#C9D8F5",
+            "ground": "#8C93A8",
+            "rim": "#5A6178",
+            "haze": "#3E4C6E"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1005,
+          "name": "元素祭坛",
+          "kind": "event",
+          "subtitle": "随机事件 · 奇遇",
+          "recommend_power": 0,
+          "stamina": 0,
+          "pre_stage_id": 1004,
+          "is_boss": false,
+          "enemies": [],
+          "mechanic": "非战斗节点：在祭坛前做出选择，代价与收益都由选择决定。",
+          "options": [
+            {
+              "id": "pray",
+              "name": "祈祷",
+              "cost": {
+                "currency": "gold",
+                "count": 100
+              },
+              "grant": {
+                "buff": {
+                  "stat": "atk",
+                  "mult": 1.15,
+                  "scope": "team",
+                  "battles": 1,
+                  "name": "祭坛祝福",
+                  "desc": "下一场战斗己方全队攻击力 +15%"
+                }
+              }
+            },
+            {
+              "id": "sacrifice",
+              "name": "献祭",
+              "cost": {
+                "stamina": 20
+              },
+              "grant": {
+                "item": {
+                  "id": "shard_mystic_girl",
+                  "name": "SSR 秘法少女碎片",
+                  "count": 5,
+                  "icon": "res://assets/icons/icon_light.svg"
+                }
+              }
+            },
+            {
+              "id": "leave",
+              "name": "离开",
+              "cost": {},
+              "grant": {}
+            }
+          ],
+          "rewards": [],
+          "no": 5,
+          "power_scale": 0.0,
+          "theme": {
+            "sky_top": "#8FB4D8",
+            "sky_bottom": "#F2F7FB",
+            "sun": "#FFF0C0",
+            "ground": "#9AA3AE",
+            "rim": "#5E6670",
+            "haze": "#5A6C86"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1006,
+          "name": "破碎遗迹",
+          "kind": "battle",
+          "subtitle": "普通战斗",
+          "recommend_power": 7800,
+          "stamina": 6,
+          "pre_stage_id": 1004,
+          "is_boss": false,
+          "difficulty": 0.85,
+          "enemies": [
+            {
+              "slot": 1,
+              "mob": "ruin_guard"
+            },
+            {
+              "slot": 3,
+              "mob": "ruin_guard"
+            },
+            {
+              "slot": 5,
+              "mob": "puppet_mage"
+            }
+          ],
+          "mechanic": "傀儡法师具有群体护盾技能，需使用高单体爆发英雄快速减员。",
+          "tactics": "石像守卫硬、傀儡法师每三次行动糊一层全队护盾；群攻在这儿是给护盾送效率，要单点爆破。",
+          "rewards": [
+            {
+              "id": "gold",
+              "name": "金币",
+              "count": 1800,
+              "icon": "res://assets/icons/icon_coin.svg"
+            },
+            {
+              "id": "hero_exp",
+              "name": "英雄经验",
+              "count": 2500,
+              "icon": "res://assets/icons/icon_star.svg"
+            }
+          ],
+          "no": 6,
+          "power_scale": 2.6732,
+          "theme": {
+            "sky_top": "#CBB68F",
+            "sky_bottom": "#F6EDDA",
+            "sun": "#F0D9A8",
+            "ground": "#9A8B72",
+            "rim": "#665B47",
+            "haze": "#6E5F4A"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1007,
+          "name": "奇遇喷泉",
+          "kind": "rest",
+          "subtitle": "宝箱 / 休息节点",
+          "recommend_power": 0,
+          "stamina": 0,
+          "pre_stage_id": 1006,
+          "is_boss": false,
+          "enemies": [],
+          "mechanic": "节点效果：恢复全队英雄 100% 生命值，并获得【云端宝箱】。",
+          "restore": {
+            "hp_pct": 1.0,
+            "scope": "team"
+          },
+          "rewards": [
+            {
+              "id": "bound_gem",
+              "name": "绑钻",
+              "count": 80,
+              "icon": "res://assets/icons/icon_gem.svg"
+            },
+            {
+              "id": "ticket_basic",
+              "name": "普通抽卡券",
+              "count": 1,
+              "icon": "res://assets/icons/icon_gift.svg"
+            }
+          ],
+          "no": 7,
+          "power_scale": 0.0,
+          "theme": {
+            "sky_top": "#8FB4D8",
+            "sky_bottom": "#F2F7FB",
+            "sun": "#FFF0C0",
+            "ground": "#9AA3AE",
+            "rim": "#5E6670",
+            "haze": "#5A6C86"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1008,
+          "name": "精英部落",
+          "kind": "elite",
+          "subtitle": "高难支线 · 精英挑战",
+          "recommend_power": 10500,
+          "stamina": 10,
+          "pre_stage_id": 1003,
+          "is_boss": false,
+          "difficulty": 0.85,
+          "enemies": [
+            {
+              "slot": 1,
+              "mob": "goblin_chief"
+            },
+            {
+              "slot": 4,
+              "mob": "stone_slinger"
+            },
+            {
+              "slot": 6,
+              "mob": "stone_slinger"
+            },
+            {
+              "slot": 8,
+              "mob": "goblin_shaman"
+            }
+          ],
+          "mechanic": "后排萨满提供持续治疗，中排投石手对己方后排造成高额范围伤害。",
+          "tactics": "考验阵容整体恢复与耐受力：不切掉萨满，前排就永远磨不掉；不管后排，投石手会把你的输出先砸没。",
+          "rewards": [
+            {
+              "id": "equip_acrylic_glove",
+              "name": "SR级装备【亮面亚克力护手】",
+              "count": 1,
+              "icon": "res://assets/icons/icon_atk.svg"
+            },
+            {
+              "id": "shard_ssr",
+              "name": "SSR英雄碎片",
+              "count": 5,
+              "icon": "res://assets/icons/icon_star.svg"
+            }
+          ],
+          "no": 8,
+          "power_scale": 3.1332,
+          "theme": {
+            "sky_top": "#E2A274",
+            "sky_bottom": "#FCE8D2",
+            "sun": "#FFC98A",
+            "ground": "#8A6A4E",
+            "rim": "#553D2A",
+            "haze": "#6B4A34"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1009,
+          "name": "枯髅门前哨",
+          "kind": "battle",
+          "subtitle": "Boss 前夜 · 常规战斗",
+          "recommend_power": 11200,
+          "stamina": 6,
+          "pre_stage_id": 1008,
+          "is_boss": false,
+          "difficulty": 0.85,
+          "enemies": [
+            {
+              "slot": 1,
+              "mob": "nut_soldier"
+            },
+            {
+              "slot": 3,
+              "mob": "nut_soldier"
+            },
+            {
+              "slot": 5,
+              "mob": "storm_elemental"
+            },
+            {
+              "slot": 8,
+              "mob": "goblin_shaman"
+            }
+          ],
+          "mechanic": "Boss 战前的阵容调配测试，确保队伍具备「破盾 + 切后 + 承伤」完整体系。",
+          "tactics": "坚硬前排 + 中排元素 AOE + 后排治疗，是 Boss 阵容的缩水版；能稳过这里，1010 才有得打。",
+          "rewards": [
+            {
+              "id": "gold",
+              "name": "金币",
+              "count": 2200,
+              "icon": "res://assets/icons/icon_coin.svg"
+            },
+            {
+              "id": "break_stone_1",
+              "name": "1阶突破石",
+              "count": 10,
+              "icon": "res://assets/icons/icon_def.svg"
+            }
+          ],
+          "no": 9,
+          "power_scale": 4.2452,
+          "theme": {
+            "sky_top": "#B2A2C2",
+            "sky_bottom": "#EFE6F4",
+            "sun": "#DCC8E8",
+            "ground": "#8F8298",
+            "rim": "#5C5266",
+            "haze": "#584A6A"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        },
+        {
+          "id": 1010,
+          "name": "枯髅门 · 巨石守卫",
+          "kind": "boss",
+          "subtitle": "章节最终 Boss 战",
+          "recommend_power": 12500,
+          "stamina": 8,
+          "pre_stage_id": 1009,
+          "is_boss": true,
+          "difficulty": 0.85,
+          "first_clear_only": true,
+          "enemies": [
+            {
+              "slot": 1,
+              "mob": "nut_soldier"
+            },
+            {
+              "slot": 3,
+              "mob": "nut_soldier"
+            },
+            {
+              "slot": 4,
+              "mob": "storm_elemental"
+            },
+            {
+              "slot": 5,
+              "mob": "stone_warden"
+            },
+            {
+              "slot": 6,
+              "mob": "storm_elemental"
+            },
+            {
+              "slot": 8,
+              "mob": "goblin_shaman"
+            }
+          ],
+          "mechanic": "Boss 特性：【花岗岩护甲】物理减伤 30%，开局拥有 20% 最大生命值的护盾；【裂地震击】满能量释放，对前排造成 200% 物理伤害并附带 50% 概率眩晕。",
+          "tactics": "物理队会被护甲吃掉三成伤害，开局先破那层 20% 的盾；中排两只风暴元素持续压中排血量，萨满还在后面续命 —— 破盾、切后、承伤，缺一环就打不过。",
+          "rewards": [
+            {
+              "id": "gem",
+              "name": "彩虹钻石",
+              "count": 300,
+              "icon": "res://assets/icons/icon_gem.svg"
+            },
+            {
+              "id": "ticket_advanced",
+              "name": "高级召唤卷轴",
+              "count": 5,
+              "icon": "res://assets/icons/icon_gift.svg"
+            },
+            {
+              "id": "hero_mystic_girl",
+              "name": "SSR英雄【秘法少女】",
+              "count": 1,
+              "icon": "res://assets/icons/icon_light.svg",
+              "first_clear": true
+            }
+          ],
+          "no": 10,
+          "power_scale": 2.1399,
+          "theme": {
+            "sky_top": "#6E5A7A",
+            "sky_bottom": "#CBBAD2",
+            "sun": "#B79BC4",
+            "ground": "#7A6A80",
+            "rim": "#463A4E",
+            "haze": "#3A2E46"
+          },
+          "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+          "bg": ""
+        }
+      ]
+    }
+  },
+  "modes": [
+    {
+      "id": "tower",
+      "name": "无限之塔",
+      "icon": "res://assets/icons/icon_tower.svg",
+      "color": "#FFC94A",
+      "tag": "PVE"
+    },
+    {
+      "id": "maze",
+      "name": "迷宫探索",
+      "icon": "res://assets/icons/icon_maze.svg",
+      "color": "#66D3B0",
+      "tag": "Rogue-lite"
+    },
+    {
+      "id": "arena",
+      "name": "竞技场",
+      "icon": "res://assets/icons/icon_arena.svg",
+      "color": "#FF9E6B",
+      "tag": "异步 PVP"
+    },
+    {
+      "id": "peak",
+      "name": "巅峰对决",
+      "icon": "res://assets/icons/icon_gacha.svg",
+      "color": "#C08BFF",
+      "tag": "实时 BP"
+    }
+  ],
+  "menu": {
+    "card_box": {
+      "w": 336,
+      "h": 520
+    },
+    "fan": {
+      "scale": 0.85,
+      "center_y_offset": 6,
+      "center_x_offset": -40,
+      "spacing_x": 342,
+      "per_index": [
+        {
+          "rot_deg": -7.0,
+          "y": 28,
+          "scale": 0.93,
+          "z": 0
+        },
+        {
+          "rot_deg": -2.0,
+          "y": -26,
+          "scale": 1.02,
+          "z": 3
+        },
+        {
+          "rot_deg": 2.0,
+          "y": -8,
+          "scale": 0.97,
+          "z": 2
+        },
+        {
+          "rot_deg": 6.5,
+          "y": 22,
+          "scale": 0.93,
+          "z": 1
+        }
+      ]
+    },
+    "demo_lineup": [
+      "knight_rock",
+      "pyro_girl",
+      "elf_ranger",
+      "holy_priest"
+    ],
+    "demo_team_slots": [
+      "knight_rock",
+      "pyro_girl",
+      "elf_ranger"
+    ],
+    "player": {
+      "name": "云上旅人",
+      "level": 10,
+      "exp": 320,
+      "exp_max": 800,
+      "gold": 12500,
+      "gem": 1280,
+      "stamina": 52
+    },
+    "top_right_entries": [
+      {
+        "id": "settings",
+        "name": "设置",
+        "icon": "res://assets/icons/icon_gear.svg"
+      },
+      {
+        "id": "mail",
+        "name": "邮件",
+        "icon": "res://assets/icons/icon_mail.svg"
+      },
+      {
+        "id": "event",
+        "name": "活动",
+        "icon": "res://assets/icons/icon_gift.svg"
+      }
+    ],
+    "system_entries": [
+      {
+        "id": "gacha",
+        "name": "召集",
+        "tag": "抽卡 / 水晶商店",
+        "icon": "res://assets/icons/icon_gacha.svg",
+        "color": "#C08BFF",
+        "route": "res://scenes/gacha.tscn",
+        "hint": "群星召唤：常驻 / 限时 UP 卡池与心愿水晶商店"
+      },
+      {
+        "id": "cards",
+        "name": "卡牌",
+        "tag": "编队 / 收藏",
+        "icon": "res://assets/icons/icon_cards.svg",
+        "color": "#7BE0FF",
+        "route": "res://scenes/formation.tscn",
+        "hint": "查看全部英雄、调整上阵阵容与羁绊"
+      }
+    ]
+  },
+  "monsters": {
+    "note": "第一章敌方单位。base 面板口径与 characters[].base 一致；action/skill 描述行为，traits 描述 Boss 特性，战斗内核只做解释器。",
+    "icon_note": "icon 由 tools/make_monsters.py 生成，改造型重跑该脚本即可，配置不用动。",
+    "order": [
+      "slime",
+      "nut_soldier",
+      "forest_archer",
+      "castle_guard",
+      "ballista",
+      "castle_bard",
+      "storm_elemental",
+      "cloud_sprite",
+      "ruin_guard",
+      "puppet_mage",
+      "goblin_chief",
+      "stone_slinger",
+      "goblin_shaman",
+      "stone_warden"
+    ],
+    "table": {
+      "slime": {
+        "name": "软泥怪",
+        "element": "water",
+        "role": "warrior",
+        "desc": "云海浅滩最常见的软体生物，只会一头撞上来。",
+        "base": {
+          "hp": 420,
+          "atk": 42,
+          "def": 60,
+          "mres": 30,
+          "crit": 0.03,
+          "crit_dmg": 1.5,
+          "spd": 80
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "slime",
+        "icon": "res://assets/icons/monsters/mob_slime.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "nut_soldier": {
+        "name": "坚果小兵",
+        "element": "earth",
+        "role": "tank",
+        "desc": "顶着坚果壳的浮岛守备兵，壳硬得很，负责挡在最前面。",
+        "base": {
+          "hp": 620,
+          "atk": 50,
+          "def": 130,
+          "mres": 40,
+          "crit": 0.02,
+          "crit_dmg": 1.5,
+          "spd": 70
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 0.9
+        },
+        "id": "nut_soldier",
+        "icon": "res://assets/icons/monsters/mob_nut_soldier.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "forest_archer": {
+        "name": "森林弓箭手",
+        "element": "wind",
+        "role": "archer",
+        "desc": "藏在浮空森林树冠里的射手，箭头永远朝着更脆的那一排。",
+        "base": {
+          "hp": 460,
+          "atk": 96,
+          "def": 55,
+          "mres": 45,
+          "crit": 0.12,
+          "crit_dmg": 1.6,
+          "spd": 118
+        },
+        "action": {
+          "kind": "attack",
+          "target": "lowest_hp_back",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "forest_archer",
+        "icon": "res://assets/icons/monsters/mob_forest_archer.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "castle_guard": {
+        "name": "城堡重装卫兵",
+        "element": "light",
+        "role": "tank",
+        "desc": "云端城堡的仪仗守卫，塔盾一立，正面几乎推不动。",
+        "base": {
+          "hp": 900,
+          "atk": 62,
+          "def": 210,
+          "mres": 70,
+          "crit": 0.02,
+          "crit_dmg": 1.5,
+          "spd": 64
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "castle_guard",
+        "icon": "res://assets/icons/monsters/mob_castle_guard.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "ballista": {
+        "name": "弩箭车",
+        "element": "earth",
+        "role": "archer",
+        "desc": "架在城垛上的重弩，一轮齐射能覆盖一整排。",
+        "base": {
+          "hp": 700,
+          "atk": 128,
+          "def": 110,
+          "mres": 40,
+          "crit": 0.08,
+          "crit_dmg": 1.5,
+          "spd": 58
+        },
+        "action": {
+          "kind": "attack",
+          "target": "middle_row",
+          "damage": "phys",
+          "mult": 0.85,
+          "aoe": true
+        },
+        "id": "ballista",
+        "icon": "res://assets/icons/monsters/mob_ballista.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "castle_bard": {
+        "name": "城堡军乐手",
+        "element": "light",
+        "role": "support",
+        "desc": "不当输出，只吹号角。号声一响，全队越打越猛，因此必须优先切后排。",
+        "base": {
+          "hp": 560,
+          "atk": 40,
+          "def": 70,
+          "mres": 95,
+          "crit": 0.03,
+          "crit_dmg": 1.5,
+          "spd": 96
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.6
+        },
+        "skill": {
+          "kind": "buff_atk",
+          "interval": 1,
+          "value": 0.08,
+          "max_stacks": 3,
+          "name": "战地军乐",
+          "desc": "每次行动为全队提升 8% 攻击力，最多叠 3 层"
+        },
+        "id": "castle_bard",
+        "icon": "res://assets/icons/monsters/mob_castle_bard.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "storm_elemental": {
+        "name": "风暴元素",
+        "element": "wind",
+        "role": "mage",
+        "desc": "被浮岛风暴卷起来的气旋，无形无质，只对中排倾泻乱流。",
+        "base": {
+          "hp": 660,
+          "atk": 124,
+          "def": 66,
+          "mres": 88,
+          "crit": 0.1,
+          "crit_dmg": 1.5,
+          "spd": 126
+        },
+        "action": {
+          "kind": "attack",
+          "target": "middle_row",
+          "damage": "magic",
+          "mult": 0.9,
+          "aoe": true
+        },
+        "id": "storm_elemental",
+        "icon": "res://assets/icons/monsters/mob_storm_elemental.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "cloud_sprite": {
+        "name": "雷云精灵",
+        "element": "wind",
+        "role": "mage",
+        "desc": "小朵雷云，专挑队伍里血最薄的那个劈。",
+        "base": {
+          "hp": 520,
+          "atk": 118,
+          "def": 50,
+          "mres": 105,
+          "crit": 0.09,
+          "crit_dmg": 1.5,
+          "spd": 132
+        },
+        "action": {
+          "kind": "attack",
+          "target": "lowest_hp_back",
+          "damage": "magic",
+          "mult": 1.05
+        },
+        "id": "cloud_sprite",
+        "icon": "res://assets/icons/monsters/mob_cloud_sprite.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "ruin_guard": {
+        "name": "遗迹守卫",
+        "element": "earth",
+        "role": "tank",
+        "desc": "遗迹里还在按旧命令巡逻的石像，慢，但很难凿开。",
+        "base": {
+          "hp": 1150,
+          "atk": 78,
+          "def": 240,
+          "mres": 90,
+          "crit": 0.02,
+          "crit_dmg": 1.5,
+          "spd": 62
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "ruin_guard",
+        "icon": "res://assets/icons/monsters/mob_ruin_guard.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "puppet_mage": {
+        "name": "傀儡法师",
+        "element": "dark",
+        "role": "mage",
+        "desc": "提线人偶，每隔两次行动就替全队糊上一层护盾，得靠单体爆发快速减员。",
+        "base": {
+          "hp": 700,
+          "atk": 140,
+          "def": 72,
+          "mres": 130,
+          "crit": 0.08,
+          "crit_dmg": 1.5,
+          "spd": 88
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.95
+        },
+        "skill": {
+          "kind": "shield_all",
+          "interval": 3,
+          "offset": 1,
+          "mult": 1.2,
+          "name": "傀儡护盾",
+          "desc": "为己方全队附加等同自身攻击力 120% 的护盾"
+        },
+        "id": "puppet_mage",
+        "icon": "res://assets/icons/monsters/mob_puppet_mage.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "goblin_chief": {
+        "name": "哥布林百夫长",
+        "element": "fire",
+        "role": "warrior",
+        "desc": "部落里最能打的一个，红缨一甩就往前顶。",
+        "base": {
+          "hp": 1250,
+          "atk": 118,
+          "def": 165,
+          "mres": 60,
+          "crit": 0.06,
+          "crit_dmg": 1.6,
+          "spd": 86
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.1
+        },
+        "id": "goblin_chief",
+        "icon": "res://assets/icons/monsters/mob_goblin_chief.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "stone_slinger": {
+        "name": "投石投掷手",
+        "element": "earth",
+        "role": "archer",
+        "desc": "抡着皮兜往对面后排砸石头，砸得又散又疼。",
+        "base": {
+          "hp": 780,
+          "atk": 132,
+          "def": 90,
+          "mres": 55,
+          "crit": 0.07,
+          "crit_dmg": 1.5,
+          "spd": 92
+        },
+        "action": {
+          "kind": "attack",
+          "target": "back_row",
+          "damage": "phys",
+          "mult": 0.8,
+          "aoe": true
+        },
+        "id": "stone_slinger",
+        "icon": "res://assets/icons/monsters/mob_stone_slinger.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "goblin_shaman": {
+        "name": "哥布林萨满",
+        "element": "dark",
+        "role": "healer",
+        "desc": "跳着祭舞给族人续命，只要它站着，前排就磨不死。",
+        "base": {
+          "hp": 820,
+          "atk": 76,
+          "def": 85,
+          "mres": 140,
+          "crit": 0.04,
+          "crit_dmg": 1.5,
+          "spd": 104
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.7
+        },
+        "skill": {
+          "kind": "heal_lowest",
+          "interval": 1,
+          "mult": 1.8,
+          "name": "先祖图腾",
+          "desc": "每次行动治疗己方血量百分比最低的单位，治疗量为攻击力 180%"
+        },
+        "id": "goblin_shaman",
+        "icon": "res://assets/icons/monsters/mob_goblin_shaman.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "stone_warden": {
+        "name": "巨石守卫",
+        "element": "earth",
+        "role": "tank",
+        "desc": "枯髅门的守门人，一整块花岗岩凿出来的巨人，胸口符文是它唯一没被风蚀掉的东西。",
+        "boss": true,
+        "base": {
+          "hp": 4200,
+          "atk": 210,
+          "def": 320,
+          "mres": 180,
+          "crit": 0.05,
+          "crit_dmg": 1.5,
+          "spd": 74
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "traits": [
+          {
+            "id": "granite_armor",
+            "name": "花岗岩护甲",
+            "desc": "物理减伤 30%，开局为自身附加等同 20% 最大生命值的护盾",
+            "phys_reduction": 0.3,
+            "shield_pct": 0.2,
+            "shield_scope": "self"
+          },
+          {
+            "id": "quake_slam",
+            "name": "裂地震击",
+            "desc": "满能量释放，对敌方前排全体造成 200% 物理伤害，50% 概率眩晕 1 回合",
+            "mult": 2.0,
+            "target": "front_row",
+            "damage": "phys",
+            "stun_chance": 0.5,
+            "stun_actions": 1
+          }
+        ],
+        "id": "stone_warden",
+        "icon": "res://assets/icons/monsters/mob_stone_warden.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      }
+    }
+  },
+  "formation": {
+    "title": "选择你的英雄",
+    "subtitle": "组成你的冒险小队",
+    "top_tabs": [
+      {
+        "id": "select",
+        "name": "选择",
+        "hint": "点击卡牌查看战术信息"
+      },
+      {
+        "id": "filter",
+        "name": "筛选",
+        "hint": "按品质 / 元素 / 职业过滤英雄"
+      },
+      {
+        "id": "sort",
+        "name": "排序",
+        "hint": "调整卡牌陈列与英雄库的顺序"
+      }
+    ],
+    "search": {
+      "placeholder": "搜索英雄名称...",
+      "hint": "支持 名称 / 称号 / 职业 / 元素 / 品质"
+    },
+    "filters": {
+      "groups": [
+        {
+          "id": "rarity",
+          "name": "品质",
+          "source": "rarities"
+        },
+        {
+          "id": "element",
+          "name": "元素",
+          "source": "elements"
+        },
+        {
+          "id": "role",
+          "name": "职业",
+          "source": "roles"
+        }
+      ],
+      "reset_text": "重置",
+      "apply_text": "确定",
+      "all_text": "全部"
+    },
+    "sorts": [
+      {
+        "id": "default",
+        "name": "默认顺序"
+      },
+      {
+        "id": "power",
+        "name": "战力 ↓"
+      },
+      {
+        "id": "level",
+        "name": "等级 ↓"
+      },
+      {
+        "id": "rarity",
+        "name": "品质 ↓"
+      },
+      {
+        "id": "element",
+        "name": "元素"
+      },
+      {
+        "id": "name",
+        "name": "名称"
+      }
+    ],
+    "team": {
+      "label": "编队棋盘",
+      "max_members": 5,
+      "row_order": [
+        "front",
+        "middle",
+        "back"
+      ],
+      "columns": 3,
+      "hint": "点空位放置 · 点已上阵英雄可下阵",
+      "count_text": "上阵 %d/%d",
+      "power_label": "队伍战力",
+      "power_parts": {
+        "base": "基础",
+        "equip": "装备",
+        "synergy": "羁绊"
+      }
+    },
+    "fan": {
+      "scale": 0.68,
+      "spacing_x": 385.0,
+      "center_x_offset": 80.0,
+      "center_y_offset": 2.0,
+      "selected_scale": 1.12,
+      "per_index": [
+        {
+          "rot_deg": -7.0,
+          "y": 28,
+          "scale": 0.93,
+          "z": 0
+        },
+        {
+          "rot_deg": -2.0,
+          "y": -26,
+          "scale": 1.02,
+          "z": 3
+        },
+        {
+          "rot_deg": 2.0,
+          "y": -8,
+          "scale": 0.97,
+          "z": 2
+        },
+        {
+          "rot_deg": 6.5,
+          "y": 22,
+          "scale": 0.93,
+          "z": 1
+        }
+      ]
+    },
+    "default_selected": "pyro_girl",
+    "library": {
+      "title": "备选英雄库",
+      "columns": 2,
+      "rows": 3,
+      "empty_text": "空位",
+      "deployed_tag": "已上阵",
+      "empty_result": "没有符合条件的英雄",
+      "count_text": "%d / %d 名"
+    },
+    "tactical": {
+      "boxes": [
+        {
+          "id": "role_counter",
+          "title": "职业克制"
+        },
+        {
+          "id": "counter_bonus",
+          "title": "克制加成"
+        },
+        {
+          "id": "synergy",
+          "title": "羁绊加成"
+        },
+        {
+          "id": "battle_role",
+          "title": "战斗定位"
+        }
+      ],
+      "empty_text": "—",
+      "no_synergy": "当前组合未激活羁绊",
+      "synergy_count": "%d 条羁绊生效",
+      "no_stage": "未选择关卡",
+      "counter_none": "本关无克制目标",
+      "counter_format": "%s 克 %s　+%d%% 伤害",
+      "synergy_hint_format": "上阵 %d 人可激活",
+      "role_sep": " / "
+    },
+    "role_chain": [
+      "tank",
+      "warrior",
+      "archer",
+      "mage"
+    ],
+    "role_counters": [
+      {
+        "id": "magic_vs_armor",
+        "attacker_roles": [
+          "mage"
+        ],
+        "defender_roles": [
+          "tank"
+        ],
+        "pct": 0.25,
+        "text": "魔法对重装 +25% 伤害"
+      },
+      {
+        "id": "blade_vs_armor",
+        "attacker_roles": [
+          "warrior"
+        ],
+        "defender_roles": [
+          "tank"
+        ],
+        "pct": 0.15,
+        "text": "近战对重装 +15% 伤害"
+      },
+      {
+        "id": "ranged_vs_armor",
+        "attacker_roles": [
+          "archer"
+        ],
+        "defender_roles": [
+          "tank"
+        ],
+        "pct": 0.2,
+        "text": "远程对重装 +20% 伤害"
+      },
+      {
+        "id": "assassin_vs_back",
+        "attacker_roles": [
+          "assassin"
+        ],
+        "defender_roles": [
+          "healer",
+          "support",
+          "mage",
+          "archer"
+        ],
+        "pct": 0.25,
+        "text": "刺客突袭后排脆皮 +25% 伤害"
+      },
+      {
+        "id": "tank_vs_assassin",
+        "attacker_roles": [
+          "tank"
+        ],
+        "defender_roles": [
+          "assassin"
+        ],
+        "pct": 0.3,
+        "text": "重装拦截刺客 +30% 减伤"
+      }
+    ],
+    "role_tactics": {
+      "tank": {
+        "position": "前排承伤",
+        "duty": "嘲讽控制"
+      },
+      "warrior": {
+        "position": "前排近战输出",
+        "duty": "单体爆发"
+      },
+      "mage": {
+        "position": "中排魔法输出",
+        "duty": "范围破盾"
+      },
+      "archer": {
+        "position": "中排远程输出",
+        "duty": "点杀后排"
+      },
+      "assassin": {
+        "position": "后排突袭",
+        "duty": "斩杀脆皮"
+      },
+      "healer": {
+        "position": "后排治疗",
+        "duty": "续航驱散"
+      },
+      "support": {
+        "position": "后排辅助",
+        "duty": "增益控制"
+      }
+    },
+    "synergies": [
+      {
+        "id": "vanguard",
+        "name": "坚守阵线",
+        "cond": {
+          "type": "role_count",
+          "roles": [
+            "tank",
+            "warrior"
+          ],
+          "min": 1
+        },
+        "effect": {
+          "stat": "def",
+          "pct": 0.1
+        },
+        "text": "与前排（重装 / 战士）英雄同时上阵，防御 +10%"
+      },
+      {
+        "id": "arcane",
+        "name": "秘法共鸣",
+        "cond": {
+          "type": "role_count",
+          "roles": [
+            "mage",
+            "archer"
+          ],
+          "min": 2
+        },
+        "effect": {
+          "stat": "atk",
+          "pct": 0.08
+        },
+        "text": "与输出位（法师 / 游侠）同队 ≥2 人，攻击 +8%"
+      },
+      {
+        "id": "dawn",
+        "name": "黎明誓约",
+        "cond": {
+          "type": "element_count",
+          "elements": [
+            "light"
+          ],
+          "min": 1
+        },
+        "effect": {
+          "stat": "hp",
+          "pct": 0.06
+        },
+        "text": "队内存在光属性英雄，生命 +6%"
+      },
+      {
+        "id": "trinity",
+        "name": "三才阵",
+        "cond": {
+          "type": "member_count",
+          "min": 3
+        },
+        "effect": {
+          "stat": "all",
+          "pct": 0.05
+        },
+        "text": "上阵满 3 人，全属性 +5%"
+      },
+      {
+        "id": "rainbow",
+        "name": "五行流转",
+        "cond": {
+          "type": "distinct_elements",
+          "min": 3
+        },
+        "effect": {
+          "stat": "mres",
+          "pct": 0.12
+        },
+        "text": "队内元素 ≥3 种，法抗 +12%"
+      },
+      {
+        "id": "full_house",
+        "name": "五方俱备",
+        "cond": {
+          "type": "member_count",
+          "min": 5
+        },
+        "effect": {
+          "stat": "all",
+          "pct": 0.08
+        },
+        "text": "上阵满 5 人，全属性 +8%"
+      },
+      {
+        "id": "cloud_vanguard",
+        "name": "云端先锋队",
+        "cond": {
+          "type": "char_ids",
+          "ids": [
+            "flame_knight",
+            "arcane_girl"
+          ],
+          "min": 2
+        },
+        "effects": [
+          {
+            "stat": "atk",
+            "pct": 0.08,
+            "target": "all"
+          },
+          {
+            "stat": "elem_dmg",
+            "pct": 0.1,
+            "target": "all",
+            "element": "fire"
+          }
+        ],
+        "text": "同时上阵【炎赫骑士】+【秘法少女】：全队攻击 +8%，火元素伤害 +10%"
+      },
+      {
+        "id": "nature_guard",
+        "name": "自然之护",
+        "cond": {
+          "type": "char_ids",
+          "ids": [
+            "elf_ranger",
+            "earth_guardian"
+          ],
+          "min": 2
+        },
+        "effects": [
+          {
+            "stat": "hp",
+            "pct": 0.12,
+            "target": "row:front"
+          },
+          {
+            "stat": "def",
+            "pct": 0.1,
+            "target": "row:front"
+          }
+        ],
+        "text": "同时上阵【精灵游侠】+【大地守卫】：己方前排生命上限 +12%，防御 +10%"
+      },
+      {
+        "id": "light_dark_weave",
+        "name": "光暗交织",
+        "cond": {
+          "type": "char_ids",
+          "ids": [
+            "holy_priest",
+            "shadow_assassin"
+          ],
+          "min": 2
+        },
+        "effects": [
+          {
+            "stat": "crit",
+            "value": 0.05,
+            "target": "all"
+          },
+          {
+            "stat": "open_energy",
+            "value": 15.0,
+            "target": "all"
+          }
+        ],
+        "text": "同时上阵【神圣牧师】+【暗夜刺客】：全队暴击率 +5%，开局获得 15 点能量"
+      },
+      {
+        "id": "all_element_resonance",
+        "name": "全元素共鸣",
+        "cond": {
+          "type": "distinct_elements",
+          "min": 4
+        },
+        "effects": [
+          {
+            "stat": "open_shield",
+            "value": 0.15,
+            "target": "all"
+          }
+        ],
+        "text": "上阵 4 种不同元素属性的卡牌：战斗开始时为全员施加相当于自身生命值 15% 的护盾"
+      }
+    ],
+    "preset_label": "阵容预设",
+    "presets": [
+      {
+        "id": "main",
+        "name": "主线队",
+        "seed": [
+          "knight_rock",
+          "pyro_girl",
+          "elf_ranger"
+        ]
+      },
+      {
+        "id": "pvp",
+        "name": "PVP队",
+        "seed": []
+      },
+      {
+        "id": "dungeon",
+        "name": "副本队",
+        "seed": []
+      }
+    ],
+    "quick_fill": {
+      "text": "一键上阵",
+      "note": "按战力与克制自动补满"
+    },
+    "quick_deploy": {
+      "text": "上阵",
+      "note": "放到该英雄的推荐槽位"
+    },
+    "quick_remove": {
+      "text": "下阵"
+    },
+    "clear_text": "清空",
+    "spend_stamina_at": "formation",
+    "scene": "res://scenes/formation.tscn",
+    "confirm_button": {
+      "text": "确认选择",
+      "sub_text": "FORMATION"
+    },
+    "back_button": {
+      "text": "返回主界面",
+      "route": "res://scenes/main_menu.tscn"
+    },
+    "battle_scene": "res://scenes/battle.tscn",
+    "toast": {
+      "deployed": "已上阵 %s（%s · 槽位 %d）",
+      "removed": "已下阵 %s",
+      "team_full": "上阵已满 %d 人，请先下阵",
+      "dup": "%s 已在阵中",
+      "auto_filled": "一键上阵：%d 人 · 队伍战力 %s",
+      "preset_saved": "已把当前阵容保存到「%s」",
+      "preset_loaded": "已切换到「%s」（%d 人）",
+      "preset_empty": "「%s」还没有阵容，先编好队再切换",
+      "no_stamina": "体力不足：需要 %d 点，当前 %d 点\n（%s 后恢复 1 点）",
+      "team_empty": "至少上阵 1 名英雄再出发",
+      "no_stage": "还没有选择关卡，先回选关页挑一关",
+      "ready": "阵容就绪 · 进入关卡 %d · 队伍战力 %s",
+      "synergy": "羁绊生效：%s",
+      "no_result": "没有符合条件的英雄",
+      "board_locked": "该槽位已被占用",
+      "no_select": "先在卡牌陈列或英雄库里选一张卡"
+    }
+  },
+  "codex": {
+    "title": "英雄图鉴",
+    "subtitle": "4 大职业定位 × 6 大元素属性 的战术搭配体系",
+    "class_matrix": [
+      {
+        "id": "front",
+        "name": "前排",
+        "en_name": "Warrior / Tank",
+        "roles": [
+          "tank",
+          "warrior"
+        ],
+        "desc": "高血高防，具备护盾、嘲讽或控场能力。"
+      },
+      {
+        "id": "dps",
+        "name": "输出",
+        "en_name": "Mage / DPS",
+        "roles": [
+          "mage"
+        ],
+        "desc": "核心伤害制造者，分为单体爆破与群体魔法伤害。"
+      },
+      {
+        "id": "agile",
+        "name": "游侠 / 刺客",
+        "en_name": "Ranger / Assassin",
+        "roles": [
+          "archer",
+          "assassin"
+        ],
+        "desc": "高攻速、高暴击，优先锁定敌方后排或残血目标。"
+      },
+      {
+        "id": "support",
+        "name": "辅助",
+        "en_name": "Support / Healer",
+        "roles": [
+          "healer",
+          "support"
+        ],
+        "desc": "提供群体治疗、能量恢复或战术增益（Buff）。"
+      }
+    ],
+    "codex_fields": [
+      "hero_name",
+      "battle_role",
+      "attack",
+      "ult",
+      "passive"
+    ],
+    "note": "每条英雄的图鉴信息挂在 characters[].codex 下；战斗只读 base / growth / skill，图鉴信息纯展示。"
+  }
+}
