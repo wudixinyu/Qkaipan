@@ -1,5 +1,0 @@
-- Each scene file declares its root `Control` node with `custom_minimum_size = Vector2(1920, 1080)` and full-screen anchors to lock the viewport size.
-- UI styling is expressed via named `sub_resource StyleBoxFlat` blocks (e.g. `StyleBoxFlat_a12nh`, `StyleBoxFlat_lpir7`) referenced by `theme_override_styles/panel` or button state styles instead of inline color values.
-- All labels and buttons load typography from the shared `res://assets/fonts/ui_font.tres` SystemFont via `theme_override_fonts/font`.
-- Screens are wired to their logic by attaching a single script to the root node via `[ext_resource type="Script" path="res://scripts/<screen>.gd"]`.
-- Interactive overlays set `mouse_filter = 2` on container nodes so clicks pass through to underlying layers like CellLayer or UnitLayer.

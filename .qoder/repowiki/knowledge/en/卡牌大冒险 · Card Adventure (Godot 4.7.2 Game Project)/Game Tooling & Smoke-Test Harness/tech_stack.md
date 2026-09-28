@@ -1,1 +1,0 @@
-Godot 4.x headless mode (`Godot --headless --script res://tools/...`) for scene generation and smoke tests; Python 3 + `sqlite3` for the `init_game_db.py` database builder that splits a single `schema.sql` by `-- @db:` markers into `game_cfg.db` and `player_save.db`.

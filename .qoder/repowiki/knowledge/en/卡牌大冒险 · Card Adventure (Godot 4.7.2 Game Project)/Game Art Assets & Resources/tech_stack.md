@@ -1,1 +1,0 @@
-Godot engine asset pipeline: PNG sprites with `.import` metadata, SVG icons, and `.tres` Godot resource files (e.g. `ui_font.tres`).

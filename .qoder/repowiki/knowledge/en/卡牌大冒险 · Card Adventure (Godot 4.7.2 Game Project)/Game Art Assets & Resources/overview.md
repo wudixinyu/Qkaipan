@@ -1,1 +1,0 @@
-Static game art resources — character sprites, background images, UI icons, monster avatars, and Godot font resources consumed by the game.

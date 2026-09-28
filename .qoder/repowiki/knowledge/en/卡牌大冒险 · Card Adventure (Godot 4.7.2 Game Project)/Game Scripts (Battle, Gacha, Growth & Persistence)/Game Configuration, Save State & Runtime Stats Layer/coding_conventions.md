@@ -1,6 +1,0 @@
-- Config accessors return safe defaults via a `section(key)` helper that falls back to `{}` or `[]`, so callers never dereference missing keys.
-- All mutable state mutations go through SaveDB accessor methods (`add_currency`, `grant_card`, `set_team`, `record_stage_stars`, etc.) which normalize inputs and call `save_profile()` rather than writing files directly.
-- Declarative rule tables (synergies, role_counters, formation presets, gacha pools) are stored in JSON and evaluated at runtime via match/dict lookups instead of hard-coded branches.
-- Card/equipment arrays are always normalized to exactly `equipment_slot_count()` slots, with empty strings representing explicitly unequipped slots.
-- Backward compatibility is handled by explicit migration functions (`_migrate_gacha`, `_normalize_cards`, `_fill_defaults`) that run once on load and patch old schemas without overwriting existing values.
-- Runtime computation layers (RealmDB) keep all I/O out of pure calculations by delegating stat math to GrowthCore and config lookup to GameDB, returning plain Dictionaries as immutable results.

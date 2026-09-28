@@ -1,1 +1,0 @@
-Run via `Godot_v4.7.2-stable_win64.exe --headless --path . --import` then `--path .`; scenes must be regenerated with `tools/build_*.gd` before editing; smoke tests run as separate headless invocations (`tools/smoke_*.gd`); screenshot harness requires a real window (`--resolution 1920x1080`).

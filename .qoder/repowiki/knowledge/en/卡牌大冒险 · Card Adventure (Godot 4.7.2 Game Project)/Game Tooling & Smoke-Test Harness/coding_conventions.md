@@ -1,6 +1,0 @@
-- Headless entry points extend `SceneTree`, override `_process` to gate work behind a `_done` flag, and terminate via `quit(0)` on success / `quit(1)` on error rather than returning normally.
-- Build scripts declare constants for input/output paths (`DATA_PATH`, `OUT_PATH`, `BASE = Vector2(1920,1080)`) and read `res://data/game_data.json` via `FileAccess` + `JSON.parse_string` before building.
-- All programmatic UI construction goes through `UIKit` static factories (`UI.panel`, `UI.label`, `UI.text_button`, `UI.anchor_top_left`, etc.) instead of instantiating nodes directly, keeping visual style centralized.
-- Nodes created by build scripts are named with a fixed `UNIQUE_NAMES` list and later marked `unique_name_in_owner = true` so runtime code can resolve them via `%Name` syntax.
-- Smoke suites expose a `run(tree: SceneTree) -> Dictionary` method returning `{passed, failed}` counts, and individual assertions go through `_ok(label, cond, detail)` / `_eq(label, got, want)` helpers that increment counters and print `[PASS]/[FAIL]` lines.
-- Python database scripts use `Path` relative to `__file__.parent.parent` (the repo root) and split `schema.sql` by `-- @db:` comment markers into per-database SQL buckets before executing.

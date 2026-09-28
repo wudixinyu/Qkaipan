@@ -1,4 +1,0 @@
-- Each script is registered as a Godot autoload singleton so scenes access functionality via a top-level name rather than passing references.
-- Data access is split into read-only config layers (`game_db.gd`, `realm_db.gd`) and mutable state layers (`save_db.gd`, `stamina.gd`).
-- UI scripts (`card_view.gd`, `card_fan.gd`, `main_menu.gd`, `stage_select.gd`) stay thin and delegate simulation/logic to dedicated core scripts (`battle_core.gd`, `growth_core.gd`, `gacha_sys.gd`).
-- JSON-based configuration is loaded once at startup and exposed through database-style getters rather than re-parsed per call.

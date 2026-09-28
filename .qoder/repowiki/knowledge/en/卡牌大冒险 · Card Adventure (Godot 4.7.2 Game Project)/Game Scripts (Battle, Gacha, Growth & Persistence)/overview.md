@@ -1,1 +1,0 @@
-Godot autoload scripts that wire together ATB combat, gacha collection, team growth stats, stamina gating, and JSON-backed configuration/save persistence across the game's scenes.

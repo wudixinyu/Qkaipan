@@ -1,5 +1,0 @@
-- Global state and cross-module communication go through autoload singletons declared in `project.godot` rather than direct node references or globals.
-- Scene layouts live in `tools/build_*.gd` generators and are not hand-edited; `.tscn` files are treated as generated artifacts.
-- All persistent writes funnel through `SaveDB`; no other script opens `user://` files directly.
-- Numerical formulas (damage, power, growth, gacha probabilities) are implemented once as pure functions and reused by both gameplay code and build/test tools to keep口径 identical.
-- Headless tool scripts access autoloads via `get_node_or_null("/root/X")` + `.call()` instead of relying on top-level autoload names.

@@ -1,2 +1,0 @@
-- Raster images ship as paired `<name>.png` + `<name>.png.import` files so Godot's import pipeline controls compression and mipmapping.
-- UI and monster visuals are authored as SVGs and placed under `icons/`, with corresponding `.import` files generated alongside them.

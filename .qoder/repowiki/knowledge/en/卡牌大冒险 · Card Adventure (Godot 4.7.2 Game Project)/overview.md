@@ -1,1 +1,0 @@
-Godot 4.7.2 project wiring autoload data layers, five generated scenes, static art assets, and headless tool scripts into a single ATB card-battling RPG with gacha and team growth.

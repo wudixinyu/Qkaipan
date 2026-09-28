@@ -1,1 +1,0 @@
-Godot 4 GDScript Node singletons; JSON-based external config (`res://data/game_data.json`) and user-profile persistence (`user://save.json`) via `FileAccess`/`JSON.parse_string`/`JSON.stringify`; relies on a sibling `growth_core.gd` module for pure-stat math.
