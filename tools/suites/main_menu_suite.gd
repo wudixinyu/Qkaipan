@@ -29,6 +29,10 @@ func run(tree: SceneTree) -> Dictionary:
 	_check_save()
 	_check_realm()
 	_check_stamina()
+	# 上阵上限现随等级解锁（1 级 1 人、每 10 级 +1、封顶 9）；新号 1 级只 1 位，
+	# 下面的扇形布局 / 阵容栏断言需要多位，先把等级抬到 40（→ cap 5）再进场景。
+	SaveDB.profile["player"]["level"] = 40
+	SaveDB.save_profile()
 	_check_scene()
 	print("\n---------- 结果：通过 %d / 失败 %d ----------" % [passed, failed])
 	return { "passed": passed, "failed": failed }
@@ -483,9 +487,9 @@ func _check_scene() -> void:
 	_tree.root.add_child(_scene)
 	_ok("根节点已挂 main_menu.gd", _scene.get_script() != null)
 
-	# 玩家信息：等级与经验条均按新档（1 级 / 0 经验）如实回写
+	# 玩家信息：等级按抬到 40 级的存档如实回写（上阵上限已改为随等级解锁）
 	var plabel: Label = _scene.get_node_or_null("%PlayerLevel")
-	_eq("等级标签显示 Lv.1", plabel.text if plabel else "", "Lv.1")
+	_eq("等级标签显示 Lv.40", plabel.text if plabel else "", "Lv.40")
 	var expbar: ProgressBar = _scene.get_node_or_null("%ExpBar")
 	_ok("经验条按存档回写为 0", expbar != null and int(expbar.value) == 0,
 		"value=%s" % (str(expbar.value) if expbar else "null"))
@@ -573,7 +577,7 @@ func _check_scene() -> void:
 	var slots: HBoxContainer = _scene.get_node_or_null("%TeamSlots")
 	_ok("TeamSlots 存在", slots != null)
 	if slots != null:
-		_eq("队伍预览铺满上阵上限槽位", slots.get_child_count(), GameDB.team_max())
+		_eq("队伍预览铺满当前上阵上限槽位", slots.get_child_count(), SaveDB.team_max())
 
 	var start: Button = _scene.get_node_or_null("%StartButton")
 	_ok("开始冒险按钮存在", start != null)
@@ -661,7 +665,7 @@ func _check_empty_state(fan: CardFan, slots: HBoxContainer) -> void:
 				tl != null and not tl.text.contains("模块待接入"),
 				tl.text if tl else "null")
 	if slots != null:
-		_eq("0 卡时阵容栏仍铺满上限（全空槽）", slots.get_child_count(), GameDB.team_max())
+		_eq("0 卡时阵容栏仍铺满上限（全空槽）", slots.get_child_count(), SaveDB.team_max())
 	var pw: Label = _scene.get_node_or_null("%TeamPowerLabel")
 	_ok("0 卡时战力读数为 0", pw != null and pw.text.contains("0"), pw.text if pw else "null")
 
@@ -682,7 +686,7 @@ func _check_team_preview(fan: CardFan, slots: HBoxContainer, rail: Control) -> v
 	if fan == null or slots == null:
 		_ok("扇形与阵容栏齐备", false)
 		return
-	var max_members := GameDB.team_max()
+	var max_members := SaveDB.team_max()
 	# 空档回落口径：存档 team 为空时，主界面取当前预设（与编队页同一份）
 	SaveDB.profile["team"] = []
 	_eq("空档回落 = 当前预设（与编队页同口径）",

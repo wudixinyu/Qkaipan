@@ -1,0 +1,257 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[GameDB] 閰嶇疆杞藉叆瀹屾垚 v0.1.0锛?8 寮犺鑹?/ 6 涓厓绱?/ 4 涓。浣?
+[SaveDB] 瀛樻。宸茶浇鍏ワ細浜戜笂鏃呬汉 Lv.1锛屾寔鍗?0 寮?
+
+========== 鍗＄墝澶у啋闄?路 鎶藉崱绯荤粺鍐掔儫娴嬭瘯 ==========
+
+路 閰嶇疆灞?GameDB.gacha
+  [PASS] 鍗℃睜鏁伴噺  got=3 want=3
+  [PASS] 鍗℃睜椤哄簭  got=["standard", "limited", "friend"] want=["standard", "limited", "friend"]
+  [PASS] 甯搁┗ UR 姒傜巼  got=0.0050 want=0.0050 卤0.0001锛堝樊 0.0000锛?
+  [PASS] 甯搁┗ SSR 姒傜巼  got=0.0350 want=0.0350 卤0.0001锛堝樊 0.0000锛?
+  [PASS] 甯搁┗ SR 姒傜巼  got=0.1800 want=0.1800 卤0.0001锛堝樊 0.0000锛?
+  [PASS] 甯搁┗ R 姒傜巼  got=0.7800 want=0.7800 卤0.0001锛堝樊 0.0000锛?
+  [PASS] 姒傜巼褰掍竴鍖栧悗涔嬪拰  got=1.0000 want=1.0000 卤0.0001锛堝樊 0.0000锛?
+  [PASS] 鍙嬫儏姹犱笉浜?UR  UR 姒傜巼 0.0
+  [PASS] 鍗佽繛淇濆簳鍝佽川  got=SR want=SR
+  [PASS] 鍗佽繛淇濆簳鏂囨  got=蹇呭緱 1 寮犱汉鐗╁崱 want=蹇呭緱 1 寮犱汉鐗╁崱
+  [PASS] 浜虹墿鍗″湴鏉垮搧璐紙甯搁┗姹狅級  got=R want=R
+  [PASS] 鍦版澘鍝佽川閲岀湡鏈変汉鐗╁彲鍑?
+  [PASS] 鍗曟娊鍊欓€夋敮浠樻柟寮?3 绉? got=3 want=3
+  [PASS] 鍗曟娊棣栭€夊彫鍞ゅ埜  got=ticket:ticket_basic want=ticket:ticket_basic
+  [PASS] 鍗曟娊鍒搁噺  got=1 want=1
+  [PASS] 鍗曟娊澶囬€夌粦瀹氶捇鐭? got=bound_gem want=bound_gem
+  [PASS] 鍗曟娊閽荤煶浠? got=160 want=160
+  [PASS] 鍗曟娊閲戝竵鍏滃簳妗? got=gold want=gold
+  [PASS] 鍗曟娊閲戝竵浠? got=1600 want=1600
+  [PASS] 鍗佽繛鍊欓€夋敮浠樻柟寮?3 绉? got=3 want=3
+  [PASS] 鍗佽繛鍒搁噺  got=10 want=10
+  [PASS] 鍗佽繛閽荤煶浠? got=1600 want=1600
+  [PASS] 鍗佽繛閲戝竵浠? got=16000 want=16000
+  [PASS] 鍙嬫儏姹犲彧鏈変竴绉嶆敮浠樻柟寮? got=1 want=1
+  [PASS] 鍙嬫儏姹犵敤鍏細浠ｅ竵  got=guild_token want=guild_token
+  [PASS] 鍙嬫儏姹犲崟鎶戒环  got=10 want=10
+  [PASS] 澶т繚搴曞昂  got=100 want=100
+  [PASS] 灏忎繚搴曞昂  got=50 want=50
+  [PASS] 闄愭椂姹犲惎鐢ㄥぇ淇濆簳
+  [PASS] 闄愭椂姹犲０鏄庤法鏈熺户鎵?
+  [PASS] 甯搁┗姹犱笉鍚敤澶т繚搴?
+  [PASS] 鍙嬫儏姹犱笉鍚敤淇濆簳
+  [PASS] 褰撴湡 UP 澶寸墝鑻遍泟  got=holy_priest want=holy_priest
+  [PASS] 甯搁┗姹犳病鏈?UP  got= want=
+  [PASS] 姘存櫠璐у竵  got=wish_crystal want=wish_crystal
+  [PASS] 姣忔娊姘存櫠  got=1 want=1
+  [PASS] UR 鍏戞崲浠? got=120 want=120
+  [PASS] 蹇冩効姘存櫠宸茶繘璐у竵琛?
+  [PASS] 姒傜巼鍏ず鏂囨闈炵┖  4 鏉?
+  [PASS] 婕斿嚭閰嶇疆榻愬
+  [PASS] 閰嶇疆澹版槑浜嗚闊?/ 闊虫晥閽╁瓙
+  [PASS] 銆宻tandard銆嶅叕绀鸿闈炵┖  4 琛?
+  [PASS] 銆宻tandard銆峈 琛屾湁鍙嚭鍐呭  ["纾愬博楠戝＋", "鐐庤但楠戝＋", "鑻遍泟缁忛獙 脳200", "鍒濈骇绐佺牬鐭?脳3", "瑙佷範娉曞笀", "瑙佷範娓镐緺"]
+  [PASS] 銆宻tandard銆峉R 琛屾湁鍙嚭鍐呭  ["绮剧伒娓镐緺", "澶у湴瀹堝崼", "鍐伴洩濂冲帆", "宀╃煶瀹堝崼", "鏆楀寮撴墜"]
+  [PASS] 銆宻tandard銆峉SR 琛屾湁鍙嚭鍐呭  ["绱劙灏戝コ", "绉樻硶灏戝コ", "鏆楀鍒哄", "鍦ｅ厜瀹″垽鑰?, "妫灄瀹堟姢鑰?, "鐤鹃鍓戝"]
+  [PASS] 銆宻tandard銆峌R 琛屾湁鍙嚭鍐呭  ["绁炲湥鐗у笀", "娼睈棰嗕富", "鏆楀奖姝﹁€?]
+  [PASS] 銆宭imited銆嶅叕绀鸿闈炵┖  4 琛?
+  [PASS] 銆宭imited銆峈 琛屾湁鍙嚭鍐呭  ["纾愬博楠戝＋", "鐐庤但楠戝＋", "鑻遍泟缁忛獙 脳300"]
+  [PASS] 銆宭imited銆峉R 琛屾湁鍙嚭鍐呭  ["绮剧伒娓镐緺", "澶у湴瀹堝崼"]
+  [PASS] 銆宭imited銆峉SR 琛屾湁鍙嚭鍐呭  ["绱劙灏戝コ", "绉樻硶灏戝コ", "鏆楀鍒哄"]
+  [PASS] 銆宭imited銆峌R 琛屾湁鍙嚭鍐呭  ["绁炲湥鐗у笀"]
+  [PASS] 銆宖riend銆嶅叕绀鸿闈炵┖  3 琛?
+  [PASS] 銆宖riend銆峈 琛屾湁鍙嚭鍐呭  ["纾愬博楠戝＋", "鐐庤但楠戝＋", "鑻遍泟缁忛獙 脳100"]
+  [PASS] 銆宖riend銆峉R 琛屾湁鍙嚭鍐呭  ["绮剧伒娓镐緺", "澶у湴瀹堝崼"]
+  [PASS] 銆宖riend銆峉SR 琛屾湁鍙嚭鍐呭  ["绱劙灏戝コ", "绉樻硶灏戝コ", "鏆楀鍒哄"]
+
+路 姒傜巼瑙勫垯锛堢函鍑芥暟锛岄€愮偣楠岃竟鐣岋級
+  [PASS] roll=0 鈫?R  got=R want=R
+  [PASS] roll=0.7799 鈫?R  got=R want=R
+  [PASS] roll=0.78 鈫?SR  got=SR want=SR
+  [PASS] roll=0.9599 鈫?SR  got=SR want=SR
+  [PASS] roll=0.96 鈫?SSR  got=SSR want=SSR
+  [PASS] roll=0.9949 鈫?SSR  got=SSR want=SSR
+  [PASS] roll=0.995 鈫?UR  got=UR want=UR
+  [PASS] roll=0.999 鈫?UR  got=UR want=UR
+  [PASS] 淇濆簳鍖洪棿 roll=0 鈫?SSR  got=SSR want=SSR
+  [PASS] 淇濆簳鍖洪棿 roll=0.874 鈫?SSR  got=SSR want=SSR
+  [PASS] 淇濆簳鍖洪棿 roll=0.875 鈫?UR  got=UR want=UR
+  [PASS] 淇濆簳鍖洪棿 roll=0.999 鈫?UR  got=UR want=UR
+  [PASS] 绌烘《涓嶅弬涓庢幏鐐? got=SSR want=SSR
+  [PASS] UP 鍒嗛厤 roll=0 鈫?UP 缁? got=up_b want=up_b
+  [PASS] UP 鍒嗛厤 roll=0.499 鈫?UP 缁? got=up_b want=up_b
+  [PASS] UP 鍒嗛厤 roll=0.5 鈫?鍏朵綑鍐呭  got=normal_a want=normal_a
+  [PASS] UP 鍒嗛厤 roll=0.99 鈫?鍏朵綑鍐呭  got=normal_a want=normal_a
+  [PASS] UP 鍒嗘敮鏍囪 from_up
+  [PASS] 闈?UP 鍒嗘敮涓嶆爣璁?from_up
+  [PASS] 鍙墿 UP 鏃朵粛缁?UP  got=up_b want=up_b
+  [PASS] 骞舵爣璁颁负閫€鍖栵紙鍐呭閲忎笉瓒筹級
+  [PASS] 鏉冮噸 3:1 roll=0 鈫?閲嶇殑閭ｉ」  got=w_a want=w_a
+  [PASS] 鏉冮噸 3:1 roll=0.74 鈫?閲嶇殑閭ｉ」  got=w_a want=w_a
+  [PASS] 鏉冮噸 3:1 roll=0.75 鈫?杞荤殑閭ｉ」  got=w_b want=w_b
+
+路 涓や竾鎶藉疄娴嬪垎甯冿紙free 妯″紡 + 鍐荤粨淇濆簳 = 绾熀纭€姒傜巼锛?
+      瀹炴祴锛歎R 102 / SSR 695 / SR 3612 / R 15591  路  鍏?20000 鎶?
+  [PASS] 姣忔鍗佽繛閮借繑鍥?10 椤? got=0 want=0
+  [PASS] 鏍锋湰閲? got=20000 want=20000
+  [PASS] UR 鍗犳瘮 鈮?0.5%  got=0.0051 want=0.0050 卤0.0020锛堝樊 0.0001锛?
+  [PASS] SSR 鍗犳瘮 鈮?3.5%  got=0.0348 want=0.0350 卤0.0060锛堝樊 0.0003锛?
+  [PASS] SR 鍗犳瘮 鈮?18%  got=0.1806 want=0.1800 卤0.0120锛堝樊 0.0006锛?
+  [PASS] R 鍗犳瘮 鈮?78%  got=0.7795 want=0.7800 卤0.0150锛堝樊 0.0005锛?
+  [PASS] 涓夋。鍗犳瘮閮借惤鍦ㄥ叕绀烘鐜囩殑 3蟽 瀹瑰樊鍐?
+
+路 褰撴湡 UP 瀹炴祴鍗犳瘮锛堥檺鏃舵睜 SSR 妗讹細1 UP + 2 闈?UP锛?
+  [PASS] SSR 鍝佽川澹版槑鐨?UP 鍚嶅崟  got=["pyro_girl"] want=["pyro_girl"]
+  [PASS] 澶т繚搴曞ご鏉?= 鍝佽川鏈€楂樼殑閭ｄ竴浣?UP  got=holy_priest want=holy_priest
+  [PASS] 鏍锋湰閲屾湁 SSR 浜у嚭  SSR 350 寮?
+      SSR 鏄庣粏锛歿 "shadow_assassin": 84, "pyro_girl": 166, "arcane_girl": 100 }
+  [PASS] UP 鍗犲悓鍝佽川浜у嚭鐜?50%  got=0.4743 want=0.5000 卤0.0600锛堝樊 0.0257锛?
+  [PASS] SSR 妗堕噷 3 浣嶈嫳闆勯兘鍑虹幇杩? got=3 want=3
+  [PASS] UP 鑻遍泟鏄庢樉澶氫簬浠讳竴闈?UP 鑻遍泟  { "shadow_assassin": 84, "pyro_girl": 166, "arcane_girl": 100 }
+
+路 淇濆簳锛堣Е鍙戞椂鏈?/ 浼樺厛绾?/ 缁ф壙锛?
+  [PASS] 绗?50 鎶藉繀鍑?SSR 鍙婁互涓? rarity=SSR
+  [PASS] 骞舵爣璁颁负灏忎繚搴? reason=small_pity
+  [PASS] 灏忎繚搴曟娊鍙栧悗璁℃暟褰掗浂  got=0 want=0
+  [PASS] 绗?49 鎶戒笉瑙﹀彂灏忎繚搴? rarity=R
+  [PASS] 鏈Е鍙戞椂璁℃暟缁х画绱姞  got=49 want=49
+  [PASS] 绗?100 鎶藉繀鍑哄綋鏈?UP 鑻遍泟  got=holy_priest want=holy_priest
+  [PASS] 骞舵爣璁颁负澶т繚搴?
+  [PASS] 澶т繚搴曞懡涓悓鏃舵弧瓒?UP 鍒ゅ畾
+  [PASS] 澶т繚搴曞悗璁℃暟褰掗浂  got=0 want=0
+  [PASS] 鍙屼繚搴曞悓鏃跺埌鏃剁粰 UP 鑻遍泟  got=holy_priest want=holy_priest
+  [PASS] 涓斿垽涓哄ぇ淇濆簳鑰岄潪灏忎繚搴? got=up_pity want=up_pity
+  [PASS] 甯搁┗姹犱笉浼氳Е鍙戝ぇ淇濆簳
+  [PASS] 300 娆″崄杩炴瘡娆￠兘鍚汉鐗╁崱  got=0 want=0
+  [PASS] 闄愭椂姹犺鏁拌惤鍦?limited 缁? got=12 want=12
+  [PASS] 淇濆簳缁勫悕鍙栬嚜閰嶇疆鑰岄潪鍗℃睜 id  got=limited want=limited
+  [PASS] 杩樺樊鍑犳娊蹇呭嚭锛堝皬淇濆簳锛? got=38 want=38
+  [PASS] 杩樺樊鍑犳娊蹇呭嚭锛堝ぇ淇濆簳锛? got=66 want=66
+
+路 鐪熷疄鎶藉彇锛堟墸璐?/ 鍙戝崱 / 绱按鏅?/ 钀界洏锛?
+  [PASS] 鏂板彿璧犻€佸熀纭€鍙敜鍒? got=10 want=10
+  [PASS] 鏂板彿璧犻€侀珮绾у彫鍞ゅ嵎杞? got=10 want=10
+  [PASS] 鏂板彿璧犻€佺粦瀹氶捇鐭? got=1600 want=1600
+  [PASS] 鏂板彿蹇冩効姘存櫠涓?0  got=0 want=0
+  [PASS] 鍗曟娊鎴愬姛
+  [PASS] 鍗曟娊鍑鸿揣 1 椤? got=1 want=1
+  [PASS] 鍗曟娊鎵ｇ殑鏄彫鍞ゅ埜  got=ticket want=ticket
+  [PASS] 鍒稿噺 1  got=9 want=9
+  [PASS] 閽荤煶娌″姩  got=1600 want=1600
+  [PASS] 鑻遍泟鎸佸崱鎸夊嚭璐х疮鍔? got=0 want=0
+  [PASS] 鎶芥暟绱姞  got=1 want=1
+  [PASS] 鍒嗘睜鎶芥暟绱姞  got=1 want=1
+  [PASS] 姘存櫠 +1  got=1 want=1
+[SaveDB] 瀛樻。宸茶浇鍏ワ細浜戜笂鏃呬汉 Lv.1锛屾寔鍗?0 寮?
+  [PASS] 钀界洏鍚庨噸璇伙細鍒镐粛鏄?9  got=9 want=9
+  [PASS] 钀界洏鍚庨噸璇伙細鎶芥暟浠嶆槸 1  got=1 want=1
+  [PASS] 钀界洏鍚庨噸璇伙細鎸佸崱鏁颁笉鍙? got=0 want=0
+  [PASS] 鍗佽繛鎴愬姛
+  [PASS] 鍗佽繛杩斿洖 10 椤? got=10 want=10
+  [PASS] 鍗佽繛鍥炶惤鍒扮粦瀹氶捇鐭? got=bound_gem want=bound_gem
+  [PASS] 涓€娆℃€ф墸鎺?1600 閽荤煶  got=0 want=0
+  [PASS] 鍒镐粛鏄?9锛堟病琚媶鐫€鐢級  got=9 want=9
+  [PASS] 姘存櫠 +10 绱 11  got=11 want=11
+  [PASS] 鎬绘娊鏁?1+10  got=11 want=11
+  [PASS] 鍗佽繛蹇呭緱鑷冲皯涓€寮犱汉鐗╁崱  hero=7
+  [PASS] 璧勬簮涓嶈冻鏃舵娊鍙栬鎷? 璧勬簮涓嶈冻锛氬熀纭€鍙敜鍒?9/10锛岀粦瀹氶捇鐭?0/1600锛岄噾甯?0/16000
+  [PASS] 鎷掔粷鍘熷洜閲屽垪鍑虹己鍙?
+  [PASS] 琚嫆鏃朵笉璁版娊鏁? got=11 want=11
+  [PASS] 琚嫆鏃朵笉鍙戞按鏅? got=11 want=11
+  [PASS] 琚嫆鏃朵笉鍔ㄩ捇鐭? got=0 want=0
+  [PASS] 闄愭椂姹犲崟鎶芥垚鍔?
+  [PASS] 闄愭椂姹犳墸楂樼骇鍒? got=ticket_advanced want=ticket_advanced
+  [PASS] 楂樼骇鍒稿噺 1  got=9 want=9
+  [PASS] 娌℃湁鍏細浠ｅ竵鏃跺弸鎯呮睜鎶藉彇琚嫆  璧勬簮涓嶈冻锛氬叕浼氫唬甯?0/10
+  [PASS] 鍙戜唬甯佸悗鍙嬫儏鍗佽繛鎴愬姛
+  [PASS] 鍙嬫儏鍗佽繛鎵?100 浠ｅ竵  got=0 want=0
+  [PASS] 鍙嬫儏姹犲嚭璐т笉浣庝簬 R  max=SR
+
+路 蹇冩効姘存櫠鍟嗗簵鍏戞崲
+  [PASS] 鍏戞崲鍚嶅崟闈炵┖  2 椤?
+  [PASS] 鍚嶅崟鍚?UR 涓?SSR  got=[true, true] want=[true, true]
+  [PASS] 娓呴浂鍚庢按鏅朵负 0  got=0 want=0
+  [PASS] 姘存櫠涓嶈冻鏃跺厬鎹㈣鎷? 蹇冩効姘存櫠涓嶈冻锛? / 120
+  [PASS] 鎷掔粷鍘熷洜鍐欐槑缂哄彛
+  [PASS] 姘存櫠瓒冲鏃跺厬鎹㈡垚鍔?
+  [PASS] 鎵ｆ帀 120 姘存櫠  got=0 want=0
+  [PASS] 鍏戞崲璁板綍璁℃暟
+  [PASS] 闈炲悕鍗曞唴鑻遍泟涓嶅彲鍏戞崲
+  [PASS] 鍏戞崲鑻遍泟鍏ヨ处锛堟柊鍗℃垨鍗囨槦锛? 7 鈫?8
+
+路 閲嶅鍗℃槦绾у皝椤?
+  [PASS] 閲嶅鍙戝崱涓嶄細瓒呰繃鍝佽川鏄熺骇涓婇檺  star=3 cap=3
+  [PASS] 鍒氬ソ鍋滃湪鏄熺骇涓婇檺  got=3 want=3
+
+路 鎷涘嫙璁板綍
+  [PASS] 璁板綍闈炵┖  16 鏉?
+  [PASS] 璁板綍鏉℃暟涓嶈秴杩囦笂闄? 16 / 30
+  [PASS] 璁板綍閲屽彧鏈夎嫳闆勶紙閬撳叿涓嶈繘璁板綍锛?
+  [PASS] 鏈€杩戣幏寰楋紙鐣岄潰鍙充晶鏉★級鏈夎揣  4 鏉?
+
+路 鎶藉崱鐣岄潰鍦烘櫙
+  [PASS] 閰嶇疆鎸囧悜鐨勫満鏅瓨鍦? res://scenes/gacha.tscn
+  [PASS] 鍦烘櫙鍙姞杞?
+  [PASS] 鏍硅妭鐐瑰凡鎸?gacha.gd
+  [PASS] 鍗℃睜鏍囩瀹瑰櫒瀛樺湪
+  [PASS] 鍗℃睜鏍囩鏁?= 閰嶇疆鍗℃睜鏁? got=3 want=3
+  [PASS] 鍗曟娊鎸夐挳瀛樺湪
+  [PASS] 鍗佽繛鎸夐挳瀛樺湪
+  [PASS] 鍗曟娊鎸夐挳鏂囨  got=鍙敜 脳1 want=鍙敜 脳1
+  [PASS] 鍗佽繛鎸夐挳鏂囨  got=鍙敜 脳10 want=鍙敜 脳10
+  [PASS] 鍞竴鍚?%MagicCodex 鍙В鏋?
+  [PASS] 鍞竴鍚?%AltarGlow 鍙В鏋?
+  [PASS] 鍞竴鍚?%PityBadge 鍙В鏋?
+  [PASS] 鍞竴鍚?%CrystalLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%RevealLayer 鍙В鏋?
+  [PASS] 鍞竴鍚?%RatePanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%ShopPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%Toast 鍙В鏋?
+  [PASS] 鍞竴鍚?%ToastLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%BackButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%FooterInfo 鍙В鏋?
+  [PASS] 缁撶畻灞曠ず灞傞粯璁ら殣钘?
+  [PASS] 姒傜巼鍏ず寮瑰眰榛樿闅愯棌
+  [PASS] 姘存櫠鍟嗗簵寮瑰眰榛樿闅愯棌
+  [PASS] 鍗℃睜鏍囩宸叉帴淇″彿
+  [PASS] 鍒囧埌绗簩涓崱姹犲悗鏍囬鍙樺寲  甯搁┗鍙敜 鈫?鏄熻緣鍙敜 路 绁炲湥鐗у笀
+  [PASS] 鍒囧洖绗竴涓崱姹? got=甯搁┗鍙敜 want=甯搁┗鍙敜
+
+路 鍦烘櫙浜や簰锛氱偣鎸夐挳鐪熸娊
+  [PASS] 缁撶畻鍗￠潰瀹瑰櫒瀛樺湪
+  [PASS] 缁撶畻姹囨€昏瀛樺湪
+  [PASS] 鐐瑰崟鎶藉悗灞曠ず灞備寒璧?
+  [PASS] 鍗曟娊鎵ｄ簡鍙敜鍒? 10 鈫?9
+  [PASS] 鎶芥暟 +1  got=1 want=1
+  [PASS] 缁撶畻鍗￠潰 1 寮? got=1 want=1
+  [PASS] 缁撶畻鍗￠潰宸叉樉绀?
+  [PASS] 姹囨€昏鍐欐槑浜嗘按鏅舵敹鐩? 蹇冩効姘存櫠 +1銆€路銆€绱 1 鎶姐€€路銆€灏忎繚搴?1/50
+  [PASS] 鍏抽棴鍚庡睍绀哄眰闅愯棌
+  [PASS] 鍏抽棴鍚庡崱闈㈡竻绌? got=0 want=0
+  [PASS] 鐐瑰崄杩炲悗灞曠ず灞備寒璧?
+  [PASS] 缁撶畻鍗￠潰 10 寮? got=10 want=10
+  [PASS] 鍗佽繛鎵ｇ殑鏄粦瀹氶捇鐭筹紙鍒镐笉澶?10 寮狅級  1600 鈫?0
+  [PASS] 10 寮犲崱闈㈠叏閮ㄥ氨浣? got=10 want=10
+  [PASS] 璧勬簮鑰楀敖鍚庡崟鎶芥寜閽彉鐏?
+  [PASS] 鐏版寜閽笉浜х敓鎶藉彇  got=11 want=11
+  [PASS] 琚嫆鏃剁粰鍑烘彁绀? 璧勬簮涓嶈冻锛氬熀纭€鍙敜鍒?0/1锛岀粦瀹氶捇鐭?0/160锛岄噾甯?0/1600
+
+路 鍦烘櫙浜や簰锛氬叕绀?/ 鍟嗗簵 / 鍏戞崲
+  [PASS] 鐐瑰紑鍚庡叕绀哄眰鍙
+  [PASS] 鍏ず灞傚垪鍑轰簡鍝佽川琛? 100 琛?
+  [PASS] 鍏ず灞傚惈銆?8.00%銆?
+  [PASS] 鍏ず灞傚惈銆?8.00%銆?
+  [PASS] 鍏ず灞傚惈銆?.50%銆?
+  [PASS] 鍏ず灞傚惈銆?.50%銆?
+  [PASS] 鍏ず灞傚惈銆屽繀寰?1 寮犱汉鐗╁崱銆?
+  [PASS] 鍏抽棴鍚庡叕绀哄眰闅愯棌
+  [PASS] 鐐瑰紑鍚庡晢搴楀彲瑙?
+  [PASS] 鍟嗗簵鍒楀嚭浜嗗彲鍏戞崲鑻遍泟  92 琛?
+  [PASS] 鍟嗗簵閲屾湁銆宧oly_priest銆嶇殑鍏戞崲鎸夐挳
+  [PASS] 鍏戞崲鎸夐挳鍙敤锛堟按鏅惰冻澶燂級
+  [PASS] 鍏戞崲鍚庤嫳闆勫叆璐?
+  [PASS] 鎵ｆ帀 120 姘存櫠  got=120 want=120
+  [PASS] 绗簩娆″厬鎹㈠啀鎵?120  got=0 want=0
+  [PASS] 鍏戞崲娆℃暟绱
+  [PASS] 鍏戞崲涓ゆ鎸佸崱鍙涓€寮狅紙绗簩娆℃槸鍗囨槦锛? 0 鈫?1
+  [PASS] 鍏抽棴鍚庡晢搴楅殣钘?
+
+---------- 缁撴灉锛氶€氳繃 222 / 澶辫触 0 ----------

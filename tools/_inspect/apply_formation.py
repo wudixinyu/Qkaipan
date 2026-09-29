@@ -55,7 +55,14 @@ FORMATION = {
     # ---------------------------------------------------------- 编队规则
     "team": {
         "label": "编队棋盘",
-        "max_members": 5,
+        # max_members = 绝对封顶（= 棋盘格数 9）；当前可上阵人数随等级解锁，见 unlock。
+        "max_members": 9,
+        # 上阵人数按玩家等级解锁：base 起步、每 interval 级 +1、封顶 max、玩家等级封顶 level_cap。
+        # 运行时口径：SaveDB.team_max() = GameDB.team_max_for_level(player.level)。
+        "unlock": {
+            "note": "上阵数量按玩家等级解锁：base 起步，每 interval 级 +1，封顶 max",
+            "base": 1, "interval": 10, "max": 9, "level_cap": 100,
+        },
         "row_order": ["front", "middle", "back"],
         "columns": 3,
         "hint": "点空位放置 · 点已上阵英雄可下阵",
@@ -212,6 +219,7 @@ FORMATION = {
         "synergy": "羁绊生效：%s",
         "no_result": "没有符合条件的英雄",
         "board_locked": "该槽位已被占用",
+        "slot_locked": "该槽位尚未解锁 · Lv.%d 可上阵 %d 人",
         "no_select": "先在卡牌陈列或英雄库里选一张卡",
     },
 }

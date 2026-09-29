@@ -215,7 +215,7 @@ func _build_preset_bar() -> void:
 func _refresh_preset_hint() -> void:
 	_preset_hint.text = "当前「%s」· %d / %d 人" % [
 		str(GameDB.preset_cfg(_preset_id).get("name", _preset_id)),
-		_team.size(), GameDB.team_max()]
+		_team.size(), SaveDB.team_max()]
 
 
 func _on_preset_pressed(pid: String) -> void:
@@ -618,7 +618,7 @@ func _make_thumb(item: Dictionary) -> Button:
 func _rebuild_board() -> void:
 	_clear_children(_board_grid)
 	_board_count.text = str(_fsec("team").get("count_text", "上阵 %d/%d")) \
-		% [_team.size(), GameDB.team_max()]
+		% [_team.size(), SaveDB.team_max()]
 
 	# 行标签（前 / 中 / 后）：棋盘上前排在上，正对敌方
 	var rows: Array = _fsec("team").get("row_order", ["front", "middle", "back"])
@@ -729,8 +729,8 @@ func _deploy(char_id: String, slot: int = 0) -> bool:
 	if _slot_of(char_id) > 0:
 		_show_toast(_t("dup", "%s 已在阵中") % _name_of(char_id))
 		return false
-	if _team.size() >= GameDB.team_max():
-		_show_toast(_t("team_full", "上阵已满 %d 人，请先下阵") % GameDB.team_max())
+	if _team.size() >= SaveDB.team_max():
+		_show_toast(_t("team_full", "上阵已满 %d 人，请先下阵") % SaveDB.team_max())
 		return false
 	var target := slot
 	if target <= 0:
@@ -797,7 +797,7 @@ func _on_quick_fill() -> void:
 
 	var picked: Array = []
 	for raw in ranked:
-		if picked.size() >= GameDB.team_max():
+		if picked.size() >= SaveDB.team_max():
 			break
 		var item: Dictionary = raw.get("item", {})
 		var char_id := str(item.get("char_id", ""))
@@ -841,14 +841,14 @@ func _refresh_power() -> void:
 	_power_parts.text = "%s %s　｜　%s +%s　｜　上阵 %d/%d" % [
 		str(parts.get("base", "基础")), UI.fmt_num(int(_report.get("base_power", 0))),
 		str(parts.get("synergy", "羁绊")), UI.fmt_num(int(_report.get("synergy_power", 0))),
-		int(_report.get("count", 0)), GameDB.team_max(),
+		int(_report.get("count", 0)), SaveDB.team_max(),
 	]
 
 
 func _refresh_buttons() -> void:
 	var has_pick := _selected_id != ""
 	var deployed := has_pick and _slot_of(_selected_id) > 0
-	var full := _team.size() >= GameDB.team_max()
+	var full := _team.size() >= SaveDB.team_max()
 	_deploy_btn.disabled = not has_pick or deployed or full
 	_remove_btn.disabled = not deployed
 	_clear_btn.disabled = _team.is_empty()

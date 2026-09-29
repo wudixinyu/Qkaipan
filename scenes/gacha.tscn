@@ -1064,7 +1064,7 @@ corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
-[node name="Gacha" type="Control" unique_id=1147862263]
+[node name="Gacha" type="Control" unique_id=1724660449]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
@@ -1072,7 +1072,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_dhnpy")
 
-[node name="Background" type="TextureRect" parent="." unique_id=339925788]
+[node name="Background" type="TextureRect" parent="." unique_id=855845283]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1081,14 +1081,14 @@ texture = ExtResource("2_ml8bc")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="NightTint" type="ColorRect" parent="." unique_id=131790867]
+[node name="NightTint" type="ColorRect" parent="." unique_id=1547549094]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0.06, 0.04, 0.12, 0.42)
 
-[node name="TopShade" type="TextureRect" parent="." unique_id=1548606103]
+[node name="TopShade" type="TextureRect" parent="." unique_id=1329524604]
 custom_minimum_size = Vector2(1920, 320)
 layout_mode = 0
 offset_right = 1920.0
@@ -1097,7 +1097,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_um7i7")
 expand_mode = 1
 
-[node name="BottomShade" type="TextureRect" parent="." unique_id=1511666010]
+[node name="BottomShade" type="TextureRect" parent="." unique_id=1709123283]
 custom_minimum_size = Vector2(1920, 380)
 layout_mode = 0
 offset_top = 700.0
@@ -1107,14 +1107,14 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_mewpc")
 expand_mode = 1
 
-[node name="World" type="Control" parent="." unique_id=217649228]
+[node name="World" type="Control" parent="." unique_id=2120934246]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="AltarGlow" type="TextureRect" parent="World" unique_id=495871843]
+[node name="AltarGlow" type="TextureRect" parent="World" unique_id=24409371]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1240, 800)
 layout_mode = 0
@@ -1126,7 +1126,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_f8vt1")
 expand_mode = 1
 
-[node name="AltarRing" type="Panel" parent="World" unique_id=506520436]
+[node name="AltarRing" type="Panel" parent="World" unique_id=679848571]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(728, 130)
 layout_mode = 0
@@ -1136,7 +1136,7 @@ offset_right = 1324.0
 offset_bottom = 898.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7c8y7")
 
-[node name="AltarInner" type="Panel" parent="World/AltarRing" unique_id=247052159]
+[node name="AltarInner" type="Panel" parent="World/AltarRing" unique_id=4572458]
 custom_minimum_size = Vector2(676, 90)
 layout_mode = 0
 offset_left = 26.0
@@ -1145,13 +1145,13 @@ offset_right = 702.0
 offset_bottom = 110.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lucje")
 
-[node name="AltarRunes" type="Control" parent="World/AltarRing" unique_id=562464521]
+[node name="AltarRunes" type="Control" parent="World/AltarRing" unique_id=1294317676]
 custom_minimum_size = Vector2(728, 130)
 anchors_preset = 0
 offset_right = 728.0
 offset_bottom = 130.0
 
-[node name="@TextureRect@3" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=2059812657]
+[node name="@TextureRect@3" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1833051408]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1164,7 +1164,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@4" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=145672590]
+[node name="@TextureRect@4" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1714352175]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1177,7 +1177,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@5" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1417541854]
+[node name="@TextureRect@5" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1497993727]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1190,7 +1190,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@6" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1394448739]
+[node name="@TextureRect@6" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=740894368]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1203,7 +1203,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@7" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1029281058]
+[node name="@TextureRect@7" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=970699631]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1216,7 +1216,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@8" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1916949110]
+[node name="@TextureRect@8" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=1637499307]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1229,7 +1229,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@9" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=2078990278]
+[node name="@TextureRect@9" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=2111683154]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1242,7 +1242,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@10" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=343389121]
+[node name="@TextureRect@10" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=881388823]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1255,7 +1255,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@11" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=613065061]
+[node name="@TextureRect@11" type="TextureRect" parent="World/AltarRing/AltarRunes" unique_id=184948148]
 modulate = Color(1, 0.88, 0.55, 0.55)
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
@@ -1268,7 +1268,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MagicCodex" type="Control" parent="World" unique_id=2051884878]
+[node name="MagicCodex" type="Control" parent="World" unique_id=901000817]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 500)
 anchors_preset = 0
@@ -1277,7 +1277,7 @@ offset_top = 302.0
 offset_right = 1150.0
 offset_bottom = 802.0
 
-[node name="CodexGlow" type="TextureRect" parent="World/MagicCodex" unique_id=2105278118]
+[node name="CodexGlow" type="TextureRect" parent="World/MagicCodex" unique_id=1879057694]
 custom_minimum_size = Vector2(740, 780)
 layout_mode = 0
 offset_left = -180.0
@@ -1288,7 +1288,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_5fb20")
 expand_mode = 1
 
-[node name="CodexTop" type="Panel" parent="World/MagicCodex" unique_id=1588862692]
+[node name="CodexTop" type="Panel" parent="World/MagicCodex" unique_id=1435453571]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 250)
 layout_mode = 0
@@ -1296,7 +1296,7 @@ offset_right = 380.0
 offset_bottom = 250.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kp6h5")
 
-[node name="Emboss" type="Panel" parent="World/MagicCodex/CodexTop" unique_id=2000346018]
+[node name="Emboss" type="Panel" parent="World/MagicCodex/CodexTop" unique_id=1849826794]
 custom_minimum_size = Vector2(348, 222)
 layout_mode = 0
 offset_left = 16.0
@@ -1305,7 +1305,7 @@ offset_right = 364.0
 offset_bottom = 236.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nvbbb")
 
-[node name="CodexEmblem" type="TextureRect" parent="World/MagicCodex/CodexTop" unique_id=787721645]
+[node name="CodexEmblem" type="TextureRect" parent="World/MagicCodex/CodexTop" unique_id=1017940687]
 unique_name_in_owner = true
 modulate = Color(1, 0.92, 0.7, 1)
 custom_minimum_size = Vector2(132, 132)
@@ -1319,7 +1319,7 @@ texture = ExtResource("4_400ve")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CodexTag" type="Label" parent="World/MagicCodex/CodexTop" unique_id=1447518145]
+[node name="CodexTag" type="Label" parent="World/MagicCodex/CodexTop" unique_id=1085112046]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 26)
 layout_mode = 0
@@ -1334,7 +1334,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
-[node name="CodexBottom" type="Panel" parent="World/MagicCodex" unique_id=440483980]
+[node name="CodexBottom" type="Panel" parent="World/MagicCodex" unique_id=270920155]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 250)
 layout_mode = 0
@@ -1343,7 +1343,7 @@ offset_right = 380.0
 offset_bottom = 500.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ades")
 
-[node name="Emboss" type="Panel" parent="World/MagicCodex/CodexBottom" unique_id=1111825968]
+[node name="Emboss" type="Panel" parent="World/MagicCodex/CodexBottom" unique_id=599171009]
 custom_minimum_size = Vector2(348, 222)
 layout_mode = 0
 offset_left = 16.0
@@ -1352,7 +1352,7 @@ offset_right = 364.0
 offset_bottom = 236.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3kpqr")
 
-[node name="CodexPoolName" type="Label" parent="World/MagicCodex/CodexBottom" unique_id=230443977]
+[node name="CodexPoolName" type="Label" parent="World/MagicCodex/CodexBottom" unique_id=659939447]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(332, 78)
 layout_mode = 0
@@ -1369,7 +1369,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CodexHint" type="Label" parent="World/MagicCodex/CodexBottom" unique_id=1573593333]
+[node name="CodexHint" type="Label" parent="World/MagicCodex/CodexBottom" unique_id=1638975346]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 50)
 layout_mode = 0
@@ -1384,7 +1384,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 
-[node name="CodexCost" type="Label" parent="World/MagicCodex/CodexBottom" unique_id=1120417298]
+[node name="CodexCost" type="Label" parent="World/MagicCodex/CodexBottom" unique_id=799171849]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 28)
 layout_mode = 0
@@ -1399,7 +1399,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
-[node name="CodexSpine" type="ColorRect" parent="World/MagicCodex" unique_id=1966869031]
+[node name="CodexSpine" type="ColorRect" parent="World/MagicCodex" unique_id=1957031755]
 custom_minimum_size = Vector2(360, 6)
 layout_mode = 0
 offset_left = 10.0
@@ -1408,7 +1408,7 @@ offset_right = 370.0
 offset_bottom = 253.0
 color = Color(1, 0.85, 0.45, 0.75)
 
-[node name="OrbitRing" type="Control" parent="World/MagicCodex" unique_id=1880383588]
+[node name="OrbitRing" type="Control" parent="World/MagicCodex" unique_id=1013013128]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 720)
 anchors_preset = 0
@@ -1417,7 +1417,7 @@ offset_top = -110.0
 offset_right = 540.0
 offset_bottom = 610.0
 
-[node name="@TextureRect@12" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1368806971]
+[node name="@TextureRect@12" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=917617982]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1430,7 +1430,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@13" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1949297649]
+[node name="@TextureRect@13" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1042725544]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1443,7 +1443,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@14" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1352835863]
+[node name="@TextureRect@14" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=935914605]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1456,7 +1456,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@15" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=20990070]
+[node name="@TextureRect@15" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1456558758]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1469,7 +1469,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@16" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=916146428]
+[node name="@TextureRect@16" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1308656850]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1482,7 +1482,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@17" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1290804834]
+[node name="@TextureRect@17" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=938653990]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1495,7 +1495,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@18" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1754116021]
+[node name="@TextureRect@18" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=942666853]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1508,7 +1508,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@19" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1813082237]
+[node name="@TextureRect@19" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=881579242]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1521,7 +1521,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@20" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1369190756]
+[node name="@TextureRect@20" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=237947506]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1534,7 +1534,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@TextureRect@21" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1640729413]
+[node name="@TextureRect@21" type="TextureRect" parent="World/MagicCodex/OrbitRing" unique_id=1062363451]
 modulate = Color(1, 0.9, 0.62, 0.85)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -1547,7 +1547,7 @@ texture = ExtResource("3_j7vbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PackParticles" type="CPUParticles2D" parent="World/MagicCodex" unique_id=1159449359]
+[node name="PackParticles" type="CPUParticles2D" parent="World/MagicCodex" unique_id=1217814498]
 unique_name_in_owner = true
 position = Vector2(190, 460)
 amount = 46
@@ -1563,7 +1563,7 @@ scale_amount_min = 0.02
 scale_amount_max = 0.075
 color = Color(1, 0.86, 0.52, 0.9)
 
-[node name="CodexMist" type="CPUParticles2D" parent="World/MagicCodex" unique_id=614403474]
+[node name="CodexMist" type="CPUParticles2D" parent="World/MagicCodex" unique_id=329793951]
 position = Vector2(190, -20)
 amount = 30
 texture = SubResource("GradientTexture2D_cy5hw")
@@ -1578,13 +1578,13 @@ scale_amount_min = 0.02
 scale_amount_max = 0.075
 color = Color(0.75, 0.55, 1, 0.65)
 
-[node name="Hud" type="Control" parent="." unique_id=1317321510]
+[node name="Hud" type="Control" parent="." unique_id=1016015087]
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="PlayerPlate" type="Control" parent="Hud" unique_id=668284891]
+[node name="PlayerPlate" type="Control" parent="Hud" unique_id=831692711]
 custom_minimum_size = Vector2(448, 148)
 anchors_preset = 0
 offset_left = 26.0
@@ -1592,7 +1592,7 @@ offset_top = 18.0
 offset_right = 474.0
 offset_bottom = 166.0
 
-[node name="@Panel@22" type="Panel" parent="Hud/PlayerPlate" unique_id=325658434]
+[node name="@Panel@22" type="Panel" parent="Hud/PlayerPlate" unique_id=311190752]
 custom_minimum_size = Vector2(448, 138)
 layout_mode = 0
 offset_top = 10.0
@@ -1600,7 +1600,7 @@ offset_right = 448.0
 offset_bottom = 148.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vllcu")
 
-[node name="@Panel@23" type="Panel" parent="Hud/PlayerPlate" unique_id=8770495]
+[node name="@Panel@23" type="Panel" parent="Hud/PlayerPlate" unique_id=1744892805]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 14.0
@@ -1609,7 +1609,7 @@ offset_right = 114.0
 offset_bottom = 122.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_m02j3")
 
-[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=2017084854]
+[node name="AvatarTex" type="TextureRect" parent="Hud/PlayerPlate" unique_id=238674021]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(86, 86)
 layout_mode = 0
@@ -1622,7 +1622,7 @@ texture = ExtResource("6_e55n0")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=1612856919]
+[node name="PlayerName" type="Label" parent="Hud/PlayerPlate" unique_id=456044695]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 36)
 layout_mode = 0
@@ -1637,7 +1637,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 28
 text = "云上旅人"
 
-[node name="@Panel@24" type="Panel" parent="Hud/PlayerPlate" unique_id=1333203032]
+[node name="@Panel@24" type="Panel" parent="Hud/PlayerPlate" unique_id=1415901984]
 custom_minimum_size = Vector2(74, 26)
 layout_mode = 0
 offset_left = 126.0
@@ -1646,7 +1646,7 @@ offset_right = 200.0
 offset_bottom = 94.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vupva")
 
-[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@24" unique_id=873318466]
+[node name="PlayerLevel" type="Label" parent="Hud/PlayerPlate/@Panel@24" unique_id=637848199]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -1654,11 +1654,11 @@ anchor_bottom = 1.0
 theme_override_colors/font_color = Color(0.16470589, 0.12156863, 0.09019608, 1)
 theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 19
-text = "Lv.10"
+text = "Lv.1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=236070501]
+[node name="ExpBar" type="ProgressBar" parent="Hud/PlayerPlate" unique_id=287453125]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(156, 14)
 layout_mode = 0
@@ -1669,10 +1669,9 @@ offset_bottom = 88.0
 theme_override_styles/background = SubResource("StyleBoxFlat_wyt78")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1oalf")
 max_value = 800.0
-value = 320.0
 show_percentage = false
 
-[node name="CurrencyRow" type="HBoxContainer" parent="Hud/PlayerPlate" unique_id=207204297]
+[node name="CurrencyRow" type="HBoxContainer" parent="Hud/PlayerPlate" unique_id=799537510]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(310, 30)
 layout_mode = 0
@@ -1682,7 +1681,7 @@ offset_right = 436.0
 offset_bottom = 134.0
 theme_override_constants/separation = 16
 
-[node name="@TextureRect@25" type="TextureRect" parent="Hud/PlayerPlate/CurrencyRow" unique_id=808693446]
+[node name="@TextureRect@25" type="TextureRect" parent="Hud/PlayerPlate/CurrencyRow" unique_id=1347731701]
 modulate = Color(0.48235294, 0.8784314, 1, 1)
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
@@ -1692,7 +1691,7 @@ texture = ExtResource("7_sxd3f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GemLabel" type="Label" parent="Hud/PlayerPlate/CurrencyRow" unique_id=1312821026]
+[node name="GemLabel" type="Label" parent="Hud/PlayerPlate/CurrencyRow" unique_id=1366905204]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
@@ -1700,9 +1699,9 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 21
-text = "1,280"
+text = "0"
 
-[node name="@TextureRect@26" type="TextureRect" parent="Hud/PlayerPlate/CurrencyRow" unique_id=2117339241]
+[node name="@TextureRect@26" type="TextureRect" parent="Hud/PlayerPlate/CurrencyRow" unique_id=260897273]
 modulate = Color(1, 0.7882353, 0.2901961, 1)
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
@@ -1712,7 +1711,7 @@ texture = ExtResource("8_5tx1n")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate/CurrencyRow" unique_id=87996490]
+[node name="GoldLabel" type="Label" parent="Hud/PlayerPlate/CurrencyRow" unique_id=1979517792]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
@@ -1720,9 +1719,9 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.72)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 21
-text = "12,500"
+text = "0"
 
-[node name="ResourcePanel" type="Panel" parent="Hud" unique_id=185474538]
+[node name="ResourcePanel" type="Panel" parent="Hud" unique_id=905832979]
 custom_minimum_size = Vector2(448, 244)
 layout_mode = 0
 offset_left = 26.0
@@ -1731,7 +1730,7 @@ offset_right = 474.0
 offset_bottom = 424.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_srw2w")
 
-[node name="@Label@27" type="Label" parent="Hud/ResourcePanel" unique_id=829244473]
+[node name="@Label@27" type="Label" parent="Hud/ResourcePanel" unique_id=630079085]
 custom_minimum_size = Vector2(260, 30)
 layout_mode = 0
 offset_left = 18.0
@@ -1745,7 +1744,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 22
 text = "召唤资源"
 
-[node name="@Label@28" type="Label" parent="Hud/ResourcePanel" unique_id=1923682550]
+[node name="@Label@28" type="Label" parent="Hud/ResourcePanel" unique_id=504347702]
 custom_minimum_size = Vector2(310, 24)
 layout_mode = 0
 offset_left = 120.0
@@ -1760,7 +1759,7 @@ theme_override_font_sizes/font_size = 16
 text = "资源不足时按钮会变灰，券优先于钻石"
 horizontal_alignment = 2
 
-[node name="Res_ticket_basic" type="Panel" parent="Hud/ResourcePanel" unique_id=2066167938]
+[node name="Res_ticket_basic" type="Panel" parent="Hud/ResourcePanel" unique_id=1947753377]
 custom_minimum_size = Vector2(416, 46)
 layout_mode = 0
 offset_left = 16.0
@@ -1769,7 +1768,7 @@ offset_right = 432.0
 offset_bottom = 94.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_drd7d")
 
-[node name="@TextureRect@29" type="TextureRect" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=812480907]
+[node name="@TextureRect@29" type="TextureRect" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=1213286169]
 modulate = Color(0.48235294, 0.8784314, 1, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -1782,7 +1781,7 @@ texture = ExtResource("9_ooorh")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@30" type="Label" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=1358440502]
+[node name="@Label@30" type="Label" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=1131943795]
 custom_minimum_size = Vector2(168, 28)
 layout_mode = 0
 offset_left = 46.0
@@ -1796,7 +1795,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 20
 text = "基础召唤券"
 
-[node name="TicketBasicLabel" type="Label" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=359312478]
+[node name="TicketBasicLabel" type="Label" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=1268238427]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(92, 30)
 layout_mode = 0
@@ -1812,7 +1811,7 @@ theme_override_font_sizes/font_size = 22
 text = "--"
 horizontal_alignment = 2
 
-[node name="@Label@31" type="Label" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=21820181]
+[node name="@Label@31" type="Label" parent="Hud/ResourcePanel/Res_ticket_basic" unique_id=1146099482]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 0
 offset_left = 314.0
@@ -1827,7 +1826,7 @@ theme_override_font_sizes/font_size = 15
 text = "常驻召唤 ×1"
 horizontal_alignment = 2
 
-[node name="Res_ticket_advanced" type="Panel" parent="Hud/ResourcePanel" unique_id=1096375251]
+[node name="Res_ticket_advanced" type="Panel" parent="Hud/ResourcePanel" unique_id=1434366907]
 custom_minimum_size = Vector2(416, 46)
 layout_mode = 0
 offset_left = 16.0
@@ -1836,7 +1835,7 @@ offset_right = 432.0
 offset_bottom = 142.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yhua3")
 
-[node name="@TextureRect@32" type="TextureRect" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=1737885054]
+[node name="@TextureRect@32" type="TextureRect" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=1456750968]
 modulate = Color(0.7529412, 0.54509807, 1, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -1849,7 +1848,7 @@ texture = ExtResource("9_ooorh")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@33" type="Label" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=690939541]
+[node name="@Label@33" type="Label" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=1856762992]
 custom_minimum_size = Vector2(168, 28)
 layout_mode = 0
 offset_left = 46.0
@@ -1863,7 +1862,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 20
 text = "高级召唤卷轴"
 
-[node name="TicketAdvancedLabel" type="Label" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=1010168]
+[node name="TicketAdvancedLabel" type="Label" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=1156652695]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(92, 30)
 layout_mode = 0
@@ -1879,7 +1878,7 @@ theme_override_font_sizes/font_size = 22
 text = "--"
 horizontal_alignment = 2
 
-[node name="@Label@34" type="Label" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=57033353]
+[node name="@Label@34" type="Label" parent="Hud/ResourcePanel/Res_ticket_advanced" unique_id=812133335]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 0
 offset_left = 314.0
@@ -1894,7 +1893,7 @@ theme_override_font_sizes/font_size = 15
 text = "限时 UP ×1"
 horizontal_alignment = 2
 
-[node name="Res_bound_gem" type="Panel" parent="Hud/ResourcePanel" unique_id=2001218227]
+[node name="Res_bound_gem" type="Panel" parent="Hud/ResourcePanel" unique_id=1285768795]
 custom_minimum_size = Vector2(416, 46)
 layout_mode = 0
 offset_left = 16.0
@@ -1903,7 +1902,7 @@ offset_right = 432.0
 offset_bottom = 190.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_d8lbt")
 
-[node name="@TextureRect@35" type="TextureRect" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=1003309958]
+[node name="@TextureRect@35" type="TextureRect" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=1417040407]
 modulate = Color(0.6039216, 0.654902, 1, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -1916,7 +1915,7 @@ texture = ExtResource("7_sxd3f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@36" type="Label" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=696438419]
+[node name="@Label@36" type="Label" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=701914111]
 custom_minimum_size = Vector2(168, 28)
 layout_mode = 0
 offset_left = 46.0
@@ -1930,7 +1929,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 20
 text = "绑定钻石"
 
-[node name="BoundGemLabel" type="Label" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=961355866]
+[node name="BoundGemLabel" type="Label" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=1865431489]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(92, 30)
 layout_mode = 0
@@ -1946,7 +1945,7 @@ theme_override_font_sizes/font_size = 22
 text = "--"
 horizontal_alignment = 2
 
-[node name="@Label@37" type="Label" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=1218852773]
+[node name="@Label@37" type="Label" parent="Hud/ResourcePanel/Res_bound_gem" unique_id=1607492583]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 0
 offset_left = 314.0
@@ -1961,7 +1960,7 @@ theme_override_font_sizes/font_size = 15
 text = "×160 / 次"
 horizontal_alignment = 2
 
-[node name="Res_wish_crystal" type="Panel" parent="Hud/ResourcePanel" unique_id=384593998]
+[node name="Res_wish_crystal" type="Panel" parent="Hud/ResourcePanel" unique_id=152497233]
 custom_minimum_size = Vector2(416, 46)
 layout_mode = 0
 offset_left = 16.0
@@ -1970,7 +1969,7 @@ offset_right = 432.0
 offset_bottom = 238.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ytpea")
 
-[node name="@TextureRect@38" type="TextureRect" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=1256183356]
+[node name="@TextureRect@38" type="TextureRect" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=1900931732]
 modulate = Color(1, 0.83137256, 0.36862746, 1)
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
@@ -1983,7 +1982,7 @@ texture = ExtResource("7_sxd3f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@39" type="Label" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=883612304]
+[node name="@Label@39" type="Label" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=1215455919]
 custom_minimum_size = Vector2(168, 28)
 layout_mode = 0
 offset_left = 46.0
@@ -1997,7 +1996,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 20
 text = "心愿水晶"
 
-[node name="CrystalLabel" type="Label" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=1687612198]
+[node name="CrystalLabel" type="Label" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=537056799]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(92, 30)
 layout_mode = 0
@@ -2013,7 +2012,7 @@ theme_override_font_sizes/font_size = 22
 text = "--"
 horizontal_alignment = 2
 
-[node name="@Label@40" type="Label" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=328065524]
+[node name="@Label@40" type="Label" parent="Hud/ResourcePanel/Res_wish_crystal" unique_id=964058782]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 0
 offset_left = 314.0
@@ -2028,7 +2027,7 @@ theme_override_font_sizes/font_size = 15
 text = "每抽 +1"
 horizontal_alignment = 2
 
-[node name="RecentPanel" type="Panel" parent="Hud" unique_id=1398913199]
+[node name="RecentPanel" type="Panel" parent="Hud" unique_id=579326940]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(448, 340)
 layout_mode = 0
@@ -2038,7 +2037,7 @@ offset_right = 474.0
 offset_bottom = 780.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_q3c8e")
 
-[node name="@Label@41" type="Label" parent="Hud/RecentPanel" unique_id=1477771061]
+[node name="@Label@41" type="Label" parent="Hud/RecentPanel" unique_id=2084967792]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 0
 offset_left = 18.0
@@ -2052,7 +2051,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 22
 text = "最近获得"
 
-[node name="@Label@42" type="Label" parent="Hud/RecentPanel" unique_id=1400133684]
+[node name="@Label@42" type="Label" parent="Hud/RecentPanel" unique_id=1758229703]
 custom_minimum_size = Vector2(250, 24)
 layout_mode = 0
 offset_left = 180.0
@@ -2067,7 +2066,7 @@ theme_override_font_sizes/font_size = 15
 text = "召唤记录（最近 30 条）"
 horizontal_alignment = 2
 
-[node name="RecentRow" type="HBoxContainer" parent="Hud/RecentPanel" unique_id=2097544267]
+[node name="RecentRow" type="HBoxContainer" parent="Hud/RecentPanel" unique_id=352706739]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(412, 270)
 layout_mode = 0
@@ -2077,7 +2076,7 @@ offset_right = 430.0
 offset_bottom = 318.0
 theme_override_constants/separation = 10
 
-[node name="RecentEmpty" type="Label" parent="Hud/RecentPanel" unique_id=114661006]
+[node name="RecentEmpty" type="Label" parent="Hud/RecentPanel" unique_id=1024819795]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(412, 30)
 layout_mode = 0
@@ -2093,7 +2092,7 @@ theme_override_font_sizes/font_size = 18
 text = "还没有召唤记录，先抽一发试试"
 horizontal_alignment = 1
 
-[node name="TitleGroup" type="Control" parent="Hud" unique_id=1257757374]
+[node name="TitleGroup" type="Control" parent="Hud" unique_id=101921178]
 custom_minimum_size = Vector2(1000, 230)
 anchors_preset = 0
 anchor_left = 0.5
@@ -2103,7 +2102,7 @@ offset_top = 14.0
 offset_right = 500.0
 offset_bottom = 244.0
 
-[node name="TitleLabel" type="Control" parent="Hud/TitleGroup" unique_id=1156726107]
+[node name="TitleLabel" type="Control" parent="Hud/TitleGroup" unique_id=2143301193]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1000, 76)
 anchors_preset = 0
@@ -2111,7 +2110,7 @@ offset_right = 1000.0
 offset_bottom = 76.0
 mouse_filter = 2
 
-[node name="@Label@43" type="Label" parent="Hud/TitleGroup/TitleLabel" unique_id=1672611778]
+[node name="@Label@43" type="Label" parent="Hud/TitleGroup/TitleLabel" unique_id=1718352348]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2126,7 +2125,7 @@ text = "群星召唤"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="@Label@44" type="Label" parent="Hud/TitleGroup/TitleLabel" unique_id=1131569140]
+[node name="@Label@44" type="Label" parent="Hud/TitleGroup/TitleLabel" unique_id=1272158288]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2139,7 +2138,7 @@ text = "群星召唤"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SubTitle" type="Label" parent="Hud/TitleGroup" unique_id=1160585514]
+[node name="SubTitle" type="Label" parent="Hud/TitleGroup" unique_id=2089414723]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1000, 28)
 layout_mode = 0
@@ -2154,7 +2153,7 @@ theme_override_font_sizes/font_size = 22
 text = "SUMMONING ALTAR"
 horizontal_alignment = 1
 
-[node name="PoolTabs" type="HBoxContainer" parent="Hud/TitleGroup" unique_id=211665853]
+[node name="PoolTabs" type="HBoxContainer" parent="Hud/TitleGroup" unique_id=1668182028]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(540, 46)
 layout_mode = 0
@@ -2164,7 +2163,7 @@ offset_right = 770.0
 offset_bottom = 156.0
 theme_override_constants/separation = 12
 
-[node name="PoolName" type="Label" parent="Hud/TitleGroup" unique_id=454669702]
+[node name="PoolName" type="Label" parent="Hud/TitleGroup" unique_id=2112023308]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1000, 40)
 layout_mode = 0
@@ -2178,7 +2177,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 
-[node name="PoolDesc" type="Label" parent="Hud/TitleGroup" unique_id=1268184650]
+[node name="PoolDesc" type="Label" parent="Hud/TitleGroup" unique_id=1252482442]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(920, 26)
 layout_mode = 0
@@ -2194,7 +2193,7 @@ theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="PityBadge" type="Panel" parent="Hud" unique_id=28287003]
+[node name="PityBadge" type="Panel" parent="Hud" unique_id=1857693614]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(680, 60)
 layout_mode = 0
@@ -2204,7 +2203,7 @@ offset_right = 1300.0
 offset_bottom = 292.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vplq7")
 
-[node name="PitySmallHalf" type="Panel" parent="Hud/PityBadge" unique_id=1267306910]
+[node name="PitySmallHalf" type="Panel" parent="Hud/PityBadge" unique_id=1033822313]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(324, 48)
 layout_mode = 0
@@ -2214,7 +2213,7 @@ offset_right = 332.0
 offset_bottom = 54.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ymk3c")
 
-[node name="PitySmall" type="Label" parent="Hud/PityBadge/PitySmallHalf" unique_id=885364892]
+[node name="PitySmall" type="Label" parent="Hud/PityBadge/PitySmallHalf" unique_id=650069246]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 24)
 layout_mode = 0
@@ -2229,7 +2228,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 19
 text = "--"
 
-[node name="PitySmallBar" type="ProgressBar" parent="Hud/PityBadge/PitySmallHalf" unique_id=1585778620]
+[node name="PitySmallBar" type="ProgressBar" parent="Hud/PityBadge/PitySmallHalf" unique_id=1829644016]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 10)
 layout_mode = 0
@@ -2242,7 +2241,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7uu12")
 max_value = 50.0
 show_percentage = false
 
-[node name="PityLargeHalf" type="Panel" parent="Hud/PityBadge" unique_id=1664605195]
+[node name="PityLargeHalf" type="Panel" parent="Hud/PityBadge" unique_id=1926461459]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(324, 48)
 layout_mode = 0
@@ -2252,7 +2251,7 @@ offset_right = 672.0
 offset_bottom = 54.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aqvah")
 
-[node name="PityLarge" type="Label" parent="Hud/PityBadge/PityLargeHalf" unique_id=1898884040]
+[node name="PityLarge" type="Label" parent="Hud/PityBadge/PityLargeHalf" unique_id=1452183823]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 24)
 layout_mode = 0
@@ -2267,7 +2266,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 19
 text = "--"
 
-[node name="PityLargeBar" type="ProgressBar" parent="Hud/PityBadge/PityLargeHalf" unique_id=1042924084]
+[node name="PityLargeBar" type="ProgressBar" parent="Hud/PityBadge/PityLargeHalf" unique_id=2040142782]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 10)
 layout_mode = 0
@@ -2280,7 +2279,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_xy8x8")
 max_value = 50.0
 show_percentage = false
 
-[node name="PullOneButton" type="Button" parent="Hud" unique_id=1495285822]
+[node name="PullOneButton" type="Button" parent="Hud" unique_id=1604493150]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 108)
 layout_mode = 0
@@ -2303,7 +2302,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1x7df")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_xrhtq")
 text = "召唤 ×1"
 
-[node name="PullOneCost" type="Label" parent="Hud/PullOneButton" unique_id=1238806081]
+[node name="PullOneCost" type="Label" parent="Hud/PullOneButton" unique_id=506765582]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 30)
 layout_mode = 0
@@ -2317,7 +2316,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 
-[node name="PullTenButton" type="Button" parent="Hud" unique_id=220975602]
+[node name="PullTenButton" type="Button" parent="Hud" unique_id=1837436401]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 108)
 layout_mode = 0
@@ -2340,7 +2339,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dkuaq")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_vuge6")
 text = "召唤 ×10"
 
-[node name="PullTenCost" type="Label" parent="Hud/PullTenButton" unique_id=1221031964]
+[node name="PullTenCost" type="Label" parent="Hud/PullTenButton" unique_id=155288422]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 30)
 layout_mode = 0
@@ -2354,7 +2353,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 
-[node name="TenTag" type="Panel" parent="Hud/PullTenButton" unique_id=509138223]
+[node name="TenTag" type="Panel" parent="Hud/PullTenButton" unique_id=319373347]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 36)
 layout_mode = 0
@@ -2364,7 +2363,7 @@ offset_right = 330.0
 offset_bottom = 20.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uvcwh")
 
-[node name="TenTagLabel" type="Label" parent="Hud/PullTenButton/TenTag" unique_id=692418864]
+[node name="TenTagLabel" type="Label" parent="Hud/PullTenButton/TenTag" unique_id=1583962336]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2377,7 +2376,7 @@ text = "必得 1 张人物卡"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RateButton" type="Button" parent="Hud" unique_id=564123620]
+[node name="RateButton" type="Button" parent="Hud" unique_id=1183109752]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 76)
 layout_mode = 0
@@ -2397,7 +2396,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_lwbqg")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yvpj8")
 text = "概率公示"
 
-[node name="ShopButton" type="Button" parent="Hud" unique_id=173035804]
+[node name="ShopButton" type="Button" parent="Hud" unique_id=444544295]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 76)
 layout_mode = 0
@@ -2412,7 +2411,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_cp8cb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1joh8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ag5nm")
 
-[node name="@TextureRect@45" type="TextureRect" parent="Hud/ShopButton" unique_id=822294481]
+[node name="@TextureRect@45" type="TextureRect" parent="Hud/ShopButton" unique_id=1943180220]
 modulate = Color(0.7529412, 0.54509807, 1, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
@@ -2425,7 +2424,7 @@ texture = ExtResource("7_sxd3f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="@Label@46" type="Label" parent="Hud/ShopButton" unique_id=1861992677]
+[node name="@Label@46" type="Label" parent="Hud/ShopButton" unique_id=1570414212]
 custom_minimum_size = Vector2(250, 30)
 layout_mode = 0
 offset_left = 56.0
@@ -2439,7 +2438,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 22
 text = "心愿水晶商店"
 
-[node name="ShopCrystalLabel" type="Label" parent="Hud/ShopButton" unique_id=1591645504]
+[node name="ShopCrystalLabel" type="Label" parent="Hud/ShopButton" unique_id=772736238]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 26)
 layout_mode = 0
@@ -2454,7 +2453,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 19
 text = "--"
 
-[node name="RulePanel" type="Panel" parent="Hud" unique_id=1837981346]
+[node name="RulePanel" type="Panel" parent="Hud" unique_id=1340146465]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 320)
 layout_mode = 0
@@ -2464,7 +2463,7 @@ offset_right = 1894.0
 offset_bottom = 790.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_urtts")
 
-[node name="@Label@47" type="Label" parent="Hud/RulePanel" unique_id=698544947]
+[node name="@Label@47" type="Label" parent="Hud/RulePanel" unique_id=197936384]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 0
 offset_left = 18.0
@@ -2478,7 +2477,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 22
 text = "卡池规则"
 
-[node name="RuleBody" type="Label" parent="Hud/RulePanel" unique_id=1534948039]
+[node name="RuleBody" type="Label" parent="Hud/RulePanel" unique_id=655858789]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(284, 260)
 layout_mode = 0
@@ -2493,7 +2492,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 17
 autowrap_mode = 3
 
-[node name="BackButton" type="Button" parent="Hud" unique_id=1861060138]
+[node name="BackButton" type="Button" parent="Hud" unique_id=1449431984]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 58)
 layout_mode = 0
@@ -2513,7 +2512,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_75jtr")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1rpoi")
 text = "◀  返回主界面"
 
-[node name="Toast" type="Panel" parent="Hud" unique_id=2069841964]
+[node name="Toast" type="Panel" parent="Hud" unique_id=604319044]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(600, 56)
@@ -2524,7 +2523,7 @@ offset_right = 1260.0
 offset_bottom = 1062.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5l1cf")
 
-[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=1976592124]
+[node name="ToastLabel" type="Label" parent="Hud/Toast" unique_id=176173564]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -2540,7 +2539,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="FooterInfo" type="Label" parent="Hud" unique_id=1234045581]
+[node name="FooterInfo" type="Label" parent="Hud" unique_id=1693605322]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(900, 24)
 layout_mode = 0
@@ -2555,7 +2554,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 2
 
-[node name="FooterStat" type="Label" parent="Hud" unique_id=1636638273]
+[node name="FooterStat" type="Label" parent="Hud" unique_id=503170956]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 24)
 layout_mode = 0
@@ -2571,7 +2570,7 @@ theme_override_font_sizes/font_size = 18
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="FlashRect" type="ColorRect" parent="Hud" unique_id=303454050]
+[node name="FlashRect" type="ColorRect" parent="Hud" unique_id=342937600]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -2580,21 +2579,21 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(1, 0.96, 0.84, 0)
 
-[node name="RevealLayer" type="Control" parent="Hud" unique_id=1813171117]
+[node name="RevealLayer" type="Control" parent="Hud" unique_id=1217386431]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="RevealBackdrop" type="ColorRect" parent="Hud/RevealLayer" unique_id=545398452]
+[node name="RevealBackdrop" type="ColorRect" parent="Hud/RevealLayer" unique_id=2044389242]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.03, 0.02, 0.06, 0.94)
 
-[node name="@TextureRect@48" type="TextureRect" parent="Hud/RevealLayer" unique_id=2147192049]
+[node name="@TextureRect@48" type="TextureRect" parent="Hud/RevealLayer" unique_id=1449847281]
 custom_minimum_size = Vector2(1920, 300)
 layout_mode = 0
 offset_right = 1920.0
@@ -2603,7 +2602,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_30umo")
 expand_mode = 1
 
-[node name="@TextureRect@49" type="TextureRect" parent="Hud/RevealLayer" unique_id=1897872377]
+[node name="@TextureRect@49" type="TextureRect" parent="Hud/RevealLayer" unique_id=454678922]
 custom_minimum_size = Vector2(1920, 300)
 layout_mode = 0
 offset_top = 780.0
@@ -2613,7 +2612,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_cbgqa")
 expand_mode = 1
 
-[node name="LightPillar" type="Control" parent="Hud/RevealLayer" unique_id=1896275387]
+[node name="LightPillar" type="Control" parent="Hud/RevealLayer" unique_id=506344818]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 1160)
 anchors_preset = 0
@@ -2623,7 +2622,7 @@ offset_right = 1150.0
 offset_bottom = 1120.0
 mouse_filter = 2
 
-[node name="PillarFringe" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=459279188]
+[node name="PillarFringe" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=1956003134]
 custom_minimum_size = Vector2(380, 1160)
 layout_mode = 0
 offset_right = 380.0
@@ -2632,7 +2631,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_uodes")
 expand_mode = 1
 
-[node name="Strip0" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=883987777]
+[node name="Strip0" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=1140806061]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(72, 1160)
 layout_mode = 0
@@ -2643,7 +2642,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_n6cyx")
 expand_mode = 1
 
-[node name="Strip1" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=903358564]
+[node name="Strip1" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=937794366]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(72, 1160)
 layout_mode = 0
@@ -2654,7 +2653,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_7o7q0")
 expand_mode = 1
 
-[node name="Strip2" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=992231838]
+[node name="Strip2" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=1358905644]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(72, 1160)
 layout_mode = 0
@@ -2665,7 +2664,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_dqsfe")
 expand_mode = 1
 
-[node name="Strip3" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=2049567674]
+[node name="Strip3" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=537049294]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(72, 1160)
 layout_mode = 0
@@ -2676,7 +2675,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_vubfw")
 expand_mode = 1
 
-[node name="Strip4" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=847056018]
+[node name="Strip4" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=21877936]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(72, 1160)
 layout_mode = 0
@@ -2687,7 +2686,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_ptc4a")
 expand_mode = 1
 
-[node name="PillarCore" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=1969662554]
+[node name="PillarCore" type="TextureRect" parent="Hud/RevealLayer/LightPillar" unique_id=2020859399]
 custom_minimum_size = Vector2(28, 1160)
 layout_mode = 0
 offset_left = 176.0
@@ -2697,7 +2696,7 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_f2wqf")
 expand_mode = 1
 
-[node name="PillarBase" type="TextureRect" parent="Hud/RevealLayer" unique_id=555308398]
+[node name="PillarBase" type="TextureRect" parent="Hud/RevealLayer" unique_id=1570710818]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 320)
 layout_mode = 0
@@ -2709,14 +2708,14 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_l3570")
 expand_mode = 1
 
-[node name="RevealCards" type="Control" parent="Hud/RevealLayer" unique_id=1771018495]
+[node name="RevealCards" type="Control" parent="Hud/RevealLayer" unique_id=1971303162]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="RevealTitle" type="Control" parent="Hud/RevealLayer" unique_id=953179144]
+[node name="RevealTitle" type="Control" parent="Hud/RevealLayer" unique_id=1689411261]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 64)
 anchors_preset = 0
@@ -2728,7 +2727,7 @@ offset_right = 350.0
 offset_bottom = 104.0
 mouse_filter = 2
 
-[node name="@Label@50" type="Label" parent="Hud/RevealLayer/RevealTitle" unique_id=722285247]
+[node name="@Label@50" type="Label" parent="Hud/RevealLayer/RevealTitle" unique_id=279999623]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2743,7 +2742,7 @@ text = "召唤结果"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="@Label@51" type="Label" parent="Hud/RevealLayer/RevealTitle" unique_id=2070294296]
+[node name="@Label@51" type="Label" parent="Hud/RevealLayer/RevealTitle" unique_id=1888567792]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2756,7 +2755,7 @@ text = "召唤结果"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RevealSub" type="Label" parent="Hud/RevealLayer" unique_id=1412818669]
+[node name="RevealSub" type="Label" parent="Hud/RevealLayer" unique_id=496364381]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(900, 30)
 layout_mode = 0
@@ -2773,7 +2772,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
-[node name="RevealSummary" type="Label" parent="Hud/RevealLayer" unique_id=460601982]
+[node name="RevealSummary" type="Label" parent="Hud/RevealLayer" unique_id=321586940]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1000, 30)
 layout_mode = 0
@@ -2788,7 +2787,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 21
 horizontal_alignment = 1
 
-[node name="RevealSkipButton" type="Button" parent="Hud/RevealLayer" unique_id=637882049]
+[node name="RevealSkipButton" type="Button" parent="Hud/RevealLayer" unique_id=1974984802]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(190, 54)
 layout_mode = 0
@@ -2808,7 +2807,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qs0oi")
 theme_override_styles/focus = SubResource("StyleBoxFlat_lsklf")
 text = "跳过"
 
-[node name="RevealAgainButton" type="Button" parent="Hud/RevealLayer" unique_id=533010311]
+[node name="RevealAgainButton" type="Button" parent="Hud/RevealLayer" unique_id=1364276792]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 76)
 layout_mode = 0
@@ -2828,7 +2827,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_yuuxs")
 theme_override_styles/focus = SubResource("StyleBoxFlat_s53y4")
 text = "再抽一次"
 
-[node name="RevealCloseButton" type="Button" parent="Hud/RevealLayer" unique_id=294944024]
+[node name="RevealCloseButton" type="Button" parent="Hud/RevealLayer" unique_id=1077415019]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(340, 76)
 layout_mode = 0
@@ -2848,13 +2847,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_fxie5")
 theme_override_styles/focus = SubResource("StyleBoxFlat_loud1")
 text = "确定"
 
-[node name="PopupLayer" type="Control" parent="Hud" unique_id=1371963632]
+[node name="PopupLayer" type="Control" parent="Hud" unique_id=796856109]
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="RatePanel" type="Panel" parent="Hud/PopupLayer" unique_id=1987200602]
+[node name="RatePanel" type="Panel" parent="Hud/PopupLayer" unique_id=822687537]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(1080, 880)
@@ -2865,7 +2864,7 @@ offset_right = 1500.0
 offset_bottom = 956.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fchiw")
 
-[node name="RateTitle" type="Label" parent="Hud/PopupLayer/RatePanel" unique_id=714508474]
+[node name="RateTitle" type="Label" parent="Hud/PopupLayer/RatePanel" unique_id=944772851]
 custom_minimum_size = Vector2(400, 42)
 layout_mode = 0
 offset_left = 28.0
@@ -2879,7 +2878,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 32
 text = "概率公示"
 
-[node name="RatePoolName" type="Label" parent="Hud/PopupLayer/RatePanel" unique_id=1273002763]
+[node name="RatePoolName" type="Label" parent="Hud/PopupLayer/RatePanel" unique_id=60778290]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 30)
 layout_mode = 0
@@ -2894,7 +2893,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 19
 horizontal_alignment = 2
 
-[node name="RateBody" type="VBoxContainer" parent="Hud/PopupLayer/RatePanel" unique_id=561619233]
+[node name="RateBody" type="VBoxContainer" parent="Hud/PopupLayer/RatePanel" unique_id=2046672110]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1024, 732)
 layout_mode = 0
@@ -2904,7 +2903,7 @@ offset_right = 1052.0
 offset_bottom = 802.0
 theme_override_constants/separation = 8
 
-[node name="RateCloseButton" type="Button" parent="Hud/PopupLayer/RatePanel" unique_id=1723539229]
+[node name="RateCloseButton" type="Button" parent="Hud/PopupLayer/RatePanel" unique_id=571835083]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(172, 54)
 layout_mode = 0
@@ -2924,7 +2923,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_x6o6l")
 theme_override_styles/focus = SubResource("StyleBoxFlat_k2dp4")
 text = "关闭"
 
-[node name="ShopPanel" type="Panel" parent="Hud/PopupLayer" unique_id=40724930]
+[node name="ShopPanel" type="Panel" parent="Hud/PopupLayer" unique_id=1765710239]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(980, 840)
@@ -2935,7 +2934,7 @@ offset_right = 1450.0
 offset_bottom = 936.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_71m0b")
 
-[node name="ShopTitle" type="Label" parent="Hud/PopupLayer/ShopPanel" unique_id=1644306962]
+[node name="ShopTitle" type="Label" parent="Hud/PopupLayer/ShopPanel" unique_id=1628972881]
 custom_minimum_size = Vector2(500, 42)
 layout_mode = 0
 offset_left = 28.0
@@ -2949,7 +2948,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 32
 text = "心愿水晶商店"
 
-[node name="@Label@52" type="Label" parent="Hud/PopupLayer/ShopPanel" unique_id=587132246]
+[node name="@Label@52" type="Label" parent="Hud/PopupLayer/ShopPanel" unique_id=160492433]
 custom_minimum_size = Vector2(924, 26)
 layout_mode = 0
 offset_left = 28.0
@@ -2964,7 +2963,7 @@ theme_override_font_sizes/font_size = 18
 text = "累积心愿水晶，指定兑换当期 UP 的 UR / SSR 英雄，防止极度非酋体验。"
 autowrap_mode = 3
 
-[node name="ShopBalanceLabel" type="Label" parent="Hud/PopupLayer/ShopPanel" unique_id=887703142]
+[node name="ShopBalanceLabel" type="Label" parent="Hud/PopupLayer/ShopPanel" unique_id=718716055]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 30)
 layout_mode = 0
@@ -2979,7 +2978,7 @@ theme_override_fonts/font = ExtResource("5_idesr")
 theme_override_font_sizes/font_size = 22
 horizontal_alignment = 2
 
-[node name="ShopBody" type="VBoxContainer" parent="Hud/PopupLayer/ShopPanel" unique_id=2013337373]
+[node name="ShopBody" type="VBoxContainer" parent="Hud/PopupLayer/ShopPanel" unique_id=15959547]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(924, 660)
 layout_mode = 0
@@ -2989,7 +2988,7 @@ offset_right = 952.0
 offset_bottom = 760.0
 theme_override_constants/separation = 8
 
-[node name="ShopCloseButton" type="Button" parent="Hud/PopupLayer/ShopPanel" unique_id=1051174996]
+[node name="ShopCloseButton" type="Button" parent="Hud/PopupLayer/ShopPanel" unique_id=1909687550]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(172, 54)
 layout_mode = 0

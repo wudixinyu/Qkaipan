@@ -187,9 +187,10 @@ func _grid_children() -> Array:
 
 func _check_grid() -> void:
 	print("\n· 网格层：筛选重建与未获取锁章")
+	var total := GameDB.characters().size()
 	_scene.call("_apply_filter", "all")
 	var all := _grid_children()
-	_eq("全部 = 8 格", all.size(), GameDB.characters().size())
+	_eq("全部 = 配置卡数", all.size(), total)
 
 	var owned_cards := 0
 	var locked_cards := 0
@@ -205,8 +206,8 @@ func _check_grid() -> void:
 			elif str(c.name) == "LockBadge":
 				badges += 1
 	_eq("已获取卡面 3 张", owned_cards, 3)
-	_eq("未获取剪影卡面 5 张", locked_cards, 5)
-	_eq("锁章数量 = 未获取数量", badges, 5)
+	_eq("未获取剪影卡面 = 总数-3", locked_cards, total - 3)
+	_eq("锁章数量 = 未获取数量", badges, total - 3)
 
 	# 未获取卡面：名牌 ???、无星级行
 	for slot in all:
@@ -223,9 +224,9 @@ func _check_grid() -> void:
 	_scene.call("_apply_filter", "owned")
 	_eq("已获取筛选 = 3 格", _grid_children().size(), 3)
 	_scene.call("_apply_filter", "unowned")
-	_eq("未获取筛选 = 5 格", _grid_children().size(), 5)
+	_eq("未获取筛选 = 总数-3 格", _grid_children().size(), total - 3)
 	_scene.call("_apply_filter", "bogus")
-	_eq("非法筛选回落全部 = 8 格", _grid_children().size(), 8)
+	_eq("非法筛选回落全部 = 配置卡数", _grid_children().size(), total)
 
 	# 筛选按钮真的接在信号上（点击链路，不是只测内部方法）
 	var btn: Button = _scene.get_node_or_null("%Filt_owned")
@@ -233,27 +234,36 @@ func _check_grid() -> void:
 	btn.pressed.emit()
 	_eq("点「已获取」按钮生效", _grid_children().size(), 3)
 	var cl: Label = _scene.get_node_or_null("%CollectLabel")
-	_ok("收集进度读数正确", cl != null and cl.text == "已收集 3 / 8", cl.text if cl else "")
+	var want_text := "已收集 3 / %d" % total
+	_ok("收集进度读数正确", cl != null and cl.text == want_text, cl.text if cl else "")
 	(_scene.get_node_or_null("%Filt_all") as Button).pressed.emit()
-	_eq("点「全部」按钮回到 8 格", _grid_children().size(), 8)
+	_eq("点「全部」按钮回到配置卡数", _grid_children().size(), total)
 
-	# 网格几何：4 列 × 2 行、整行水平居中、不越出网格底板
+	# 网格几何：4 列、行数 = ceil(卡数/4)、首行对内容宽水平居中（纵向靠滚动）
+	# GRID_W / CARD_W 与 collection.gd 的 GRID_W / CARD_BOX.x 同口径
+	var grid_w := 1360.0
+	var card_w := 286.0
 	var cols := {}
 	var rows := {}
-	var bottom := 0.0
 	for slot in _grid_children():
 		cols[str(round((slot as Control).position.x))] = true
 		rows[str(round((slot as Control).position.y))] = true
-		bottom = maxf(bottom, (slot as Control).position.y + (slot as Control).size.y)
 	_eq("每行 4 列", cols.size(), 4)
-	_eq("共 2 行", rows.size(), 2)
+	_eq("行数 = ceil(卡数/4)", rows.size(), int(ceil(float(total) / 4.0)))
+	# 首行（y 最小的那批卡）左右留白应对称
 	var kids := _grid_children()
-	var first: Control = kids[0]
-	var last: Control = kids[-1]
-	_ok("整行水平居中（左右留白对称）",
-		absf(first.position.x - (1920.0 - last.position.x - last.size.x)) < 1.0,
-		"left=%.0f right=%.0f" % [first.position.x, 1920.0 - last.position.x - last.size.x])
-	_ok("末行不压出网格底板", bottom <= 1002.0, "bottom=%.0f" % bottom)
+	var min_y := 1e20
+	for slot in kids:
+		min_y = minf(min_y, (slot as Control).position.y)
+	var left := 1e20
+	var right := -1e20
+	for slot in kids:
+		if absf((slot as Control).position.y - min_y) < 1.0:
+			left = minf(left, (slot as Control).position.x)
+			right = maxf(right, (slot as Control).position.x + card_w)
+	_ok("首行水平居中（对内容宽左右留白对称）",
+		absf(left - (grid_w - right)) < 1.0,
+		"left=%.0f right_margin=%.0f" % [left, grid_w - right])
 
 
 # ---------------------------------------------------------------- 详情弹层

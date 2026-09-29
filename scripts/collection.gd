@@ -4,7 +4,7 @@ extends Control
 ## 场景骨架由 tools/build_collection.gd 程序化生成；本脚本只做三件事：
 ##   把 GameDB(全卡目录) + SaveDB(持卡) 接到网格、按筛选重建、点开详情弹层。
 ##
-## 数据流向：GameDB.characters(全部 8 卡) + SaveDB.find_card(是否持有)
+## 数据流向：GameDB.characters(全卡目录) + SaveDB.find_card(是否持有)
 ##   → _entries()（一张卡一行：owned / card / stats）→ 网格与详情弹层
 ##
 ## 未获取的卡：CardView 走 set_locked() 剪影态（立绘压黑、数值隐藏、名牌 ???），
@@ -22,8 +22,10 @@ const CARD_BOX := Vector2(286, 412)
 const GRID_COLUMNS := 4
 const COL_GAP := 50.0
 const ROW_GAP := 40.0
-## 网格底板（y 134..1002）的垂直中心，整块卡阵对它居中
-const GRID_CENTER_Y := 568.0
+## 网格内容宽度（横向居中基准）与首行顶部留白：纵向交给 GridScroll 滚动。
+## 卡数增长时不再整块垂直居中，否则多行会顶出屏幕；与 build_collection.gd 同口径。
+const GRID_W := 1360.0
+const GRID_TOP := 10.0
 const FILTERS := ["all", "owned", "unowned"]
 const FILTER_NAMES := { "all": "全部", "owned": "已获取", "unowned": "未获取" }
 
@@ -161,14 +163,12 @@ func _grid_pos(i: int) -> Vector2:
 	var row := i / GRID_COLUMNS
 	var col := i % GRID_COLUMNS
 	var n := _shown.size()
-	var rows := int(ceil(float(n) / float(GRID_COLUMNS)))
 	var in_row := mini(GRID_COLUMNS, n - row * GRID_COLUMNS)
 	var total_w := float(in_row) * (CARD_BOX.x + COL_GAP) - COL_GAP
-	# 垂直按「整块」居中：只按单行居中会把两行的块体整体下移，压出底板
-	var total_h := float(rows) * (CARD_BOX.y + ROW_GAP) - ROW_GAP
+	# 横向对内容宽度居中，纵向从顶部往下排（多出行由外层 ScrollContainer 承载）
 	return Vector2(
-		(BASE.x - total_w) * 0.5 + float(col) * (CARD_BOX.x + COL_GAP),
-		GRID_CENTER_Y - total_h * 0.5 + float(row) * (CARD_BOX.y + ROW_GAP))
+		(GRID_W - total_w) * 0.5 + float(col) * (CARD_BOX.x + COL_GAP),
+		GRID_TOP + float(row) * (CARD_BOX.y + ROW_GAP))
 
 
 func _rebuild_grid() -> void:
@@ -180,6 +180,10 @@ func _rebuild_grid() -> void:
 		_grid.remove_child(c)
 		c.queue_free()
 	# 构建器只留了一个占位，按筛选结果动态补格
+	# 先把内容容器撑到实际行数的高度，外层 ScrollContainer 才知道可滚多远
+	var rows := int(ceil(float(_shown.size()) / float(GRID_COLUMNS)))
+	var content_h := float(rows) * (CARD_BOX.y + ROW_GAP) - ROW_GAP + GRID_TOP * 2.0
+	_grid.custom_minimum_size = Vector2(GRID_W, maxf(content_h, 0.0))
 	var slots: Array = []
 	for i in _shown.size():
 		var slot := Control.new()

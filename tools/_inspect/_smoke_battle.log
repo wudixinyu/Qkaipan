@@ -1,0 +1,335 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[GameDB] 閰嶇疆杞藉叆瀹屾垚 v0.1.0锛?8 寮犺鑹?/ 6 涓厓绱?/ 4 涓。浣?
+[SaveDB] 瀛樻。宸茶浇鍏ワ細浜戜笂鏃呬汉 Lv.1锛屾寔鍗?0 寮?
+
+========== 鍗＄墝澶у啋闄?路 鎴樻枟绯荤粺鍐掔儫 ==========
+
+路 绗竴绔犲叧鍗¤〃
+  [PASS] 鍏冲崱鏁? got=10 want=10
+  [PASS] 绔犺妭鏍囬  got=浜戜笂娴矝 路 鍒濆涔嬬棔 want=浜戜笂娴矝 路 鍒濆涔嬬棔
+  [PASS] 鍏冲崱缂栧彿  got=[1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010] want=[1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010]
+  [PASS] 绔犺妭鍐呭簭鍙? got=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] want=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  [PASS] #1001 绫诲瀷鍚堟硶  battle
+  [PASS] #1001 鏈夋満鍒惰鏄?
+  [PASS] #1001 鏈?theme
+  [PASS] #1001 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1002 绫诲瀷鍚堟硶  battle
+  [PASS] #1002 鏈夋満鍒惰鏄?
+  [PASS] #1002 鏈?theme
+  [PASS] #1002 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1003 绫诲瀷鍚堟硶  elite
+  [PASS] #1003 鏈夋満鍒惰鏄?
+  [PASS] #1003 鏈?theme
+  [PASS] #1003 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1004 绫诲瀷鍚堟硶  battle
+  [PASS] #1004 鏈夋満鍒惰鏄?
+  [PASS] #1004 鏈?theme
+  [PASS] #1004 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1005 绫诲瀷鍚堟硶  event
+  [PASS] #1005 鏈夋満鍒惰鏄?
+  [PASS] #1005 鏈?theme
+  [PASS] #1005 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1006 绫诲瀷鍚堟硶  battle
+  [PASS] #1006 鏈夋満鍒惰鏄?
+  [PASS] #1006 鏈?theme
+  [PASS] #1006 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1007 绫诲瀷鍚堟硶  rest
+  [PASS] #1007 鏈夋満鍒惰鏄?
+  [PASS] #1007 鏈?theme
+  [PASS] #1007 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1008 绫诲瀷鍚堟硶  elite
+  [PASS] #1008 鏈夋満鍒惰鏄?
+  [PASS] #1008 鏈?theme
+  [PASS] #1008 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1009 绫诲瀷鍚堟硶  battle
+  [PASS] #1009 鏈夋満鍒惰鏄?
+  [PASS] #1009 鏈?theme
+  [PASS] #1009 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] #1010 绫诲瀷鍚堟硶  boss
+  [PASS] #1010 鏈夋満鍒惰鏄?
+  [PASS] #1010 鏈?theme
+  [PASS] #1010 鏈?bg 瀛楁锛堢暀绌?鐢?theme 绋嬪簭鍖栭摵锛?
+  [PASS] 1001 寮曞鍏冲厤璐? got=0 want=0
+  [PASS] 1003 绮捐嫳 8 鐐? got=8 want=8
+  [PASS] 1008 楂橀毦鏀嚎 10 鐐? got=10 want=10
+  [PASS] 1010 Boss 8 鐐? got=8 want=8
+  [PASS] 1005 浜嬩欢鑺傜偣涓嶈€椾綋鍔? got=0 want=0
+  [PASS] #1001 鏄垬鏂楄妭鐐?
+  [PASS] #1001 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 600 vs 鐩爣 600 (0.0%)
+  [PASS] #1001 鏁屼汉妲戒綅鍚堟硶
+  [PASS] #1002 鏄垬鏂楄妭鐐?
+  [PASS] #1002 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 2124 vs 鐩爣 2125 (-0.0%)
+  [PASS] #1002 鏁屼汉妲戒綅鍚堟硶
+  [PASS] #1003 鏄垬鏂楄妭鐐?
+  [PASS] #1003 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 4079 vs 鐩爣 4080 (-0.0%)
+  [PASS] #1003 鏁屼汉妲戒綅鍚堟硶
+  [PASS] #1004 鏄垬鏂楄妭鐐?
+  [PASS] #1004 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 5423 vs 鐩爣 5270 (2.9%)
+  [PASS] #1004 鏁屼汉妲戒綅鍚堟硶
+  [PASS] #1005 闈炴垬鏂楄妭鐐规棤鏁屼汉闃靛
+  [PASS] #1006 鏄垬鏂楄妭鐐?
+  [PASS] #1006 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 6629 vs 鐩爣 6630 (-0.0%)
+  [PASS] #1006 鏁屼汉妲戒綅鍚堟硶
+  [PASS] #1007 闈炴垬鏂楄妭鐐规棤鏁屼汉闃靛
+  [PASS] #1008 鏄垬鏂楄妭鐐?
+  [PASS] #1008 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 8925 vs 鐩爣 8925 (0.0%)
+  [PASS] #1008 鏁屼汉妲戒綅鍚堟硶
+  [PASS] #1009 鏄垬鏂楄妭鐐?
+  [PASS] #1009 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 9520 vs 鐩爣 9520 (0.0%)
+  [PASS] #1009 鏁屼汉妲戒綅鍚堟硶
+  [PASS] #1010 鏄垬鏂楄妭鐐?
+  [PASS] #1010 鏁屾柟鎴樺姏涓庡缓璁垬鍔涘寰椾笂  鏁屾柟 10623 vs 鐩爣 10625 (-0.0%)
+  [PASS] #1010 鏁屼汉妲戒綅鍚堟硶
+  [PASS] 宸ㄧ煶瀹堝崼鏍囪涓?Boss
+  [PASS] Boss 鏈変袱鏉＄壒鎬? got=2 want=2
+  [PASS] 鑺卞矖宀╂姢鐢?鐗╃悊鍑忎激 30%  0.3
+  [PASS] 鑺卞矖宀╂姢鐢?寮€灞€鎶ょ浘 20% 鏈€澶х敓鍛? 0.2
+  [PASS] 瑁傚湴闇囧嚮 200% 鍓嶆帓鐗╃悊  2.0
+  [PASS] 瑁傚湴闇囧嚮 50% 鐪╂檿  0.5
+  [PASS] 瑁傚湴闇囧嚮 鎵撳墠鎺掑叏浣?
+  [PASS] 1010 闃靛閲屾湁宸ㄧ煶瀹堝崼
+  [PASS] 1004 鐜鏁堟灉鍚? got=椋庢毚姘斿満 want=椋庢毚姘斿満
+  [PASS] 1004 鐜浣滅敤鍏冪礌  got=wind want=wind
+  [PASS] 1004 鐜鍊嶇巼涓哄姞閫? 1.2
+  [PASS] 1005 浜や簰閫夐」鏁? got=3 want=3
+  [PASS] 1007 鏄紤鎭妭鐐?
+
+路 鎬墿琛?
+  [PASS] 鎬墿鏁伴噺  got=14 want=14
+  [PASS] 鎬墿 slime 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 slime 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_slime.svg
+  [PASS] 鎬墿 slime 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 slime 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 nut_soldier 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 nut_soldier 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_nut_soldier.svg
+  [PASS] 鎬墿 nut_soldier 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 nut_soldier 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 forest_archer 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 forest_archer 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_forest_archer.svg
+  [PASS] 鎬墿 forest_archer 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 forest_archer 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 castle_guard 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 castle_guard 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_castle_guard.svg
+  [PASS] 鎬墿 castle_guard 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 castle_guard 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 ballista 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 ballista 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_ballista.svg
+  [PASS] 鎬墿 ballista 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 ballista 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 castle_bard 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 castle_bard 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_castle_bard.svg
+  [PASS] 鎬墿 castle_bard 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 castle_bard 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 storm_elemental 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 storm_elemental 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_storm_elemental.svg
+  [PASS] 鎬墿 storm_elemental 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 storm_elemental 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 cloud_sprite 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 cloud_sprite 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_cloud_sprite.svg
+  [PASS] 鎬墿 cloud_sprite 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 cloud_sprite 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 ruin_guard 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 ruin_guard 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_ruin_guard.svg
+  [PASS] 鎬墿 ruin_guard 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 ruin_guard 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 puppet_mage 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 puppet_mage 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_puppet_mage.svg
+  [PASS] 鎬墿 puppet_mage 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 puppet_mage 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 goblin_chief 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 goblin_chief 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_goblin_chief.svg
+  [PASS] 鎬墿 goblin_chief 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 goblin_chief 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 stone_slinger 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 stone_slinger 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_stone_slinger.svg
+  [PASS] 鎬墿 stone_slinger 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 stone_slinger 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 goblin_shaman 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 goblin_shaman 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_goblin_shaman.svg
+  [PASS] 鎬墿 goblin_shaman 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 goblin_shaman 鏈夎鍔ㄥ畾涔?
+  [PASS] 鎬墿 stone_warden 鏈夊悕鏈夊厓绱?
+  [PASS] 鎬墿 stone_warden 鍥炬爣宸插鍏? res://assets/icons/monsters/mob_stone_warden.svg
+  [PASS] 鎬墿 stone_warden 闈㈡澘瀛楁榻愬叏
+  [PASS] 鎬墿 stone_warden 鏈夎鍔ㄥ畾涔?
+  [PASS] 杞偿鎬槸寮曞鍏崇殑鏉傚叺
+  [PASS] 宸ㄧ煶瀹堝崼鏄叏鍦烘渶楂樿閲?
+
+路 鎴樺満鍑犱綍
+  [PASS] 鍙鍖哄瓧娈靛畬鏁? got=4 want=4
+  [PASS] enemy slot1 钀藉湪鎴樺満鍙鍖哄唴  (660,552)
+  [PASS] enemy slot2 钀藉湪鎴樺満鍙鍖哄唴  (880,552)
+  [PASS] enemy slot3 钀藉湪鎴樺満鍙鍖哄唴  (1100,552)
+  [PASS] enemy slot4 钀藉湪鎴樺満鍙鍖哄唴  (580,420)
+  [PASS] enemy slot5 钀藉湪鎴樺満鍙鍖哄唴  (800,420)
+  [PASS] enemy slot6 钀藉湪鎴樺満鍙鍖哄唴  (1020,420)
+  [PASS] enemy slot7 钀藉湪鎴樺満鍙鍖哄唴  (500,288)
+  [PASS] enemy slot8 钀藉湪鎴樺満鍙鍖哄唴  (720,288)
+  [PASS] enemy slot9 钀藉湪鎴樺満鍙鍖哄唴  (940,288)
+  [PASS] enemy 渚?9 鏍间簰涓嶉噸鍚? got=0 want=0
+  [PASS] player slot1 钀藉湪鎴樺満鍙鍖哄唴  (1100,724)
+  [PASS] player slot2 钀藉湪鎴樺満鍙鍖哄唴  (880,724)
+  [PASS] player slot3 钀藉湪鎴樺満鍙鍖哄唴  (660,724)
+  [PASS] player slot4 钀藉湪鎴樺満鍙鍖哄唴  (1020,856)
+  [PASS] player slot5 钀藉湪鎴樺満鍙鍖哄唴  (800,856)
+  [PASS] player slot6 钀藉湪鎴樺満鍙鍖哄唴  (580,856)
+  [PASS] player slot7 钀藉湪鎴樺満鍙鍖哄唴  (940,988)
+  [PASS] player slot8 钀藉湪鎴樺満鍙鍖哄唴  (720,988)
+  [PASS] player slot9 钀藉湪鎴樺満鍙鍖哄唴  (500,988)
+  [PASS] player 渚?9 鏍间簰涓嶉噸鍚? got=0 want=0
+  [PASS] 鏁屾柟鍚庢帓姣斿墠鎺掗珮  back=288 front=552
+  [PASS] 鎴戞柟鍚庢帓姣斿墠鎺掍綆  back=988 front=724
+  [PASS] 涓や晶鍓嶆帓鍚屽垪瀵归綈  880 vs 880
+  [PASS] 鎴戞柟鍚庢帓璁╁紑搴曢儴琛屽姩椤哄簭鏉? 988 < 996
+  [PASS] 鏁屾柟鍚庢帓鍚嶇墝璁╁紑椤堕儴淇℃伅鏉? 鍚嶇墝椤?120
+  [PASS] 鏁屾柟鎺掗棿璺?= row_step.y  got=132 want=132
+
+路 鎴樻枟鏁板
+  [PASS] 鐏厠椋?
+  [PASS] 椋庡厠鍦?
+  [PASS] 鍦颁笉鍏嬬伀
+  [PASS] 鍏嬪埗鍊嶇巼 125%
+  [PASS] 鍏嬪埗鍔犳毚鍑?
+  [PASS] 鍦轰笂鏈?Boss
+  [PASS] Boss 寮€灞€鎶ょ浘 = 20% 鏈€澶х敓鍛? got=1798 want=1798
+  [PASS] Boss 鐗╃悊鍑忎激 30%  0.3
+  [PASS] 鎶ょ敳鎶婄墿鐞嗕激瀹冲帇鍒扮害 70%  瀹炴祴姣斿€?0.698
+  [PASS] 鎶ょ敳涓嶅奖鍝嶉瓟娉曚激瀹? 姣斿€?0.998
+  [PASS] 楂橀槻寰″悆鍒扮殑鐗╃悊浼ゅ鏇翠綆  浣庨槻 68609 vs 楂橀槻 21779
+  [PASS] nearest_front 鎵撶殑鏄闈㈠墠鎺? front
+  [PASS] lowest_hp_back 鎵撶殑鏄闈㈠悗鎺? back
+  [PASS] middle_row 缇ゆ敾瑕嗙洊鏁存帓  got=3 want=3
+  [PASS] 鍏堟墜鏄渶蹇殑鍗曚綅  got=5 want=5
+
+路 缇佺粖寮€灞€鏁堟灉锛堟垬鏂椾晶锛?
+  [PASS] 鏆楀鍒哄鍦轰笂鎵惧埌
+  [PASS] 寮€灞€鑳介噺 = 15  got=15 want=15
+  [PASS] 鏆村嚮鐜囧悆鍒?+5%锛堝姞绠楋級  0.290 vs 0.290
+  [PASS] 鍥涗汉鍚勮嚜甯︿笂 15% 鏈€澶х敓鍛界殑寮€灞€鎶ょ浘
+  [PASS] 鑷姩鎵惧埌鏁屾柟鍙墦鐩爣
+  [PASS] 鐏郴浼ゅ鍚冨埌鍏冪礌鍔犳垚  58200 vs 52571
+  [PASS] 鍔犳垚骞呭害绾?+10%锛?%~18%锛? x1.107
+  [PASS] 鍗曚汉缂栭槦寮€灞€鏃犺兘閲? got=0 want=0
+  [PASS] 鍗曚汉缂栭槦寮€灞€鏃犳姢鐩? got=0 want=0
+
+路 鎴樻枟娴佺▼
+  [PASS] 1001 鎴戞柟 3 浜? got=3 want=3
+  [PASS] 1001 鏁屾柟 2 鍙? got=2 want=2
+  [PASS] 1001 鎴戞柟蹇呰儨  got=player want=player
+  [PASS] 1001 鍏ㄦ缁撴潫  got=wipe want=wipe
+  [PASS] 鎴樻枟浼氱粨鏉?
+  [PASS] 鎴樻姤鏈夊唴瀹? 6 琛?
+  [PASS] 1010 鏁屾柟 6 鍗曚綅  got=6 want=6
+  [PASS] 1010 浼氬垎鍑鸿儨璐? player
+  [PASS] 1010 鎴樻姤鎻愬埌鑺卞矖宀╂姢鐢?
+  [PASS] 1010 鏈夊崟浣嶆斁鍑哄ぇ鎷?
+  [PASS] 瑁傚湴闇囧嚮鑳芥墦鍑虹湬鏅?
+  [PASS] 鐪╂檿鍦ㄦ垬鎶ラ噷鏈夎褰?
+  [PASS] 钀ㄦ弧缁欓槦鍙嬪洖琛€
+  [PASS] 1008 鎴樻姤鎻愬埌鍏堢鍥捐吘
+  [PASS] 椋庢毚姘斿満鎶婇灞炴€ф敾閫熸斁澶?20%  158.4 vs 158.4
+  [PASS] 1004 鎴樻姤鎻愬埌椋庢毚姘斿満
+  [PASS] 绁潧绁濈琚唴鏍告帴浣? 1.15
+  [PASS] 绁濈鎶婁激瀹虫姮鍒扮害 115%  瀹炴祴 1.150
+  [PASS] 鎷嶆暟涓婇檺瑙﹀彂瓒呮椂瑁佸畾  enemy / timeout
+  [PASS] 瓒呮椂缁撴潫鍘熷洜  got=timeout want=timeout
+
+路 纭畾鎬э紙鍚屼竴涓瀛愬繀椤昏窇鍑哄悓涓€涓繃绋嬶級
+  [PASS] 鍚岀瀛愭媿鏁颁竴鑷? got=21 want=21
+  [PASS] 鍚岀瀛愯儨璐熶竴鑷? got=enemy want=enemy
+  [PASS] 鍚岀瀛愪激瀹冲簭鍒椾竴鑷? got=[[297, false], [348, false], [95, false], [116, false], [29, false], [91, false], [88, false], [294, false], [343, false], [97, false], [187, true], [29, false], [308, false], [337, false], [93, false], [88, false], [433, false], [46, true], [431, false], [91, false]] want=[[297, false], [348, false], [95, false], [116, false], [29, false], [91, false], [88, false], [294, false], [343, false], [97, false], [187, true], [29, false], [308, false], [337, false], [93, false], [88, false], [433, false], [46, true], [431, false], [91, false]]
+  [PASS] 鍚岀瀛愭垬鎶ヤ竴鑷? got=33 want=33
+  [PASS] 鎹㈢瀛愬悗杩囩▼涓嶅悓
+  [PASS] 璺戝畬鎴樻枟鍚庨厤缃湭鍙? got=11200 want=11200
+
+路 鎴樻枟鍦烘櫙楠ㄦ灦锛堜互 1010 Boss 鍏充负鏍锋湰锛?
+  [PASS] 鍦烘櫙鍙姞杞?
+  [PASS] 鏍硅妭鐐逛负 Control  Control
+  [PASS] 鏍硅妭鐐瑰凡鎸傝剼鏈?
+  [PASS] 鎸傜殑鏄?battle.gd  res://scripts/battle.gd
+  [PASS] 鍞竴鍚?%StageNo 鍙В鏋?
+  [PASS] 鍞竴鍚?%StageName 鍙В鏋?
+  [PASS] 鍞竴鍚?%StageKind 鍙В鏋?
+  [PASS] 鍞竴鍚?%PowerMine 鍙В鏋?
+  [PASS] 鍞竴鍚?%PowerRec 鍙В鏋?
+  [PASS] 鍞竴鍚?%CellLayer 鍙В鏋?
+  [PASS] 鍞竴鍚?%UnitLayer 鍙В鏋?
+  [PASS] 鍞竴鍚?%PlateLayer 鍙В鏋?
+  [PASS] 鍞竴鍚?%FloatLayer 鍙В鏋?
+  [PASS] 鍞竴鍚?%TeamBox 鍙В鏋?
+  [PASS] 鍞竴鍚?%InfoTitle 鍙В鏋?
+  [PASS] 鍞竴鍚?%InfoBody 鍙В鏋?
+  [PASS] 鍞竴鍚?%LogBox 鍙В鏋?
+  [PASS] 鍞竴鍚?%TurnLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%AllyCount 鍙В鏋?
+  [PASS] 鍞竴鍚?%EnemyCount 鍙В鏋?
+  [PASS] 鍞竴鍚?%OrderLayer 鍙В鏋?
+  [PASS] 鍞竴鍚?%SpeedButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%PauseButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%SkipButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%RetreatButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%EnvLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%ResultPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%ResultTitle 鍙В鏋?
+  [PASS] 鍞竴鍚?%ResultSub 鍙В鏋?
+  [PASS] 鍞竴鍚?%ResultRewardBox 鍙В鏋?
+  [PASS] 鍞竴鍚?%ResultRetry 鍙В鏋?
+  [PASS] 鍞竴鍚?%ResultClose 鍙В鏋?
+  [PASS] 鍞竴鍚?%Toast 鍙В鏋?
+  [PASS] 鍞竴鍚?%ToastLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%FooterInfo 鍙В鏋?
+  [PASS] 鍦烘櫙宸插缓绔嬫垬鏂楀唴鏍?
+  [PASS] 鏍煎瓙鏁?= 涓や晶 脳 9  got=18 want=18
+  [PASS] 鍗曚綅鑺傜偣鏁?= 鍙傛垬鍗曚綅鏁? got=9 want=9
+  [PASS] 鍚嶇墝鐙珛鎴愬眰涓斾竴鍗曚綅涓€鍧? got=9 want=9
+  [PASS] 鍗曚綅鑺傜偣鎸?uid 鍛藉悕
+  [PASS] 绔嬬粯鑴氫笅瀵归綈鏍煎瓙閿氱偣  foot=(1100,726) anchor=(1100,724)
+  [PASS] 鍚嶇墝鎸傚湪绔嬬粯涓婃柟  plate.y=120
+  [PASS] 1010 鍦轰笂鏈?Boss
+  [PASS] Boss 鏈夌嫭绔嬬珛缁樿妭鐐?
+  [PASS] Boss 绔嬬粯姣旀櫘閫氭€ぇ  146 > 120
+  [PASS] Boss 鎸備簡 BOSS 瑙掓爣
+  [PASS] Boss 鍚嶇墝鐙珛瀛樺湪
+  [PASS] 椤堕儴鍏冲崱缂栧彿  got=1010 want=1010
+  [PASS] 椤堕儴鍏冲崱鍚嶇О  got=鏋珔闂?路 宸ㄧ煶瀹堝崼 want=鏋珔闂?路 宸ㄧ煶瀹堝崼
+  [PASS] 椤堕儴鍐欏嚭浜嗗叧鍗＄被鍨?
+  [PASS] 椤堕儴鍐欏嚭鎴戞柟鎴樺姏  鎴戞柟鎴樺姏 3,725
+  [PASS] 椤堕儴鍐欏嚭寤鸿鎴樺姏  寤鸿鎴樺姏 12,500 路 娑堣€椾綋鍔?8 鐐?
+  [PASS] 鍥炲悎浠庣 0 鎷嶅紑濮? got=绗?0 鎷?want=绗?0 鎷?
+  [PASS] 鏁屾柟浜烘暟鍙栫殑鏄湡瀹為樀瀹? got=鏁屾柟 6/6 want=鏁屾柟 6/6
+  [PASS] 鎴樻姤宸查摵鍑? 2 琛?
+  [PASS] 琛屽姩椤哄簭鏉℃湁鍐呭  6 涓?
+  [PASS] 榛樿鏄剧ず鍏冲崱鏈哄埗  got=Boss 鐗规€э細銆愯姳宀楀博鎶ょ敳銆戠墿鐞嗗噺浼?30%锛屽紑灞€鎷ユ湁 20% 鏈€澶х敓鍛藉€肩殑鎶ょ浘锛涖€愯鍦伴渿鍑汇€戞弧鑳介噺閲婃斁锛屽鍓嶆帓閫犳垚 200% 鐗╃悊浼ゅ骞堕檮甯?50% 姒傜巼鐪╂檿銆?want=Boss 鐗规€э細銆愯姳宀楀博鎶ょ敳銆戠墿鐞嗗噺浼?30%锛屽紑灞€鎷ユ湁 20% 鏈€澶х敓鍛藉€肩殑鎶ょ浘锛涖€愯鍦伴渿鍑汇€戞弧鑳介噺閲婃斁锛屽鍓嶆帓閫犳垚 200% 鐗╃悊浼ゅ骞堕檮甯?50% 姒傜巼鐪╂檿銆?
+
+路 浜や簰涓庣粨绠?
+  [PASS] 鐐归€熷害浼氬垏鍒颁笅涓€妗? 0 -> 1
+  [PASS] 閫熷害鏂囨璺熺潃鍙? 閫熷害 2脳
+  [PASS] 鍊嶉€熷惊鐜洖鍒拌捣鐐? got=0 want=0
+  [PASS] 鏆傚仠鍚庢寜閽彉銆岀户缁€? 缁х画
+  [PASS] 鏆傚仠鏍囧織宸茬疆浣?
+  [PASS] 缁х画鍚庢仮澶嶃€屾殏鍋溿€? 鏆傚仠
+  [PASS] 鎺ㄨ繘鑻ュ共鎷嶅悗鎴樻枟鐘舵€佸墠杩涗簡  鎷嶆暟 3
+  [PASS] 鍥炲悎鏂囨璺熺潃鎺ㄨ繘  绗?3 鎷?
+  [PASS] 鍗曚綅婕斿嚭琛ㄥ凡寤虹珛  9
+  [PASS] 琛€鏉″搴︿笌琛€閲忎竴鑷? got=0 want=0
+  [PASS] 鐐瑰崟浣嶅悗鏍囬鍙樻垚鍗曚綅鍚? 纾愬博楠戝＋  Lv.1
+  [PASS] 鍗曚綅璇︽儏鍐欏嚭浜嗗睘鎬? 灞炴€э細鍦?锝?瀹氫綅锛氶噸瑁?/ 鐢熷懡 1,250 / 1,250 / 鏀诲嚮 85 锝?闃插尽 330 锝?娉曟姉 120 / 鏀婚€?92 锝?鏆村嚮 5% 锝?鎬掓皵 0 / 琛屽姩锛氭墦鏈€鍓嶆帓 脳1.00 / 澶ф嫑銆愮宀╁鍨掋€戯細鎬掓皵婊℃椂閲婃斁
+  [PASS] 鐐圭┖鐧芥仮澶嶅叧鍗℃満鍒? got=鍏冲崱鏈哄埗 want=鍏冲崱鏈哄埗
+  [PASS] 璺宠繃浼氱洿鎺ョ粨鏉熸垬鏂? enemy / wipe
+  [PASS] 缁撶畻闈㈡澘寮瑰嚭鏉ヤ簡
+  [PASS] 缁撶畻鏍囬鏄儨璐熶箣涓€  鎴樻枟澶辫触
+  [PASS] 缁撶畻闈㈡澘鏈夋垬鍒╁搧琛? 2 琛?
+  [PASS] 澶辫触鏃堕噾甯佷笉鍙?
+  [PASS] 1010 鏈夐閫氫笓灞炲鍔? hero_mystic_girl
+  [PASS] 閲嶅閫氬叧涓嶅啀鍙戦閫氬鍔?
+  [PASS] 棣栭€氬鍔变笉閲嶅钀借处  got=0 want=0
+  [PASS] 棣栨閫氬叧浼氬彂棣栭€氬鍔?
+  [PASS] 棣栭€氬鍔辩‘瀹炶惤浜嗚处  hero_mystic_girl: 0 -> 1
+  [PASS] 鎾ら€€鎸夐挳瀛樺湪涓斿凡鎺ヤ俊鍙?
+
+路 缁撶畻鍚屾锛氭槦绾ц瘎鍒嗕笌鏉愭枡缁熻
+  [PASS] 闈炶儨鍒╀笉璇勬槦  {  }
+
+---------- 缁撴灉锛氶€氳繃 306 / 澶辫触 0 ----------
+[smoke] 宸茶繕鍘熸祴璇曞墠鐨勫瓨妗?

@@ -1,0 +1,211 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[GameDB] 閰嶇疆杞藉叆瀹屾垚 v0.1.0锛?8 寮犺鑹?/ 6 涓厓绱?/ 4 涓。浣?
+[SaveDB] 瀛樻。宸茶浇鍏ワ細浜戜笂鏃呬汉 Lv.1锛屾寔鍗?0 寮?
+
+========== 鍗＄墝澶у啋闄?路 涓荤晫闈㈠啋鐑熸祴璇?==========
+
+路 閰嶇疆灞?GameDB
+  [PASS] game_data.json 宸茶浇鍏?
+  [PASS] 鐗堟湰  got=0.1.0 want=0.1.0
+  [PASS] 瑙掕壊鏁?鈮?4锛圙DD 鍥鹃壌鎸佺画鎵╁厖锛? 18
+  [PASS] 4 澶ц亴涓氬綊绫婚綈鍏? front=5 dps=5 agile=6 support=2
+  [PASS] 鍏冪礌鏁? got=6 want=6
+  [PASS] 鍝佽川妗ｆ暟  got=4 want=4
+  [PASS] 姣忔潯鑻遍泟鐨勫浘閴村瓧娈甸綈鍏? got=[] want=[]
+  [PASS] 姘村厠鐏?
+  [PASS] 鐏厠椋?
+  [PASS] 椋庡厠鍦?
+  [PASS] 鍦板厠姘?
+  [PASS] 鐏笉鍏嬫按
+  [PASS] 鍏夊厠鏆?
+  [PASS] 鏆楀厠鍏?
+  [PASS] 鍏嬪埗浼ゅ鍊嶇巼  got=1.25 want=1.25
+  [PASS] 闈炲厠鍒朵激瀹冲€嶇巼  got=1.0 want=1.0
+  [PASS] 鍏嬪埗棰濆鏆村嚮  got=0.1 want=0.1
+  [PASS] 闈炲厠鍒堕澶栨毚鍑? got=0.0 want=0.0
+  [PASS] 鍝佽川 R 鍗℃涓庡唴鑵旈綈澶? inner=0.90x0.94
+  [PASS] 鍝佽川 SR 鍗℃涓庡唴鑵旈綈澶? inner=0.81x0.87
+  [PASS] 鍝佽川 SSR 鍗℃涓庡唴鑵旈綈澶? inner=0.78x0.76
+  [PASS] 鍝佽川 UR 鍗℃涓庡唴鑵旈綈澶? inner=0.69x0.75
+
+路 涔濆鏍肩珯浣?Combat
+  [PASS] 1鍙蜂綅=鍓嶆帓  got=front want=front
+  [PASS] 3鍙蜂綅=鍓嶆帓  got=front want=front
+  [PASS] 5鍙蜂綅=涓帓  got=middle want=middle
+  [PASS] 9鍙蜂綅=鍚庢帓  got=back want=back
+  [PASS] 宸辨柟1鍙蜂綅鏍? got=(2, 3) want=(2, 3)
+  [PASS] 宸辨柟3鍙蜂綅鏍? got=(0, 3) want=(0, 3)
+  [PASS] 鏁屾柟1鍙蜂綅鏍? got=(0, 2) want=(0, 2)
+  [PASS] 涓嚎涓や晶鍚屽垪涓嶅悓琛?
+
+路 瀛樻。灞?SaveDB
+  [PASS] 鐜╁鍚? got=浜戜笂鏃呬汉 want=浜戜笂鏃呬汉
+  [PASS] 绛夌骇  got=1 want=1
+  [PASS] 閲戝竵锛堟柊鍙风疆 0锛岄潬鎴樻枟浜у嚭锛? got=0 want=0
+  [FAIL] 閽荤煶  got=0 want=1280
+  [PASS] 鏂板彿榛樿鎸佸崱 = 0  got=0 want=0
+  [PASS] 鍙戝崱鍚庢寔鍗℃暟 +1  got=1 want=1
+  [PASS] 瑁呭妲戒綅鏁伴噺  got=4 want=4
+  [PASS] 绌烘Ы鍐欑┖瀛楃涓诧紙鏄惧紡鍗镐笅璇箟锛? ["", "", "", ""]
+  [PASS] 鏂板崱鍒濆鏄熺骇 = 鍝佽川 star_default  got=3 want=3
+  [PASS] 鏂板崱鍒濆绛夌骇 1  got=1 want=1
+  [PASS] 閲嶅鍙戝崱涓哄崌鏄? got=4 want=4
+  [PASS] 閲嶅鍙戝崱涓嶅鍔犳寔鍗℃暟  got=2 want=2
+  [PASS] 鎵ｉ噾甯佹垚鍔?
+  [PASS] 閲戝竵鎵ｅ噺姝ｇ‘  got=1500 want=1500
+  [PASS] 浣欓涓嶈冻鏃舵墸娆惧け璐?
+  [PASS] 閲戝竵褰掗浂鍥為粯璁ゆ。  got=0 want=0
+  [PASS] 娓呯悊鍚庡洖鍒版棤鍗￠粯璁ゆ。  got=0 want=0
+
+路 娲剧敓灞?RealmDB
+  [PASS] 鏄熺骇绯绘暟 1鈽? got=1.0 want=1.0
+  [PASS] 鏄熺骇绯绘暟 2鈽? got=1.15 want=1.15
+  [PASS] 鏄熺骇绯绘暟 3鈽? got=1.3 want=1.3
+  [PASS] 涓荤晫闈㈠睍婕旈樀瀹?4 寮? got=4 want=4
+  [PASS] 纾愬博楠戝＋ HP锛?绾ф棤鎴愰暱锛? got=1250 want=1250
+  [PASS] 纾愬博楠戝＋ DEF  got=330 want=330
+  [PASS] 纾愬博楠戝＋ SPD锛?绾?鈽咃紝鎴愰暱涓庢槦绾у骞呴兘鏄?0锛? got=92 want=92
+  [PASS] 鏆村嚮鐜囦笉鍚冩垚闀夸笌鏄熺骇  got=0.05 want=0.05
+  [PASS] 鏆翠激涓嶅悆鎴愰暱涓庢槦绾? got=1.5 want=1.5
+  [PASS] 纾愬博楠戝＋ 鏄熺骇  got=1 want=1
+  [PASS] 鎴樺姏浼板€?> 0  power=1228
+  [PASS] 婕旂ず鍗¤澶囨Ы浣嶆暟涓庡瓨妗ｄ竴鑷? got=4 want=4
+  [PASS] 婕旂ず鍗＄┖妲藉悓涓虹┖瀛楃涓? ["", "", "", ""]
+  [PASS] 绱劙灏戝コ HP锛?绾?鈽咃紝灏辨槸鍩虹鍊硷級  got=780 want=780
+  [PASS] 闃熶紞棰勮 3 涓綅缃? got=3 want=3
+
+路 浣撳姏 StaminaSys
+  [PASS] 浣撳姏涓婇檺  got=60 want=60
+  [PASS] 鎭㈠闂撮殧锛堢锛? got=300 want=300
+  [PASS] 姣忓皬鏃舵仮澶嶇偣鏁? got=12 want=12
+  [PASS] 褰撳墠浣撳姏鍦ㄥ悎娉曞尯闂? current=60
+  [PASS] 鎵?10 鐐规垚鍔?
+  [PASS] 鎵ｅ噺鍚庢暟鍊? got=50 want=50
+  [PASS] 鍥炶ˉ鍚庢暟鍊? got=60 want=60
+  [PASS] 鍊掕鏃舵枃妗堥潪绌?
+
+路 涓荤晫闈㈠満鏅?
+  [PASS] 鍦烘櫙鍙姞杞?
+  [PASS] 鍦烘櫙鏍硅妭鐐逛负 Control  Control
+  [PASS] 鏍硅妭鐐瑰凡鎸?main_menu.gd
+  [PASS] 绛夌骇鏍囩鏄剧ず Lv.1  got=Lv.1 want=Lv.1
+  [PASS] 缁忛獙鏉℃寜瀛樻。鍥炲啓涓?0  value=0.0
+  [PASS] CardFan 鍞竴鍚嶅彲瑙ｆ瀽
+  [PASS] 杩愯鏃堕噸寤哄崱鐗?3 寮狅紙涓庡嚭鎴橀樀瀹逛竴鑷达級  got=3 want=3
+  [PASS] CardFan 瀛愯妭鐐瑰彧鍓?3 涓紙棰勮鍗″凡娓咃級  got=3 want=3
+      路 knight_rock    pos=(   461,   988) rot=  -7.0 scale=0.68 z=1
+      路 pyro_girl      pos=(   752,   947) rot=   0.0 scale=0.77 z=3
+      路 elf_ranger     pos=(  1043,   988) rot=   7.0 scale=0.68 z=2
+      鍗＄墝椤哄簭锛歔"knight_rock", "pyro_girl", "elf_ranger"]
+      鎵囧舰鏃嬭浆锛歔-6.99999952316284, 0.0, 6.99999952316284]
+  [PASS] 鍗＄墝椤哄簭涓庡嚭鎴橀樀瀹逛竴鑷?
+  [PASS] 鎵囧舰鏃嬭浆鏈夋鏈夎礋
+  [PASS] CardFan 瀹藉害鏈鎾戞垚涓ゅ€嶏紙1920 鑰岄潪 3840锛? size=(1920.0, 1920.0)
+  [PASS] 绗?0 寮犲崱妯悜浣嶇疆绗﹀悎鎵囧舰鍏紡  got=461 want=461
+  [PASS] 绗?1 寮犲崱妯悜浣嶇疆绗﹀悎鎵囧舰鍏紡  got=752 want=752
+  [PASS] 绗?2 寮犲崱妯悜浣嶇疆绗﹀悎鎵囧舰鍏紡  got=1043 want=1043
+  [PASS] 棣栧崱鍦ㄨ鍙ｅ唴涓旀湭璐磋竟  x=461
+  [PASS] 鏈崱鍦ㄨ鍙ｅ唴涓旀湭璐磋竟  right=1379
+  [PASS] 鏈崱涓嶅帇鍙充晶鐜╂硶鍏ュ彛鏍? 鍗＄墝鏈€鍙?1346 鍏ュ彛鏍忔渶宸?1662 闂磋窛=316
+
+路 鎵囧舰鍙犲帇锛堜俊鎭潡涓嶈閭诲崱鐩栦綇锛?
+  [PASS] knight_rock 鍗℃涓哄洓杈瑰舰  inner=303x486
+  [PASS] pyro_girl 鍗℃涓哄洓杈瑰舰  inner=262x397
+  [PASS] elf_ranger 鍗℃涓哄洓杈瑰舰  inner=272x451
+  [PASS] 鍙椾繚鎶や俊鎭潡鏁伴噺榻愬叏锛? 寮?脳 6 鍧楋級  checked=18 want=18
+  [PASS] 娌℃湁淇℃伅鍧楄閭诲崱鐩栦綇锛堟渶澶?0% 锛?2%锛? worst=0.0% at 
+  [PASS] SSR 鍗″彲瀹氫綅
+  [PASS] SSR 鍗″唴鑵旀湁鏁? inner=262x397
+  [PASS] R 鍗″唴鑵旀瘮 SSR 鏇村锛堝崱妗嗘洿缁嗭級  R=303 SSR=262
+
+路 鍗￠潰涓夊洿鏉¤竟鐣?
+  [PASS] knight_rock 涓夊洿鏉¤妭鐐瑰瓨鍦?
+  [PASS] knight_rock 涓夊洿鏉′笉瓒呭嚭鍐呰厰宸﹀彸  row=[25,312] inner=[17,320]
+  [PASS] knight_rock 涓夊洿鏉′笉瓒呭嚭鍐呰厰搴曢儴  bottom=497 inner_bottom=503
+  [PASS] knight_rock 涓夊洿鏉″惈 3 涓暟鍊? children=6
+  [PASS] knight_rock DEF 鏁板€艰妭鐐瑰瓨鍦?
+  [PASS] knight_rock DEF 鏁板€兼湭琚崱妗嗗垏鎺? text=330 right=291 inner_right=320
+  [PASS] knight_rock DEF 鏁板€兼枃妗堥潪绌? text=330
+  [PASS] knight_rock 鍚嶇墝涓嶈秴鍑哄唴鑵? plate=[25,312]
+  [PASS] pyro_girl 涓夊洿鏉¤妭鐐瑰瓨鍦?
+  [PASS] pyro_girl 涓夊洿鏉′笉瓒呭嚭鍐呰厰宸﹀彸  row=[45,291] inner=[37,299]
+  [PASS] pyro_girl 涓夊洿鏉′笉瓒呭嚭鍐呰厰搴曢儴  bottom=443 inner_bottom=449
+  [PASS] pyro_girl 涓夊洿鏉″惈 3 涓暟鍊? children=6
+  [PASS] pyro_girl DEF 鏁板€艰妭鐐瑰瓨鍦?
+  [PASS] pyro_girl DEF 鏁板€兼湭琚崱妗嗗垏鎺? text=90 right=276 inner_right=299
+  [PASS] pyro_girl DEF 鏁板€兼枃妗堥潪绌? text=90
+  [PASS] pyro_girl 鍚嶇墝涓嶈秴鍑哄唴鑵? plate=[45,291]
+  [PASS] elf_ranger 涓夊洿鏉¤妭鐐瑰瓨鍦?
+  [PASS] elf_ranger 涓夊洿鏉′笉瓒呭嚭鍐呰厰宸﹀彸  row=[39,296] inner=[31,304]
+  [PASS] elf_ranger 涓夊洿鏉′笉瓒呭嚭鍐呰厰搴曢儴  bottom=479 inner_bottom=485
+  [PASS] elf_ranger 涓夊洿鏉″惈 3 涓暟鍊? children=6
+  [PASS] elf_ranger DEF 鏁板€艰妭鐐瑰瓨鍦?
+  [PASS] elf_ranger DEF 鏁板€兼湭琚崱妗嗗垏鎺? text=110 right=280 inner_right=304
+  [PASS] elf_ranger DEF 鏁板€兼枃妗堥潪绌? text=110
+  [PASS] elf_ranger 鍚嶇墝涓嶈秴鍑哄唴鑵? plate=[39,296]
+  [PASS] TeamSlots 瀛樺湪
+  [PASS] 闃熶紞棰勮閾烘弧涓婇樀涓婇檺妲戒綅  got=5 want=5
+  [PASS] 寮€濮嬪啋闄╂寜閽瓨鍦?
+  [PASS] 鎸夐挳鏂囨  got=杩涘叆鍐掗櫓 want=杩涘叆鍐掗櫓
+  [PASS] 浣撳姏鏂囨湰宸茬粦瀹? text=60/60
+  [PASS] 浣撳姏鍊掕鏃跺凡缁戝畾  text=宸叉弧 路 12鐐?鏃?
+  [PASS] 閲戝竵鏂囨湰  got=0 want=0
+  [FAIL] 閽荤煶鏂囨湰  got=0 want=1,280
+  [PASS] 椤佃剼鏁版嵁灞備俊鎭凡鍒锋柊  GameDB 路 SaveDB 路 RealmDB 路 StaminaSys  |  v0.1.0 路 閰嶇疆 18 鍗?/ 4 鍝佽川 / 6 鍏冪礌 路 瀛樻。 1 鍗?路 闃靛鎴樺姏 4145 路 娓告垙鏁版嵁鍖呭氨缁?
+  [PASS] 鍙充晶鍏ュ彛绔栨爮瀛樺湪
+  [PASS] 鐜╂硶鍏ュ彛鏁?= 閰嶇疆鐨?modes  got=4 want=4
+  [PASS] 绯荤粺鍏ュ彛鏁?= menu.system_entries  got=3 want=3
+  [PASS] 涓ょ粍涔嬮棿鏈変笖鍙湁涓€鏉″垎闅旂嚎  got=1 want=1
+  [PASS] 绯荤粺鍏ュ彛銆屽彫闆嗐€嶅凡瀹炰緥鍖?
+  [PASS] 绯荤粺鍏ュ彛銆実acha銆嶅悕绉板彇鑷厤缃? got=鍙泦 want=鍙泦
+  [PASS] 绯荤粺鍏ュ彛銆実acha銆嶅凡鎺ヤ俊鍙?
+  [PASS] 绯荤粺鍏ュ彛銆実acha銆嶉厤浜?route  route=res://scenes/gacha.tscn
+  [PASS] 绯荤粺鍏ュ彛銆実acha銆嶇殑鐩爣鍦烘櫙瀛樺湪  res://scenes/gacha.tscn
+  [PASS] 绯荤粺鍏ュ彛銆実acha銆嶅甫 tooltip 璇存槑  缇ゆ槦鍙敜锛氬父椹?/ 闄愭椂 UP 鍗℃睜涓庡績鎰挎按鏅跺晢搴?
+  [PASS] 绯荤粺鍏ュ彛銆実acha銆嶄笉浼氭姤銆屾ā鍧楀緟鎺ュ叆銆? before= after=
+  [PASS] 绯荤粺鍏ュ彛銆岀紪闃熴€嶅凡瀹炰緥鍖?
+  [PASS] 绯荤粺鍏ュ彛銆宑ards銆嶅悕绉板彇鑷厤缃? got=缂栭槦 want=缂栭槦
+  [PASS] 绯荤粺鍏ュ彛銆宑ards銆嶅凡鎺ヤ俊鍙?
+  [PASS] 绯荤粺鍏ュ彛銆宑ards銆嶉厤浜?route  route=res://scenes/formation.tscn
+  [PASS] 绯荤粺鍏ュ彛銆宑ards銆嶇殑鐩爣鍦烘櫙瀛樺湪  res://scenes/formation.tscn
+  [PASS] 绯荤粺鍏ュ彛銆宑ards銆嶅甫 tooltip 璇存槑  璋冩暣鍑烘垬闃靛涓庝笂闃电緛缁?
+  [PASS] 绯荤粺鍏ュ彛銆宑ards銆嶄笉浼氭姤銆屾ā鍧楀緟鎺ュ叆銆? before= after=
+  [PASS] 绯荤粺鍏ュ彛銆屽浘閴淬€嶅凡瀹炰緥鍖?
+  [PASS] 绯荤粺鍏ュ彛銆宑ollection銆嶅悕绉板彇鑷厤缃? got=鍥鹃壌 want=鍥鹃壌
+  [PASS] 绯荤粺鍏ュ彛銆宑ollection銆嶅凡鎺ヤ俊鍙?
+  [PASS] 绯荤粺鍏ュ彛銆宑ollection銆嶉厤浜?route  route=res://scenes/collection.tscn
+  [PASS] 绯荤粺鍏ュ彛銆宑ollection銆嶇殑鐩爣鍦烘櫙瀛樺湪  res://scenes/collection.tscn
+  [PASS] 绯荤粺鍏ュ彛銆宑ollection銆嶅甫 tooltip 璇存槑  鍗＄墖鍥鹃壌锛氬凡鑾峰彇涓庢湭鑾峰彇鐨勫叏閮ㄥ崱鐗囦竴瑙?
+  [PASS] 绯荤粺鍏ュ彛銆宑ollection銆嶄笉浼氭姤銆屾ā鍧楀緟鎺ュ叆銆? before= after=
+  [PASS] 鍙充笂鍔熻兘鍏ュ彛瀛樺湪
+  [PASS] 鍔熻兘鍏ュ彛 3 涓? got=3 want=3
+  [PASS] 杩涘叆鍐掗櫓鐨勭洰鏍囨寚鍚戝叧鍗￠€夋嫨椤? target=res://scenes/stage_select.tscn
+  [PASS] 鐩爣鍦烘櫙鏂囦欢瀛樺湪
+  [PASS] 杩涘叆鍐掗櫓涓嶅啀鎵ｄ綋鍔涳紙鏀圭敱纭閫夋嫨鏃舵墸锛? got=60 want=60
+  [PASS] 鐐瑰嚮鍗＄墝寮瑰嚭璇︽儏  绱劙灏戝コ  路   鐏? 路  娉曞笀 / 鎴樺姏 1,266   HP 780   ATK 235   DEF 90 / 缁濇妧锛氱传鐒伴鏆?
+
+路 涓荤晫闈㈢┖鐘舵€侊紙0 鍗″紩瀵兼娊鍗★級
+  [PASS] 0 鍗℃椂鎵囧舰娓呯┖  got=0 want=0
+  [PASS] 0 鍗℃椂鏄剧ず寮曞灞?
+  [PASS] 寮曞灞傚惈銆屽墠寰€鍙泦銆嶆寜閽?
+  [PASS] 寮曞鎸夐挳涓嶄細鎶ャ€屾ā鍧楀緟鎺ュ叆銆? 绱劙灏戝コ  路   鐏? 路  娉曞笀
+鎴樺姏 1,266   HP 780   ATK 235   DEF 90
+缁濇妧锛氱传鐒伴鏆?
+  [PASS] 0 鍗℃椂闃靛鏍忎粛閾烘弧涓婇檺锛堝叏绌烘Ы锛? got=5 want=5
+  [PASS] 0 鍗℃椂鎴樺姏璇绘暟涓?0  鎴樺姏 0
+  [PASS] 杩樺師鍚庢墖褰㈤噸鏂版湁 3 寮? got=3 want=3
+  [PASS] 杩樺師鍚庡紩瀵煎眰宸茬Щ闄?
+
+路 涓荤晫闈㈠悓姝ュ嚭鎴樼紪闃?
+  [PASS] 绌烘。鍥炶惤 = 褰撳墠棰勮锛堜笌缂栭槦椤靛悓鍙ｅ緞锛? got=3 want=3
+  [PASS] 婊＄紪闃熸椂鎵囧舰鏄剧ず 5 寮? got=5 want=5
+  [PASS] 婊＄紪闃熸椂闃靛鏍忎粛閾烘弧涓婇檺  got=5 want=5
+  [PASS] 鎵囧舰鍙嶆槧鏈€鏂颁繚瀛樼殑缂栭槦  ["knight_rock", "pyro_girl", "elf_ranger", "holy_priest", "arcane_girl"]
+  [PASS] 婊＄紪闃熸墖褰笉鍘嬪彸渚у叆鍙ｆ爮  鏈€鍙?668 鏍忓乏=1662
+  [PASS] 婊＄紪闃熸墖褰笉鍘嬪彸渚у叆鍙ｆ爮  鏈€鍙?852 鏍忓乏=1662
+  [PASS] 婊＄紪闃熸墖褰笉鍘嬪彸渚у叆鍙ｆ爮  鏈€鍙?1028 鏍忓乏=1662
+  [PASS] 婊＄紪闃熸墖褰笉鍘嬪彸渚у叆鍙ｆ爮  鏈€鍙?1224 鏍忓乏=1662
+  [PASS] 婊＄紪闃熸墖褰笉鍘嬪彸渚у叆鍙ｆ爮  鏈€鍙?1412 鏍忓乏=1662
+
+---------- 缁撴灉锛氶€氳繃 174 / 澶辫触 2 ----------

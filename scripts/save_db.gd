@@ -295,16 +295,28 @@ func team() -> Array:
 
 
 ## 解析「当前该展示的出战编队」：存档 team 优先，空档回落到当前预设。
-## 编队页与主界面共用这一份口径，保证两处永远显示同一批英雄（含新号）。
+## 编队页与主界面共用这一份口径，保证两处永远显示同一批英雄。
+## 0 卡（新号）时不回撤 —— 预设种子只是展演数据，不是已持有的卡；
+## 否则编队页棋盘会摆出玩家没有的「占位卡」，与主界面的空状态口径冲突。
 func resolved_team() -> Array:
 	var t: Array = team()
 	if not t.is_empty():
 		return normalize_team(t)
+	if cards().is_empty():
+		return []
 	return normalize_team(preset_entries(active_preset()))
 
 
+## 玩家等级（新号 1 级）；上阵上限由它推导。
+func player_level() -> int:
+	return maxi(1, int(profile.get("player", {}).get("level", 1)))
+
+
+## 当前可上阵人数上限：按玩家等级解锁（1 级 1 人、每 10 级 +1、封顶 9）。
+## 这是「上阵上限」的唯一动态口径 —— 编队页 / 主界面 / normalize_team 都读它；
+## 绝对封顶（棋盘格数）仍走 GameDB.team_max()。
 func team_max() -> int:
-	return GameDB.team_max()
+	return GameDB.team_max_for_level(player_level())
 
 
 ## 规范化：丢非法槽位 / 同名去重 / 槽位去重 / 按上限截断 / 按槽位排序

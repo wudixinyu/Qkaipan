@@ -37,7 +37,10 @@ const CARD_BOX := Vector2(286, 412)
 const GRID_COLUMNS := 4
 const COL_GAP := 50.0
 const ROW_GAP := 40.0
-const GRID_CENTER_Y := 568.0
+## 网格内容宽（横向居中基准）与首行顶部留白：纵向交给 GridScroll 滚动，
+## 卡数增长时不再整块垂直居中（与 collection.gd 同口径）。
+const GRID_W := 1360.0
+const GRID_TOP := 10.0
 
 const TOP_PANEL := Rect2(260, 18, 1400, 96)
 ## 顶栏内「左进度 / 中标题 / 右筛选」三段式：全部收进 1400 宽内，按钮不再溢出屏幕右缘
@@ -52,6 +55,8 @@ const FILTER_GAP := 12.0
 const FILTER_Y := 19.0
 
 const GRID_PANEL := Rect2(260, 134, 1400, 868)
+## 网格滚动视口：嵌在 GridPanel 内部留一圈内边距，卡阵超出高度时纵向滚动
+const GRID_SCROLL := Rect2(276, 148, 1368, 840)
 const BACK_BUTTON := Rect2(20, 1010, 220, 58)
 const FOOTER_STAT_BOX := Rect2(1258, 1032, 280, 30)
 const FOOTER_BOX := Rect2(1258, 1054, 640, 24)
@@ -84,7 +89,7 @@ const FILTERS := [
 
 const UNIQUE_NAMES := [
 	"TopPanel", "CollectLabel", "Filt_all", "Filt_owned", "Filt_unowned",
-	"GridPanel", "GridHolder", "CardSlot0", "DetailLayer", "DetailBackdrop",
+	"GridPanel", "GridScroll", "GridHolder", "CardSlot0", "DetailLayer", "DetailBackdrop",
 	"DetailPanel", "DetailCardHolder", "DetailLockPanel", "DetailTitle",
 	"DetailTags", "DetailState", "DetailPower", "DetailStats", "DetailSkills",
 	"DetailAcquire", "DetailPrevButton", "DetailNextButton", "DetailCloseButton",
@@ -255,19 +260,30 @@ func _build_grid_area(hud: Control) -> void:
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_mk(hud, panel, "GridPanel")
 
+	# GridHolder 从“铺满 Hud 的绝对定位容器”改成“嵌在 ScrollContainer 里的内容”，
+	# 卡数增长时（全图鉴持续扩充）靠纵向滚动容纳，不再顶出屏幕。
+	var scroll := ScrollContainer.new()
+	_mk(hud, scroll, "GridScroll")
+	UI.place(scroll, GRID_SCROLL.position.x, GRID_SCROLL.position.y,
+		GRID_SCROLL.size.x, GRID_SCROLL.size.y)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+
 	var grid := Control.new()
 	grid.name = "GridHolder"
 	grid.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_mk(hud, grid, "GridHolder")
-	# 铺满 Hud：先锚点再归零 offset，只改 anchor 不会带着 size 一起变
-	grid.set_anchors_preset(Control.PRESET_FULL_RECT)
-	UI.fill(grid)
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_mk(scroll, grid, "GridHolder")
 	# 只留一个占位格（带预览卡面），运行期按筛选结果整批重建
+	var prev := _preview_count()
+	var rows := int(ceil(float(prev) / float(GRID_COLUMNS)))
+	grid.custom_minimum_size = Vector2(GRID_W,
+		float(rows) * (CARD_BOX.y + ROW_GAP) - ROW_GAP + GRID_TOP * 2.0)
 	var slot := Control.new()
 	slot.name = "CardSlot0"
 	slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	grid.add_child(slot)
-	slot.position = _slot_pos(0, _preview_count())
+	slot.position = _slot_pos(0, prev)
 	slot.add_child(_preview_card())
 
 
@@ -275,13 +291,12 @@ func _slot_pos(i: int, total: int) -> Vector2:
 	var columns := mini(GRID_COLUMNS, total)
 	var row := i / columns
 	var col := i % columns
-	var rows := int(ceil(float(total) / float(columns)))
 	var in_row := mini(columns, total - row * columns)
 	var width := float(in_row) * (CARD_BOX.x + COL_GAP) - COL_GAP
-	var height := float(rows) * (CARD_BOX.y + ROW_GAP) - ROW_GAP
+	# 横向对内容宽度居中，纵向从顶部往下排（多出行交给 GridScroll）
 	return Vector2(
-		(BASE.x - width) * 0.5 + float(col) * (CARD_BOX.x + COL_GAP),
-		GRID_CENTER_Y - height * 0.5 + float(row) * (CARD_BOX.y + ROW_GAP))
+		(GRID_W - width) * 0.5 + float(col) * (CARD_BOX.x + COL_GAP),
+		GRID_TOP + float(row) * (CARD_BOX.y + ROW_GAP))
 
 
 func _characters() -> Array:

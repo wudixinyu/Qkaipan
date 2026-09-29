@@ -786,9 +786,36 @@ func formation_text(key: String, fallback: String = "") -> String:
 	return str(formation().get(key, fallback))
 
 
-## 队伍上阵上限（标准队伍 5 人，按 3x3 棋盘网格放置）
+## 队伍上阵「绝对上限」（= 棋盘格数 = 解锁封顶）。
+## 注意：这不是玩家当前能上阵的人数 —— 后者随等级解锁，走 SaveDB.team_max()。
 func team_max() -> int:
-	return maxi(1, int(formation_section("team").get("max_members", 5)))
+	return maxi(1, int(formation_section("team").get("max_members", 9)))
+
+
+## 上阵解锁规则（写在 formation.team.unlock）：
+##   base 起步人数、interval 每多少级 +1、max 封顶、level_cap 玩家等级上限。
+func team_unlock() -> Dictionary:
+	return formation_section("team").get("unlock", {})
+
+
+## 按玩家等级算「当前可上阵人数」：base + level/interval，夹在 [base, max] 之间。
+## 纯函数 —— 不读存档，等级由调用方（SaveDB.team_max）传入，保持 GameDB 无状态。
+func team_max_for_level(level: int) -> int:
+	var u := team_unlock()
+	var base := maxi(1, int(u.get("base", 1)))
+	var interval := maxi(1, int(u.get("interval", 10)))
+	var cap := maxi(base, int(u.get("max", team_max())))
+	var n := base + int(maxi(0, level)) / interval
+	return clampi(n, base, cap)
+
+
+## 解锁下一格上阵位所需的玩家等级（当前上限 +1 时）；已满封顶返回 0。
+func team_unlock_next_level(level: int) -> int:
+	var u := team_unlock()
+	var interval := maxi(1, int(u.get("interval", 10)))
+	if team_max_for_level(level) >= team_max_for_level(int(u.get("level_cap", 100))):
+		return 0
+	return (int(level) / interval + 1) * interval
 
 
 func formation_scene() -> String:

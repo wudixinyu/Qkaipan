@@ -1,0 +1,331 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[GameDB] 閰嶇疆杞藉叆瀹屾垚 v0.1.0锛?8 寮犺鑹?/ 6 涓厓绱?/ 4 涓。浣?
+[SaveDB] 瀛樻。宸茶浇鍏ワ細浜戜笂鏃呬汉 Lv.1锛屾寔鍗?0 寮?
+
+========== 鍗＄墝澶у啋闄?路 鍗＄墝閫夋嫨涓庣紪闃熼〉鍐掔儫 ==========
+路 鑻遍泟鎬绘暟 18锛歔"knight_rock", "pyro_girl", "elf_ranger", "holy_priest", "arcane_girl", "shadow_assassin", "earth_guardian", "flame_knight", "tide_siren", "shadow_blade", "light_catherine", "forest_sedric", "wind_yahi", "ice_eli", "rock_baroque", "dark_leila", "lily_mage", "tom_ranger"]
+  [PASS] 鏂板彿榛樿鎸佸崱 = 0  got=0 want=0
+
+路 缂栭槦閰嶇疆鍙ｅ緞
+  [PASS] formation 娈靛瓨鍦?
+  [PASS] 涓婇樀涓婇檺鍙栬嚜閰嶇疆  got=5 want=5
+  [PASS] 妫嬬洏妲戒綅 9 鏍? got=9 want=9
+  [PASS] 鎵ｄ綋鍔涚殑浣嶇疆  got=formation want=formation
+  [PASS] 闃靛棰勮 3 鏍? got=3 want=3
+  [PASS] 鑱屼笟鍏嬪埗閾鹃潪绌? ["tank", "warrior", "archer", "mage"]
+  [PASS] 缇佺粖瑙勫垯琛ㄩ潪绌? 10 鏉?
+  [PASS] 鑱屼笟鍏嬪埗琛ㄩ潪绌?
+  [PASS] 鎴樻枟瀹氫綅鏂囨鍙栬嚜閰嶇疆  涓帓榄旀硶杈撳嚭 / 鑼冨洿鐮寸浘
+  [PASS] 纭鎸夐挳鏂囨鍙栬嚜閰嶇疆
+  [PASS] 缂栭槦椤靛満鏅矾寰勬寚鍚?formation.tscn  res://scenes/formation.tscn
+  [PASS] 缂栭槦椤电殑涓嬩竴绔欙紙鎴樻枟鍦烘櫙锛夊瓨鍦? res://scenes/battle.tscn
+  [PASS] 杩斿洖涓荤晫闈㈢殑鐩爣鍦烘櫙瀛樺湪
+  [PASS] 1003 鏈?3 涓晫鏂瑰崟浣? got=3 want=3
+  [PASS] 1003 鏁屾柟姝ｆ帓浜烘暟 = 1锛堝煄鍫￠噸瑁呭崼鍏碉級  got=1 want=1
+  [PASS] 1003 鏁屾柟鍏冪礌绉嶇被 = 2锛堝厜 / 鍦帮級  got=2 want=2
+
+路 缂栭槦瑙勮寖鍖栵紙涓婇檺 / 鍚屽悕 / 妲戒綅锛?
+  [PASS] 涓荤嚎闃熷垵濮?3 浜? got=3 want=3
+  [PASS] 涓荤嚎闃熷垵濮嬫寜妲戒綅鍗囧簭  got=[1, 5, 6] want=[1, 5, 6]
+  [PASS] 鍚屽悕鍗曞崱鍙暀涓€浠? got=1 want=1
+  [PASS] 瓒婄晫妲戒綅琚涪鎺? got=1 want=1
+  [PASS] 鐣欎笅鐨勬槸鍚堟硶妲戒綅  got=3 want=3
+  [PASS] 鍚屾Ы浣嶅彧鐣欎竴浜? got=1 want=1
+  [PASS] 鏈煡 hero_id 琚涪寮? got=0 want=0
+  [PASS] 瓒呭憳缂栭槦琚埅鍒颁笂闄? 5 浜?
+  [PASS] 瓒婄晫妲戒綅鑳芥姤鍑轰汉绫诲彲璇荤殑閿欒
+
+路 缇佺粖瑙勫垯涓庢垬鍔涘彛寰?
+  [PASS] 涓婇樀 3 浜? got=3 want=3
+  [PASS] 鍩虹鎴樺姏 > 0  4252
+  [PASS] 闃熶紞鎴樺姏 = 鍩虹 + 缇佺粖  got=4741 want=4741
+  [PASS] 3 浜洪樀瀹规湁缇佺粖鍔犳垚  489
+  [PASS] 涓夋墠闃碉紙涓婇樀婊?3 浜猴級鐢熸晥
+  [PASS] 鍧氬畧闃电嚎锛堥槦鍐呮湁鍓嶆帓锛夌敓鏁?
+  [PASS] 鍗曚汉涓嶆垚涓夋墠闃?
+  [PASS] 鍗曚汉鎴樺姏 = 鍩虹锛堟棤缇佺粖澧為噺锛? got=1624 want=1624
+  [PASS] 绌虹紪闃熸垬鍔涗负 0  got=0 want=0
+  [PASS] 绌虹紪闃熺粰鍑烘縺娲绘彁绀? 涓婇樀 3 浜哄彲婵€娲讳笁鎵嶉樀
+  [PASS] 缇佺粖鎶婇槻寰℃姮楂樹簡  330 -> 381
+  [PASS] roster_of 涓?battle_power 鍙ｅ緞涓€鑷?
+
+路 GDD 缇佺粖锛堟寚瀹氳嫳闆?/ 瀹氬悜 / 鎴樻枟绾ф晥鏋滐級
+  [PASS] 浜戠鍏堥攱闃燂紙鎸囧畾涓ゅ悕鑻遍泟锛夌敓鏁?
+  [PASS] 鍏ㄩ槦鏀诲嚮 +8% 钀藉埌瀹炲  309 -> 334
+  [PASS] 鐏厓绱犱激瀹?+10% 鍐欒繘鎴樻枟 buff  0.1
+  [PASS] 鍙笂闃靛叾涓竴浜轰笉婵€娲?
+  [PASS] 鑷劧涔嬫姢鐢熸晥
+  [PASS] 鍓嶆帓鑻遍泟鐢熷懡涓婇檺 +12%  1657 -> 1856
+  [PASS] 涓帓鑻遍泟涓嶅悆鍓嶆帓涓撳睘鍔犳垚  got=989 want=989
+  [PASS] 澶у湴瀹堝崼纭疄钀藉湪鍓嶆帓  got=front want=front
+  [PASS] 鍏夋殫浜ょ粐鐢熸晥
+  [PASS] 鍏ㄩ槦鏆村嚮鐜?+5%锛堝姞绠楋級  0.0500
+  [PASS] 寮€灞€鑳介噺 15 鐐瑰啓杩涙垬鏂?buff  { "open_energy": 15.0 }
+  [PASS] 鍏ㄥ厓绱犲叡楦ｏ紙4 绉嶅厓绱狅級鐢熸晥
+  [PASS] 鍏ㄥ憳閮芥嬁鍒?15% 寮€灞€鎶ょ浘  got=4 want=4
+  [PASS] 涓夊厓绱犻樀瀹逛笉瑙﹀彂锛堜笌浜旇娴佽浆鍖哄垎锛?
+  [PASS] 鍗曟潯 effect 浠嶈璇嗗埆  got=1 want=1
+  [PASS] effects 鏁扮粍閫愭潯灞曞紑  got=2 want=2
+  [PASS] 灞炴€х被鏁堟灉璧颁箻绠? got=mul want=mul
+  [PASS] 鏆村嚮璧板姞绠? got=add want=add
+
+路 灞炴€?/ 鑱屼笟鍏嬪埗鎻愮ず
+  [PASS] 娉曞笀瀵归噸瑁呯粰鍑哄厠鍒舵彁绀? hits=1
+  [PASS] 鍏嬪埗骞呭害涓?25%  25
+  [PASS] 鎻愮ず鏂囨鍐欏嚭銆岄瓟娉曞閲嶈 +25% 浼ゅ銆? 榄旀硶瀵归噸瑁?+25% 浼ゅ
+  [PASS] 鐏椋庣粰鍑哄睘鎬у厠鍒舵彁绀? 鐏?鍏?椋庛€€+0% 浼ゅ
+  [PASS] 灞炴€у厠鍒跺懡涓?3 涓洰鏍? got=3 want=3
+  [PASS] 鏃犳晫浜烘椂鏃犲厠鍒舵枃妗? got=0 want=0
+
+路 鍦烘櫙楠ㄦ灦
+  [PASS] 鍦烘櫙鍙姞杞?
+  [PASS] 鍦烘櫙鏍硅妭鐐逛负 Control  Control
+  [PASS] 鏍硅妭鐐瑰凡鎸傝剼鏈?
+  [PASS] 鎸傜殑鏄?formation.gd  res://scripts/formation.gd
+  [PASS] 鍞竴鍚?%BackButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%TopBar 鍙В鏋?
+  [PASS] 鍞竴鍚?%SearchEdit 鍙В鏋?
+  [PASS] 鍞竴鍚?%TitleLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%SubTitle 鍙В鏋?
+  [PASS] 鍞竴鍚?%CardStage 鍙В鏋?
+  [PASS] 鍞竴鍚?%PowerValue 鍙В鏋?
+  [PASS] 鍞竴鍚?%BoardPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%BoardGrid 鍙В鏋?
+  [PASS] 鍞竴鍚?%BoardCount 鍙В鏋?
+  [PASS] 鍞竴鍚?%LibraryPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%LibraryScroll 鍙В鏋?
+  [PASS] 鍞竴鍚?%LibraryGrid 鍙В鏋?
+  [PASS] 鍞竴鍚?%LibraryCount 鍙В鏋?
+  [PASS] 鍞竴鍚?%TacticalPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%CommandPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%PresetBar 鍙В鏋?
+  [PASS] 鍞竴鍚?%QuickFillButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%ClearButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%DeployButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%RemoveButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%ConfirmButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%ConfirmSub 鍙В鏋?
+  [PASS] 鍞竴鍚?%SaveButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%Toast 鍙В鏋?
+  [PASS] 鍞竴鍚?%ToastLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%FilterPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%FilterGroups 鍙В鏋?
+  [PASS] 鍞竴鍚?%SortPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%SortOptions 鍙В鏋?
+  [PASS] 鑳屾櫙搴曞浘宸插姞杞?
+  [PASS] 鐢ㄧ殑鏄€夊叧椤典笓鐢ㄥ簳鍥? res://assets/art/bg/bg_stage_select.png
+
+路 涓ぎ鍗＄墝闄堝垪
+  [PASS] CardStage 鏄?CardFan
+  [PASS] 闄堝垪鑻遍泟鏁?= 閰嶇疆鑻遍泟鏁? got=18 want=18
+  [PASS] 榛樿閫変腑鍙栬嚜閰嶇疆  got=pyro_girl want=pyro_girl
+  [PASS] 閫変腑鍗″瓨鍦?
+  [PASS] 閫変腑鍗″甫閲戣壊楂樹寒杈规
+  [PASS] 閫変腑鍗¤鏀惧ぇ  mult=1.12
+  [PASS] 鏈€変腑鍗?knight_rock 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?elf_ranger 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?holy_priest 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?arcane_girl 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?shadow_assassin 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?earth_guardian 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?flame_knight 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?tide_siren 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?shadow_blade 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?light_catherine 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?forest_sedric 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?wind_yahi 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?ice_eli 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?rock_baroque 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?dark_leila 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?lily_mage 鏃犻珮浜竟妗?
+  [PASS] 鏈€変腑鍗?tom_ranger 鏃犻珮浜竟妗?
+  [PASS] 鐐瑰嚮鍚庨€変腑鍒囨崲  got=knight_rock want=knight_rock
+  [PASS] 鏂伴€変腑鍗￠珮浜?
+  [PASS] 鏃ч€変腑鍗￠珮浜挙鎺?
+  [PASS] 鎴樻枟瀹氫綅宸插埛鏂?
+  [PASS] 鎴樻枟瀹氫綅鍐欏嚭閲嶈鐨勫畾浣? 鍓嶆帓鎵夸激 / 鍢茶鎺у埗
+
+路 3x3 缂栭槦妫嬬洏
+  [PASS] BoardGrid 瀛樺湪
+  [PASS] 琛屾爣绛?3 涓?+ 鏍煎瓙 9 涓? got=12 want=12
+  [PASS] 妲戒綅 1 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 1 钀戒綅涓?slot_to_cell 涓€鑷? got=(224,0) want=(224,0)
+  [PASS] 妲戒綅 2 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 2 钀戒綅涓?slot_to_cell 涓€鑷? got=(138,0) want=(138,0)
+  [PASS] 妲戒綅 3 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 3 钀戒綅涓?slot_to_cell 涓€鑷? got=(52,0) want=(52,0)
+  [PASS] 妲戒綅 4 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 4 钀戒綅涓?slot_to_cell 涓€鑷? got=(224,86) want=(224,86)
+  [PASS] 妲戒綅 5 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 5 钀戒綅涓?slot_to_cell 涓€鑷? got=(138,86) want=(138,86)
+  [PASS] 妲戒綅 6 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 6 钀戒綅涓?slot_to_cell 涓€鑷? got=(52,86) want=(52,86)
+  [PASS] 妲戒綅 7 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 7 钀戒綅涓?slot_to_cell 涓€鑷? got=(224,172) want=(224,172)
+  [PASS] 妲戒綅 8 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 8 钀戒綅涓?slot_to_cell 涓€鑷? got=(138,172) want=(138,172)
+  [PASS] 妲戒綅 9 鐨勬牸瀛愬凡瀹炰緥鍖?
+  [PASS] 妲戒綅 9 钀戒綅涓?slot_to_cell 涓€鑷? got=(52,172) want=(52,172)
+  [PASS] 鍓嶆帓鏍煎瓙鍦ㄥ悗鎺掍笂鏂? slot1.y=0 slot7.y=172
+  [PASS] 妲戒綅 1 涓婃槸 knight_rock  纾愬博楠戝＋
+  [PASS] 妲戒綅 5 涓婃槸 pyro_girl  绱劙灏戝コ
+  [PASS] 妲戒綅 6 涓婃槸 elf_ranger  绮剧伒娓镐緺
+  [PASS] 涓婇樀璁℃暟鍐欏湪闈㈡澘涓? 涓婇樀 3/5
+
+路 澶囬€夎嫳闆勫簱
+  [PASS] LibraryGrid 瀛樺湪
+  [PASS] 缂╃暐鍥?+ 绌轰綅琛ラ綈鍒版暣灞忔爡鏍? got=18 want=18
+  [PASS] 鑻遍泟 knight_rock 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 纾愬博楠戝＋
+  [PASS] 鑻遍泟 pyro_girl 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 绱劙灏戝コ
+  [PASS] 鑻遍泟 elf_ranger 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 绮剧伒娓镐緺
+  [PASS] 鑻遍泟 holy_priest 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 绁炲湥鐗у笀
+  [PASS] 鑻遍泟 arcane_girl 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 绉樻硶灏戝コ
+  [PASS] 鑻遍泟 shadow_assassin 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 鏆楀鍒哄
+  [PASS] 鑻遍泟 earth_guardian 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 澶у湴瀹堝崼
+  [PASS] 鑻遍泟 flame_knight 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 鐐庤但楠戝＋
+  [PASS] 鑻遍泟 tide_siren 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 娼睈棰嗕富
+  [PASS] 鑻遍泟 shadow_blade 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 鏆楀奖姝﹁€?
+  [PASS] 鑻遍泟 light_catherine 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 鍦ｅ厜瀹″垽鑰?
+  [PASS] 鑻遍泟 forest_sedric 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 妫灄瀹堟姢鑰?
+  [PASS] 鑻遍泟 wind_yahi 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 鐤鹃鍓戝
+  [PASS] 鑻遍泟 ice_eli 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 鍐伴洩濂冲帆
+  [PASS] 鑻遍泟 rock_baroque 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 宀╃煶瀹堝崼
+  [PASS] 鑻遍泟 dark_leila 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 鏆楀寮撴墜
+  [PASS] 鑻遍泟 lily_mage 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 瑙佷範娉曞笀
+  [PASS] 鑻遍泟 tom_ranger 鏈夌缉鐣ュ浘
+  [PASS] 缂╃暐鍥惧甫鑻遍泟鍚? 瑙佷範娓镐緺
+  [PASS] knight_rock 鏍囦簡銆屽凡涓婇樀銆? 宸蹭笂闃?路 1
+  [PASS] pyro_girl 鏍囦簡銆屽凡涓婇樀銆? 宸蹭笂闃?路 5
+  [PASS] elf_ranger 鏍囦簡銆屽凡涓婇樀銆? 宸蹭笂闃?路 6
+  [PASS] 鏈笂闃电殑鑻遍泟娌℃湁銆屽凡涓婇樀銆嶆爣璁?
+  [PASS] 鍗″簱璁℃暟鏂囨鍙栬嚜閰嶇疆  18 / 18 鍚?
+  [PASS] 鐐瑰崱搴撶缉鐣ュ浘浼氶€変腑璇ヨ嫳闆? got=holy_priest want=holy_priest
+  [PASS] 閫変腑鍚庣缉鐣ュ浘楂樹寒
+
+路 绛涢€?/ 鎺掑簭 / 鎼滅储
+  [PASS] 鍏冪礌绛涢€夎姱鐗囧瓨鍦?
+  [PASS] 鎸夌伀鍏冪礌绛涢€夊悗鍙墿鐏郴鑻遍泟  got=4 want=4
+  [PASS] 绛涢€夌粨鏋滃叏鏄伀绯? ["pyro_girl", "arcane_girl", "flame_knight", "lily_mage"]
+  [PASS] 鐏郴鑻遍泟閲屾湁绱劙灏戝コ  ["pyro_girl", "arcane_girl", "flame_knight", "lily_mage"]
+  [PASS] 绛涢€夋槸瀹炴椂鐢熸晥鐨勶紙闈㈡澘涓嶇敤鐐圭‘瀹氾級  4
+  [PASS] 鍐嶇偣涓€娆″彇娑堝嬀閫? got=18 want=18
+  [PASS] 鎸夌墽甯堢瓫閫夊悗鍙墿 1 寮? got=1 want=1
+  [PASS] 鍓╀笅鐨勬槸绁炲湥鐗у笀  got=holy_priest want=holy_priest
+  [PASS] 閲嶇疆鍚庢仮澶嶅叏閮? got=18 want=18
+  [PASS] 鎺掑簭閫夐」瀛樺湪
+  [PASS] 鎺掑簭鎬佽璁颁綇  got=power want=power
+  [PASS] 闄堝垪鎸夋垬鍔涢檷搴忛噸鎺? got=["pyro_girl", "shadow_blade", "shadow_assassin", "wind_yahi", "light_catherine", "forest_sedric", "elf_ranger", "arcane_girl", "holy_priest", "knight_rock", "rock_baroque", "dark_leila", "tide_siren", "earth_guardian", "ice_eli", "tom_ranger", "lily_mage", "flame_knight"] want=["pyro_girl", "shadow_blade", "shadow_assassin", "wind_yahi", "light_catherine", "forest_sedric", "elf_ranger", "arcane_girl", "holy_priest", "knight_rock", "rock_baroque", "dark_leila", "tide_siren", "earth_guardian", "ice_eli", "tom_ranger", "lily_mage", "flame_knight"]
+  [PASS] 闄堝垪鎸夊悕绉伴噸鎺? got=["ice_eli", "light_catherine", "earth_guardian", "rock_baroque", "shadow_assassin", "dark_leila", "shadow_blade", "forest_sedric", "tide_siren", "flame_knight", "wind_yahi", "knight_rock", "holy_priest", "arcane_girl", "elf_ranger", "pyro_girl", "lily_mage", "tom_ranger"] want=["ice_eli", "light_catherine", "earth_guardian", "rock_baroque", "shadow_assassin", "dark_leila", "shadow_blade", "forest_sedric", "tide_siren", "flame_knight", "wind_yahi", "knight_rock", "holy_priest", "arcane_girl", "elf_ranger", "pyro_girl", "lily_mage", "tom_ranger"]
+  [PASS] 鎼滅储妗嗗瓨鍦?
+  [PASS] 鎼溿€岀墽銆嶅彧鍓╃鍦ｇ墽甯? got=1 want=1
+  [PASS] 鍛戒腑鐨勬槸 holy_priest  got=holy_priest want=holy_priest
+  [PASS] 鎼溿€宻sr銆嶅彧鍓?SSR 鍗? got=6 want=6
+  [PASS] 鍛戒腑鐨勯兘鏄?SSR  ["pyro_girl", "arcane_girl", "shadow_assassin", "light_catherine", "forest_sedric", "wind_yahi"]
+  [PASS] 鏃犵粨鏋滄椂闄堝垪娓呯┖  got=0 want=0
+  [PASS] 鏃犵粨鏋滄椂鍗″簱缁欏嚭绌烘€佹枃妗? 娌℃湁绗﹀悎鏉′欢鐨勮嫳闆?
+  [PASS] 娓呯┖鎼滅储鍚庢仮澶嶅叏閮? got=18 want=18
+  [PASS] 鐐广€岀瓫閫夈€嶆墦寮€绛涢€夊脊灞?
+  [PASS] 鐐广€屾帓搴忋€嶆墦寮€鎺掑簭寮瑰眰
+  [PASS] 涓や釜寮瑰眰涓嶄細鍚屾椂寮€
+  [PASS] 鐐广€岄€夋嫨銆嶆敹璧峰叏閮ㄥ脊灞?
+
+路 涓婇樀 / 涓嬮樀 / 娓呯┖
+  [PASS] 娓呯┖ / 涓婇樀 / 涓嬮樀鎸夐挳榻愬
+  [PASS] 娓呯┖鍚庨樀涓棤浜? got=0 want=0
+  [PASS] 鐐圭┖浣嶅悗涓婇樀 1 浜? got=1 want=1
+  [PASS] 钀藉湪琚偣鐨勯偅涓€鏍? got=2 want=2
+  [PASS] 涓婇樀鍗虫椂鍐欒繘鍑烘垬缂栭槦  got=1 want=1
+  [PASS] 涓婇樀鍗虫椂鍐欒繘褰撳墠棰勮  got=1 want=1
+  [PASS] 涓嬮樀鎸夐挳鎶婁汉鎾や笅鏉? got=0 want=0
+  [PASS] 涓嬮樀鍗虫椂鍚屾瀛樻。  got=0 want=0
+  [PASS] 涓婇樀鎸夐挳鏀惧埌鎺ㄨ崘妲戒綅  got=5 want=5
+  [PASS] 鍚屼竴鑻遍泟涓嶄細閲嶅涓婇樀  got=1 want=1
+  [PASS] 閲嶅涓婇樀缁欏嚭鎻愮ず  绱劙灏戝コ 宸插湪闃典腑
+  [PASS] 鍐嶇偣宸蹭笂闃电殑鏍煎瓙浼氫笅闃? got=0 want=0
+  [PASS] 鍚屾Ы浣嶄笉鑳芥尋涓や釜浜? got=1 want=1
+  [PASS] 鍗犱綅鍐茬獊缁欏嚭鎻愮ず  璇ユЫ浣嶅凡琚崰鐢?
+  [PASS] 鐐瑰埆浜虹殑鏍煎瓙鍙細鍒囬€変腑  got=knight_rock want=knight_rock
+  [PASS] 骞朵笖娌℃湁鎶婁汉鎸や笅鏉? got=1 want=1
+  [PASS] 闃典腑浜烘暟涓嶈秴杩囦笂闄? got=true want=true
+
+路 涓€閿笂闃?
+  [PASS] 鍏冲崱浜ゆ帴杩涗簡鎴樻枟涓婁笅鏂?
+  [PASS] 鍏堟竻绌? got=0 want=0
+  [PASS] 涓€閿笂闃靛～婊″彲鐢ㄨ嫳闆? got=5 want=5
+  [PASS] 涓€閿笂闃靛悗鎴樺姏 > 0  8320
+  [PASS] 涓€閿笂闃电粰鍑烘彁绀? 涓€閿笂闃碉細5 浜?路 闃熶紞鎴樺姏 8,320
+  [PASS] wind_yahi 钀藉湪鎺ㄨ崘鎺掞紙涓帓锛? got=middle want=middle
+  [PASS] elf_ranger 钀藉湪鎺ㄨ崘鎺掞紙涓帓锛? got=middle want=middle
+  [PASS] dark_leila 钀藉湪鎺ㄨ崘鎺掞紙涓帓锛? got=middle want=middle
+  [PASS] shadow_blade 钀藉湪鎺ㄨ崘鎺掞紙鍚庢帓锛? got=back want=back
+  [PASS] shadow_assassin 钀藉湪鎺ㄨ崘鎺掞紙鍚庢帓锛? got=back want=back
+  [PASS] 鑷冲皯鏈夎嫳闆勫氨浣嶅湪鑷繁鐨勬帹鑽愭Ы浣? 2 / 5
+  [PASS] 涓€閿笂闃典笉浼氬崰鐢ㄩ噸澶嶆Ы浣? got=5 want=5
+
+路 闃靛棰勮锛? 鏍忥級
+  [PASS] 棰勮鏍忓瓨鍦?
+  [PASS] 3 涓璁炬寜閽? got=3 want=3
+  [PASS] 鍒濆鍋滃湪閰嶇疆閲岀殑绗竴涓璁? got=main want=main
+  [PASS] 鍏堟竻绌? got=0 want=0
+  [PASS] 鎵嬬紪鍑轰富绾块槦 3 浜? got=3 want=3
+  [PASS] 鍒囧埌 PVP 闃? got=pvp want=pvp
+  [PASS] PVP 闃熷垵濮嬩负绌? got=0 want=0
+  [PASS] 瀛樻。閲岀殑褰撳墠棰勮鍚屾  got=pvp want=pvp
+  [PASS] 涓荤嚎闃熻瀛樺洖鏃ч璁? got=3 want=3
+  [PASS] PVP 闃熺紪鍏?1 浜? got=1 want=1
+  [PASS] 鍓湰闃熶负绌? got=0 want=0
+  [PASS] PVP 闃熺殑 1 浜鸿鍗曠嫭瀛樹綇  got=1 want=1
+  [PASS] 鍓湰闃熺‘瀹炲瓨浜嗙┖妗? got=0 want=0
+  [PASS] 鍒囧洖涓荤嚎闃? got=3 want=3
+  [PASS] 鍒囧洖鍚庨樀瀹瑰氨鏄偅 3 涓汉  got=["knight_rock", "pyro_girl", "elf_ranger"] want=["knight_rock", "pyro_girl", "elf_ranger"]
+  [PASS] 褰撳墠棰勮鏍囪鍚屾鍥炴潵  got=main want=main
+  [PASS] 棰勮鎻愮ず鍐欏嚭浜嗕汉鏁? 褰撳墠銆屼富绾块槦銆嵚?3 / 5 浜?
+
+路 纭閫夋嫨 鈫?鎵ｄ綋鍔?鈫?鍐欐。 鈫?浜ゆ帴鎴樻枟
+  [PASS] 纭鎸夐挳涓庡壇鏍囬榻愬
+  [PASS] 纭鎸夐挳鍓枃妗堝彇鑷厤缃? FORMATION
+  [PASS] 纭鍚庡幓鐨勬槸鎴樻枟鍦烘櫙  res://scenes/battle.tscn
+  [PASS] 鎴樻枟鍦烘櫙鐪熷疄瀛樺湪
+  [PASS] 闃典腑鏃犱汉  got=0 want=0
+  [PASS] 绌洪槦浼嶈鎷︿笅  鑷冲皯涓婇樀 1 鍚嶈嫳闆勫啀鍑哄彂
+  [PASS] 鍑哄彂鍓嶉樀涓?3 浜? got=3 want=3
+  [PASS] 1004 鐨勪綋鍔涙秷鑰楀彇鑷叧鍗￠厤缃? got=6 want=6
+  [PASS] 纭閫夋嫨鎵ｆ帀鏈叧浣撳姏  got=54 want=54
+  [PASS] 鎻愮ず鏉℃姤鍑哄叧鍗″彿  闃靛灏辩华 路 杩涘叆鍏冲崱 1004 路 闃熶紞鎴樺姏 4,741
+  [PASS] 鍑烘垬缂栭槦琚啓杩涘瓨妗? got=3 want=3
+  [PASS] 褰撳墠棰勮涔熷悓姝ュ瓨浜嗕竴浠? got=3 want=3
+  [PASS] 瀛樻。閲岀殑妲戒綅涓庣晫闈竴鑷? got=[1, 5, 6] want=[1, 5, 6]
+  [PASS] 鎴樻枟渚ц鍒扮殑涓婇樀浜烘暟涓€鑷? got=3 want=3
+  [PASS] 鎴樻枟渚ч樀瀹规垬鍔?> 0  4741
+  [PASS] 浣撳姏宸插帇鍒?0  got=0 want=0
+  [PASS] 浣撳姏涓嶈冻鏃朵笉鎵ｄ綋鍔? got=0 want=0
+  [PASS] 鎻愮ず鏉¤鏄庝綋鍔涗笉瓒? 浣撳姏涓嶈冻锛氶渶瑕?6 鐐癸紝褰撳墠 0 鐐?/ 锛?4:58 鍚庢仮澶?1 鐐癸級
+  [PASS] 淇濆瓨鎸夐挳瀛樺湪
+  [PASS] 淇濆瓨鎸夐挳宸叉帴淇″彿
+  [PASS] 淇濆瓨鎸夐挳鏂囨鍙栬嚜閰嶇疆  淇濆瓨缂栭槦
+  [PASS] 鐐逛繚瀛樺悗鍑烘垬缂栭槦钀界洏 1 浜? got=1 want=1
+  [PASS] 鐐逛繚瀛樺悗褰撳墠棰勮鍚屾  got=1 want=1
+  [PASS] 淇濆瓨缁欏嚭纭鍙嶉  缂栭槦宸蹭繚瀛橈紙1 浜猴級
+  [PASS] 杩斿洖鎸夐挳宸叉帴淇″彿
+  [PASS] 杩斿洖鎸夐挳鏂囨鍙栬嚜閰嶇疆  鈼€  杩斿洖涓荤晫闈?
+
+---------- 缁撴灉锛氶€氳繃 293 / 澶辫触 0 ----------
+[smoke] 宸茶繕鍘熸祴璇曞墠鐨勫瓨妗?

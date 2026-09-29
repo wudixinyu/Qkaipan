@@ -356,13 +356,19 @@ func _check_pull_payment() -> void:
 	_eq("新号心愿水晶为 0", SaveDB.balance("wish_crystal"), 0)
 
 	# —— 单抽：优先用券 ——
+	# 固定种子保证整段可复现；常驻池 R 档混有道具，单抽出货种类随权重浮动，
+	# 故「持卡增量」按实际出货种类校验（英雄则 +1，道具则不变），不再假设必出英雄。
 	var before_cards := SaveDB.cards().size()
-	var r1 := GachaSys.pull("standard", 1)
+	var r1 := GachaSys.pull("standard", 1, { "seed": 20260929 })
+	var rolled1: Array = r1.get("items", [])
+	var rolled1_hero := (not rolled1.is_empty()) and str((rolled1[0] as Dictionary).get("kind", "")) == "hero"
+	var cards_after1 := before_cards + (1 if rolled1_hero else 0)
 	_ok("单抽成功", bool(r1.get("ok", false)), str(r1.get("reason", "")))
+	_eq("单抽出货 1 项", rolled1.size(), 1)
 	_eq("单抽扣的是召唤券", str((r1.get("pay", {}) as Dictionary).get("kind", "")), "ticket")
 	_eq("券减 1", SaveDB.material_count("ticket_basic"), 9)
 	_eq("钻石没动", SaveDB.balance("bound_gem"), 1600)
-	_eq("英雄持卡 +1", SaveDB.cards().size(), before_cards + 1)
+	_eq("英雄持卡按出货累加", SaveDB.cards().size(), cards_after1)
 	_eq("抽数累加", SaveDB.total_pulls(), 1)
 	_eq("分池抽数累加", SaveDB.pulls_of("standard"), 1)
 	_eq("水晶 +1", SaveDB.balance("wish_crystal"), 1)
@@ -370,7 +376,7 @@ func _check_pull_payment() -> void:
 	SaveDB.load_profile()
 	_eq("落盘后重读：券仍是 9", SaveDB.material_count("ticket_basic"), 9)
 	_eq("落盘后重读：抽数仍是 1", SaveDB.total_pulls(), 1)
-	_eq("落盘后重读：持卡数不变", SaveDB.cards().size(), before_cards + 1)
+	_eq("落盘后重读：持卡数不变", SaveDB.cards().size(), cards_after1)
 
 	# —— 十连：券不够 10 张，回落到绑定钻石 ——
 	var r2 := GachaSys.pull("standard", 10)

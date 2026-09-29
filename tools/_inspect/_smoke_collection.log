@@ -1,0 +1,129 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[GameDB] 閰嶇疆杞藉叆瀹屾垚 v0.1.0锛?8 寮犺鑹?/ 6 涓厓绱?/ 4 涓。浣?
+[SaveDB] 瀛樻。宸茶浇鍏ワ細浜戜笂鏃呬汉 Lv.1锛屾寔鍗?0 寮?
+
+========== 鍗＄墝澶у啋闄?路 鍗＄墖鍥鹃壌鍐掔儫娴嬭瘯 ==========
+
+路 閰嶇疆灞傦細鍥鹃壌鍏ュ彛涓庡叏鍗＄洰褰?
+  [PASS] menu.system_entries 閲屾湁 collection 鍏ュ彛
+  [PASS] 鍏ュ彛璺敱  got=res://scenes/collection.tscn want=res://scenes/collection.tscn
+  [PASS] 鍏ュ彛鍥炬爣瀛樺湪  res://assets/icons/icon_star.svg
+  [PASS] 鍏ㄥ崱鐩綍闈炵┖  18 寮?
+  [PASS] 姣忓紶鍗＄殑 rarity / element 閮借兘鍦ㄩ厤缃〃閲屾煡鍒? got=0 want=0
+
+路 鍦烘櫙灞傦細collection.tscn
+  [PASS] 鍦烘櫙鏂囦欢瀛樺湪  res://scenes/collection.tscn
+  [PASS] 鍦烘櫙鍙姞杞?
+  [PASS] 鏍硅妭鐐瑰凡鎸?collection.gd
+  [PASS] 鍞竴鍚?%TopPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%CollectLabel 鍙В鏋?
+  [PASS] 鍞竴鍚?%Filt_all 鍙В鏋?
+  [PASS] 鍞竴鍚?%Filt_owned 鍙В鏋?
+  [PASS] 鍞竴鍚?%Filt_unowned 鍙В鏋?
+  [PASS] 鍞竴鍚?%GridHolder 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailLayer 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailBackdrop 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailCardHolder 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailLockPanel 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailTitle 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailTags 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailState 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailPower 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailStats 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailSkills 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailAcquire 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailPrevButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailNextButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%DetailCloseButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%BackButton 鍙В鏋?
+  [PASS] 鍞竴鍚?%FooterInfo 鍙В鏋?
+  [PASS] 鍞竴鍚?%FooterStat 鍙В鏋?
+  [PASS] 鍞竴鍚?%Toast 鍙В鏋?
+  [PASS] 鍞竴鍚?%ToastLabel 鍙В鏋?
+  [PASS] 璇︽儏寮瑰眰榛樿闅愯棌
+  [PASS] 鏈幏寰楁彁绀虹墝榛樿闅愯棌
+  [PASS] Hud 蹇界暐榧犳爣
+  [PASS] 鑳屾櫙蹇界暐榧犳爣
+  [PASS] 鏆楄閬僵蹇界暐榧犳爣
+  [PASS] 缃戞牸搴曟澘蹇界暐榧犳爣
+  [PASS] 寮瑰眰瀹瑰櫒鏈韩蹇界暐榧犳爣
+  [PASS] 寮瑰眰鎸′綅鎺ユ敹榧犳爣锛堢偣绌虹櫧鍏抽棴锛?
+
+路 鏁版嵁灞傦細鍏ㄥ崱鐩綍 脳 瀛樻。鎸佸崱
+  [PASS] 鍥鹃壌琛屾暟 = 閰嶇疆鍗℃暟  got=18 want=18
+  [PASS] 鏂版。榛樿宸茶幏鍙?= 0  got=0 want=0
+  [PASS] 榛樿妗ｄ竴寮犲崱閮芥病鏈? []
+  [PASS] 鏈寔鏈夌殑鍗″洖钀藉埌灞曟紨鎬佹暟鎹?
+  [PASS] 鍙戝崱鍚庡凡鑾峰彇 = 3  got=3 want=3
+  [PASS] 宸茶幏鍙栫殑姝ｆ槸閭?3 寮? ["knight_rock", "pyro_girl", "elf_ranger"]
+  [PASS] 搴曟爮缁熻鍙嶆槧鎸佹湁鏁? 鍥鹃壌 3 / 18
+
+路 缃戞牸灞傦細绛涢€夐噸寤轰笌鏈幏鍙栭攣绔?
+  [PASS] 鍏ㄩ儴 = 閰嶇疆鍗℃暟  got=18 want=18
+  [PASS] 宸茶幏鍙栧崱闈?3 寮? got=3 want=3
+  [PASS] 鏈幏鍙栧壀褰卞崱闈?= 鎬绘暟-3  got=15 want=15
+  [PASS] 閿佺珷鏁伴噺 = 鏈幏鍙栨暟閲? got=15 want=15
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 鏈幏鍙栧崱鍚嶇墝鏄????  got=??? want=???
+  [PASS] 鏈幏鍙栧崱绛夌骇浣嶆樉绀恒€屾湭鑾峰緱銆? got=鏈幏寰?want=鏈幏寰?
+  [PASS] 宸茶幏鍙栫瓫閫?= 3 鏍? got=3 want=3
+  [PASS] 鏈幏鍙栫瓫閫?= 鎬绘暟-3 鏍? got=15 want=15
+  [PASS] 闈炴硶绛涢€夊洖钀藉叏閮?= 閰嶇疆鍗℃暟  got=18 want=18
+  [PASS] 绛涢€夋寜閽凡鎺ヤ俊鍙?
+  [PASS] 鐐广€屽凡鑾峰彇銆嶆寜閽敓鏁? got=3 want=3
+  [PASS] 鏀堕泦杩涘害璇绘暟姝ｇ‘  宸叉敹闆?3 / 18
+  [PASS] 鐐广€屽叏閮ㄣ€嶆寜閽洖鍒伴厤缃崱鏁? got=18 want=18
+  [PASS] 姣忚 4 鍒? got=4 want=4
+  [PASS] 琛屾暟 = ceil(鍗℃暟/4)  got=5 want=5
+  [PASS] 棣栬姘村钩灞呬腑锛堝鍐呭瀹藉乏鍙崇暀鐧藉绉帮級  left=33 right_margin=33
+
+路 浜や簰灞傦細璇︽儏寮瑰眰
+  [PASS] 鐐瑰崱鍚庡脊灞備寒璧?
+  [PASS] 宸茶幏鍙栨樉绀虹湡瀹炵瓑绾? 宸茶幏鍙?路 Lv.1 鈽?
+  [PASS] 宸茶幏鍙栦笉鏄剧ず鏈幏寰楁彁绀虹墝
+  [PASS] 鏍囬鍚崱闈㈠悕  纾愬博楠戝＋
+  [PASS] 鎶€鑳藉尯鏈夋垬鏂楀畾浣? 鎴樻枟瀹氫綅锛氥€屽墠鎺掓壙浼?/ 缇や綋鎶ょ浘銆?
+  [PASS] 鎶€鑳藉尯鏈夌粷鎶€鏂囨
+  [PASS] 璇︽儏鍗￠潰宸插氨浣?
+  [PASS] 鏈幏鍙栨爣棰樻墦鐮? ??? 路 渚濊幉
+  [PASS] 鏈幏鍙栨樉绀哄睍婕旀€佹彁绀? 鏈幏鍙?路 鏁板€间负灞曟紨鎬侀瑙?
+  [PASS] 鏈幏鍙栦寒璧锋彁绀虹墝
+  [PASS] 璇︽儏鍗￠潰璧板壀褰辨€?
+  [PASS] 鏈幏鍙栫粰鑾峰彇閫斿緞  鑾峰彇閫斿緞锛氱兢鏄熷彫鍞わ紙鍙泦椤靛崱姹?/ 鎷涘嫙鍟嗗簵蹇冩効姘存櫠鍏戞崲锛?
+  [PASS] 涓婁竴寮犲洖鍒板垪琛ㄦ湯浣? 绮剧伒娓镐緺 路 鑾辨仼
+  [PASS] 绛涢€夊唴鐜父鍙蛋宸茶幏鍙栫殑鍗? 绱劙灏戝コ | 绮剧伒娓镐緺 路 鑾辨仼
+  [PASS] 涓嬩竴寮犳寜閽凡鎺ヤ俊鍙? 纾愬博楠戝＋
+  [PASS] 鍏抽棴鎸夐挳鏀惰捣寮瑰眰
+  [PASS] 鐐圭┖鐧介伄缃╂敹璧峰脊灞?
+  [PASS] 杩斿洖鎸夐挳宸叉帴淇″彿
+  [PASS] 鍏抽棴鑷姩璺宠浆鍚庤繑鍥炰笉鍒囧満鏅?
+
+---------- 缁撴灉锛氶€氳繃 111 / 澶辫触 0 ----------

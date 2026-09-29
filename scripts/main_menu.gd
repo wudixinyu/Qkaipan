@@ -83,7 +83,8 @@ func _build_showcase() -> void:
 
 
 ## 底部阵容预览条：优先显示玩家真实上阵（RealmDB.roster 已含羁绊），
-## 存档没编队时回落到当前预设（与编队页同一口径），铺满上阵上限（不足补空槽），并刷新总战力。
+## 存档没编队时回落到当前预设（与编队页同一口径），铺满「当前上阵上限」
+## （随玩家等级解锁，不足补空槽），并按槽数重排整条宽度，最后刷新总战力。
 func _build_team() -> void:
 	# 先 remove_child 再 queue_free：queue_free 延迟到帧尾，同一帧重建时
 	# 旧槽仍会在树上，会与新槽叠成双份（从编队页返回后重跑接线的场景）。
@@ -91,13 +92,36 @@ func _build_team() -> void:
 		_team_slots.remove_child(c)
 		c.queue_free()
 
+	var cap := SaveDB.team_max()
 	var units := _lineup_units()
-	for i in GameDB.team_max():
+	for i in cap:
 		if i < units.size():
 			_team_slots.add_child(_make_team_slot(units[i]))
 		else:
 			_team_slots.add_child(_make_empty_slot())
+	_layout_team_bar(cap)
 	_refresh_team_power()
+
+
+## 按当前上阵上限重排预览条：槽位数 = cap，整条宽度、槽容器与信息区
+## 位置都随之伸缩（1 人时收窄、9 人时铺满），始终保持底部居中。
+## 烘焙版面按封顶 9 格摆的，运行时这里回落到真实 cap，避免低等级时一大条空栏。
+const BAR_SLOT := 68.0
+const BAR_GAP := 12.0
+func _layout_team_bar(cap: int) -> void:
+	var bar := _team_slots.get_parent() as Control
+	if bar == null:
+		return
+	var n := clampi(cap, 1, GameDB.team_max())
+	var slots_w := BAR_SLOT * float(n) + BAR_GAP * float(n - 1)
+	var info_x := 156.0 + slots_w + 12.0
+	var bar_w := info_x + 164.0 + 20.0
+	UI.anchor_bottom_center(bar, bar_w, 104, 152)
+	UI.place(_team_slots, 156, 18, slots_w, BAR_SLOT)
+	for key in ["TeamHint", "TeamPowerLabel"]:
+		var node := bar.get_node_or_null(key) as Control
+		if node != null:
+			UI.place(node, info_x, 22 if key == "TeamHint" else 52, 164, 30 if key == "TeamHint" else 34)
 
 
 ## 预览数据源：真实编队优先，空档时回落到当前预设（与编队页共用 SaveDB.resolved_team）。
@@ -124,7 +148,7 @@ func _lineup_power() -> int:
 ## 上方扇形与下方阵容栏共用的预览队：口径同 _lineup_units，最多取上阵上限个
 ## （与编队页人数口径一致）。这样「大卡」与「小头像」指向的永远是同一批英雄。
 func _preview_units() -> Array:
-	return _lineup_units().slice(0, GameDB.team_max())
+	return _lineup_units().slice(0, SaveDB.team_max())
 
 
 ## 是否已拥有任意英雄卡：主界面「大卡扇形 / 出战阵容 / 战力」三项共用的开关。
@@ -177,9 +201,9 @@ func _hide_empty_hint() -> void:
 	_empty_hint = null
 
 
-## 按实际卡数（1~上阵上限）现算一组左右对称的扇形排布：卡数随编队变化时扇形仍居中、
-## 不歪向一边。4/5 张时额外收紧整体缩放与间距，保证末卡不压到右侧入口栏；
-## 1~3 张沿用配置里的整体参数（menu.fan.scale / spacing_x）。
+## 按实际卡数（1~上阵上限，最多 9）现算一组左右对称的扇形排布：卡数随编队变化时扇形仍居中、
+## 不歪向一边。1~5 张沿用策划调好的固定参数；4/5 张额外收紧缩放与间距，保证末卡不压右侧
+## 入口栏；6~9 张按数量等比收紧（越多人卡越小越密），同样不压到右侧竖栏。
 func _fan_cfg(n: int) -> Dictionary:
 	var cfg: Dictionary = GameDB.menu().get("fan", {}).duplicate(true)
 	var per: Array = []
@@ -203,7 +227,7 @@ func _fan_cfg(n: int) -> Dictionary:
 				_fan_slot(4.0, -18.0, 1.00, 3),
 				_fan_slot(11.0, 34.0, 0.90, 2),
 			]
-		_:
+		5:
 			cfg["scale"] = 0.62
 			cfg["spacing_x"] = 300.0
 			per = [
@@ -213,6 +237,21 @@ func _fan_cfg(n: int) -> Dictionary:
 				_fan_slot(7.0, 8.0, 0.96, 4),
 				_fan_slot(14.0, 46.0, 0.86, 2),
 			]
+		_:
+			# 6~9 张：整体缩放到 maxf 下限，间距随数量收紧，逐张对称铺开（中间高、两侧低）
+			cfg["scale"] = maxf(0.40, 3.05 / float(n))
+			cfg["spacing_x"] = 300.0
+			var mid := float(n - 1) * 0.5
+			var spread := 14.0 / maxf(1.0, mid)   # 端点旋转角固定 ~14°，按半径摊到每张
+			for i in n:
+				var off := float(i) - mid           # -mid .. +mid
+				var a := absf(off) / maxf(1.0, mid) # 0（中心）.. 1（两端）
+				per.append(_fan_slot(
+					off * spread,
+					lerpf(-26.0, 46.0, a * a),
+					lerpf(1.04, 0.86, a),
+					n - int(round(absf(off) - mid)) # 中心 z 最高、向两端递减
+				))
 	cfg["per_index"] = per
 	return cfg
 

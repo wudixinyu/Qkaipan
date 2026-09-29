@@ -42,6 +42,10 @@ func run(tree: SceneTree) -> Dictionary:
 	# 让测试可重复：回到默认存档与满体力，避免上一次运行的残留污染断言
 	_backup_save()
 	SaveDB.reset_profile()
+	# 上阵上限现随玩家等级解锁（1 级 1 人、每 10 级 +1、封顶 9）；
+	# 本套用例默认按「cap 5」验历史编队逻辑，把等级抬到 40（1+40/10=5），
+	# 等级解锁公式本身另在 _check_config 里单独钉。结尾 _restore_save 会还原。
+	SaveDB.profile["player"]["level"] = 40
 	StaminaSys.fill()
 	BattleCtx.reset()
 
@@ -118,7 +122,11 @@ func _check_config() -> void:
 	print("\n· 编队配置口径")
 	var f := GameDB.formation()
 	_ok("formation 段存在", not f.is_empty())
-	_eq("上阵上限取自配置", GameDB.team_max(), MAX_MEMBERS)
+	# 上阵上限现在是「等级解锁」：GameDB.team_max() 是绝对封顶（=棋盘格 9），
+	# 玩家当前上限走 SaveDB.team_max()（本套用例抬到 40 级 → 5）。
+	_eq("绝对上阵封顶取自配置（=棋盘格数）", GameDB.team_max(), 9)
+	_eq("40 级当前上限 = 5（走 SaveDB.team_max）", SaveDB.team_max(), MAX_MEMBERS)
+	_check_team_unlock_formula()
 	_eq("棋盘槽位 9 格", GameDB.status_max(), 9)
 	_eq("扣体力的位置", GameDB.spend_stamina_at(), "formation")
 	_eq("阵容预设 3 栏", GameDB.presets().size(), 3)
@@ -143,6 +151,18 @@ func _check_config() -> void:
 	var comp := GameDB.stage_enemy_comp(1003)
 	_eq("1003 敌方正排人数 = 1（城堡重装卫兵）", int(comp["roles"].get("tank", 0)), 1)
 	_eq("1003 敌方元素种类 = 2（光 / 地）", (comp["elements"] as Dictionary).size(), 2)
+
+
+## 上阵解锁公式：1 级 1 人、每 10 级 +1、封顶 9（80 级满）、玩家等级上限 100。
+func _check_team_unlock_formula() -> void:
+	var cases := {1: 1, 9: 1, 10: 2, 20: 3, 40: 5, 79: 8, 80: 9, 100: 9}
+	for lvl in cases.keys():
+		_eq("%d 级 → 上阵上限 %d" % [lvl, cases[lvl]], GameDB.team_max_for_level(lvl), cases[lvl])
+	# 低等级写档会被动态上限裁掉：1 级只留 1 人
+	SaveDB.profile["player"]["level"] = 1
+	_eq("1 级 normalize 截到 1 人", SaveDB.normalize_team(
+		[{"slot": 1, "char_id": "knight_rock"}, {"slot": 5, "char_id": "pyro_girl"}]).size(), 1)
+	SaveDB.profile["player"]["level"] = 40
 
 
 # ---------------------------------------------------------------- 编队规范化
