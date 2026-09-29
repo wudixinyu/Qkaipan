@@ -1798,6 +1798,12 @@
     }
   ],
   "growth": {
+    "player_level": {
+      "base_exp_max": 800,
+      "exp_max_per_level": 200,
+      "max_level": 999,
+      "exp_item": "hero_exp"
+    },
     "level_up": {
       "cost_gold_per_level": 120,
       "cost_exp_per_level": 300,
@@ -2447,20 +2453,19 @@
       "nodes": [
         {
           "stage_id": 1001,
-          "__r": 110,
           "name": "初始之地",
           "level": 1,
           "kind": "battle",
           "tag": "",
-          "icon": "",
-          "icon_size": 0,
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
           "label_order": "name_level",
           "pos": [
-            649,
-            587
+            620,
+            700
           ],
-          "label_dy": 56,
-          "radius": 95,
+          "label_dy": 110,
+          "radius": 90,
           "z": 1,
           "pre_stage_id": 0,
           "demo_stars": 0,
@@ -2469,31 +2474,51 @@
           "recommend_power": 1000
         },
         {
+          "stage_id": 1002,
+          "name": "浮空森林",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            950,
+            540
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 2,
+          "pre_stage_id": 1001,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 6,
+          "recommend_power": 2500
+        },
+        {
           "stage_id": 1003,
-          "__r": 122,
           "name": "云端城堡",
           "level": 1,
           "kind": "elite",
           "tag": "精",
-          "icon": "",
-          "icon_size": 0,
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
           "label_order": "name_level",
           "pos": [
-            937,
-            400
+            1280,
+            700
           ],
-          "label_dy": 99,
+          "label_dy": 110,
           "radius": 100,
-          "z": 2,
-          "pre_stage_id": 1001,
-          "demo_stars": 1,
-          "demo_selected": true,
+          "z": 3,
+          "pre_stage_id": 1002,
+          "demo_stars": 0,
+          "demo_selected": false,
           "stamina": 8,
           "recommend_power": 4800
         },
         {
           "stage_id": 1004,
-          "__r": 90,
           "name": "风暴元素",
           "level": 1,
           "kind": "battle",
@@ -2502,17 +2527,149 @@
           "icon_size": 208,
           "label_order": "level_name",
           "pos": [
-            1207,
-            643
+            620,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 6,
+          "recommend_power": 6200
+        },
+        {
+          "stage_id": 1005,
+          "name": "元素祭坛",
+          "level": 1,
+          "kind": "event",
+          "tag": "福",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            950,
+            540
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 2,
+          "pre_stage_id": 1004,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 0,
+          "recommend_power": 0
+        },
+        {
+          "stage_id": 1006,
+          "name": "破碎遗迹",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            1280,
+            700
           ],
           "label_dy": 110,
           "radius": 90,
           "z": 3,
-          "pre_stage_id": 1003,
-          "demo_stars": 2,
+          "pre_stage_id": 1005,
+          "demo_stars": 0,
           "demo_selected": false,
           "stamina": 6,
-          "recommend_power": 6200
+          "recommend_power": 7800
+        },
+        {
+          "stage_id": 1007,
+          "name": "奇遇喷泉",
+          "level": 1,
+          "kind": "rest",
+          "tag": "休",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            560,
+            680
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 0,
+          "recommend_power": 0
+        },
+        {
+          "stage_id": 1008,
+          "name": "精英部落",
+          "level": 1,
+          "kind": "elite",
+          "tag": "精",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            820,
+            470
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 2,
+          "pre_stage_id": 1007,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 10,
+          "recommend_power": 10500
+        },
+        {
+          "stage_id": 1009,
+          "name": "枯髅门前哨",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            1080,
+            680
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 3,
+          "pre_stage_id": 1008,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 6,
+          "recommend_power": 11200
+        },
+        {
+          "stage_id": 1010,
+          "name": "枯髅门 · 巨石守卫",
+          "level": 1,
+          "kind": "boss",
+          "tag": "王",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            1340,
+            470
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 4,
+          "pre_stage_id": 1009,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 12500
         }
       ],
       "decor_islands": [
@@ -2571,7 +2728,297 @@
           "icon": "res://assets/icons/stage_isle_plain.svg"
         }
       ],
-      "stamina_note": "每关体力以关卡自身的 stamina 为准（1001 引导关免费、1003 精英 8 点、1008 高难支线 10 点）；adventure.stamina_per_stage 只作为缺省值。"
+      "stamina_note": "每关体力以关卡自身的 stamina 为准（1001 引导关免费、1003 精英 8 点、1008 高难支线 10 点）；adventure.stamina_per_stage 只作为缺省值。",
+      "chapter_tabs": {
+        "note": "顶部章节切换栏。仅 chapter_id 对应章节有地图数据，其余为锁定占位；locked 由 chapter_id 是否为当前章推导，也可在此显式覆盖。",
+        "items": [
+          {
+            "id": "ch1",
+            "label": "第一章",
+            "name": "云上浮岛·初始之痕",
+            "locked": false
+          },
+          {
+            "id": "ch2",
+            "label": "第二章",
+            "name": "熔金回廊",
+            "locked": true
+          },
+          {
+            "id": "ch3",
+            "label": "第三章",
+            "name": "星辉圣殿",
+            "locked": true
+          }
+        ]
+      },
+      "nodes_note": "第一章按 3-3-4 拆成 3 个小节，每小节一张独立子地图；本 nodes 为各小节节点拼平的 legacy 镜像，渲染以 sections 为准。",
+      "sections": [
+        {
+          "id": "ch1_s1",
+          "label": "第一节",
+          "name": "初临浮岛",
+          "chapter_id": "ch1",
+          "stage_ids": [
+            1001,
+            1002,
+            1003
+          ],
+          "gate_stage_id": 1003,
+          "nodes": [
+            {
+              "stage_id": 1001,
+              "name": "初始之地",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                620,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 0,
+              "recommend_power": 1000
+            },
+            {
+              "stage_id": 1002,
+              "name": "浮空森林",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                950,
+                540
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 2,
+              "pre_stage_id": 1001,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 6,
+              "recommend_power": 2500
+            },
+            {
+              "stage_id": 1003,
+              "name": "云端城堡",
+              "level": 1,
+              "kind": "elite",
+              "tag": "精",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                1280,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 3,
+              "pre_stage_id": 1002,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 4800
+            }
+          ]
+        },
+        {
+          "id": "ch1_s2",
+          "label": "第二节",
+          "name": "风暴试炼",
+          "chapter_id": "ch1",
+          "stage_ids": [
+            1004,
+            1005,
+            1006
+          ],
+          "gate_stage_id": 1006,
+          "nodes": [
+            {
+              "stage_id": 1004,
+              "name": "风暴元素",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_storm.svg",
+              "icon_size": 208,
+              "label_order": "level_name",
+              "pos": [
+                620,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 6,
+              "recommend_power": 6200
+            },
+            {
+              "stage_id": 1005,
+              "name": "元素祭坛",
+              "level": 1,
+              "kind": "event",
+              "tag": "福",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                950,
+                540
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 2,
+              "pre_stage_id": 1004,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 0,
+              "recommend_power": 0
+            },
+            {
+              "stage_id": 1006,
+              "name": "破碎遗迹",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                1280,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 3,
+              "pre_stage_id": 1005,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 6,
+              "recommend_power": 7800
+            }
+          ]
+        },
+        {
+          "id": "ch1_s3",
+          "label": "第三节",
+          "name": "枯髅之门",
+          "chapter_id": "ch1",
+          "stage_ids": [
+            1007,
+            1008,
+            1009,
+            1010
+          ],
+          "gate_stage_id": 1010,
+          "nodes": [
+            {
+              "stage_id": 1007,
+              "name": "奇遇喷泉",
+              "level": 1,
+              "kind": "rest",
+              "tag": "休",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                560,
+                680
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 0,
+              "recommend_power": 0
+            },
+            {
+              "stage_id": 1008,
+              "name": "精英部落",
+              "level": 1,
+              "kind": "elite",
+              "tag": "精",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                820,
+                470
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 2,
+              "pre_stage_id": 1007,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 10,
+              "recommend_power": 10500
+            },
+            {
+              "stage_id": 1009,
+              "name": "枯髅门前哨",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                1080,
+                680
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 3,
+              "pre_stage_id": 1008,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 6,
+              "recommend_power": 11200
+            },
+            {
+              "stage_id": 1010,
+              "name": "枯髅门 · 巨石守卫",
+              "level": 1,
+              "kind": "boss",
+              "tag": "王",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                1340,
+                470
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 4,
+              "pre_stage_id": 1009,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 12500
+            }
+          ]
+        }
+      ],
+      "sections_note": "小节唯一数据源。gate_stage_id = 该节守关关，通关它即解锁下一小节；节内 pre_stage_id 为线性链，跨节连线已丢弃。"
     },
     "chapter_stages": {
       "chapter_id": "ch1",

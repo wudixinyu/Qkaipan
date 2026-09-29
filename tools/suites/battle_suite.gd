@@ -797,7 +797,7 @@ func _check_interact() -> void:
 
 
 ## 结算同步：星级评分 → progress.stage_stars（只升不降），材料 → 材料仓 + 累计统计。
-## 这条链是「战斗结果 → 选关地图星星」的唯一通路，断了的话地图上永远是配置里的展演值。
+## 这条链是「战斗结果 → 选关地图星星」的唯一通路，断了的话地图上永远是无星。
 func _check_settle_sync() -> void:
 	print("\n· 结算同步：星级评分与材料统计")
 	if _scene == null or _scene.get("core") == null:

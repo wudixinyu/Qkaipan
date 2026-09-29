@@ -95,7 +95,7 @@ SELECT_MAP = {
             "radius": 100,
             "z": 2,
             "pre_stage_id": 1001,
-            "demo_stars": 1,
+            "demo_stars": 0,
             "demo_selected": True,
         },
         {
@@ -113,7 +113,7 @@ SELECT_MAP = {
             "radius": 90,
             "z": 3,
             "pre_stage_id": 1003,
-            "demo_stars": 2,
+            "demo_stars": 0,
             "demo_selected": False,
         },
     ],

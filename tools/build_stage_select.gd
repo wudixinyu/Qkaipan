@@ -34,6 +34,7 @@ const UNIQUE_NAMES := [
 	"StaminaValue", "StaminaNext", "TitleLabel",
 	"DecorLayer", "GuideLayer", "NodeLayer", "TeamSlots", "TeamLabel",
 	"EnterButton", "EnterSub", "BackButton", "FooterInfo", "Toast", "ToastLabel",
+	"ChapterTabs", "SectionTabs",
 ]
 
 var _root: Control
@@ -97,6 +98,8 @@ func _build() -> void:
 	_build_player_plate(hud)
 	_build_stamina_badge(hud)
 	_build_title(hud)
+	_build_chapter_tabs(hud)
+	_build_section_tabs(hud)
 	_build_top_right(hud)
 	_build_map_layer(hud)
 	_build_toast(hud)
@@ -258,6 +261,31 @@ func _build_title(hud: Control) -> void:
 	# label_shadow 内部是「底层深色 + 顶层亮色」两层，顶层才是可见文字
 	if holder.get_child_count() >= 2:
 		holder.get_child(1).name = "TitleLabel"
+
+
+# ---------------------------------------------------------------- 顶部中央：章节切换栏
+
+## 只留一个居中的空容器，具体页签按钮由 stage_select.gd 按 chapter_tabs 配置填充。
+## 放在标题下方（标题高约 104、顶偏 18，故从 y≈132 起），不跟地图节点抢空间。
+func _build_chapter_tabs(hud: Control) -> void:
+	var box := HBoxContainer.new()
+	box.name = "ChapterTabs"
+	box.add_theme_constant_override("separation", 16)
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	UI.anchor_top_center(box, 760, 56, 132)
+	_mk(hud, box, "ChapterTabs", true)
+
+
+## 章节下方的小节切换栏：同样只留一个居中的空容器，具体页签由 stage_select.gd
+## 按 adventure.select_map.sections 填充（当前小节高亮、锁定小节置灰）。
+## 紧贴章节栏下方（章节栏 y=132 高 56），从 y≈200 起。
+func _build_section_tabs(hud: Control) -> void:
+	var box := HBoxContainer.new()
+	box.name = "SectionTabs"
+	box.add_theme_constant_override("separation", 14)
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	UI.anchor_top_center(box, 720, 50, 200)
+	_mk(hud, box, "SectionTabs", true)
 
 
 # ---------------------------------------------------------------- 右上：功能入口

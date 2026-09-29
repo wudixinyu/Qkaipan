@@ -269,6 +269,28 @@ func equipment_slot_count() -> int:
 	return int(growth().get("equipment", {}).get("slot_count", 4))
 
 
+## 账号等级曲线（growth.player_level）：胜利经验走这条线升级，与卡片升级无关
+func player_level_cfg() -> Dictionary:
+	return growth().get("player_level", {})
+
+
+## 某一等级升到下一级所需经验：base + (level-1) × per_level
+func player_exp_max(level: int) -> int:
+	var c := player_level_cfg()
+	var base := int(c.get("base_exp_max", 800))
+	var per := int(c.get("exp_max_per_level", 200))
+	return maxi(1, base + maxi(0, level - 1) * per)
+
+
+## 账号等级上限与经验道具 id
+func player_max_level() -> int:
+	return int(player_level_cfg().get("max_level", 999))
+
+
+func player_exp_item() -> String:
+	return str(player_level_cfg().get("exp_item", "hero_exp"))
+
+
 ## 空白装备槽：长度恒为 slot_count，空槽写 ""（显式卸下语义）。
 ## 存档卡与演示卡都走这里，避免两种卡片结构不一致。
 func blank_equipment() -> Array:
@@ -595,9 +617,78 @@ func select_map() -> Dictionary:
 	return v if typeof(v) == TYPE_DICTIONARY else {}
 
 
+## 全部关卡节点：优先按小节聚合（sections 为唯一渲染源），
+## 无小节数据时回落到旧的扁平 nodes。
 func stage_nodes() -> Array:
+	var secs := sections()
+	if not secs.is_empty():
+		var out: Array = []
+		for raw in secs:
+			if raw is Dictionary:
+				out.append_array(section_nodes(str((raw as Dictionary).get("id", ""))))
+		return out
 	var v: Variant = select_map().get("nodes", [])
 	return v if v is Array else []
+
+
+## 小节列表（select_map.sections）：每节 {id,label,name,chapter_id,stage_ids,gate_stage_id,nodes}
+func sections() -> Array:
+	var v: Variant = select_map().get("sections", [])
+	return v if v is Array else []
+
+
+## 按 id 取某一小节配置（与上方通用 section(key) 区分，故命名 section_cfg）
+func section_cfg(section_id: String) -> Dictionary:
+	for raw in sections():
+		if raw is Dictionary and str(raw.get("id", "")) == section_id:
+			return raw
+	return {}
+
+
+## 小节 id 顺序表
+func section_order() -> Array:
+	var out: Array = []
+	for raw in sections():
+		if raw is Dictionary:
+			out.append(str(raw.get("id", "")))
+	return out
+
+
+## 某小节的节点列表
+func section_nodes(section_id: String) -> Array:
+	var v: Variant = section_cfg(section_id).get("nodes", [])
+	return v if v is Array else []
+
+
+## 某小节的守关关 id（通关它即解锁下一小节）
+func section_gate_stage(section_id: String) -> int:
+	return int(section_cfg(section_id).get("gate_stage_id", 0))
+
+
+## 关卡属于哪个小节 id（遍历各节 stage_ids）
+func stage_section_id(stage_id: int) -> String:
+	for raw in sections():
+		if not (raw is Dictionary):
+			continue
+		for sid in (raw as Dictionary).get("stage_ids", []):
+			if int(sid) == stage_id:
+				return str((raw as Dictionary).get("id", ""))
+	return ""
+
+
+## 某小节内的引导线：[[pre, cur], ...]，仅两端都属该节者计入
+func section_links(section_id: String) -> Array:
+	var ids := {}
+	for sid in section_cfg(section_id).get("stage_ids", []):
+		ids[int(sid)] = true
+	var out: Array = []
+	for raw in section_nodes(section_id):
+		if not (raw is Dictionary):
+			continue
+		var pre := int(raw.get("pre_stage_id", 0))
+		if pre > 0 and ids.has(pre):
+			out.append([pre, int(raw.get("stage_id", 0))])
+	return out
 
 
 func stage_node(stage_id: int) -> Dictionary:
@@ -624,6 +715,35 @@ func stage_links() -> Array:
 			var pre := int(raw.get("pre_stage_id", 0))
 			if pre > 0:
 				out.append([pre, int(raw.get("stage_id", 0))])
+	return out
+
+
+## 章节列表（adventure.chapters）：[{id, name, stages, ...}, ...]
+func chapters() -> Array:
+	var v: Variant = adventure().get("chapters", [])
+	return v if v is Array else []
+
+
+## 当前选关页所属章节 id（select_map.chapter_id）
+func current_chapter_id() -> String:
+	return str(select_map().get("chapter_id", ""))
+
+
+## 顶部章节切换栏配置（select_map.chapter_tabs.items）：
+## [{id, label, name, locked}, ...]。locked 缺省时按「是否当前章」推导。
+func chapter_tabs() -> Array:
+	var items: Variant = select_map().get("chapter_tabs", {}).get("items", [])
+	if not (items is Array):
+		return []
+	var cur := current_chapter_id()
+	var out: Array = []
+	for raw in items:
+		if not (raw is Dictionary):
+			continue
+		var tab: Dictionary = raw
+		if not tab.has("locked"):
+			tab["locked"] = str(tab.get("id", "")) != cur
+		out.append(tab)
 	return out
 
 

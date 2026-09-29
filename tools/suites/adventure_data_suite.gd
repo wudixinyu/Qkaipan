@@ -137,14 +137,14 @@ func _check_nodes() -> void:
 	_eq("云端城堡 名称", str(n3.get("name", "")), "云端城堡")
 	_eq("云端城堡 类型为精英", str(n3.get("kind", "")), "elite")
 	_eq("云端城堡 角标", str(n3.get("tag", "")), "精")
-	# 概念稿里这颗星只点亮第一颗，曾误读成三星，放大核对后订正
-	_eq("云端城堡 一星", int(n3.get("demo_stars", -1)), 1)
+	# 地图星默认无星：只认存档历史最佳，配置里的 demo_stars 一律置 0
+	_eq("云端城堡 无星（默认不展示演星）", int(n3.get("demo_stars", -1)), 0)
 	_ok("云端城堡 为默认选中", bool(n3.get("demo_selected", false)))
 	_eq("云端城堡 不叠图标（城堡由背景自带）", str(n3.get("icon", "")), "")
 
 	var n4: Dictionary = GameDB.stage_node(1004)
 	_eq("风暴元素 名称", str(n4.get("name", "")), "风暴元素")
-	_eq("风暴元素 两星", int(n4.get("demo_stars", -1)), 2)
+	_eq("风暴元素 无星（默认不展示演星）", int(n4.get("demo_stars", -1)), 0)
 	_eq("风暴元素 等级行在上", str(n4.get("label_order", "")), "level_name")
 	_ok("风暴元素 图标已导入", ResourceLoader.exists(str(n4.get("icon", ""))),
 		str(n4.get("icon", "")))

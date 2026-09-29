@@ -947,6 +947,7 @@ func _show_result() -> void:
 	if win:
 		# 先评星再入账：星级要连同材料一起写进存档，结算面板读的是同一份数据
 		_grade = _rate_stars()
+		var lv_before := int(SaveDB.player().get("level", 1))
 		_rewards = _grant_rewards()
 		_sync_progress(_grade, _rewards)
 		_add_star_row(_grade)
@@ -957,6 +958,7 @@ func _show_result() -> void:
 				int(r.get("count", 0)), int(r.get("owned", -1)))
 		if _rewards.is_empty():
 			_add_reward_line("（本关为重复通关，奖励已领取）", Color(0.86, 0.9, 0.96, 0.7), 20)
+		_add_exp_line(lv_before)
 		_add_reward_line(_tally_line(), Color(0.80, 0.88, 0.98, 0.86), 19)
 	else:
 		# 打完就记一场：失败 / 撤退只累计场次，不发奖、不动地图上的星星
@@ -1124,6 +1126,28 @@ func _grade_line(grade: Dictionary) -> String:
 		("  ｜  " + detail) if detail != "" else ""]
 
 
+## 经验/升级行：把本场胜利经验与是否升级直接报出来，
+## 与主界面 / 选关页头部读同一份存档，保证「打完即升级」看得见。
+func _add_exp_line(lv_before: int) -> void:
+	var exp_item := GameDB.player_exp_item()
+	var gained := 0
+	for raw in _rewards:
+		var r: Dictionary = raw
+		if str(r.get("id", "")) == exp_item:
+			gained += int(r.get("count", 0))
+	if gained <= 0:
+		return
+	var p := SaveDB.player()
+	var lv_now := int(p.get("level", 1))
+	if lv_now > lv_before:
+		_add_reward_line("经验 +%d  ｜  升级！Lv.%d → Lv.%d" % [gained, lv_before, lv_now],
+			Color("#FFE9A8"), 22)
+	else:
+		_add_reward_line("经验 +%d  ｜  Lv.%d（%d/%d）"
+			% [gained, lv_now, int(p.get("exp", 0)), int(p.get("exp_max", 800))],
+			Color(0.86, 0.9, 0.96, 0.8), 20)
+
+
 ## 结算底部统计行：材料仓累计 + 累计星级 / 通关场次，口径全部走 SaveDB
 func _tally_line() -> String:
 	var tally := SaveDB.material_tally()
@@ -1152,6 +1176,10 @@ func _grant_rewards() -> Array:
 		if not GameDB.currency(rid).is_empty():
 			SaveDB.add_currency(rid, cnt)
 			owned = SaveDB.balance(rid)
+		elif rid == GameDB.player_exp_item():
+			# 胜利经验不再堆进材料仓，直接入账号经验并触发升级
+			var up := SaveDB.add_player_exp(cnt, false)
+			owned = int(up.get("exp", 0))
 		else:
 			owned = SaveDB.add_material(rid, cnt)
 		out.append({"id": rid, "name": str(r.get("name", rid)), "count": cnt,

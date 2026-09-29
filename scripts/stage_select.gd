@@ -38,6 +38,8 @@ const SELECTED_SCALE := 1.12             ## 选中节点整体放大，对应稿
 @onready var _node_layer: Control = %NodeLayer
 @onready var _guide_layer: Control = %GuideLayer
 @onready var _decor_layer: Control = %DecorLayer
+@onready var _chapter_tabs: HBoxContainer = %ChapterTabs
+@onready var _section_tabs: HBoxContainer = %SectionTabs
 @onready var _team_slots: HBoxContainer = %TeamSlots
 @onready var _enter: Button = %EnterButton
 @onready var _enter_sub: Label = %EnterSub
@@ -51,10 +53,14 @@ const SELECTED_SCALE := 1.12             ## 选中节点整体放大，对应稿
 @onready var _gem: Label = %GemLabel
 @onready var _player_name: Label = %PlayerName
 @onready var _player_level: Label = %PlayerLevel
+@onready var _exp_bar: ProgressBar = %ExpBar
 @onready var _avatar: TextureRect = %AvatarTex
 
 var _selected := 0
 var _nodes: Dictionary = {}          # stage_id -> Button
+var _chapter_btns: Dictionary = {}   # chapter_id -> Button
+var _section_btns: Dictionary = {}   # section_id -> Button
+var _current_section := ""           # 当前展示的小节 id
 var _toast_tween: Tween
 var _glow_tween: Tween
 var _clock: Timer
@@ -63,6 +69,12 @@ var _intro_done := false
 
 func _ready() -> void:
 	_bind_player()
+	_build_chapter_tabs()
+	# 默认停在已解锁的最高小节（frontier）；打完返回时按存档重算，自然展示新解锁小节
+	var order: Array = GameDB.section_order()
+	if not order.is_empty():
+		_current_section = str(order[_frontier_section_index()])
+	_build_section_tabs()
 	_build_map()
 	_build_team()
 	_bind_inputs()
@@ -79,6 +91,11 @@ func _bind_player() -> void:
 	var p: Dictionary = SaveDB.profile.get("player", {})
 	_player_name.text = str(p.get("name", "云上旅人"))
 	_player_level.text = "Lv.%d" % int(p.get("level", 1))
+	# 经验条与主界面同口径：运行时以存档为准回写，不靠场景烘焙值
+	var exp_max := maxi(1, int(p.get("exp_max", GameDB.player_exp_max(int(p.get("level", 1))))))
+	if _exp_bar != null:
+		_exp_bar.max_value = exp_max
+		_exp_bar.value = clampi(int(p.get("exp", 0)), 0, exp_max)
 
 	var av := str(p.get("avatar", ""))
 	if av != "" and ResourceLoader.exists(av):
@@ -86,6 +103,159 @@ func _bind_player() -> void:
 
 	_gold.text = UI.fmt_num(SaveDB.balance("gold"))
 	_gem.text = UI.fmt_num(SaveDB.balance("gem"))
+
+
+# ---------------------------------------------------------------- 章节切换栏
+
+## 按 chapter_tabs 配置铺出顶部页签：当前章高亮可点，其余章置灰。
+## 目前只有当前章（ch1）有地图数据，所以锁定章与非当前章都只给反馈、不重建地图。
+func _build_chapter_tabs() -> void:
+	_clear(_chapter_tabs)
+	_chapter_btns.clear()
+	var cur := GameDB.current_chapter_id()
+
+	for raw in GameDB.chapter_tabs():
+		var tab: Dictionary = raw
+		var id := str(tab.get("id", ""))
+		var locked := bool(tab.get("locked", id != cur))
+		var is_current := id == cur
+
+		var btn := Button.new()
+		btn.name = "ChapterTab_%s" % id
+		btn.text = str(tab.get("label", id))
+		btn.custom_minimum_size = Vector2(240, 56)
+		btn.focus_mode = Control.FOCUS_NONE
+		btn.add_theme_font_override("font", load(UI.FONT_MAIN))
+		btn.add_theme_font_size_override("font_size", 26)
+
+		var bg := Color(0.09, 0.07, 0.13, 0.60)
+		var border := Color(1.0, 0.85, 0.45, 0.35)
+		var font := Color(1, 1, 1, 0.55)
+		if is_current:
+			bg = Color("#FFC94A")
+			border = Color("#B8791F")
+			font = Color("#4A2408")
+		elif not locked:
+			border = Color(1.0, 0.85, 0.45, 0.6)
+			font = UI.CREAM
+		btn.add_theme_stylebox_override("normal", UI.style(bg, 16, 3, border, 10, Color(0, 0, 0, 0.4)))
+		btn.add_theme_stylebox_override("hover",
+			UI.style(bg.lightened(0.08), 16, 3, border.lightened(0.15), 14, Color(0, 0, 0, 0.45)))
+		btn.add_theme_stylebox_override("pressed", UI.style(bg.darkened(0.1), 16, 3, border, 6, Color(0, 0, 0, 0.4)))
+		btn.add_theme_stylebox_override("focus", UI.style(Color(0, 0, 0, 0), 16))
+		btn.add_theme_color_override("font_color", font)
+		btn.add_theme_color_override("font_hover_color", font)
+		btn.add_theme_color_override("font_pressed_color", font)
+
+		var name_txt := str(tab.get("name", ""))
+		btn.tooltip_text = name_txt if locked or is_current else "%s · 可切换" % name_txt
+		if locked:
+			btn.tooltip_text = "%s · 敬请期待" % name_txt
+		btn.pressed.connect(_on_chapter_pressed.bind(id, locked, str(tab.get("label", id)), name_txt))
+		_chapter_tabs.add_child(btn)
+		_chapter_btns[id] = btn
+
+
+func _on_chapter_pressed(id: String, locked: bool, label: String, chap_name: String) -> void:
+	if id == GameDB.current_chapter_id():
+		return  # 当前章：不重建，保持已选关卡
+	if locked:
+		_show_toast("%s（%s）尚未解锁 · 敬请期待" % [label, chap_name])
+		return
+	# 非锁定但尚无地图数据的章节（未来扩展位）
+	_show_toast("%s（%s）地图待接入" % [label, chap_name])
+
+
+# ---------------------------------------------------------------- 小节切换栏
+
+## 按 sections 配置铺出小节页签：当前节高亮、已解锁未选中节可点、锁定节置灰。
+func _build_section_tabs() -> void:
+	_clear(_section_tabs)
+	_section_btns.clear()
+	var order: Array = GameDB.section_order()
+	for i in order.size():
+		var id := str(order[i])
+		var cfg := GameDB.section_cfg(id)
+		var unlocked := _section_unlocked(i)
+		var is_current := id == _current_section
+
+		var btn := Button.new()
+		btn.name = "SectionTab_%s" % id
+		btn.text = str(cfg.get("label", id))
+		btn.custom_minimum_size = Vector2(200, 48)
+		btn.focus_mode = Control.FOCUS_NONE
+		btn.add_theme_font_override("font", load(UI.FONT_MAIN))
+		btn.add_theme_font_size_override("font_size", 22)
+
+		var bg := Color(0.09, 0.07, 0.13, 0.55)
+		var border := Color(1.0, 0.85, 0.45, 0.30)
+		var font := Color(1, 1, 1, 0.5)
+		if is_current:
+			bg = Color("#FFC94A")
+			border = Color("#B8791F")
+			font = Color("#4A2408")
+		elif unlocked:
+			border = Color(1.0, 0.85, 0.45, 0.6)
+			font = UI.CREAM
+		btn.add_theme_stylebox_override("normal", UI.style(bg, 14, 2, border, 9, Color(0, 0, 0, 0.4)))
+		btn.add_theme_stylebox_override("hover",
+			UI.style(bg.lightened(0.08), 14, 2, border.lightened(0.15), 12, Color(0, 0, 0, 0.45)))
+		btn.add_theme_stylebox_override("pressed", UI.style(bg.darkened(0.1), 14, 2, border, 5, Color(0, 0, 0, 0.4)))
+		btn.add_theme_stylebox_override("focus", UI.style(Color(0, 0, 0, 0), 14))
+		btn.add_theme_color_override("font_color", font)
+		btn.add_theme_color_override("font_hover_color", font)
+		btn.add_theme_color_override("font_pressed_color", font)
+
+		var sec_name := str(cfg.get("name", ""))
+		if not unlocked:
+			btn.tooltip_text = "%s · 通关上一小节解锁" % sec_name
+		elif is_current:
+			btn.tooltip_text = sec_name
+		else:
+			btn.tooltip_text = "%s · 可切换" % sec_name
+		btn.pressed.connect(_on_section_pressed.bind(id, unlocked, str(cfg.get("label", id)), sec_name))
+		_section_tabs.add_child(btn)
+		_section_btns[id] = btn
+
+
+func _on_section_pressed(id: String, unlocked: bool, label: String, sec_name: String) -> void:
+	if id == _current_section:
+		return  # 当前节：不重建，保持已选关卡
+	if not unlocked:
+		_show_toast("%s（%s）尚未解锁 · 请先通关上一小节" % [label, sec_name])
+		return
+	_switch_section(id)
+
+
+## 切到某个小节：换当前节 → 重铺页签高亮 → 重画子地图 → 选默认关
+func _switch_section(id: String) -> void:
+	_current_section = id
+	_build_section_tabs()
+	_build_map()
+	_select_stage(_default_stage())
+
+
+## 第 idx 节是否解锁：首节恒开；其余需「上一节守关关」已通关（存档 stage_clears）
+func _section_unlocked(idx: int) -> bool:
+	if idx <= 0:
+		return true
+	var order: Array = GameDB.section_order()
+	if idx >= order.size():
+		return false
+	var prev_gate := GameDB.section_gate_stage(str(order[idx - 1]))
+	return prev_gate > 0 and SaveDB.stage_clear_count(prev_gate) > 0
+
+
+## 已解锁的最高小节下标（frontier）：从 0 起连续解锁到的最后一节
+func _frontier_section_index() -> int:
+	var order: Array = GameDB.section_order()
+	var frontier := 0
+	for i in order.size():
+		if _section_unlocked(i):
+			frontier = i
+		else:
+			break
+	return frontier
 
 
 ## 按配置锚点铺出地图：引导线在下，关卡节点在上
@@ -103,11 +273,15 @@ func _build_map() -> void:
 
 	_draw_guides()
 
-	for raw in GameDB.stage_nodes():
+	for raw in GameDB.section_nodes(_current_section):
 		var cfg: Dictionary = raw
 		var btn := _make_stage_node(cfg)
 		_nodes[int(cfg.get("stage_id", 0))] = btn
 		_node_layer.add_child(btn)
+
+	# 每次重铺子地图都要重新接好节点的 pressed：切小节时旧按钮被释放，
+	# 只连一次的话新节点就点不动（选中 / 进关都会失灵）。
+	_bind_nodes()
 
 
 func _clear(holder: Node) -> void:
@@ -236,7 +410,7 @@ func _make_star_row(stars: int, center_y: float) -> HBoxContainer:
 ## 两端各按节点的 radius 从中心收回 —— 概念稿里的引导线是两座浮岛之间露出的
 ## 一小段，直接连中心的话会横穿城堡、盖住关卡名，还会在石台上拖出一整条长线。
 func _draw_guides() -> void:
-	for pair in GameDB.stage_links():
+	for pair in GameDB.section_links(_current_section):
 		var a := int(pair[0])
 		var b := int(pair[1])
 		var pa := GameDB.stage_node_pos(a)
@@ -305,13 +479,17 @@ func _build_team() -> void:
 # ---------------------------------------------------------------- 选中与交互
 
 func _bind_inputs() -> void:
-	for key in _nodes.keys():
-		var btn: Button = _nodes[key]
-		btn.pressed.connect(_select_stage.bind(int(key)))
 	_enter.pressed.connect(_on_enter_pressed)
 	_back.pressed.connect(_on_back_pressed)
 	for node in _find_all(self, "Btn_"):
 		(node as Button).pressed.connect(_on_entry_pressed.bind(str(node.name).trim_prefix("Btn_")))
+
+
+## 关卡节点的选中信号：随子地图重铺而接（节点每次重建，_build_map 末尾调用）
+func _bind_nodes() -> void:
+	for key in _nodes.keys():
+		var btn: Button = _nodes[key]
+		btn.pressed.connect(_select_stage.bind(int(key)))
 
 
 ## 选中态：光晕 + 提亮 + 整体轻微放大（对应概念稿里 1003 比另两处更醒目）。
@@ -380,6 +558,11 @@ func _on_enter_pressed() -> void:
 	if cfg.is_empty():
 		_show_toast("没有可进入的关卡")
 		return
+	# 事件 / 休息节点（祭坛、喷泉）不是战斗关，进不了战场，先拦下给反馈
+	if not GameDB.stage_is_battle(_selected):
+		_show_toast("「%s」是%s节点，功能待接入" % [
+			str(cfg.get("name", "")), GameDB.stage_kind_name(str(cfg.get("kind", "")))])
+		return
 	# 体力以关卡自身为准：1001 新手引导关免费、1003 精英 8 点、1008 高难支线 10 点，
 	# 只有没写 stamina 的关卡才回落到全局缺省值
 	var cost := GameDB.stage_stamina(_selected)
@@ -444,13 +627,10 @@ func _on_entry_pressed(id: String) -> void:
 
 # ---------------------------------------------------------------- 关卡星数
 
-## 优先取存档进度，未记录时回落到配置里的展演值（demo_stars）
+## 只认存档里的历史最佳：默认（没打过 / 没记录）就是 0 星不画，
+## 配置里的 demo_stars 只是空值占位，不再作为地图星数的回落来源
 func _stars_of(stage_id: int) -> int:
-	var best: int = SaveDB.stage_stars(stage_id)
-	if best > 0:
-		return best
-	var cfg: Dictionary = GameDB.stage_node(stage_id)
-	return int(cfg.get("demo_stars", 0))
+	return SaveDB.stage_stars(stage_id)
 
 
 ## 只认存档里的历史最佳（不含配置展演值）—— 只有它才够格叫「历史最佳」
@@ -464,15 +644,18 @@ func _stars_text(stars: int) -> String:
 
 
 func _default_stage() -> int:
-	for raw in GameDB.stage_nodes():
-		var n: Dictionary = raw
-		if bool(n.get("demo_selected", false)):
-			return int(n.get("stage_id", 0))
-	var list: Array = GameDB.stage_nodes()
-	if list.is_empty():
+	var nodes: Array = GameDB.section_nodes(_current_section)
+	if nodes.is_empty():
 		return 0
-	var head: Dictionary = list[0]
-	return int(head.get("stage_id", 0))
+	for raw in nodes:
+		if bool(raw.get("demo_selected", false)):
+			return int(raw.get("stage_id", 0))
+	# 停在首个未通关关；全通关则停在末关
+	for raw in nodes:
+		var sid := int(raw.get("stage_id", 0))
+		if SaveDB.stage_clear_count(sid) == 0:
+			return sid
+	return int((nodes[nodes.size() - 1] as Dictionary).get("stage_id", 0))
 
 
 # ---------------------------------------------------------------- 体力
@@ -498,7 +681,7 @@ func _refresh_stamina() -> void:
 
 func _play_intro() -> void:
 	var i := 0
-	for raw in GameDB.stage_nodes():
+	for raw in GameDB.section_nodes(_current_section):
 		var sid := int(raw.get("stage_id", 0))
 		if not _nodes.has(sid):
 			continue

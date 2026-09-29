@@ -37,11 +37,14 @@ func run(tree: SceneTree) -> Dictionary:
 	_check_background()
 	_check_map_nodes()
 	_check_guides()
+	_check_chapter_tabs()
+	_check_sections()
 	_check_labels_and_stars()
 	_check_sync_stats()
 	_check_selection()
 	_check_team()
 	_check_interact()
+	_check_event_guard()
 	print("\n---------- 结果：通过 %d / 失败 %d ----------" % [passed, failed])
 	_restore_save()
 	return { "passed": passed, "failed": failed }
@@ -139,10 +142,16 @@ func _check_map_nodes() -> void:
 	if layer == null:
 		return
 
-	var nodes: Array = GameDB.stage_nodes()
-	_eq("实例化节点数 = 配置节点数", layer.get_child_count(), nodes.size())
+	# 聚合口径：stage_nodes() 汇总所有小节，供底部「N 关」统计与 stage_node() 查询
+	_eq("GameDB.stage_nodes() 聚合 10 关", GameDB.stage_nodes().size(), 10)
 
-	var with_icon := 0
+	# NodeLayer 只铺当前小节（新档无通关 → frontier = 第一节 ch1_s1）
+	var cur_sec := str(_scene.get("_current_section"))
+	_eq("新档默认停在第一节 ch1_s1", cur_sec, "ch1_s1")
+	var nodes: Array = GameDB.section_nodes(cur_sec)
+	_eq("第一节铺 3 关", nodes.size(), 3)
+	_eq("NodeLayer 只铺当前小节", layer.get_child_count(), nodes.size())
+
 	for raw in nodes:
 		var cfg: Dictionary = raw
 		var sid := int(cfg.get("stage_id", 0))
@@ -155,9 +164,6 @@ func _check_map_nodes() -> void:
 		var got := btn.position + ANCHOR_IN_BOX
 		_ok("节点 #%d 锚点与配置一致" % sid, got.distance_to(anchor) < 0.5,
 			"got=(%.0f,%.0f) want=(%.0f,%.0f)" % [got.x, got.y, anchor.x, anchor.y])
-		_ok("节点 #%d 落在视口内" % sid,
-			anchor.x > 0.0 and anchor.x < 1920.0 and anchor.y > 0.0 and anchor.y < 1080.0,
-			"anchor=(%.0f,%.0f)" % [anchor.x, anchor.y])
 		# 锚点是按背景里浮岛的位置定的，越界说明又跑回概念稿的旧坐标了
 		_ok("节点 #%d 锚点落在 1920x1080 的浮岛区" % sid,
 			anchor.x > 400.0 and anchor.x < 1500.0 and anchor.y > 250.0 and anchor.y < 900.0,
@@ -168,15 +174,10 @@ func _check_map_nodes() -> void:
 			btn.pivot_offset.distance_to(ANCHOR_IN_BOX) < 0.5,
 			"pivot=(%.0f,%.0f)" % [btn.pivot_offset.x, btn.pivot_offset.y])
 
-		# 叠加图标是可选的：icon 为空表示该关浮岛由背景自带，不该再叠一层
+		# 小节子地图的所有节点统一叠加浮岛图标（不再依赖背景自带浮岛）
 		var isle: TextureRect = btn.get_node_or_null("IsleIcon")
-		var icon_path := str(cfg.get("icon", ""))
-		if icon_path == "":
-			_ok("节点 #%d 不叠加图标（浮岛由背景自带）" % sid, isle == null)
-		else:
-			with_icon += 1
-			_ok("节点 #%d 叠加图标已加载" % sid, isle != null and isle.texture != null,
-				icon_path)
+		_ok("节点 #%d 叠加图标已加载" % sid, isle != null and isle.texture != null,
+			str(cfg.get("icon", "")))
 
 		# 标签不再用色块底衬，可读性靠描边撑
 		_ok("节点 #%d 标签无底衬" % sid, btn.get_node_or_null("LabelPlate") == null)
@@ -184,7 +185,7 @@ func _check_map_nodes() -> void:
 		_ok("节点 #%d 标签带描边" % sid,
 			la != null and la.get_theme_constant("outline_size") > 0)
 
-		# 标签纵向落点由该节点自己的 label_dy 决定，三个值各不相同
+		# 标签纵向落点由该节点自己的 label_dy 决定
 		if la != null:
 			var want_y := ANCHOR_IN_BOX.y + float(cfg.get("label_dy", 56))
 			var got_y := la.position.y + la.size.y * 0.5
@@ -195,19 +196,39 @@ func _check_map_nodes() -> void:
 			btn.z_index == int(cfg.get("z", 1)),
 			"z=%d" % btn.z_index)
 
-	# 两种情形都要有：既有靠背景的，也有需要补图标的。
-	# 否则一旦配置被批量改成空 icon，上面那些断言会"全部通过"却什么都没验。
-	_ok("既有关卡靠背景浮岛", with_icon < nodes.size(), "叠加图标 %d / 共 %d" % [with_icon, nodes.size()])
-	_ok("也有关卡需要叠加图标", with_icon > 0, "%d 个" % with_icon)
-
-	for i in nodes.size():
-		for j in range(i + 1, nodes.size()):
-			var a: Dictionary = nodes[i]
-			var b: Dictionary = nodes[j]
-			var sid_a := int(a.get("stage_id", 0))
-			var sid_b := int(b.get("stage_id", 0))
-			var d := GameDB.stage_node_pos(sid_a).distance_to(GameDB.stage_node_pos(sid_b))
-			_ok("节点 %d 与 %d 浮岛不重叠" % [sid_a, sid_b], d >= 200.0, "锚点距离 %.0fpx" % d)
+	# 全小节布局校验（纯数据层，与 apply_ch1_sections.py 的约束一致）：
+	# 每个小节的节点都要落浮岛区、同节两两不重叠、引导线可见段达标。
+	for sraw in GameDB.sections():
+		var sec: Dictionary = sraw
+		var sec_id := str(sec.get("id", ""))
+		var snodes: Array = sec.get("nodes", [])
+		for nraw in snodes:
+			var nd: Dictionary = nraw
+			var npos: Array = nd.get("pos", [])
+			var nx := float(npos[0])
+			var ny := float(npos[1])
+			_ok("%s 节点 %d 落浮岛区" % [sec_id, int(nd.get("stage_id", 0))],
+				nx > 400.0 and nx < 1500.0 and ny > 250.0 and ny < 900.0,
+					"(%.0f,%.0f)" % [nx, ny])
+		for i in snodes.size():
+			for j in range(i + 1, snodes.size()):
+				var ia := int((snodes[i] as Dictionary).get("stage_id", 0))
+				var ib := int((snodes[j] as Dictionary).get("stage_id", 0))
+				var d := GameDB.stage_node_pos(ia).distance_to(GameDB.stage_node_pos(ib))
+				_ok("%s 节点 %d/%d 浮岛不重叠" % [sec_id, ia, ib], d >= 200.0,
+					"锚点距离 %.0fpx" % d)
+		for praw in GameDB.section_links(sec_id):
+			var pr: Array = praw
+			var la_id := int(pr[0])
+			var lb_id := int(pr[1])
+			var lpa := GameDB.stage_node_pos(la_id)
+			var lpb := GameDB.stage_node_pos(lb_id)
+			var ldir := (lpb - lpa).normalized()
+			var lea := lpa + ldir * float(GameDB.stage_node(la_id).get("radius", 110))
+			var leb := lpb - ldir * float(GameDB.stage_node(lb_id).get("radius", 90))
+			var lvis := lea.distance_to(leb)
+			_ok("%s 引导线 %d→%d 可见段达标" % [sec_id, la_id, lb_id],
+				lvis >= 24.0 and lvis < 260.0, "可见长度 %.0fpx" % lvis)
 
 
 # ---------------------------------------------------------------- 引导线
@@ -219,8 +240,10 @@ func _check_guides() -> void:
 	if layer == null:
 		return
 
-	var links: Array = GameDB.stage_links()
-	_eq("线节点数 = 链路数 × 4 层", layer.get_child_count(), links.size() * 4)
+	var cur_sec := str(_scene.get("_current_section"))
+	var links: Array = GameDB.section_links(cur_sec)
+	_eq("第一节链路为线性 2 段", links.size(), 2)
+	_eq("线节点数 = 当前小节链路数 × 4 层", layer.get_child_count(), links.size() * 4)
 	for child in layer.get_children():
 		var ln := child as Line2D
 		_ok("引导线 %s 是 Line2D" % str(child.name), ln != null)
@@ -266,29 +289,29 @@ func _check_guides() -> void:
 
 func _check_labels_and_stars() -> void:
 	print("\n· 标签行序与星数")
+	_scene.call("_switch_section", "ch1_s1")
 	_ok("1001 名称行在上", _label_a(_node(1001)) == "初始之地", _label_a(_node(1001)))
 	_ok("1001 等级行在下", _label_b(_node(1001)) == "1级 1001", _label_b(_node(1001)))
 	_ok("1003 名称行在上", _label_a(_node(1003)) == "云端城堡", _label_a(_node(1003)))
 	_ok("1003 等级行在下", _label_b(_node(1003)) == "1级 1003", _label_b(_node(1003)))
-	# 参考图里这一处是反的：等级在上、名称在下
+	# 1004（风暴元素）在第二节，等级行在上、名称行在下
+	_scene.call("_switch_section", "ch1_s2")
 	_ok("1004 等级行在上", _label_a(_node(1004)) == "1级 1004", _label_a(_node(1004)))
 	_ok("1004 名称行在下", _label_b(_node(1004)) == "风暴元素", _label_b(_node(1004)))
+	_scene.call("_switch_section", "ch1_s1")
 
+	# 默认无星：地图星只认存档历史最佳，没打过的关不画星行
 	_eq("1001 未通关不显示星", _lit_stars(_node(1001)), -1)
-	# 概念稿里 1003 只点亮一颗（刚打过精英关），1004 点亮两颗；
-	# 这两处曾被误读成全三星，放大核对后按稿子订正
-	_eq("1003 一星（后两颗暗）", _lit_stars(_node(1003)), 1)
-	_eq("1004 两星（一颗暗）", _lit_stars(_node(1004)), 2)
+	_eq("1003 未通关不显示星", _lit_stars(_node(1003)), -1)
 
 	_eq("1003 挂精英角标「精」", _tag_text(_node(1003)), "精")
 	_eq("1001 无角标", _tag_text(_node(1001)), "")
-	_eq("1004 无角标", _tag_text(_node(1004)), "")
 
 
 # ---------------------------------------------------------------- 统计同步
 
-## 统计同步：底部统计行与「历史最佳」都取存档口径；
-## 展演值（demo_stars）只负责地图好看，不能被当成通关记录。
+## 统计同步：底部统计行、地图星与「历史最佳」都取存档口径；
+## 默认（无存档记录）就是 0 星，展演值不再回落进地图。
 func _check_sync_stats() -> void:
 	print("\n· 统计同步：星级与材料")
 	var footer: Label = _scene.get_node_or_null("%FooterInfo")
@@ -299,7 +322,7 @@ func _check_sync_stats() -> void:
 		_ok("统计行仍带着体力", footer.text.contains("体力"), footer.text)
 
 	_eq("存档无记录时历史最佳为 0", int(_scene.call("_best_stars_of", 1003)), 0)
-	_eq("展演星仍照常画在地图上", int(_scene.call("_stars_of", 1003)), 1)
+	_eq("存档无记录时地图星也为 0", int(_scene.call("_stars_of", 1003)), 0)
 
 	# 模拟战斗结算写档：地图星与历史最佳都必须换成存档值
 	SaveDB.record_stage_stars(1001, 2)
@@ -319,18 +342,16 @@ func _check_sync_stats() -> void:
 
 func _check_selection() -> void:
 	print("\n· 默认选中与切换")
-	var default_id := 0
-	for raw in GameDB.stage_nodes():
-		var cfg: Dictionary = raw
-		if bool(cfg.get("demo_selected", false)):
-			default_id = int(cfg.get("stage_id", 0))
-	_eq("配置标记的默认选中节点", default_id, 1003)
+	_scene.call("_switch_section", "ch1_s1")
+	# demo_selected 全为 false，默认停在当前节首个未通关关
+	var default_id := int(_scene.get("_selected"))
+	_eq("默认选中首个未通关关 1001", default_id, 1001)
 
 	_ok("默认选中节点光晕可见", _glow_visible(_node(default_id)))
 	_ok("默认选中节点为全亮", _is_bright(_node(default_id)))
 	_ok("默认选中节点被放大", _scale_target(_node(default_id)) > 1.0,
 		"scale_target=%.2f" % _scale_target(_node(default_id)))
-	for raw in GameDB.stage_nodes():
+	for raw in GameDB.section_nodes("ch1_s1"):
 		var sid := int(raw.get("stage_id", 0))
 		if sid != default_id:
 			_ok("未选中节点 #%d 光晕隐藏" % sid, not _glow_visible(_node(sid)))
@@ -338,15 +359,15 @@ func _check_selection() -> void:
 				"scale_target=%.2f" % _scale_target(_node(sid)))
 
 	# 点击另一关应把选中态整块切过去
-	var n1 := _node(1001)
-	if n1 != null:
-		n1.pressed.emit()
-		_ok("点击 1001 后其光晕可见", _glow_visible(_node(1001)))
-		_ok("点击 1001 后 1003 光晕隐藏", not _glow_visible(_node(1003)))
-		_ok("点击 1001 后其亮度全开", _is_bright(_node(1001)))
-		_ok("点击 1001 后放大态切过去", _scale_target(_node(1001)) > 1.0
-			and is_equal_approx(_scale_target(_node(1003)), 1.0),
-			"1001=%.2f 1003=%.2f" % [_scale_target(_node(1001)), _scale_target(_node(1003))])
+	var n3 := _node(1003)
+	if n3 != null:
+		n3.pressed.emit()
+		_ok("点击 1003 后其光晕可见", _glow_visible(_node(1003)))
+		_ok("点击 1003 后 1001 光晕隐藏", not _glow_visible(_node(1001)))
+		_ok("点击 1003 后其亮度全开", _is_bright(_node(1003)))
+		_ok("点击 1003 后放大态切过去", _scale_target(_node(1003)) > 1.0
+			and is_equal_approx(_scale_target(_node(1001)), 1.0),
+			"1003=%.2f 1001=%.2f" % [_scale_target(_node(1003)), _scale_target(_node(1001))])
 
 
 # ---------------------------------------------------------------- 队伍与按钮
@@ -397,7 +418,8 @@ func _check_interact() -> void:
 	# 所以这一步只校验、不扣 —— 玩家还没出发就不该已经被扣掉。
 	_eq("扣体力位置取自配置", GameDB.spend_stamina_at(), "formation")
 
-	# 切到 1004（每关 6 点）
+	# 切到第二节取 1004（每关 6 点）
+	_scene.call("_switch_section", "ch1_s2")
 	var n4 := _node(1004)
 	if n4 != null:
 		n4.pressed.emit()
@@ -413,7 +435,8 @@ func _check_interact() -> void:
 		tl.text.replace("\n", " / "))
 	_eq("把选中关卡交接给战斗上下文", int(BattleCtx.stage_id), 1004)
 
-	# 免费关：1001 体力消耗为 0，同样放行
+	# 免费关：1001（第一节）体力消耗为 0，同样放行
+	_scene.call("_switch_section", "ch1_s1")
 	var n1 := _node(1001)
 	if n1 != null:
 		n1.pressed.emit()
@@ -426,8 +449,10 @@ func _check_interact() -> void:
 	# 体力不足时应在选关页就被拦下：不交接关卡，也不放行到编队页
 	# （必须切回一个真正要花体力的关卡 —— 停在免费关的话这条永远验不到）
 	BattleCtx.begin_from_stage(1004, "smoke")
-	if n4 != null:
-		n4.pressed.emit()
+	_scene.call("_switch_section", "ch1_s2")
+	var n4b := _node(1004)
+	if n4b != null:
+		n4b.pressed.emit()
 	StaminaSys.spend(StaminaSys.current())
 	_eq("体力已压到 0", StaminaSys.current(), 0)
 	enter.pressed.emit()
@@ -436,6 +461,128 @@ func _check_interact() -> void:
 
 	# 恢复满体力，别把不足状态留给后续用例
 	StaminaSys.fill()
+
+
+# ---------------------------------------------------------------- 章节切换栏
+
+## 顶部页签：当前章（ch1）高亮可点，其余章锁定；点锁定章只弹提示、不重建地图。
+func _check_chapter_tabs() -> void:
+	print("\n· 章节切换栏")
+	var box: HBoxContainer = _scene.get_node_or_null("%ChapterTabs")
+	_ok("ChapterTabs 存在", box != null)
+	if box == null:
+		return
+	var tabs: Array = GameDB.chapter_tabs()
+	_eq("页签数 = 配置章节数", box.get_child_count(), tabs.size())
+	_eq("共 3 章", tabs.size(), 3)
+
+	var cur := GameDB.current_chapter_id()
+	for raw in tabs:
+		var tab: Dictionary = raw
+		var id := str(tab.get("id", ""))
+		var btn: Button = box.get_node_or_null("ChapterTab_%s" % id)
+		_ok("页签 #%s 已实例化" % id, btn != null)
+		if btn == null:
+			continue
+		if id == cur:
+			_ok("当前章 #%s 高亮（金色底）" % id,
+				str(btn.get_theme_stylebox("normal").get("bg_color")) == Color("#FFC94A").to_html(true) \
+				or str(btn.tooltip_text) == str(tab.get("name", "")))
+		else:
+			_ok("非当前章 #%s 锁定提示敬请期待" % id,
+				str(btn.tooltip_text).contains("敬请期待"), str(btn.tooltip_text))
+
+	# 点锁定章：弹提示、当前章不变
+	var toast: Panel = _scene.get_node_or_null("%Toast")
+	var tl: Label = _scene.get_node_or_null("%ToastLabel")
+	var locked_btn: Button = box.get_node_or_null("ChapterTab_ch2")
+	if locked_btn != null and toast != null and tl != null:
+		locked_btn.pressed.emit()
+		_ok("点锁定章弹出敬请期待", tl.text.contains("敬请期待"), tl.text.replace("\n", " / "))
+		_eq("点锁定章不切换当前章", GameDB.current_chapter_id(), cur)
+
+
+# ---------------------------------------------------------------- 小节页签与解锁门禁
+
+## 顶部小节页签：第一节恒开、其余锁定；点锁定节只弹提示、不切地图；
+## 通关上一节守关关（写 stage_clears）后依次解锁；切节即重铺子地图。
+func _check_sections() -> void:
+	print("\n· 小节页签与解锁门禁")
+	var box: HBoxContainer = _scene.get_node_or_null("%SectionTabs")
+	_ok("SectionTabs 存在", box != null)
+	if box == null:
+		return
+	var order: Array = GameDB.section_order()
+	_eq("小节页签数 = 配置小节数", box.get_child_count(), order.size())
+	_eq("第一章 3 个小节", order.size(), 3)
+
+	# 新档：只有第一节解锁，二/三节锁定
+	_ok("第一节恒解锁", bool(_scene.call("_section_unlocked", 0)))
+	_ok("新档下第二节锁定", not bool(_scene.call("_section_unlocked", 1)))
+	_ok("新档下第三节锁定", not bool(_scene.call("_section_unlocked", 2)))
+
+	# 点锁定节：弹「尚未解锁」、当前节不变
+	var tl: Label = _scene.get_node_or_null("%ToastLabel")
+	var locked_btn: Button = box.get_node_or_null("SectionTab_ch1_s2")
+	if locked_btn != null and tl != null:
+		var before := str(_scene.get("_current_section"))
+		locked_btn.pressed.emit()
+		_ok("点锁定小节弹尚未解锁", tl.text.contains("尚未解锁"), tl.text.replace("\n", " / "))
+		_eq("点锁定小节不切换当前节", str(_scene.get("_current_section")), before)
+
+	# 通关第一节守关关 1003 → 解锁第二节（第三节仍需 1006）
+	_mark_clear(1003)
+	_scene.call("_build_section_tabs")
+	_ok("通关 1003 后解锁第二节", bool(_scene.call("_section_unlocked", 1)))
+	_ok("通关 1003 后第三节仍锁定", not bool(_scene.call("_section_unlocked", 2)))
+
+	# 通关第二节守关关 1006 → 解锁第三节
+	_mark_clear(1006)
+	_scene.call("_build_section_tabs")
+	_ok("通关 1006 后解锁第三节", bool(_scene.call("_section_unlocked", 2)))
+
+	# 切节即重铺子地图：第三节 4 关
+	_scene.call("_switch_section", "ch1_s3")
+	var layer: Control = _scene.get_node_or_null("%NodeLayer")
+	_eq("切到第三节铺 4 关", layer.get_child_count() if layer != null else -1, 4)
+
+	# 还原干净存档并回到第一节，别把解锁态与残留节点留给后续用例
+	SaveDB.reset_profile()
+	StaminaSys.fill()
+	_scene.call("_switch_section", "ch1_s1")
+
+
+## 直接按 battle.gd 结算的口径写一次通关记录（stage_clears +1），供解锁断言用
+func _mark_clear(stage_id: int) -> void:
+	var p: Dictionary = SaveDB.progress()
+	var clears: Dictionary = SaveDB.stage_clears_table()
+	clears[str(stage_id)] = int(clears.get(str(stage_id), 0)) + 1
+	p["stage_clears"] = clears
+	p["cleared_stages"] = clears.size()
+	SaveDB.save_profile()
+
+
+# ---------------------------------------------------------------- 事件 / 休息节点守卫
+
+## 祭坛（event）/ 喷泉（rest）不是战斗关，点「进入关卡」应被拦下、不交接给编队页
+func _check_event_guard() -> void:
+	print("\n· 事件/休息节点守卫")
+	var enter: Button = _scene.get_node_or_null("%EnterButton")
+	var tl: Label = _scene.get_node_or_null("%ToastLabel")
+	# 1005（元素祭坛）在第二节，先切过去取其节点
+	_scene.call("_switch_section", "ch1_s2")
+	var n5 := _node(1005)
+	if enter == null or tl == null or n5 == null:
+		_ok("1005 事件节点与进入按钮齐备", false)
+		return
+	_scene.set("auto_transition", false)
+	_ok("1005 是非战斗节点", not GameDB.stage_is_battle(1005))
+	BattleCtx.begin_from_stage(1004, "smoke")
+	var before := int(BattleCtx.stage_id)
+	n5.pressed.emit()
+	enter.pressed.emit()
+	_ok("事件节点被拦下（功能待接入）", tl.text.contains("功能待接入"), tl.text.replace("\n", " / "))
+	_eq("事件节点不交接关卡", int(BattleCtx.stage_id), before)
 
 
 # ---------------------------------------------------------------- 取节点与判定

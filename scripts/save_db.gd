@@ -240,6 +240,43 @@ func spend_currency(currency_id: String, amount: int) -> bool:
 	return true
 
 
+func player() -> Dictionary:
+	return profile.get("player", {})
+
+
+## 胜利经验入账 + 自动升级：经验溢出滚动进下一级，一次可连升多级；
+## exp_max 按 growth.player_level 曲线随等级抬升。返回升级摘要供结算面板展示。
+func add_player_exp(amount: int, save: bool = true) -> Dictionary:
+	var p := player()
+	if p.is_empty():
+		return {"gained": 0, "levels": 0, "level": 1, "exp": 0, "exp_max": 0}
+	var old_lv := int(p.get("level", 1))
+	var lv := old_lv
+	var exp := int(p.get("exp", 0))
+	var max_lv := GameDB.player_max_level()
+	if amount > 0:
+		exp += amount
+		# 逐级消化溢出；到账号满级后经验封顶不再升级（但仍累加显示）
+		while exp >= GameDB.player_exp_max(lv) and lv < max_lv:
+			exp -= GameDB.player_exp_max(lv)
+			lv += 1
+	var exp_max := GameDB.player_exp_max(lv)
+	if lv >= max_lv:
+		exp = clampi(exp, 0, exp_max)
+	p["level"] = lv
+	p["exp"] = exp
+	p["exp_max"] = exp_max
+	if save:
+		save_profile()
+	return {
+		"gained": maxi(0, amount),
+		"levels": lv - old_lv,
+		"level": lv,
+		"exp": exp,
+		"exp_max": exp_max,
+	}
+
+
 func cards() -> Array:
 	return profile.get("cards", [])
 
