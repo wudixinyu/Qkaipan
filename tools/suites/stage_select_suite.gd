@@ -377,11 +377,58 @@ func _check_team() -> void:
 	var slots: HBoxContainer = _scene.get_node_or_null("%TeamSlots")
 	_ok("TeamSlots 存在", slots != null)
 	if slots != null:
-		_eq("上阵 3 个槽位", slots.get_child_count(), 3)
+		_eq("预览条铺满 3 格", slots.get_child_count(), 3)
 
 	var tp: Dictionary = GameDB.select_map().get("team_panel", {})
+	var rows := int(tp.get("rows", 3))
+	var cols := int(tp.get("cols", 3))
 	var grid: Label = _scene.get_node_or_null("%TeamLabel")
-	_eq("队伍角标文案取自配置", grid.text if grid != null else "<null>", str(tp.get("label", "")))
+
+	# 新号 0 卡：与主界面 / 编队页同口径，预览条全空槽、角标上阵数为 0
+	# （不再回落到配置里的 3 个演示英雄）
+	SaveDB.profile["cards"] = []
+	SaveDB.save_profile()
+	_scene.call("_build_team")
+	if slots != null:
+		var empty_filled := 0
+		for s in slots.get_children():
+			if s.get_child_count() > 0:
+				empty_filled += 1
+		_eq("0 卡新号预览条无头像（全空槽）", empty_filled, 0)
+	_eq("0 卡时角标上阵数为 0", grid.text if grid != null else "<null>", "%dx%d 0" % [rows, cols])
+
+	# 有卡 + 真实编队：预览条按实际人数填头像（面板最多 3 格），角标同步为实际上阵数
+	# （抬到 41 级使上限 ≥ 5，同时验证「面板最多 3 格」的裁剪）
+	SaveDB.reset_profile()
+	SaveDB.profile["player"]["level"] = 41
+	var ids: Array = []
+	for raw in GameDB.characters():
+		ids.append(str((raw as Dictionary).get("id", "")))
+	var pick: Array = ids.slice(0, 5)
+	var new_cards: Array = []
+	var entries: Array = []
+	for i in pick.size():
+		new_cards.append({"char_id": pick[i], "level": 1, "star": 1, "exp": 0,
+			"equipment": GameDB.blank_equipment()})
+		entries.append({"slot": i + 1, "char_id": pick[i]})
+	SaveDB.profile["cards"] = new_cards
+	SaveDB.set_team(entries)
+	SaveDB.save_profile()
+	_scene.call("_build_team")
+	var want_n := RealmDB.roster_of(SaveDB.resolved_team()).size()
+	if slots != null:
+		var filled := 0
+		for s in slots.get_children():
+			if s.get_child_count() > 0:
+				filled += 1
+		_eq("有卡时预览条按真实阵容填头像（上限 3）", filled, mini(want_n, 3))
+	_ok("有卡时预览条不再为空", want_n > 0, "want_n=%d" % want_n)
+	_eq("角标上阵数 = 真实阵容人数", grid.text if grid != null else "<null>", "%dx%d %d" % [rows, cols, want_n])
+
+	# 还原干净存档，别把种子卡 / 编队残留留给后续用例
+	SaveDB.reset_profile()
+	StaminaSys.fill()
+	_scene.call("_build_team")
 
 	var btn_cfg: Dictionary = GameDB.enter_button()
 	var enter: Button = _scene.get_node_or_null("%EnterButton")
@@ -564,9 +611,10 @@ func _mark_clear(stage_id: int) -> void:
 
 # ---------------------------------------------------------------- 事件 / 休息节点守卫
 
-## 祭坛（event）/ 喷泉（rest）不是战斗关，点「进入关卡」应被拦下、不交接给编队页
+## 祭坛（event）/ 喷泉（rest）不是战斗关：点「进入关卡」应直接接入事件面板
+## （交接 BattleCtx 并切到战斗场景的非战斗分支），而非被拦下报「待接入」。
 func _check_event_guard() -> void:
-	print("\n· 事件/休息节点守卫")
+	print("\n· 事件 / 休息节点接入")
 	var enter: Button = _scene.get_node_or_null("%EnterButton")
 	var tl: Label = _scene.get_node_or_null("%ToastLabel")
 	# 1005（元素祭坛）在第二节，先切过去取其节点
@@ -578,11 +626,14 @@ func _check_event_guard() -> void:
 	_scene.set("auto_transition", false)
 	_ok("1005 是非战斗节点", not GameDB.stage_is_battle(1005))
 	BattleCtx.begin_from_stage(1004, "smoke")
-	var before := int(BattleCtx.stage_id)
+	var st_before := StaminaSys.current()
 	n5.pressed.emit()
 	enter.pressed.emit()
-	_ok("事件节点被拦下（功能待接入）", tl.text.contains("功能待接入"), tl.text.replace("\n", " / "))
-	_eq("事件节点不交接关卡", int(BattleCtx.stage_id), before)
+	_ok("事件节点接入事件面板（不再报待接入）",
+		tl.text.contains("进入事件") and not tl.text.contains("待接入"),
+		tl.text.replace("\n", " / "))
+	_eq("事件节点交接 BattleCtx 关卡", int(BattleCtx.stage_id), 1005)
+	_eq("事件节点不消耗体力", StaminaSys.current(), st_before)
 
 
 # ---------------------------------------------------------------- 取节点与判定

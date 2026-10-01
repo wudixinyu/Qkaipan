@@ -34,6 +34,7 @@ const LABEL_LEVEL_SIZE := 27
 const LABEL_OUTLINE := 6
 const LABEL_OUTLINE_COLOR := Color("#43220A")
 const SELECTED_SCALE := 1.12             ## 选中节点整体放大，对应稿里 1003 更醒目
+const TEAM_SLOTS := 3                    ## 底部预览条的物理格数（概念稿固定 3 格）
 
 @onready var _node_layer: Control = %NodeLayer
 @onready var _guide_layer: Control = %GuideLayer
@@ -41,6 +42,7 @@ const SELECTED_SCALE := 1.12             ## 选中节点整体放大，对应稿
 @onready var _chapter_tabs: HBoxContainer = %ChapterTabs
 @onready var _section_tabs: HBoxContainer = %SectionTabs
 @onready var _team_slots: HBoxContainer = %TeamSlots
+@onready var _team_label: Label = %TeamLabel
 @onready var _enter: Button = %EnterButton
 @onready var _enter_sub: Label = %EnterSub
 @onready var _back: Button = %BackButton
@@ -444,36 +446,55 @@ func _add_line(nm: String, pts: PackedVector2Array, width: float, color: Color) 
 
 # ---------------------------------------------------------------- 队伍
 
+## 底部队伍预览条：与主界面 / 编队页同一口径 —— 显示玩家真实上阵
+## （SaveDB.resolved_team 经 roster_of 造 unit），新号 0 卡时如实显示空槽，
+## 不再回落到配置里的展演队（team_panel.lineup）。面板物理容量固定 3 格，
+## 超出取前 3、不足补空；角标「RxC N」的 N 同步为实际上阵人数。
 func _build_team() -> void:
 	for c in _team_slots.get_children():
+		# 先 remove_child 再 queue_free：queue_free 延迟到帧尾，同一帧重建时
+		# 旧槽仍会在树上，会与新槽叠成双份。
 		_team_slots.remove_child(c)
 		c.queue_free()
 
-	var by_id := {}
-	for item in RealmDB.showcase_lineup():
-		by_id[str(item.char_id)] = item
+	var units: Array = []
+	if not SaveDB.cards().is_empty():
+		units = RealmDB.roster_of(SaveDB.resolved_team())
 
-	for raw in GameDB.select_map().get("team_panel", {}).get("lineup", []):
-		var unit: Variant = by_id.get(str(raw), null)
-		if not (unit is Dictionary):
-			continue
-		var cfg: Dictionary = unit.get("config", {})
-		var rar := GameDB.rarity(str(cfg.get("rarity", "R")))
-		var accent := Color(str(rar.get("color", "#FFFFFF")))
+	for i in TEAM_SLOTS:
+		_team_slots.add_child(_make_team_slot(units[i]) if i < units.size() else _make_empty_slot())
 
-		var slot := Panel.new()
-		slot.custom_minimum_size = Vector2(72, 72)
-		slot.add_theme_stylebox_override("panel",
-			UI.style(Color(0.06, 0.05, 0.09, 0.85), 18, 3, accent, 0))
-		_team_slots.add_child(slot)
+	var tp: Dictionary = GameDB.select_map().get("team_panel", {})
+	if _team_label != null:
+		_team_label.text = "%dx%d %d" % [int(tp.get("rows", 3)), int(tp.get("cols", 3)), units.size()]
 
-		var pic := UI.picture(str(cfg.get("portrait", "")), TextureRect.STRETCH_KEEP_ASPECT_CENTERED)
-		UI.fill(pic)
-		pic.offset_left = 5
-		pic.offset_top = 5
-		pic.offset_right = -5
-		pic.offset_bottom = -5
-		slot.add_child(pic)
+
+## 单个头像槽：稀有度描边 + 立绘
+func _make_team_slot(unit: Dictionary) -> Panel:
+	var cfg: Dictionary = unit.get("config", {})
+	var rar := GameDB.rarity(str(cfg.get("rarity", "R")))
+	var accent := Color(str(rar.get("color", "#FFFFFF")))
+	var slot := Panel.new()
+	slot.custom_minimum_size = Vector2(72, 72)
+	slot.add_theme_stylebox_override("panel",
+		UI.style(Color(0.06, 0.05, 0.09, 0.85), 18, 3, accent, 0))
+	var pic := UI.picture(str(cfg.get("portrait", "")), TextureRect.STRETCH_KEEP_ASPECT_CENTERED)
+	UI.fill(pic)
+	pic.offset_left = 5
+	pic.offset_top = 5
+	pic.offset_right = -5
+	pic.offset_bottom = -5
+	slot.add_child(pic)
+	return slot
+
+
+## 空槽：未上阵 / 新号 0 卡时的占位暗格（虚位以待）
+func _make_empty_slot() -> Panel:
+	var slot := Panel.new()
+	slot.custom_minimum_size = Vector2(72, 72)
+	slot.add_theme_stylebox_override("panel",
+		UI.style(Color(0.06, 0.05, 0.09, 0.45), 18, 2, Color(1.0, 0.85, 0.45, 0.22), 0))
+	return slot
 
 
 # ---------------------------------------------------------------- 选中与交互
@@ -558,10 +579,15 @@ func _on_enter_pressed() -> void:
 	if cfg.is_empty():
 		_show_toast("没有可进入的关卡")
 		return
-	# 事件 / 休息节点（祭坛、喷泉）不是战斗关，进不了战场，先拦下给反馈
+	# 事件 / 休息节点（祭坛、喷泉）不进战场、不耗体力、无需编队：
+	# 直接进战斗场景，由 battle.gd 的 _setup_non_battle 渲染选项面板。
+	# 节点里「祈祷」下发的增益写在 BattleCtx，离开后仍会带到下一场真正的战斗。
 	if not GameDB.stage_is_battle(_selected):
-		_show_toast("「%s」是%s节点，功能待接入" % [
+		BattleCtx.begin_from_stage(_selected, "stage_select")
+		_show_toast("进入事件 · %s（%s）\n无需上阵 · 不消耗体力" % [
 			str(cfg.get("name", "")), GameDB.stage_kind_name(str(cfg.get("kind", "")))])
+		if auto_transition:
+			_go_event()
 		return
 	# 体力以关卡自身为准：1001 新手引导关免费、1003 精英 8 点、1008 高难支线 10 点，
 	# 只有没写 stamina 的关卡才回落到全局缺省值
@@ -601,6 +627,14 @@ func _go_formation() -> void:
 		get_tree().change_scene_to_file(FORMATION_SCENE)
 	else:
 		_show_toast("编队场景缺失：%s" % FORMATION_SCENE)
+
+
+## 事件 / 休息节点：不走编队，直接进战斗场景的非战斗分支（battle.gd _setup_non_battle）
+func _go_event() -> void:
+	if ResourceLoader.exists(BATTLE_SCENE):
+		get_tree().change_scene_to_file(BATTLE_SCENE)
+	else:
+		_show_toast("战斗场景缺失：%s" % BATTLE_SCENE)
 
 
 func _on_back_pressed() -> void:
