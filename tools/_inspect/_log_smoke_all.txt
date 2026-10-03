@@ -1,0 +1,8 @@
+﻿
+main_menu        exit=  FAIL=0  ERR=0
+formation        exit=  FAIL=0  ERR=0
+collection       exit=  FAIL=0  ERR=0
+gacha            exit=  FAIL=0  ERR=0
+battle           exit=  FAIL=0  ERR=0
+stage_select     exit=  FAIL=0  ERR=0
+adventure_data   exit=  FAIL=0  ERR=0

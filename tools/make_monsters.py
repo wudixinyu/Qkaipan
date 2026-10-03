@@ -23,6 +23,7 @@ ThorVG 限制（踩过的坑）：
 
 import os
 import sys
+import inspect
 
 STROKE = "#2A1F17"
 SW = 6.0
@@ -340,8 +341,253 @@ def arch_boss(m, d, a):
     return s
 
 
+def gear(cx, cy, r, color, teeth=8, stroke=STROKE, sw=4.0):
+    """齿轮：一圈方齿 + 内圈空心，机械主题反复用"""
+    import math
+    parts = []
+    for i in range(teeth):
+        ang = 2 * math.pi * i / teeth
+        x = cx + r * math.cos(ang)
+        y = cy + r * math.sin(ang)
+        parts.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+                     % (x, y, r * 0.22, color, stroke, sw * 0.6))
+    parts.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+                 % (cx, cy, r * 0.82, color, stroke, sw))
+    parts.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#2A1F17" fill-opacity="0.35" stroke="%s" stroke-width="%.1f"/>'
+                 % (cx, cy, r * 0.34, stroke, sw))
+    return "".join(parts)
+
+
+def arch_mech_spider(m, d, a):
+    """机械蜘蛛：圆壳机身 + 八条节肢 + 复眼"""
+    s = shadow(rx=64)
+    # 八条腿（左右各四，折线节肢）
+    for sx in (-1, 1):
+        for i, (y0, y1) in enumerate([(108, 150), (122, 168), (136, 180), (150, 186)]):
+            x0 = 100 + sx * 34
+            knee = 100 + sx * (74 + i * 6)
+            s += ('<path d="M%.1f %.1f L%.1f %.1f L%.1f %.1f" fill="none" stroke="%s" '
+                  'stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>'
+                  % (x0, y0, knee, y0 - 22, knee - sx * 8, y1, d))
+    # 机身
+    s += '<ellipse cx="100" cy="128" rx="46" ry="38" fill="%s" stroke="%s" stroke-width="%.1f"/>' % (m, STROKE, SW)
+    s += '<ellipse cx="100" cy="120" rx="30" ry="22" fill="%s" fill-opacity="0.85" stroke="%s" stroke-width="4"/>' % (d, STROKE)
+    # 头部 + 复眼
+    s += '<circle cx="100" cy="94" r="22" fill="%s" stroke="%s" stroke-width="%.1f"/>' % (d, STROKE, SW)
+    s += '<circle cx="92" cy="90" r="5" fill="%s"/><circle cx="108" cy="90" r="5" fill="%s"/>' % (a, a)
+    s += '<circle cx="86" cy="100" r="3.5" fill="%s"/><circle cx="114" cy="100" r="3.5" fill="%s"/>' % (a, a)
+    s += gear(100, 130, 14, a, teeth=6, sw=3.2)
+    return s
+
+
+def arch_mech_soldier(m, d, a, gear_name="infantry"):
+    """发条步兵家族：齿轮躯干 + 面罩头 + 武器（步兵/枪手/弓手/机枪手）"""
+    s = shadow(rx=52)
+    s += '<rect x="74" y="150" width="18" height="26" rx="6" fill="%s" stroke="%s" stroke-width="4.5"/>' % (d, STROKE)
+    s += '<rect x="108" y="150" width="18" height="26" rx="6" fill="%s" stroke="%s" stroke-width="4.5"/>' % (d, STROKE)
+    # 躯干（发条盒）
+    s += ('<rect x="62" y="84" width="76" height="72" rx="16" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (m, STROKE, SW))
+    s += gear(100, 120, 20, d, teeth=8, sw=3.5)
+    # 头 + 面罩横条眼
+    s += '<rect x="78" y="46" width="44" height="40" rx="12" fill="%s" stroke="%s" stroke-width="%.1f"/>' % (d, STROKE, SW)
+    s += '<rect x="80" y="60" width="40" height="10" rx="5" fill="%s"/>' % a
+    s += '<circle cx="100" cy="40" r="7" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    if gear_name == "archer":
+        # 蒸汽弓：单手长弓 + 蓄能箭
+        s += ('<path d="M40 60 Q18 116 40 172" fill="none" stroke="%s" stroke-width="%.1f" stroke-linecap="round"/>'
+              % (a, SW + 2))
+        s += '<line x1="40" y1="60" x2="40" y2="172" stroke="%s" stroke-width="3.5"/>' % STROKE
+        s += '<line x1="28" y1="116" x2="70" y2="116" stroke="%s" stroke-width="5" stroke-linecap="round"/>' % a
+    elif gear_name == "gunner":
+        # 蒸汽枪：短管火枪 + 铆钉弹匣
+        s += ('<rect x="118" y="104" width="64" height="16" rx="6" fill="%s" stroke="%s" stroke-width="4.5"/>'
+              % (d, STROKE))
+        s += '<rect x="150" y="118" width="16" height="20" rx="5" fill="%s" stroke="%s" stroke-width="4"/>' % (a, STROKE)
+        s += '<circle cx="178" cy="112" r="6" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    elif gear_name == "mgner":
+        # 蒸汽机枪：多管枪身 + 弹链鼓
+        s += ('<rect x="112" y="98" width="76" height="14" rx="5" fill="%s" stroke="%s" stroke-width="4"/>'
+              % (d, STROKE))
+        s += ('<rect x="112" y="116" width="76" height="14" rx="5" fill="%s" stroke="%s" stroke-width="4"/>'
+              % (d, STROKE))
+        s += '<circle cx="120" cy="136" r="15" fill="%s" stroke="%s" stroke-width="4.5"/>' % (a, STROKE)
+        s += '<circle cx="120" cy="136" r="5" fill="%s"/>' % d
+    else:
+        # 步兵：齿轮盾 + 短刀
+        s += ('<rect x="132" y="94" width="44" height="62" rx="12" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+              % (a, STROKE, SW))
+        s += gear(154, 125, 12, d, teeth=6, sw=3)
+        s += ('<rect x="44" y="108" width="12" height="46" rx="5" fill="%s" stroke="%s" stroke-width="4"/>'
+              % (a, STROKE))
+    return s
+
+
+def arch_mech_guard(m, d, a, gear_name="heavy"):
+    """重装齿轮家族：厚甲方躯 + 肩甲 + 大盾（重型齿轮卫兵 / 自动化盾卫）"""
+    s = shadow(rx=62)
+    s += '<rect x="66" y="150" width="24" height="28" rx="7" fill="%s" stroke="%s" stroke-width="4.5"/>' % (d, STROKE)
+    s += '<rect x="110" y="150" width="24" height="28" rx="7" fill="%s" stroke="%s" stroke-width="4.5"/>' % (d, STROKE)
+    s += ('<rect x="58" y="80" width="84" height="76" rx="14" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (m, STROKE, SW))
+    s += '<rect x="58" y="110" width="84" height="12" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    # 肩甲
+    s += '<rect x="38" y="74" width="34" height="30" rx="10" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    s += '<rect x="128" y="74" width="34" height="30" rx="10" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    # 方盔 + 横条眼
+    s += ('<path d="M66 78 A34 34 0 0 1 134 78 Z" fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>'
+          % (d, STROKE, SW))
+    s += stroke_eyes(100, 100, 18, 15, 9)
+    if gear_name == "shield":
+        # 自动化盾卫：整面能量塔盾盖住半身
+        s += ('<rect x="126" y="78" width="60" height="98" rx="14" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+              % (a, STROKE, SW))
+        s += '<rect x="138" y="98" width="36" height="58" rx="10" fill="none" stroke="%s" stroke-width="4.5"/>' % d
+        s += '<circle cx="156" cy="127" r="9" fill="%s"/>' % d
+    else:
+        # 重型齿轮卫兵：胸口大齿轮 + 战锤
+        s += gear(100, 118, 18, a, teeth=8, sw=3.5)
+        s += '<line x1="44" y1="150" x2="44" y2="96" stroke="%s" stroke-width="8" stroke-linecap="round"/>' % d
+        s += '<rect x="26" y="74" width="36" height="30" rx="8" fill="%s" stroke="%s" stroke-width="4.5"/>' % (a, STROKE)
+    return s
+
+
+def arch_mech_dog(m, d, a):
+    """机械维修犬：四足机身 + 扳手前爪 + 头顶警示灯"""
+    s = shadow(rx=64)
+    for x in (56, 84, 118, 146):
+        s += '<rect x="%d" y="140" width="16" height="30" rx="6" fill="%s" stroke="%s" stroke-width="4"/>' % (x - 8, d, STROKE)
+    s += ('<rect x="48" y="98" width="104" height="52" rx="16" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (m, STROKE, SW))
+    s += gear(80, 122, 15, d, teeth=6, sw=3)
+    # 头
+    s += ('<rect x="128" y="80" width="48" height="42" rx="12" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (d, STROKE, SW))
+    s += '<circle cx="160" cy="96" r="6" fill="%s"/><circle cx="146" cy="96" r="6" fill="%s"/>' % (a, a)
+    s += ('<path d="M162 122 L182 132 L174 146" fill="none" stroke="%s" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'
+          % a)
+    # 头顶维修警示灯
+    s += '<rect x="146" y="64" width="16" height="12" rx="4" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    s += '<circle cx="154" cy="60" r="7" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    # 背上的十字医疗标
+    s += '<rect x="60" y="108" width="22" height="7" rx="3" fill="%s"/>' % a
+    s += '<rect x="67" y="101" width="7" height="22" rx="3" fill="%s"/>' % a
+    return s
+
+
+def arch_mech_support(m, d, a):
+    """发条补给车：箱式车身 + 大轮 + 头顶货叉/补给灯"""
+    s = shadow(rx=70)
+    s += ('<rect x="40" y="92" width="120" height="58" rx="12" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (m, STROKE, SW))
+    s += '<rect x="52" y="104" width="46" height="34" rx="7" fill="%s" stroke="%s" stroke-width="4"/>' % (d, STROKE)
+    s += '<rect x="108" y="104" width="40" height="16" rx="5" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    s += '<rect x="108" y="124" width="40" height="14" rx="5" fill="%s" fill-opacity="0.8" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    for cx in (66, 134):
+        s += '<circle cx="%d" cy="158" r="22" fill="%s" stroke="%s" stroke-width="5"/>' % (cx, d, STROKE)
+        s += gear(cx, 158, 10, a, teeth=6, sw=3)
+    s += '<rect x="150" y="72" width="30" height="12" rx="5" fill="%s" stroke="%s" stroke-width="4"/>' % (a, STROKE)
+    s += '<line x1="165" y1="84" x2="165" y2="92" stroke="%s" stroke-width="5"/>' % d
+    return s
+
+
+def arch_energy_node(m, d, a, gear_name="capacitor"):
+    """能量/符文枢纽家族：悬浮能量核心 + 底座 pylons（电容器/中继站/防御塔核心/符文核心）"""
+    s = shadow(rx=56)
+    # 底座三脚架
+    s += ('<path d="M64 172 L100 118 L136 172 Z" fill="none" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>'
+          % (d, SW))
+    s += '<rect x="72" y="140" width="56" height="16" rx="6" fill="%s" stroke="%s" stroke-width="4"/>' % (d, STROKE)
+    if gear_name == "tower":
+        # 防御塔核心：方塔 + 顶部炮口
+        s += ('<rect x="74" y="58" width="52" height="72" rx="10" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+              % (m, STROKE, SW))
+        s += '<circle cx="100" cy="88" r="16" fill="%s" stroke="%s" stroke-width="4.5"/>' % (a, STROKE)
+        s += '<circle cx="100" cy="88" r="6" fill="%s"/>' % STROKE
+        s += '<rect x="88" y="40" width="24" height="22" rx="6" fill="%s" stroke="%s" stroke-width="4"/>' % (d, STROKE)
+    elif gear_name == "rune_core":
+        # 符文核心：菱形水晶 + 环绕符文
+        s += ('<path d="M100 44 L134 92 L100 140 L66 92 Z" fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>'
+              % (a, STROKE, SW))
+        s += ('<path d="M100 62 L122 92 L100 122 L78 92 Z" fill="%s" fill-opacity="0.7" stroke="%s" stroke-width="4"/>'
+              % (m, STROKE))
+        s += '<circle cx="100" cy="92" r="8" fill="%s"/>' % d
+        s += '<circle cx="52" cy="92" r="5" fill="%s"/><circle cx="148" cy="92" r="5" fill="%s"/>' % (a, a)
+    else:
+        # 电容器 / 中继站：球形能量罐 + 电弧
+        s += '<circle cx="100" cy="88" r="34" fill="%s" stroke="%s" stroke-width="%.1f"/>' % (m, STROKE, SW)
+        s += '<circle cx="100" cy="88" r="20" fill="%s" fill-opacity="0.85" stroke="%s" stroke-width="4"/>' % (a, STROKE)
+        if gear_name == "capacitor":
+            s += '<path d="M92 78 L108 78 L98 96 L112 92 L94 112 L100 96 L86 100 Z" fill="%s" stroke="%s" stroke-width="3" stroke-linejoin="round"/>' % ("#FFFFFF", STROKE)
+            s += '<line x1="66" y1="88" x2="48" y2="70" stroke="%s" stroke-width="5" stroke-linecap="round"/>' % a
+            s += '<line x1="134" y1="88" x2="152" y2="70" stroke="%s" stroke-width="5" stroke-linecap="round"/>' % a
+        else:
+            s += layered_arcs(100, 88, [46, 58], a, 5, sweep=180, start=200)
+            s += gear(100, 88, 12, d, teeth=6, sw=3)
+    return s
+
+
+def arch_rune_statue(m, d, a, gear_name="gargoyle"):
+    """远古符文家族：石像/符文施法者（石像鬼 / 符文师 / 符文祭司）"""
+    s = shadow(rx=58)
+    if gear_name == "gargoyle":
+        # 石像鬼：蹲伏石兽 + 双翼 + 獠牙
+        s += ('<path d="M50 150 C30 96 58 72 100 72 C142 72 170 96 150 150 Z" fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>'
+              % (m, STROKE, SW))
+        s += ('<path d="M58 96 L20 60 L34 120 Z" fill="%s" stroke="%s" stroke-width="5" stroke-linejoin="round"/>' % (d, STROKE))
+        s += ('<path d="M142 96 L180 60 L166 120 Z" fill="%s" stroke="%s" stroke-width="5" stroke-linejoin="round"/>' % (d, STROKE))
+        s += '<circle cx="86" cy="106" r="7" fill="%s"/><circle cx="114" cy="106" r="7" fill="%s"/>' % (a, a)
+        s += ('<path d="M84 132 L92 122 L100 132 L108 122 L116 132" fill="none" stroke="%s" stroke-width="4.5" stroke-linecap="round"/>' % STROKE)
+        s += '<path d="M62 148 L74 158 M138 148 L126 158" stroke="%s" stroke-width="6" stroke-linecap="round"/>' % d
+    else:
+        # 符文师 / 符文祭司：兜帽法袍 + 悬浮符文石（祭司带治疗光）
+        s += ('<path d="M100 66 C72 66 58 104 54 172 L146 172 C142 104 128 66 100 66 Z" '
+              'fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>' % (m, STROKE, SW))
+        s += ('<path d="M100 66 C82 74 76 100 74 130 L126 130 C124 100 118 74 100 66 Z" '
+              'fill="%s" fill-opacity="0.92" stroke="%s" stroke-width="4.5"/>' % (d, STROKE))
+        s += '<ellipse cx="100" cy="102" rx="17" ry="19" fill="#3A2A20"/>'
+        s += '<circle cx="93" cy="100" r="4.5" fill="%s"/><circle cx="107" cy="100" r="4.5" fill="%s"/>' % (a, a)
+        s += gear(100, 148, 12, a, teeth=6, sw=3)
+        if gear_name == "priest":
+            s += '<circle cx="150" cy="96" r="16" fill="%s" stroke="%s" stroke-width="4.5"/>' % (a, STROKE)
+            s += '<rect x="146" y="86" width="8" height="20" rx="3" fill="%s"/>' % "#FFFFFF"
+            s += '<rect x="140" y="92" width="20" height="8" rx="3" fill="%s"/>' % "#FFFFFF"
+        else:
+            s += ('<path d="M150 84 L170 104 L150 124 L130 104 Z" fill="%s" stroke="%s" stroke-width="4.5" stroke-linejoin="round"/>'
+                  % (a, STROKE))
+    return s
+
+
+def arch_mech_boss(m, d, a):
+    """机械堡垒巨神兵（Boss）：重装机匣躯 + 单眼 + 巨型齿轮肩 + 蒸汽炮"""
+    s = shadow(rx=82, cy=182, alpha=0.30)
+    s += '<rect x="52" y="150" width="36" height="40" rx="8" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    s += '<rect x="112" y="150" width="36" height="40" rx="8" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    s += ('<rect x="34" y="64" width="132" height="92" rx="18" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (m, STROKE, SW))
+    s += '<rect x="34" y="98" width="132" height="14" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    # 巨型齿轮肩
+    s += gear(40, 60, 24, d, teeth=8, sw=4)
+    s += gear(160, 60, 24, d, teeth=8, sw=4)
+    # 头 + 单眼扫描
+    s += ('<rect x="70" y="18" width="60" height="48" rx="12" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (d, STROKE, SW))
+    s += '<rect x="78" y="34" width="44" height="14" rx="7" fill="%s"/>' % a
+    s += '<circle cx="100" cy="41" r="5" fill="%s"/>' % "#FFFFFF"
+    s += '<path d="M70 20 L60 6 M130 20 L140 6" stroke="%s" stroke-width="7" stroke-linecap="round"/>' % a
+    # 胸口动力核
+    s += '<circle cx="100" cy="110" r="22" fill="%s" stroke="%s" stroke-width="5"/>' % (a, STROKE)
+    s += '<circle cx="100" cy="110" r="10" fill="%s"/>' % d
+    s += layered_arcs(100, 110, [30, 40], a, 4, sweep=300, start=120)
+    # 右臂蒸汽炮
+    s += ('<rect x="150" y="96" width="54" height="22" rx="8" fill="%s" stroke="%s" stroke-width="4.5"/>'
+          % (m, STROKE))
+    s += '<circle cx="200" cy="107" r="10" fill="%s" stroke="%s" stroke-width="4"/>' % (a, STROKE)
+    return s
+
+
 # --------------------------------------------------------------------------- 规格表
-# 14 只怪：键 = 文件名，值 = (原型, 元素, 装备变体)
+# 键 = 文件名，值 = (原型, 元素, 装备变体)
 SPECS = [
     ("mob_slime",           "slime",   "water", None),
     ("mob_nut_soldier",     "nut",     "earth", None),
@@ -357,6 +603,24 @@ SPECS = [
     ("mob_stone_slinger",   "goblin",  "earth", "slinger"),
     ("mob_goblin_shaman",   "goblin",  "dark",  "shaman"),
     ("mob_stone_warden",    "boss",    "earth", None),
+    # 第二章《机械迷城》：机械 + 符文两大谱系（共 17 只）
+    ("mob_mech_spider",        "mech_spider",  "earth", None),
+    ("mob_clockwork_soldier",  "mech_soldier", "wind",  "infantry"),
+    ("mob_repair_dog",         "mech_dog",     "light", None),
+    ("mob_steam_archer",       "mech_soldier", "fire",  "archer"),
+    ("mob_heavy_gear_guard",   "mech_guard",   "earth", "heavy"),
+    ("mob_energy_capacitor",   "energy_node",  "wind",  "capacitor"),
+    ("mob_steam_gunner",       "mech_soldier", "fire",  "gunner"),
+    ("mob_supply_cart",        "mech_support", "earth", None),
+    ("mob_ancient_gargoyle",   "rune_statue",  "dark",  "gargoyle"),
+    ("mob_ancient_runemaster", "rune_statue",  "dark",  "runemaster"),
+    ("mob_rune_core",          "energy_node",  "light", "rune_core"),
+    ("mob_steam_mgner",        "mech_soldier", "fire",  "mgner"),
+    ("mob_tower_core",         "energy_node",  "earth", "tower"),
+    ("mob_auto_shield_guard",  "mech_guard",   "light", "shield"),
+    ("mob_energy_relay",       "energy_node",  "wind",  "relay"),
+    ("mob_rune_priest",        "rune_statue",  "dark",  "priest"),
+    ("mob_mech_colossus",      "mech_boss",    "fire",  None),
 ]
 
 ARCH = {
@@ -372,6 +636,14 @@ ARCH = {
     "puppet": arch_puppet,
     "goblin": arch_goblin,
     "boss": arch_boss,
+    "mech_spider": arch_mech_spider,
+    "mech_soldier": arch_mech_soldier,
+    "mech_guard": arch_mech_guard,
+    "mech_dog": arch_mech_dog,
+    "mech_support": arch_mech_support,
+    "energy_node": arch_energy_node,
+    "rune_statue": arch_rune_statue,
+    "mech_boss": arch_mech_boss,
 }
 
 TEMPLATE = (
@@ -405,7 +677,7 @@ def main():
         if missing:
             print("缺失 %d 个图标：%s" % (len(missing), ", ".join(missing)))
             return 1
-        print("14 只怪物图标齐备：%s" % out_dir)
+        print("%d 只怪物图标齐备：%s" % (len(SPECS), out_dir))
         return 0
 
     os.makedirs(out_dir, exist_ok=True)
@@ -413,9 +685,13 @@ def main():
         main_c = ELEM_COLOR[elem]
         dark_c = mix(main_c, 0.34, "#2A1F17")
         accent_c = mix(main_c, 0.62)
-        body = ARCH[arch](main_c, dark_c, accent_c)
-        if arch == "goblin":
-            body = arch_goblin(main_c, dark_c, accent_c, gear)
+        fn = ARCH[arch]
+        # 带变体的原型（goblin / mech_soldier / …）多接一个 gear 参数，
+        # 其余原型只收三色；按参数个数统一路由，不必再逐个特判。
+        if len(inspect.signature(fn).parameters) >= 4:
+            body = fn(main_c, dark_c, accent_c, gear)
+        else:
+            body = fn(main_c, dark_c, accent_c)
         svg = TEMPLATE % (name, body)
         path = os.path.join(out_dir, name + ".svg")
         with open(path, "w", encoding="utf-8") as f:

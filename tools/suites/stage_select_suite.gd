@@ -142,8 +142,8 @@ func _check_map_nodes() -> void:
 	if layer == null:
 		return
 
-	# 聚合口径：stage_nodes() 汇总所有小节，供底部「N 关」统计与 stage_node() 查询
-	_eq("GameDB.stage_nodes() 聚合 10 关", GameDB.stage_nodes().size(), 10)
+	# 聚合口径：stage_nodes() 汇总所有小节（第一章 10 + 第二章 10），供底部「N 关」统计与 stage_node() 查询
+	_eq("GameDB.stage_nodes() 聚合 20 关", GameDB.stage_nodes().size(), 20)
 
 	# NodeLayer 只铺当前小节（新档无通关 → frontier = 第一节 ch1_s1）
 	var cur_sec := str(_scene.get("_current_section"))
@@ -512,7 +512,8 @@ func _check_interact() -> void:
 
 # ---------------------------------------------------------------- 章节切换栏
 
-## 顶部页签：当前章（ch1）高亮可点，其余章锁定；点锁定章只弹提示、不重建地图。
+## 顶部页签：当前章高亮、有地图但未达进度的章「尚未解锁」、无地图的章「敬请期待」；
+## 点未达/无地图章只弹提示不切地图；达标后（通关 ch1 Boss 1010）方可切入 ch2。
 func _check_chapter_tabs() -> void:
 	print("\n· 章节切换栏")
 	var box: HBoxContainer = _scene.get_node_or_null("%ChapterTabs")
@@ -523,7 +524,8 @@ func _check_chapter_tabs() -> void:
 	_eq("页签数 = 配置章节数", box.get_child_count(), tabs.size())
 	_eq("共 3 章", tabs.size(), 3)
 
-	var cur := GameDB.current_chapter_id()
+	var cur := str(_scene.get("_current_chapter"))
+	_eq("新档当前章为 ch1", cur, "ch1")
 	for raw in tabs:
 		var tab: Dictionary = raw
 		var id := str(tab.get("id", ""))
@@ -531,22 +533,51 @@ func _check_chapter_tabs() -> void:
 		_ok("页签 #%s 已实例化" % id, btn != null)
 		if btn == null:
 			continue
+		var has_map := GameDB.chapter_has_map(id)
 		if id == cur:
 			_ok("当前章 #%s 高亮（金色底）" % id,
 				str(btn.get_theme_stylebox("normal").get("bg_color")) == Color("#FFC94A").to_html(true) \
 				or str(btn.tooltip_text) == str(tab.get("name", "")))
-		else:
-			_ok("非当前章 #%s 锁定提示敬请期待" % id,
+		elif not has_map:
+			_ok("无地图章 #%s 提示敬请期待" % id,
 				str(btn.tooltip_text).contains("敬请期待"), str(btn.tooltip_text))
+		else:
+			_ok("有地图未解锁章 #%s 提示通关上一章" % id,
+				str(btn.tooltip_text).contains("通关上一章解锁"), str(btn.tooltip_text))
 
-	# 点锁定章：弹提示、当前章不变
 	var toast: Panel = _scene.get_node_or_null("%Toast")
 	var tl: Label = _scene.get_node_or_null("%ToastLabel")
-	var locked_btn: Button = box.get_node_or_null("ChapterTab_ch2")
-	if locked_btn != null and toast != null and tl != null:
-		locked_btn.pressed.emit()
-		_ok("点锁定章弹出敬请期待", tl.text.contains("敬请期待"), tl.text.replace("\n", " / "))
-		_eq("点锁定章不切换当前章", GameDB.current_chapter_id(), cur)
+
+	# 点无地图章（ch3）：弹「敬请期待」、当前章不变
+	var ch3_btn: Button = box.get_node_or_null("ChapterTab_ch3")
+	if ch3_btn != null and toast != null and tl != null:
+		ch3_btn.pressed.emit()
+		_ok("点无地图章弹敬请期待", tl.text.contains("敬请期待"), tl.text.replace("\n", " / "))
+		_eq("点无地图章不切换", str(_scene.get("_current_chapter")), cur)
+
+	# 点有地图但未解锁章（ch2 未清 1010）：弹「尚未解锁」、当前章不变
+	var ch2_btn: Button = box.get_node_or_null("ChapterTab_ch2")
+	if ch2_btn != null and toast != null and tl != null:
+		ch2_btn.pressed.emit()
+		_ok("点未解锁章弹尚未解锁", tl.text.contains("尚未解锁"), tl.text.replace("\n", " / "))
+		_eq("未清 1010 点 ch2 不切换", str(_scene.get("_current_chapter")), cur)
+
+	# 通关第一章 Boss 1010 → ch2 变为可切换：页签重建 → 点击切入 ch2
+	_mark_clear(1010)
+	_scene.call("_build_chapter_tabs")
+	ch2_btn = box.get_node_or_null("ChapterTab_ch2")
+	if ch2_btn != null and tl != null:
+		ch2_btn.pressed.emit()
+		_eq("清 1010 后点 ch2 切入第二章", str(_scene.get("_current_chapter")), "ch2")
+		_eq("切入 ch2 后默认小节为 ch2_s1", str(_scene.get("_current_section")), "ch2_s1")
+		_eq("ch2 小节页签数 = 3", GameDB.section_order("ch2").size(), 3)
+		var layer2: Control = _scene.get_node_or_null("%NodeLayer")
+		_eq("ch2_s1 铺 3 关", layer2.get_child_count() if layer2 != null else -1, 3)
+
+	# 还原：回到第一章不污染后续用例行
+	SaveDB.reset_profile()
+	StaminaSys.fill()
+	_scene.call("_switch_chapter", "ch1")
 
 
 # ---------------------------------------------------------------- 小节页签与解锁门禁
@@ -559,8 +590,8 @@ func _check_sections() -> void:
 	_ok("SectionTabs 存在", box != null)
 	if box == null:
 		return
-	var order: Array = GameDB.section_order()
-	_eq("小节页签数 = 配置小节数", box.get_child_count(), order.size())
+	var order: Array = GameDB.section_order(str(_scene.get("_current_chapter")))
+	_eq("小节页签数 = 当前章小节数", box.get_child_count(), order.size())
 	_eq("第一章 3 个小节", order.size(), 3)
 
 	# 新档：只有第一节解锁，二/三节锁定

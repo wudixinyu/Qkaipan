@@ -94,9 +94,9 @@ func _eq(label: String, got, want) -> void:
 # ---------------------------------------------------------------- 配置层
 
 func _check_config() -> void:
-	print("\n· 第一章关卡表")
+	print("\n· 全章节关卡表（一+二章聚合）")
 	var list: Array = GameDB.chapter_stages()
-	_eq("关卡数", list.size(), 10)
+	_eq("关卡数", list.size(), 20)
 	_eq("章节标题", GameDB.chapter_title(), "云上浮岛 · 初始之痕")
 
 	var ids: Array = []
@@ -105,8 +105,10 @@ func _check_config() -> void:
 		var s: Dictionary = raw
 		ids.append(int(s.get("id", 0)))
 		nos.append(int(s.get("no", 0)))
-	_eq("关卡编号", ids, [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010])
-	_eq("章节内序号", nos, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+	# chapter_stages() 跨章聚合：第一章 1001-1010（序号 1-10）+ 第二章 2001-2010（序号 1-10）
+	_eq("关卡编号", ids, [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010,
+		2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010])
+	_eq("章节内序号", nos, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 	var kinds: Dictionary = {}
 	for raw in GameDB.adventure().get("stage_kinds", []):
@@ -203,7 +205,7 @@ func _trait(traits: Array, id: String) -> Dictionary:
 func _check_monsters() -> void:
 	print("\n· 怪物表")
 	var order: Array = GameDB.monster_order()
-	_eq("怪物数量", order.size(), 14)
+	_eq("怪物数量", order.size(), 31)
 	for key in order:
 		var m: Dictionary = GameDB.monster(str(key))
 		_ok("怪物 %s 有名有元素" % str(key),

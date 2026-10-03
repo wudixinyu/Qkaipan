@@ -1,0 +1,274 @@
+{
+ "stage_1001": {
+  "id": 1001,
+  "name": "初始之地",
+  "kind": "battle",
+  "subtitle": "新手引导关",
+  "recommend_power": 1000,
+  "stamina": 0,
+  "pre_stage_id": 0,
+  "is_boss": false,
+  "difficulty": 0.6,
+  "enemies": [
+   {
+    "slot": 1,
+    "mob": "slime"
+   },
+   {
+    "slot": 3,
+    "mob": "slime"
+   }
+  ],
+  "mechanic": "引导玩家完成基础卡牌上阵与「进入冒险」点击操作。",
+  "tactics": "两只会撞人的软泥怪，随便打。",
+  "rewards": [
+   {
+    "id": "gold",
+    "name": "金币",
+    "count": 500,
+    "icon": "res://assets/icons/icon_coin.svg"
+   },
+   {
+    "id": "hero_exp",
+    "name": "英雄经验",
+    "count": 500,
+    "icon": "res://assets/icons/icon_star.svg"
+   },
+   {
+    "id": "ticket_basic",
+    "name": "基础召唤券",
+    "count": 1,
+    "icon": "res://assets/icons/icon_gift.svg"
+   }
+  ],
+  "no": 1,
+  "power_scale": 0.4354,
+  "theme": {
+   "sky_top": "#FFDCA8",
+   "sky_bottom": "#FFF6E4",
+   "sun": "#FFE7A8",
+   "ground": "#9CCB74",
+   "rim": "#5FA83C",
+   "haze": "#5B7FA8"
+  },
+  "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+  "bg": ""
+ },
+ "stage_1003": {
+  "id": 1003,
+  "name": "云端城堡",
+  "kind": "elite",
+  "subtitle": "精英挑战 · 首个小精英",
+  "recommend_power": 4800,
+  "stamina": 8,
+  "pre_stage_id": 1001,
+  "is_boss": false,
+  "difficulty": 0.85,
+  "enemies": [
+   {
+    "slot": 1,
+    "mob": "castle_guard"
+   },
+   {
+    "slot": 5,
+    "mob": "ballista"
+   },
+   {
+    "slot": 8,
+    "mob": "castle_bard"
+   }
+  ],
+  "mechanic": "后排军乐手会不断为全队增加攻击力，需优先使用切后排技能清理。",
+  "tactics": "重装卫兵挡正面、弩箭车扫中排，号声一响对面越打越猛 —— 拖得越久越难，必须抢节奏切后排。",
+  "rewards": [
+   {
+    "id": "bound_gem",
+    "name": "绑钻",
+    "count": 50,
+    "icon": "res://assets/icons/icon_gem.svg"
+   },
+   {
+    "id": "equip_wood_chest",
+    "name": "R级套装装备【木质护胸】",
+    "count": 1,
+    "icon": "res://assets/icons/icon_def.svg"
+   },
+   {
+    "id": "hero_exp",
+    "name": "英雄经验",
+    "count": 2000,
+    "icon": "res://assets/icons/icon_star.svg"
+   }
+  ],
+  "no": 3,
+  "power_scale": 2.1473,
+  "theme": {
+   "sky_top": "#FFC58C",
+   "sky_bottom": "#FFF1DE",
+   "sun": "#FFD9A0",
+   "ground": "#B9A48C",
+   "rim": "#7C664E",
+   "haze": "#8A6E9E"
+  },
+  "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+  "bg": ""
+ },
+ "stage_1010": {
+  "id": 1010,
+  "name": "枯髅门 · 巨石守卫",
+  "kind": "boss",
+  "subtitle": "章节最终 Boss 战",
+  "recommend_power": 12500,
+  "stamina": 8,
+  "pre_stage_id": 1009,
+  "is_boss": true,
+  "difficulty": 0.85,
+  "first_clear_only": true,
+  "enemies": [
+   {
+    "slot": 1,
+    "mob": "nut_soldier"
+   },
+   {
+    "slot": 3,
+    "mob": "nut_soldier"
+   },
+   {
+    "slot": 4,
+    "mob": "storm_elemental"
+   },
+   {
+    "slot": 5,
+    "mob": "stone_warden"
+   },
+   {
+    "slot": 6,
+    "mob": "storm_elemental"
+   },
+   {
+    "slot": 8,
+    "mob": "goblin_shaman"
+   }
+  ],
+  "mechanic": "Boss 特性：【花岗岩护甲】物理减伤 30%，开局拥有 20% 最大生命值的护盾；【裂地震击】满能量释放，对前排造成 200% 物理伤害并附带 50% 概率眩晕。",
+  "tactics": "物理队会被护甲吃掉三成伤害，开局先破那层 20% 的盾；中排两只风暴元素持续压中排血量，萨满还在后面续命 —— 破盾、切后、承伤，缺一环就打不过。",
+  "rewards": [
+   {
+    "id": "gem",
+    "name": "彩虹钻石",
+    "count": 300,
+    "icon": "res://assets/icons/icon_gem.svg"
+   },
+   {
+    "id": "ticket_advanced",
+    "name": "高级召唤卷轴",
+    "count": 5,
+    "icon": "res://assets/icons/icon_gift.svg"
+   },
+   {
+    "id": "hero_mystic_girl",
+    "name": "SSR英雄【秘法少女】",
+    "count": 1,
+    "icon": "res://assets/icons/icon_light.svg",
+    "first_clear": true
+   }
+  ],
+  "no": 10,
+  "power_scale": 2.1399,
+  "theme": {
+   "sky_top": "#6E5A7A",
+   "sky_bottom": "#CBBAD2",
+   "sun": "#B79BC4",
+   "ground": "#7A6A80",
+   "rim": "#463A4E",
+   "haze": "#3A2E46"
+  },
+  "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+  "bg": ""
+ },
+ "section1": {
+  "id": "ch1_s1",
+  "label": "第一节",
+  "name": "初临浮岛",
+  "chapter_id": "ch1",
+  "stage_ids": [
+   1001,
+   1002,
+   1003
+  ],
+  "gate_stage_id": 1003,
+  "nodes": [
+   {
+    "stage_id": 1001,
+    "name": "初始之地",
+    "level": 1,
+    "kind": "battle",
+    "tag": "",
+    "icon": "res://assets/icons/stage_isle_plain.svg",
+    "icon_size": 180,
+    "label_order": "name_level",
+    "pos": [
+     620,
+     700
+    ],
+    "label_dy": 110,
+    "radius": 90,
+    "z": 1,
+    "pre_stage_id": 0,
+    "demo_stars": 0,
+    "demo_selected": false,
+    "stamina": 0,
+    "recommend_power": 1000
+   },
+   {
+    "stage_id": 1002,
+    "name": "浮空森林",
+    "level": 1,
+    "kind": "battle",
+    "tag": "",
+    "icon": "res://assets/icons/stage_isle_plain.svg",
+    "icon_size": 180,
+    "label_order": "name_level",
+    "pos": [
+     950,
+     540
+    ],
+    "label_dy": 110,
+    "radius": 90,
+    "z": 2,
+    "pre_stage_id": 1001,
+    "demo_stars": 0,
+    "demo_selected": false,
+    "stamina": 6,
+    "recommend_power": 2500
+   },
+   {
+    "stage_id": 1003,
+    "name": "云端城堡",
+    "level": 1,
+    "kind": "elite",
+    "tag": "精",
+    "icon": "res://assets/icons/stage_isle_castle.svg",
+    "icon_size": 190,
+    "label_order": "name_level",
+    "pos": [
+     1280,
+     700
+    ],
+    "label_dy": 110,
+    "radius": 100,
+    "z": 3,
+    "pre_stage_id": 1002,
+    "demo_stars": 0,
+    "demo_selected": false,
+    "stamina": 8,
+    "recommend_power": 4800
+   }
+  ]
+ },
+ "monsters_keys": [
+  "note",
+  "icon_note",
+  "order"
+ ]
+}

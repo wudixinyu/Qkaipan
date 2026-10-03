@@ -62,6 +62,7 @@ var _selected := 0
 var _nodes: Dictionary = {}          # stage_id -> Button
 var _chapter_btns: Dictionary = {}   # chapter_id -> Button
 var _section_btns: Dictionary = {}   # section_id -> Button
+var _current_chapter := ""           # 当前展示的章节 id（运行时可切换）
 var _current_section := ""           # 当前展示的小节 id
 var _toast_tween: Tween
 var _glow_tween: Tween
@@ -71,11 +72,12 @@ var _intro_done := false
 
 func _ready() -> void:
 	_bind_player()
+	_current_chapter = GameDB.current_chapter_id()
 	_build_chapter_tabs()
 	# 默认停在已解锁的最高小节（frontier）；打完返回时按存档重算，自然展示新解锁小节
-	var order: Array = GameDB.section_order()
+	var order: Array = GameDB.section_order(_current_chapter)
 	if not order.is_empty():
-		_current_section = str(order[_frontier_section_index()])
+		_current_section = str(order[_frontier_section_index(order)])
 	_build_section_tabs()
 	_build_map()
 	_build_team()
@@ -109,17 +111,19 @@ func _bind_player() -> void:
 
 # ---------------------------------------------------------------- 章节切换栏
 
-## 按 chapter_tabs 配置铺出顶部页签：当前章高亮可点，其余章置灰。
-## 目前只有当前章（ch1）有地图数据，所以锁定章与非当前章都只给反馈、不重建地图。
+## 按 chapter_tabs 配置铺出顶部页签：当前章高亮、可切换章点亮、锁定章置灰。
+## 锁定口径分两种：没地图数据的章（ch3）→「敬请期待」；有地图但进度未达解锁章
+## （ch2 需通关一章 Boss 1010）→「尚未解锁」。二者都不重建地图，只给反馈。
 func _build_chapter_tabs() -> void:
 	_clear(_chapter_tabs)
 	_chapter_btns.clear()
-	var cur := GameDB.current_chapter_id()
+	var cur := _current_chapter
 
 	for raw in GameDB.chapter_tabs():
 		var tab: Dictionary = raw
 		var id := str(tab.get("id", ""))
-		var locked := bool(tab.get("locked", id != cur))
+		var has_map := GameDB.chapter_has_map(id)
+		var unlocked := has_map and _chapter_progress_unlocked(tab)
 		var is_current := id == cur
 
 		var btn := Button.new()
@@ -137,7 +141,7 @@ func _build_chapter_tabs() -> void:
 			bg = Color("#FFC94A")
 			border = Color("#B8791F")
 			font = Color("#4A2408")
-		elif not locked:
+		elif unlocked:
 			border = Color(1.0, 0.85, 0.45, 0.6)
 			font = UI.CREAM
 		btn.add_theme_stylebox_override("normal", UI.style(bg, 16, 3, border, 10, Color(0, 0, 0, 0.4)))
@@ -150,22 +154,49 @@ func _build_chapter_tabs() -> void:
 		btn.add_theme_color_override("font_pressed_color", font)
 
 		var name_txt := str(tab.get("name", ""))
-		btn.tooltip_text = name_txt if locked or is_current else "%s · 可切换" % name_txt
-		if locked:
+		if is_current:
+			btn.tooltip_text = name_txt
+		elif not has_map:
 			btn.tooltip_text = "%s · 敬请期待" % name_txt
-		btn.pressed.connect(_on_chapter_pressed.bind(id, locked, str(tab.get("label", id)), name_txt))
+		elif not unlocked:
+			btn.tooltip_text = "%s · 通关上一章解锁" % name_txt
+		else:
+			btn.tooltip_text = "%s · 可切换" % name_txt
+		btn.pressed.connect(_on_chapter_pressed.bind(id, has_map, unlocked, str(tab.get("label", id)), name_txt))
 		_chapter_tabs.add_child(btn)
 		_chapter_btns[id] = btn
 
 
-func _on_chapter_pressed(id: String, locked: bool, label: String, chap_name: String) -> void:
-	if id == GameDB.current_chapter_id():
+## 章节的进度解锁判定：unlock_stage 缺省（或 0）表示无门禁恒开（第一章）；
+## 指定了 unlock_stage 则需该关已通关（存档 stage_clears）。地图有无不在此判。
+func _chapter_progress_unlocked(tab: Dictionary) -> bool:
+	var gate := int(tab.get("unlock_stage", 0))
+	if gate <= 0:
+		return true
+	return SaveDB.stage_clear_count(gate) > 0
+
+
+func _on_chapter_pressed(id: String, has_map: bool, unlocked: bool, label: String, chap_name: String) -> void:
+	if id == _current_chapter:
 		return  # 当前章：不重建，保持已选关卡
-	if locked:
-		_show_toast("%s（%s）尚未解锁 · 敬请期待" % [label, chap_name])
+	if not has_map:
+		_show_toast("%s（%s）尚未开放 · 敬请期待" % [label, chap_name])
 		return
-	# 非锁定但尚无地图数据的章节（未来扩展位）
-	_show_toast("%s（%s）地图待接入" % [label, chap_name])
+	if not unlocked:
+		_show_toast("%s（%s）尚未解锁 · 请先通关上一章" % [label, chap_name])
+		return
+	_switch_chapter(id)
+
+
+## 切到某个章节：换当前章 → 定位该章 frontier 小节 → 重铺章节/小节页签 → 重画子地图
+func _switch_chapter(id: String) -> void:
+	_current_chapter = id
+	var order: Array = GameDB.section_order(id)
+	_current_section = str(order[_frontier_section_index(order)]) if not order.is_empty() else ""
+	_build_chapter_tabs()
+	_build_section_tabs()
+	_build_map()
+	_select_stage(_default_stage())
 
 
 # ---------------------------------------------------------------- 小节切换栏
@@ -174,7 +205,7 @@ func _on_chapter_pressed(id: String, locked: bool, label: String, chap_name: Str
 func _build_section_tabs() -> void:
 	_clear(_section_tabs)
 	_section_btns.clear()
-	var order: Array = GameDB.section_order()
+	var order: Array = GameDB.section_order(_current_chapter)
 	for i in order.size():
 		var id := str(order[i])
 		var cfg := GameDB.section_cfg(id)
@@ -237,11 +268,12 @@ func _switch_section(id: String) -> void:
 	_select_stage(_default_stage())
 
 
-## 第 idx 节是否解锁：首节恒开；其余需「上一节守关关」已通关（存档 stage_clears）
+## 第 idx 节是否解锁（章内小节序）：每章首节恒开（章级门禁在 _chapter_progress_unlocked
+## 判）；其余需「本章上一节守关关」已通关（存档 stage_clears）。order 取当前章作用域。
 func _section_unlocked(idx: int) -> bool:
 	if idx <= 0:
 		return true
-	var order: Array = GameDB.section_order()
+	var order: Array = GameDB.section_order(_current_chapter)
 	if idx >= order.size():
 		return false
 	var prev_gate := GameDB.section_gate_stage(str(order[idx - 1]))
@@ -249,8 +281,10 @@ func _section_unlocked(idx: int) -> bool:
 
 
 ## 已解锁的最高小节下标（frontier）：从 0 起连续解锁到的最后一节
-func _frontier_section_index() -> int:
-	var order: Array = GameDB.section_order()
+## order 缺省取当前章小节序；_ready/_switch_chapter 会显式传入以保证与外层一致。
+func _frontier_section_index(order: Array = []) -> int:
+	if order.is_empty():
+		order = GameDB.section_order(_current_chapter)
 	var frontier := 0
 	for i in order.size():
 		if _section_unlocked(i):

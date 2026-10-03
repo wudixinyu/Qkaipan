@@ -1,0 +1,119 @@
+{
+  "char_arcane_girl": {
+    "size": [
+      913,
+      1116
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 47.4,
+    "noise_px": 11660,
+    "trapped_white": [],
+    "defocus_px": 45041
+  },
+  "char_earth_guardian": {
+    "size": [
+      933,
+      1150
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 52.2,
+    "noise_px": 3121,
+    "trapped_white": [],
+    "defocus_px": 34579
+  },
+  "char_flame_knight": {
+    "size": [
+      941,
+      1175
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 52.3,
+    "noise_px": 9828,
+    "trapped_white": [],
+    "defocus_px": 46146
+  },
+  "char_knight": {
+    "size": [
+      895,
+      1155
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 55.0,
+    "noise_px": 0,
+    "trapped_white": [],
+    "defocus_px": 18207
+  },
+  "char_priest": {
+    "size": [
+      889,
+      1092
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 49.7,
+    "noise_px": 2956,
+    "trapped_white": [],
+    "defocus_px": 21600
+  },
+  "char_pyromancer": {
+    "size": [
+      840,
+      1163
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 52.2,
+    "noise_px": 1530,
+    "trapped_white": [],
+    "defocus_px": 28010
+  },
+  "char_ranger": {
+    "size": [
+      891,
+      1110
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 59.4,
+    "noise_px": 5704,
+    "trapped_white": [
+      {
+        "size": 5608,
+        "dark_ratio": 0.44
+      }
+    ],
+    "defocus_px": 42873
+  },
+  "char_shadow_assassin": {
+    "size": [
+      838,
+      1134
+    ],
+    "source": [
+      1024,
+      1280
+    ],
+    "bg_pct": 46.4,
+    "noise_px": 2525,
+    "trapped_white": [],
+    "defocus_px": 28819
+  }
+}

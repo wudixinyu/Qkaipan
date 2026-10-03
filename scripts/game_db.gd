@@ -632,9 +632,24 @@ func stage_nodes() -> Array:
 
 
 ## 小节列表（select_map.sections）：每节 {id,label,name,chapter_id,stage_ids,gate_stage_id,nodes}
-func sections() -> Array:
+## chapter_id 为空返回全部小节（跨章聚合口径，供 stage_nodes / 布局校验用），
+## 指定章时只回该章小节（供选关页按当前章铺小节页签 / 子地图）。
+func sections(chapter_id: String = "") -> Array:
 	var v: Variant = select_map().get("sections", [])
-	return v if v is Array else []
+	if not (v is Array):
+		return []
+	if chapter_id == "":
+		return v
+	var out: Array = []
+	for raw in v:
+		if raw is Dictionary and str((raw as Dictionary).get("chapter_id", "")) == chapter_id:
+			out.append(raw)
+	return out
+
+
+## 该章是否有小节地图数据（章节切换栏据此区分「待接入」与「可玩/未解锁」）
+func chapter_has_map(chapter_id: String) -> bool:
+	return not sections(chapter_id).is_empty()
 
 
 ## 按 id 取某一小节配置（与上方通用 section(key) 区分，故命名 section_cfg）
@@ -645,10 +660,10 @@ func section_cfg(section_id: String) -> Dictionary:
 	return {}
 
 
-## 小节 id 顺序表
-func section_order() -> Array:
+## 小节 id 顺序表（chapter_id 为空返回全部小节 id，指定章时只回该章）
+func section_order(chapter_id: String = "") -> Array:
 	var out: Array = []
-	for raw in sections():
+	for raw in sections(chapter_id):
 		if raw is Dictionary:
 			out.append(str(raw.get("id", "")))
 	return out
@@ -799,8 +814,32 @@ func chapter_stages_section() -> Dictionary:
 
 
 func chapter_stages() -> Array:
+	# 跨章聚合：第一章 chapter_stages.list + 其余章 extra_chapter_stages[].list。
+	# chapter_stage(id) 因此能跨章命中，战斗/奖励/敌方单位等下游代码无需再改。
+	var out: Array = []
 	var v: Variant = chapter_stages_section().get("list", [])
-	return v if v is Array else []
+	if v is Array:
+		out.append_array(v)
+	var ex: Variant = adventure().get("extra_chapter_stages", [])
+	if ex is Array:
+		for raw in ex:
+			if raw is Dictionary:
+				var l: Variant = (raw as Dictionary).get("list", [])
+				if l is Array:
+					out.append_array(l)
+	return out
+
+
+## 某章的关卡块（ch1 取 chapter_stages，其余取 extra_chapter_stages）
+func chapter_block(chapter_id: String) -> Dictionary:
+	if chapter_id == str(chapter_stages_section().get("chapter_id", "ch1")):
+		return chapter_stages_section()
+	var ex: Variant = adventure().get("extra_chapter_stages", [])
+	if ex is Array:
+		for raw in ex:
+			if raw is Dictionary and str((raw as Dictionary).get("chapter_id", "")) == chapter_id:
+				return raw
+	return {}
 
 
 func chapter_stage(stage_id: int) -> Dictionary:

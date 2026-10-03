@@ -2409,10 +2409,12 @@
       },
       {
         "id": "ch2",
-        "name": "熔金回廊",
-        "stages": 8,
-        "recommend_power": 2600,
-        "boss": "熔岩暴君"
+        "name": "机械迷城",
+        "stages": 10,
+        "recommend_power": 13500,
+        "boss": "机械堡垒巨神兵",
+        "unlock_stage": 1010,
+        "chapter_stages": "res://data/game_data.json#adventure.extra_chapter_stages"
       },
       {
         "id": "ch3",
@@ -2670,6 +2672,226 @@
           "demo_selected": false,
           "stamina": 8,
           "recommend_power": 12500
+        },
+        {
+          "stage_id": 2001,
+          "name": "机械迷城·入口",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            620,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 13500
+        },
+        {
+          "stage_id": 2002,
+          "name": "发条车间",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            950,
+            540
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 2,
+          "pre_stage_id": 2001,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 14200
+        },
+        {
+          "stage_id": 2003,
+          "name": "核心枢纽",
+          "level": 1,
+          "kind": "elite",
+          "tag": "精",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            1280,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 3,
+          "pre_stage_id": 2002,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 10,
+          "recommend_power": 15500
+        },
+        {
+          "stage_id": 2004,
+          "name": "自动化仓库",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            620,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 16000
+        },
+        {
+          "stage_id": 2005,
+          "name": "蒸汽工坊",
+          "level": 1,
+          "kind": "event",
+          "tag": "福",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            950,
+            540
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 2,
+          "pre_stage_id": 2004,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 0,
+          "recommend_power": 0
+        },
+        {
+          "stage_id": 2006,
+          "name": "破碎遗迹",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            1280,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 3,
+          "pre_stage_id": 2005,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 17200
+        },
+        {
+          "stage_id": 2007,
+          "name": "齿轮之心",
+          "level": 1,
+          "kind": "rest",
+          "tag": "休",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            560,
+            680
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 0,
+          "recommend_power": 0
+        },
+        {
+          "stage_id": 2008,
+          "name": "精英防御塔",
+          "level": 1,
+          "kind": "elite",
+          "tag": "精",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            820,
+            470
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 2,
+          "pre_stage_id": 2007,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 12,
+          "recommend_power": 18800
+        },
+        {
+          "stage_id": 2009,
+          "name": "骷髅门前哨",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            1080,
+            680
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 3,
+          "pre_stage_id": 2008,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 19500
+        },
+        {
+          "stage_id": 2010,
+          "name": "机械堡垒·巨神兵",
+          "level": 1,
+          "kind": "boss",
+          "tag": "王",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            1340,
+            470
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 4,
+          "pre_stage_id": 2009,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 10,
+          "recommend_power": 20500
         }
       ],
       "decor_islands": [
@@ -2741,8 +2963,9 @@
           {
             "id": "ch2",
             "label": "第二章",
-            "name": "熔金回廊",
-            "locked": true
+            "name": "机械迷城",
+            "locked": false,
+            "unlock_stage": 1010
           },
           {
             "id": "ch3",
@@ -2752,7 +2975,7 @@
           }
         ]
       },
-      "nodes_note": "第一章按 3-3-4 拆成 3 个小节，每小节一张独立子地图；本 nodes 为各小节节点拼平的 legacy 镜像，渲染以 sections 为准。",
+      "nodes_note": "各章按 3-3-4 拆成小节，每小节一张独立子地图；本 nodes 为各小节节点拼平的 legacy 镜像，渲染以 sections 为准（chapter_id 过滤当前章）。",
       "sections": [
         {
           "id": "ch1_s1",
@@ -3014,6 +3237,269 @@
               "demo_selected": false,
               "stamina": 8,
               "recommend_power": 12500
+            }
+          ]
+        },
+        {
+          "id": "ch2_s1",
+          "label": "第一节",
+          "name": "齿轮黎明",
+          "chapter_id": "ch2",
+          "stage_ids": [
+            2001,
+            2002,
+            2003
+          ],
+          "gate_stage_id": 2003,
+          "nodes": [
+            {
+              "stage_id": 2001,
+              "name": "机械迷城·入口",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                620,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 13500
+            },
+            {
+              "stage_id": 2002,
+              "name": "发条车间",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                950,
+                540
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 2,
+              "pre_stage_id": 2001,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 14200
+            },
+            {
+              "stage_id": 2003,
+              "name": "核心枢纽",
+              "level": 1,
+              "kind": "elite",
+              "tag": "精",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                1280,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 3,
+              "pre_stage_id": 2002,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 10,
+              "recommend_power": 15500
+            }
+          ]
+        },
+        {
+          "id": "ch2_s2",
+          "label": "第二节",
+          "name": "符文回响",
+          "chapter_id": "ch2",
+          "stage_ids": [
+            2004,
+            2005,
+            2006
+          ],
+          "gate_stage_id": 2006,
+          "nodes": [
+            {
+              "stage_id": 2004,
+              "name": "自动化仓库",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                620,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 16000
+            },
+            {
+              "stage_id": 2005,
+              "name": "蒸汽工坊",
+              "level": 1,
+              "kind": "event",
+              "tag": "福",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                950,
+                540
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 2,
+              "pre_stage_id": 2004,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 0,
+              "recommend_power": 0
+            },
+            {
+              "stage_id": 2006,
+              "name": "破碎遗迹",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                1280,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 3,
+              "pre_stage_id": 2005,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 17200
+            }
+          ]
+        },
+        {
+          "id": "ch2_s3",
+          "label": "第三节",
+          "name": "巨神兵要塞",
+          "chapter_id": "ch2",
+          "stage_ids": [
+            2007,
+            2008,
+            2009,
+            2010
+          ],
+          "gate_stage_id": 2010,
+          "nodes": [
+            {
+              "stage_id": 2007,
+              "name": "齿轮之心",
+              "level": 1,
+              "kind": "rest",
+              "tag": "休",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                560,
+                680
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 0,
+              "recommend_power": 0
+            },
+            {
+              "stage_id": 2008,
+              "name": "精英防御塔",
+              "level": 1,
+              "kind": "elite",
+              "tag": "精",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                820,
+                470
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 2,
+              "pre_stage_id": 2007,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 12,
+              "recommend_power": 18800
+            },
+            {
+              "stage_id": 2009,
+              "name": "骷髅门前哨",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                1080,
+                680
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 3,
+              "pre_stage_id": 2008,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 19500
+            },
+            {
+              "stage_id": 2010,
+              "name": "机械堡垒·巨神兵",
+              "level": 1,
+              "kind": "boss",
+              "tag": "王",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                1340,
+                470
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 4,
+              "pre_stage_id": 2009,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 10,
+              "recommend_power": 20500
             }
           ]
         }
@@ -3609,7 +4095,599 @@
           "bg": ""
         }
       ]
-    }
+    },
+    "extra_chapter_stages": [
+      {
+        "chapter_id": "ch2",
+        "title": "机械迷城 · 齿轮与符文",
+        "note": "第二章全 10 关。power_scale 反解口径与第一章一致，由 tools/_inspect/apply_chapter2.py 生成。",
+        "slot_note": "enemies[].slot 取 combat.board.row_slots（1-3 前排 / 4-6 中排 / 7-9 后排）",
+        "list": [
+          {
+            "id": 2001,
+            "name": "机械迷城·入口",
+            "kind": "battle",
+            "subtitle": "新场景机制引导关",
+            "recommend_power": 13500,
+            "stamina": 8,
+            "pre_stage_id": 0,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "mech_spider"
+              },
+              {
+                "slot": 3,
+                "mob": "mech_spider"
+              },
+              {
+                "slot": 5,
+                "mob": "clockwork_soldier"
+              }
+            ],
+            "mechanic": "引导玩家了解新场景机制——【移动地砖】：每 2 回合，部分棋盘网格上的地砖会交换位置，站上的单位随之改变所在排。",
+            "tactics": "开局会交换地砖的是前场两格，把输出别一次性压在最前排；两只机械蜘蛛扑上来得快，先手点掉中排的发条步兵更稳。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 3000,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 3500,
+                "icon": "res://assets/icons/icon_star.svg"
+              },
+              {
+                "id": "break_stone_2",
+                "name": "2阶突破石",
+                "count": 5,
+                "icon": "res://assets/icons/icon_def.svg"
+              }
+            ],
+            "no": 1,
+            "power_scale": 9.3066,
+            "theme": {
+              "sky_top": "#9FB3C8",
+              "sky_bottom": "#E8EEF4",
+              "sun": "#D8C79A",
+              "ground": "#7C8A99",
+              "rim": "#4A5560",
+              "haze": "#5E6B7A"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2002,
+            "name": "发条车间",
+            "kind": "battle",
+            "subtitle": "普通战斗",
+            "recommend_power": 14200,
+            "stamina": 8,
+            "pre_stage_id": 2001,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "clockwork_soldier"
+              },
+              {
+                "slot": 3,
+                "mob": "clockwork_soldier"
+              },
+              {
+                "slot": 5,
+                "mob": "repair_dog"
+              },
+              {
+                "slot": 8,
+                "mob": "steam_archer"
+              }
+            ],
+            "mechanic": "【机械维修犬】每回合持续修复己方血量最低的机械单位，是这一关的续航核心。",
+            "tactics": "两只发条步兵顶前、维修犬在中间续命、蒸汽弓箭手点你后排 —— 优先集火把维修犬摘掉，否则前排磨半天血条又满回去。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 3200,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 3800,
+                "icon": "res://assets/icons/icon_star.svg"
+              },
+              {
+                "id": "break_stone_2",
+                "name": "2阶突破石",
+                "count": 8,
+                "icon": "res://assets/icons/icon_def.svg"
+              }
+            ],
+            "no": 2,
+            "power_scale": 6.2277,
+            "theme": {
+              "sky_top": "#C4A877",
+              "sky_bottom": "#F2E6CE",
+              "sun": "#F0D9A8",
+              "ground": "#8A7A5E",
+              "rim": "#55492F",
+              "haze": "#6E6350"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2003,
+            "name": "核心枢纽",
+            "kind": "elite",
+            "subtitle": "精英挑战 · 小精英",
+            "recommend_power": 15500,
+            "stamina": 10,
+            "pre_stage_id": 2002,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "heavy_gear_guard"
+              },
+              {
+                "slot": 4,
+                "mob": "clockwork_soldier"
+              },
+              {
+                "slot": 5,
+                "mob": "clockwork_soldier"
+              },
+              {
+                "slot": 8,
+                "mob": "energy_capacitor"
+              }
+            ],
+            "mechanic": "【能量电容器】每 3 回合释放一道电脉冲，使我方全队无法行动 1 回合。",
+            "tactics": "电容器定住全队的那一回合几乎等于白送一轮伤害，务必在它充能的间隙抢输出；重型齿轮卫兵正面减伤厚，绕不过就先清中排两个发条步兵。",
+            "rewards": [
+              {
+                "id": "bound_gem",
+                "name": "绑钻",
+                "count": 80,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "equip_acrylic_pauldron",
+                "name": "SR级套装装备【亮面亚克力护肩】",
+                "count": 1,
+                "icon": "res://assets/icons/icon_def.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 4500,
+                "icon": "res://assets/icons/icon_star.svg"
+              }
+            ],
+            "no": 3,
+            "power_scale": 5.2868,
+            "theme": {
+              "sky_top": "#7E93C4",
+              "sky_bottom": "#DCE7F5",
+              "sun": "#B7C9EE",
+              "ground": "#6E7A94",
+              "rim": "#454E66",
+              "haze": "#3E4C6E"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2004,
+            "name": "自动化仓库",
+            "kind": "battle",
+            "subtitle": "支线 · 普通战斗",
+            "recommend_power": 16000,
+            "stamina": 8,
+            "pre_stage_id": 2003,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "mech_spider"
+              },
+              {
+                "slot": 3,
+                "mob": "mech_spider"
+              },
+              {
+                "slot": 5,
+                "mob": "steam_gunner"
+              },
+              {
+                "slot": 8,
+                "mob": "supply_cart"
+              }
+            ],
+            "mechanic": "环境效果【传送带】：所有非机械单位的行动速度降低 15%（描述性环境机制）。",
+            "tactics": "仓库里全是机械，己方英雄都算“非机械单位”会被传送带拖慢出手；发条补给车还会持续给全队加攻，抢在提速前把补给车端掉。",
+            "rewards": [
+              {
+                "id": "bound_gem",
+                "name": "绑钻",
+                "count": 120,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "scroll_light",
+                "name": "光元素召唤卷轴",
+                "count": 1,
+                "icon": "res://assets/icons/icon_light.svg"
+              }
+            ],
+            "no": 4,
+            "power_scale": 7.4965,
+            "theme": {
+              "sky_top": "#A6BFB2",
+              "sky_bottom": "#EAF4EC",
+              "sun": "#D6EAC8",
+              "ground": "#7E9488",
+              "rim": "#4E6158",
+              "haze": "#4C6A5E"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2005,
+            "name": "蒸汽工坊",
+            "kind": "event",
+            "subtitle": "随机事件 · Rogue-lite 变体",
+            "recommend_power": 0,
+            "stamina": 0,
+            "pre_stage_id": 2004,
+            "is_boss": false,
+            "enemies": [],
+            "mechanic": "非战斗节点：在蒸汽工坊里做出选择，代价与收益都由选择决定。",
+            "options": [
+              {
+                "id": "repair",
+                "name": "尝试修复机甲",
+                "cost": {
+                  "currency": "gem",
+                  "count": 50
+                },
+                "grant": {
+                  "buff": {
+                    "stat": "crit",
+                    "mult": 1.1,
+                    "scope": "team",
+                    "battles": 1,
+                    "name": "机甲校准",
+                    "desc": "随机使一名英雄暴击率大幅提升（临时增益，持续 2 回合）"
+                  }
+                }
+              },
+              {
+                "id": "scavenge",
+                "name": "搜索废料",
+                "cost": {
+                  "stamina": 30
+                },
+                "grant": {
+                  "item": {
+                    "id": "scrap_cache",
+                    "name": "废料回收包（金币与英雄经验）",
+                    "count": 1,
+                    "icon": "res://assets/icons/icon_coin.svg"
+                  }
+                }
+              },
+              {
+                "id": "leave",
+                "name": "离开",
+                "cost": {},
+                "grant": {}
+              }
+            ],
+            "rewards": [],
+            "no": 5,
+            "power_scale": 0.0,
+            "theme": {
+              "sky_top": "#D8B48C",
+              "sky_bottom": "#F6EBD8",
+              "sun": "#F2D9A8",
+              "ground": "#8C7B66",
+              "rim": "#5A4E3E",
+              "haze": "#6E5F4A"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2006,
+            "name": "破碎遗迹",
+            "kind": "battle",
+            "subtitle": "新敌人类型引导关",
+            "recommend_power": 17200,
+            "stamina": 8,
+            "pre_stage_id": 2005,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "ancient_gargoyle"
+              },
+              {
+                "slot": 5,
+                "mob": "ancient_runemaster"
+              },
+              {
+                "slot": 8,
+                "mob": "rune_core"
+              }
+            ],
+            "mechanic": "引导玩家了解新敌人类型——【符文单位】：【符文核心】为周围的符文单位提供魔法减伤盾，且自身不受控制效果影响。",
+            "tactics": "石像鬼顶前、符文师中排扫射、符文核心在后撑盾 —— 核心免疫控制又难缠，先手爆发把它打掉，符文单位的魔法盾就断了来源。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 4000,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 5000,
+                "icon": "res://assets/icons/icon_star.svg"
+              }
+            ],
+            "no": 6,
+            "power_scale": 6.4562,
+            "theme": {
+              "sky_top": "#B0A2C6",
+              "sky_bottom": "#EDE6F6",
+              "sun": "#D8C8EC",
+              "ground": "#847A96",
+              "rim": "#524A62",
+              "haze": "#4E4560"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2007,
+            "name": "齿轮之心",
+            "kind": "rest",
+            "subtitle": "宝箱 / 休息节点",
+            "recommend_power": 0,
+            "stamina": 0,
+            "pre_stage_id": 2006,
+            "is_boss": false,
+            "enemies": [],
+            "mechanic": "节点效果：随机复活一名阵亡英雄并恢复其 50% 生命值，同时获得【机械宝箱】。",
+            "restore": {
+              "hp_pct": 0.5,
+              "scope": "team"
+            },
+            "rewards": [
+              {
+                "id": "bound_gem",
+                "name": "绑钻",
+                "count": 100,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "shard_sr",
+                "name": "SR英雄碎片",
+                "count": 10,
+                "icon": "res://assets/icons/icon_star.svg"
+              }
+            ],
+            "no": 7,
+            "power_scale": 0.0,
+            "theme": {
+              "sky_top": "#9FC4C0",
+              "sky_bottom": "#E6F4F2",
+              "sun": "#C8EDE6",
+              "ground": "#748E8C",
+              "rim": "#465E5C",
+              "haze": "#3E6462"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2008,
+            "name": "精英防御塔",
+            "kind": "elite",
+            "subtitle": "高难支线 · 精英挑战",
+            "recommend_power": 18800,
+            "stamina": 12,
+            "pre_stage_id": 2007,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "heavy_gear_guard"
+              },
+              {
+                "slot": 5,
+                "mob": "steam_mgner"
+              },
+              {
+                "slot": 8,
+                "mob": "tower_core"
+              }
+            ],
+            "mechanic": "【防御塔核心】每 2 回合对己方全队造成一轮真实伤害（无视护甲）。",
+            "tactics": "全队周期性挨一发真实伤害，考验群体治疗与耐受力：奶量跟不上就撑不到把防御塔核心拆掉。机枪手还会横扫前排，前排换血扛不住。",
+            "rewards": [
+              {
+                "id": "equip_foil_gauntlet",
+                "name": "SSR级装备【炫彩烫金护手】",
+                "count": 1,
+                "icon": "res://assets/icons/icon_atk.svg"
+              },
+              {
+                "id": "shard_ssr",
+                "name": "SSR英雄碎片",
+                "count": 8,
+                "icon": "res://assets/icons/icon_star.svg"
+              }
+            ],
+            "no": 8,
+            "power_scale": 6.7347,
+            "theme": {
+              "sky_top": "#C79A86",
+              "sky_bottom": "#F5E4DA",
+              "sun": "#F0C79A",
+              "ground": "#8A6E64",
+              "rim": "#5A433C",
+              "haze": "#6B4A3C"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2009,
+            "name": "骷髅门前哨",
+            "kind": "battle",
+            "subtitle": "Boss 前夜 · 常规战斗",
+            "recommend_power": 19500,
+            "stamina": 8,
+            "pre_stage_id": 2008,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "ancient_gargoyle"
+              },
+              {
+                "slot": 3,
+                "mob": "ancient_gargoyle"
+              },
+              {
+                "slot": 5,
+                "mob": "rune_priest"
+              },
+              {
+                "slot": 8,
+                "mob": "rune_core"
+              }
+            ],
+            "mechanic": "最终 Boss 战前的阵容调配测试，确保队伍具备“多点爆发 + 群体治疗”完整体系。",
+            "tactics": "两只石像鬼顶前、符文祭司续命、符文核心撑盾，是 Boss 阵容的缩水版；能稳切祭司又扛得住石像鬼，2010 才有得打。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 4800,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "break_stone_2",
+                "name": "2阶突破石",
+                "count": 15,
+                "icon": "res://assets/icons/icon_def.svg"
+              }
+            ],
+            "no": 9,
+            "power_scale": 5.5279,
+            "theme": {
+              "sky_top": "#A88FB0",
+              "sky_bottom": "#EEE4F2",
+              "sun": "#D6C2E0",
+              "ground": "#7E6E88",
+              "rim": "#4E4458",
+              "haze": "#48384E"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 2010,
+            "name": "机械堡垒·巨神兵",
+            "kind": "boss",
+            "subtitle": "章节最终 Boss 战",
+            "recommend_power": 20500,
+            "stamina": 10,
+            "pre_stage_id": 2009,
+            "is_boss": true,
+            "difficulty": 0.85,
+            "first_clear_only": true,
+            "enemies": [
+              {
+                "slot": 2,
+                "mob": "auto_shield_guard"
+              },
+              {
+                "slot": 4,
+                "mob": "clockwork_soldier"
+              },
+              {
+                "slot": 5,
+                "mob": "mech_colossus"
+              },
+              {
+                "slot": 6,
+                "mob": "clockwork_soldier"
+              },
+              {
+                "slot": 8,
+                "mob": "energy_relay"
+              }
+            ],
+            "mechanic": "Boss 特性：【发条之心】机械减伤 40%，不受控制效果影响；【重力坍塌】满能量释放，对己方全队造成 250% 真实伤害并降低 30% 行动速度（持续 2 回合）；【机械洪流】每 3 回合召唤 2 名发条步兵（描述性召唤机制）。",
+            "tactics": "物理队被发条之心吃掉四成伤害，控制又对它无效；能量中继站一直在给全队加攻，盾卫挡正面、发条步兵源源不断 —— 先切中继站和盾卫压住增援，抢在重力坍塌满能量前把巨神兵带走。",
+            "rewards": [
+              {
+                "id": "gem",
+                "name": "彩虹钻石",
+                "count": 500,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "ticket_advanced",
+                "name": "高级召唤卷轴",
+                "count": 8,
+                "icon": "res://assets/icons/icon_gift.svg"
+              },
+              {
+                "id": "hero_shadow_assassin",
+                "name": "SSR英雄【暗夜刺客】",
+                "count": 1,
+                "icon": "res://assets/icons/icon_dark.svg",
+                "first_clear": true
+              }
+            ],
+            "no": 10,
+            "power_scale": 3.8726,
+            "theme": {
+              "sky_top": "#8A5F4A",
+              "sky_bottom": "#E4B78A",
+              "sun": "#F2C86E",
+              "ground": "#5E4A42",
+              "rim": "#382A26",
+              "haze": "#4A2E28"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          }
+        ]
+      }
+    ]
   },
   "modes": [
     {
@@ -3762,7 +4840,24 @@
       "goblin_chief",
       "stone_slinger",
       "goblin_shaman",
-      "stone_warden"
+      "stone_warden",
+      "mech_spider",
+      "clockwork_soldier",
+      "repair_dog",
+      "steam_archer",
+      "heavy_gear_guard",
+      "energy_capacitor",
+      "steam_gunner",
+      "supply_cart",
+      "ancient_gargoyle",
+      "ancient_runemaster",
+      "rune_core",
+      "steam_mgner",
+      "tower_core",
+      "auto_shield_guard",
+      "energy_relay",
+      "rune_priest",
+      "mech_colossus"
     ],
     "table": {
       "slime": {
@@ -4159,6 +5254,533 @@
         ],
         "id": "stone_warden",
         "icon": "res://assets/icons/monsters/mob_stone_warden.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "mech_spider": {
+        "name": "机械蜘蛛",
+        "element": "earth",
+        "role": "warrior",
+        "desc": "八条节肢、发条驱动的巡逻机械，扑上来越靠越近。",
+        "base": {
+          "hp": 520,
+          "atk": 62,
+          "def": 70,
+          "mres": 40,
+          "crit": 0.05,
+          "crit_dmg": 1.5,
+          "spd": 96
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "mech_spider",
+        "icon": "res://assets/icons/monsters/mob_mech_spider.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "clockwork_soldier": {
+        "name": "发条步兵",
+        "element": "wind",
+        "role": "warrior",
+        "desc": "上了发条的机械士兵，动作僵硬但胜在源源不绝。",
+        "base": {
+          "hp": 600,
+          "atk": 66,
+          "def": 90,
+          "mres": 50,
+          "crit": 0.04,
+          "crit_dmg": 1.5,
+          "spd": 88
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "clockwork_soldier",
+        "icon": "res://assets/icons/monsters/mob_clockwork_soldier.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "repair_dog": {
+        "name": "机械维修犬",
+        "element": "light",
+        "role": "healer",
+        "desc": "叼着扳手在机械堆里穿梭，只要它还在，周围的机械就修不完。",
+        "base": {
+          "hp": 560,
+          "atk": 70,
+          "def": 70,
+          "mres": 110,
+          "crit": 0.04,
+          "crit_dmg": 1.5,
+          "spd": 110
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.6
+        },
+        "skill": {
+          "kind": "heal_lowest",
+          "interval": 1,
+          "mult": 1.8,
+          "name": "焊修",
+          "desc": "每次行动修复己方血量最低的机械单位，修复量为攻击力 180%"
+        },
+        "id": "repair_dog",
+        "icon": "res://assets/icons/monsters/mob_repair_dog.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "steam_archer": {
+        "name": "蒸汽弓箭手",
+        "element": "fire",
+        "role": "archer",
+        "desc": "蒸汽助力的弩手，专挑阵型最后排最脆的那一个。",
+        "base": {
+          "hp": 480,
+          "atk": 108,
+          "def": 55,
+          "mres": 48,
+          "crit": 0.12,
+          "crit_dmg": 1.6,
+          "spd": 120
+        },
+        "action": {
+          "kind": "attack",
+          "target": "lowest_hp_back",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "steam_archer",
+        "icon": "res://assets/icons/monsters/mob_steam_archer.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "heavy_gear_guard": {
+        "name": "重型齿轮卫兵",
+        "element": "earth",
+        "role": "tank",
+        "desc": "浑身齿轮的重装机械，正面几乎推不动。",
+        "base": {
+          "hp": 1200,
+          "atk": 80,
+          "def": 260,
+          "mres": 90,
+          "crit": 0.02,
+          "crit_dmg": 1.5,
+          "spd": 60
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "traits": [
+          {
+            "id": "gear_plate",
+            "name": "齿轮装甲",
+            "desc": "物理减伤 25%",
+            "phys_reduction": 0.25
+          }
+        ],
+        "id": "heavy_gear_guard",
+        "icon": "res://assets/icons/monsters/mob_heavy_gear_guard.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "energy_capacitor": {
+        "name": "能量电容器",
+        "element": "wind",
+        "role": "support",
+        "desc": "蓄满电荷的枢纽，每 3 回合放一道电脉冲，把对面全队电到当场定住。",
+        "base": {
+          "hp": 700,
+          "atk": 130,
+          "def": 70,
+          "mres": 120,
+          "crit": 0.06,
+          "crit_dmg": 1.5,
+          "spd": 92
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.7
+        },
+        "skill": {
+          "kind": "attack",
+          "target": "all_foes",
+          "damage": "magic",
+          "mult": 0.5,
+          "aoe": true,
+          "interval": 3,
+          "offset": 2,
+          "stun_chance": 1.0,
+          "stun_actions": 1,
+          "name": "电脉冲",
+          "desc": "每 3 回合释放电脉冲，使敌方全队无法行动 1 回合"
+        },
+        "id": "energy_capacitor",
+        "icon": "res://assets/icons/monsters/mob_energy_capacitor.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "steam_gunner": {
+        "name": "蒸汽枪手",
+        "element": "fire",
+        "role": "warrior",
+        "desc": "扛着蒸汽枪的机械兵，一枪顶得前排直往后退。",
+        "base": {
+          "hp": 640,
+          "atk": 96,
+          "def": 80,
+          "mres": 60,
+          "crit": 0.08,
+          "crit_dmg": 1.5,
+          "spd": 108
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.05
+        },
+        "id": "steam_gunner",
+        "icon": "res://assets/icons/monsters/mob_steam_gunner.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "supply_cart": {
+        "name": "发条补给车",
+        "element": "earth",
+        "role": "support",
+        "desc": "慢吞吞的补给机械，每到间隙就给全队打一轮气。",
+        "base": {
+          "hp": 720,
+          "atk": 50,
+          "def": 90,
+          "mres": 100,
+          "crit": 0.03,
+          "crit_dmg": 1.5,
+          "spd": 80
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.5
+        },
+        "skill": {
+          "kind": "buff_atk",
+          "interval": 2,
+          "offset": 1,
+          "target": "all_allies",
+          "value": 0.1,
+          "max_stacks": 3,
+          "name": "补给",
+          "desc": "每 2 回合为己方全队提升 10% 攻击力，最多叠 3 层"
+        },
+        "id": "supply_cart",
+        "icon": "res://assets/icons/monsters/mob_supply_cart.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "ancient_gargoyle": {
+        "name": "远古石像鬼",
+        "element": "dark",
+        "role": "tank",
+        "desc": "遗迹里苏醒的石像，翅膀一收就往跟前压。",
+        "base": {
+          "hp": 1100,
+          "atk": 92,
+          "def": 200,
+          "mres": 120,
+          "crit": 0.04,
+          "crit_dmg": 1.5,
+          "spd": 70
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "ancient_gargoyle",
+        "icon": "res://assets/icons/monsters/mob_ancient_gargoyle.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "ancient_runemaster": {
+        "name": "远古符文师",
+        "element": "dark",
+        "role": "mage",
+        "desc": "刻满符文的施法者，一挥手符文乱流就扫过中排。",
+        "base": {
+          "hp": 720,
+          "atk": 150,
+          "def": 80,
+          "mres": 150,
+          "crit": 0.08,
+          "crit_dmg": 1.5,
+          "spd": 100
+        },
+        "action": {
+          "kind": "attack",
+          "target": "middle_row",
+          "damage": "magic",
+          "mult": 0.9,
+          "aoe": true
+        },
+        "id": "ancient_runemaster",
+        "icon": "res://assets/icons/monsters/mob_ancient_runemaster.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "rune_core": {
+        "name": "符文核心",
+        "element": "light",
+        "role": "support",
+        "desc": "悬浮的符文水晶，为周围的符文单位撑起魔法减伤盾，自身不吃任何控制。",
+        "base": {
+          "hp": 900,
+          "atk": 60,
+          "def": 100,
+          "mres": 200,
+          "crit": 0.03,
+          "crit_dmg": 1.5,
+          "spd": 70
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.5
+        },
+        "skill": {
+          "kind": "shield_all",
+          "interval": 3,
+          "offset": 2,
+          "target": "all_allies",
+          "mult": 1.0,
+          "name": "符文护盾",
+          "desc": "每 3 回合为己方符文单位附加护盾（魔法减伤盾）"
+        },
+        "id": "rune_core",
+        "icon": "res://assets/icons/monsters/mob_rune_core.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "steam_mgner": {
+        "name": "蒸汽机枪手",
+        "element": "fire",
+        "role": "archer",
+        "desc": "双管蒸汽机枪，一轮扫射压住对面一整排。",
+        "base": {
+          "hp": 700,
+          "atk": 110,
+          "def": 90,
+          "mres": 60,
+          "crit": 0.08,
+          "crit_dmg": 1.5,
+          "spd": 116
+        },
+        "action": {
+          "kind": "attack",
+          "target": "front_row",
+          "damage": "phys",
+          "mult": 0.7,
+          "aoe": true
+        },
+        "id": "steam_mgner",
+        "icon": "res://assets/icons/monsters/mob_steam_mgner.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "tower_core": {
+        "name": "防御塔核心",
+        "element": "earth",
+        "role": "mage",
+        "desc": "防御塔的中枢炮台，每 2 回合对来犯全队轰一发（真实伤害）。",
+        "base": {
+          "hp": 850,
+          "atk": 168,
+          "def": 120,
+          "mres": 160,
+          "crit": 0.05,
+          "crit_dmg": 1.5,
+          "spd": 84
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.8
+        },
+        "skill": {
+          "kind": "attack",
+          "target": "all_foes",
+          "damage": "magic",
+          "mult": 1.6,
+          "aoe": true,
+          "interval": 2,
+          "offset": 1,
+          "name": "炮击",
+          "desc": "每 2 回合对敌方全队造成一轮轰击（描述为真实伤害）"
+        },
+        "id": "tower_core",
+        "icon": "res://assets/icons/monsters/mob_tower_core.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "auto_shield_guard": {
+        "name": "自动化盾卫",
+        "element": "light",
+        "role": "tank",
+        "desc": "举着能量塔盾的自律机械，是巨神兵身前最后一堵墙。",
+        "base": {
+          "hp": 1300,
+          "atk": 84,
+          "def": 240,
+          "mres": 110,
+          "crit": 0.02,
+          "crit_dmg": 1.5,
+          "spd": 62
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "traits": [
+          {
+            "id": "auto_armor",
+            "name": "复合装甲",
+            "desc": "物理减伤 30%",
+            "phys_reduction": 0.3
+          }
+        ],
+        "id": "auto_shield_guard",
+        "icon": "res://assets/icons/monsters/mob_auto_shield_guard.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "energy_relay": {
+        "name": "能量中继站",
+        "element": "wind",
+        "role": "support",
+        "desc": "战场后方的供能塔，源源不断给机械单位充能加劲。",
+        "base": {
+          "hp": 760,
+          "atk": 70,
+          "def": 90,
+          "mres": 140,
+          "crit": 0.04,
+          "crit_dmg": 1.5,
+          "spd": 90
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.6
+        },
+        "skill": {
+          "kind": "buff_atk",
+          "interval": 1,
+          "target": "all_allies",
+          "value": 0.07,
+          "max_stacks": 4,
+          "name": "能量供给",
+          "desc": "每次行动为己方全队供能，提升 7% 攻击力，最多叠 4 层"
+        },
+        "id": "energy_relay",
+        "icon": "res://assets/icons/monsters/mob_energy_relay.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "rune_priest": {
+        "name": "符文祭司",
+        "element": "dark",
+        "role": "healer",
+        "desc": "捧着符文经卷的祭司，只要它站着，符文单位就死不完。",
+        "base": {
+          "hp": 820,
+          "atk": 82,
+          "def": 90,
+          "mres": 170,
+          "crit": 0.04,
+          "crit_dmg": 1.5,
+          "spd": 106
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.7
+        },
+        "skill": {
+          "kind": "heal_lowest",
+          "interval": 1,
+          "mult": 1.9,
+          "name": "符文续命",
+          "desc": "每次行动治疗己方血量百分比最低的单位，治疗量为攻击力 190%"
+        },
+        "id": "rune_priest",
+        "icon": "res://assets/icons/monsters/mob_rune_priest.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "mech_colossus": {
+        "name": "机械堡垒巨神兵",
+        "element": "fire",
+        "role": "tank",
+        "desc": "机械迷城的镇城巨神兵，一具会坍塌重力的战争堡垒。",
+        "boss": true,
+        "base": {
+          "hp": 5200,
+          "atk": 240,
+          "def": 340,
+          "mres": 220,
+          "crit": 0.05,
+          "crit_dmg": 1.5,
+          "spd": 70
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.1
+        },
+        "traits": [
+          {
+            "id": "clock_heart",
+            "name": "发条之心",
+            "desc": "机械减伤 40%（物理），且不受任何控制效果影响",
+            "phys_reduction": 0.4
+          },
+          {
+            "id": "gravity_collapse",
+            "name": "重力坍塌",
+            "desc": "满能量释放，对敌方全队造成 250% 真实伤害并降低 30% 行动速度（持续 2 回合）",
+            "mult": 2.5,
+            "target": "all_foes",
+            "damage": "magic",
+            "aoe": true
+          }
+        ],
+        "id": "mech_colossus",
+        "icon": "res://assets/icons/monsters/mob_mech_colossus.svg",
         "portrait": "",
         "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
       }
