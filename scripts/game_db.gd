@@ -762,6 +762,18 @@ func chapter_tabs() -> Array:
 	return out
 
 
+## 章节大地图底图（chapter_tabs.items[].bg）：切章时由 stage_select.gd 换背景。
+## 未配置 bg 时回落选关页专用底图，保证任何章都有一张能铺的图。
+func chapter_bg(chapter_id: String) -> String:
+	for raw in select_map().get("chapter_tabs", {}).get("items", []):
+		if raw is Dictionary and str(raw.get("id", "")) == chapter_id:
+			var bg := str(raw.get("bg", ""))
+			if bg != "":
+				return bg
+			break
+	return "res://assets/art/bg/bg_stage_select.png"
+
+
 func decor_islands() -> Array:
 	var v: Variant = select_map().get("decor_islands", [])
 	return v if v is Array else []

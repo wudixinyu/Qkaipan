@@ -2418,10 +2418,12 @@
       },
       {
         "id": "ch3",
-        "name": "星辉圣殿",
-        "stages": 12,
-        "recommend_power": 4200,
-        "boss": "星穹审判者"
+        "name": "深渊暗界·影之迷宫",
+        "stages": 10,
+        "recommend_power": 22000,
+        "boss": "影之魔王·萨尔加斯",
+        "unlock_stage": 2010,
+        "chapter_stages": "res://data/game_data.json#adventure.extra_chapter_stages"
       }
     ],
     "select_map": {
@@ -2892,6 +2894,226 @@
           "demo_selected": false,
           "stamina": 10,
           "recommend_power": 20500
+        },
+        {
+          "stage_id": 3001,
+          "name": "深渊暗界·迷雾边缘",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            620,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 22000
+        },
+        {
+          "stage_id": 3002,
+          "name": "诅咒走廊",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            950,
+            540
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 2,
+          "pre_stage_id": 3001,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 23500
+        },
+        {
+          "stage_id": 3003,
+          "name": "影之祭坛",
+          "level": 1,
+          "kind": "elite",
+          "tag": "精",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            1280,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 3,
+          "pre_stage_id": 3002,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 10,
+          "recommend_power": 25800
+        },
+        {
+          "stage_id": 3004,
+          "name": "虚空裂缝",
+          "level": 1,
+          "kind": "elite",
+          "tag": "精",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            620,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 10,
+          "recommend_power": 27000
+        },
+        {
+          "stage_id": 3005,
+          "name": "噬魂泉水",
+          "level": 1,
+          "kind": "event",
+          "tag": "福",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            950,
+            540
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 2,
+          "pre_stage_id": 3004,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 0,
+          "recommend_power": 0
+        },
+        {
+          "stage_id": 3006,
+          "name": "暗影迷宫",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            1280,
+            700
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 3,
+          "pre_stage_id": 3005,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 28500
+        },
+        {
+          "stage_id": 3007,
+          "name": "封印之门",
+          "level": 1,
+          "kind": "rest",
+          "tag": "休",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            560,
+            680
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 1,
+          "pre_stage_id": 0,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 0,
+          "recommend_power": 0
+        },
+        {
+          "stage_id": 3008,
+          "name": "暗夜密室",
+          "level": 1,
+          "kind": "elite",
+          "tag": "精",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            820,
+            470
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 2,
+          "pre_stage_id": 3007,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 12,
+          "recommend_power": 31000
+        },
+        {
+          "stage_id": 3009,
+          "name": "影魔前哨",
+          "level": 1,
+          "kind": "battle",
+          "tag": "",
+          "icon": "res://assets/icons/stage_isle_plain.svg",
+          "icon_size": 180,
+          "label_order": "name_level",
+          "pos": [
+            1080,
+            680
+          ],
+          "label_dy": 110,
+          "radius": 90,
+          "z": 3,
+          "pre_stage_id": 3008,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 8,
+          "recommend_power": 32500
+        },
+        {
+          "stage_id": 3010,
+          "name": "影之魔王·萨尔加斯",
+          "level": 1,
+          "kind": "boss",
+          "tag": "王",
+          "icon": "res://assets/icons/stage_isle_castle.svg",
+          "icon_size": 190,
+          "label_order": "name_level",
+          "pos": [
+            1340,
+            470
+          ],
+          "label_dy": 110,
+          "radius": 100,
+          "z": 4,
+          "pre_stage_id": 3009,
+          "demo_stars": 0,
+          "demo_selected": false,
+          "stamina": 12,
+          "recommend_power": 35000
         }
       ],
       "decor_islands": [
@@ -2958,20 +3180,24 @@
             "id": "ch1",
             "label": "第一章",
             "name": "云上浮岛·初始之痕",
-            "locked": false
+            "locked": false,
+            "bg": "res://assets/art/bg/bg_ch1.png"
           },
           {
             "id": "ch2",
             "label": "第二章",
             "name": "机械迷城",
             "locked": false,
-            "unlock_stage": 1010
+            "unlock_stage": 1010,
+            "bg": "res://assets/art/bg/bg_ch2.png"
           },
           {
             "id": "ch3",
             "label": "第三章",
-            "name": "星辉圣殿",
-            "locked": true
+            "name": "深渊暗界·影之迷宫",
+            "locked": false,
+            "unlock_stage": 2010,
+            "bg": "res://assets/art/bg/bg_ch3.png"
           }
         ]
       },
@@ -3500,6 +3726,269 @@
               "demo_selected": false,
               "stamina": 10,
               "recommend_power": 20500
+            }
+          ]
+        },
+        {
+          "id": "ch3_s1",
+          "label": "第一节",
+          "name": "迷雾诅咒",
+          "chapter_id": "ch3",
+          "stage_ids": [
+            3001,
+            3002,
+            3003
+          ],
+          "gate_stage_id": 3003,
+          "nodes": [
+            {
+              "stage_id": 3001,
+              "name": "深渊暗界·迷雾边缘",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                620,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 22000
+            },
+            {
+              "stage_id": 3002,
+              "name": "诅咒走廊",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                950,
+                540
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 2,
+              "pre_stage_id": 3001,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 23500
+            },
+            {
+              "stage_id": 3003,
+              "name": "影之祭坛",
+              "level": 1,
+              "kind": "elite",
+              "tag": "精",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                1280,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 3,
+              "pre_stage_id": 3002,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 10,
+              "recommend_power": 25800
+            }
+          ]
+        },
+        {
+          "id": "ch3_s2",
+          "label": "第二节",
+          "name": "虚空裂隙",
+          "chapter_id": "ch3",
+          "stage_ids": [
+            3004,
+            3005,
+            3006
+          ],
+          "gate_stage_id": 3006,
+          "nodes": [
+            {
+              "stage_id": 3004,
+              "name": "虚空裂缝",
+              "level": 1,
+              "kind": "elite",
+              "tag": "精",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                620,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 10,
+              "recommend_power": 27000
+            },
+            {
+              "stage_id": 3005,
+              "name": "噬魂泉水",
+              "level": 1,
+              "kind": "event",
+              "tag": "福",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                950,
+                540
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 2,
+              "pre_stage_id": 3004,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 0,
+              "recommend_power": 0
+            },
+            {
+              "stage_id": 3006,
+              "name": "暗影迷宫",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                1280,
+                700
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 3,
+              "pre_stage_id": 3005,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 28500
+            }
+          ]
+        },
+        {
+          "id": "ch3_s3",
+          "label": "第三节",
+          "name": "永夜王座",
+          "chapter_id": "ch3",
+          "stage_ids": [
+            3007,
+            3008,
+            3009,
+            3010
+          ],
+          "gate_stage_id": 3010,
+          "nodes": [
+            {
+              "stage_id": 3007,
+              "name": "封印之门",
+              "level": 1,
+              "kind": "rest",
+              "tag": "休",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                560,
+                680
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 1,
+              "pre_stage_id": 0,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 0,
+              "recommend_power": 0
+            },
+            {
+              "stage_id": 3008,
+              "name": "暗夜密室",
+              "level": 1,
+              "kind": "elite",
+              "tag": "精",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                820,
+                470
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 2,
+              "pre_stage_id": 3007,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 12,
+              "recommend_power": 31000
+            },
+            {
+              "stage_id": 3009,
+              "name": "影魔前哨",
+              "level": 1,
+              "kind": "battle",
+              "tag": "",
+              "icon": "res://assets/icons/stage_isle_plain.svg",
+              "icon_size": 180,
+              "label_order": "name_level",
+              "pos": [
+                1080,
+                680
+              ],
+              "label_dy": 110,
+              "radius": 90,
+              "z": 3,
+              "pre_stage_id": 3008,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 8,
+              "recommend_power": 32500
+            },
+            {
+              "stage_id": 3010,
+              "name": "影之魔王·萨尔加斯",
+              "level": 1,
+              "kind": "boss",
+              "tag": "王",
+              "icon": "res://assets/icons/stage_isle_castle.svg",
+              "icon_size": 190,
+              "label_order": "name_level",
+              "pos": [
+                1340,
+                470
+              ],
+              "label_dy": 110,
+              "radius": 100,
+              "z": 4,
+              "pre_stage_id": 3009,
+              "demo_stars": 0,
+              "demo_selected": false,
+              "stamina": 12,
+              "recommend_power": 35000
             }
           ]
         }
@@ -4686,6 +5175,595 @@
             "bg": ""
           }
         ]
+      },
+      {
+        "chapter_id": "ch3",
+        "title": "深渊暗界 · 影之迷宫",
+        "note": "第三章全 10 关。power_scale 反解口径与前两章一致，由 tools/_inspect/apply_chapter3.py 生成。",
+        "slot_note": "enemies[].slot 取 combat.board.row_slots（1-3 前排 / 4-6 中排 / 7-9 后排）",
+        "list": [
+          {
+            "id": 3001,
+            "name": "深渊暗界·迷雾边缘",
+            "kind": "battle",
+            "subtitle": "新环境机制引导关",
+            "recommend_power": 22000,
+            "stamina": 8,
+            "pre_stage_id": 0,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "shadow_spiderling"
+              },
+              {
+                "slot": 3,
+                "mob": "shadow_spiderling"
+              },
+              {
+                "slot": 8,
+                "mob": "void_mage"
+              }
+            ],
+            "mechanic": "引导玩家了解新环境机制——【深渊迷雾】：前 2 回合敌方全员处于遮蔽状态，命中率降低 20%，需使用光系技能或辅助技能「照亮」战场。",
+            "tactics": "迷雾未散时物理队命中率吃折扣，光系/带「照亮」的辅助能提前揭开遮蔽；两只暗影幼蛛扑上来得快，先手点掉后排的虚空法师更稳。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 5000,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 6000,
+                "icon": "res://assets/icons/icon_star.svg"
+              },
+              {
+                "id": "break_stone_3",
+                "name": "3阶突破石",
+                "count": 5,
+                "icon": "res://assets/icons/icon_def.svg"
+              }
+            ],
+            "no": 1,
+            "power_scale": 11.2193,
+            "theme": {
+              "sky_top": "#3B2E52",
+              "sky_bottom": "#6E5A8C",
+              "sun": "#8C7BB0",
+              "ground": "#332844",
+              "rim": "#1C1430",
+              "haze": "#4A3A66"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3002,
+            "name": "诅咒走廊",
+            "kind": "battle",
+            "subtitle": "普通战斗",
+            "recommend_power": 23500,
+            "stamina": 8,
+            "pre_stage_id": 3001,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "bone_shield"
+              },
+              {
+                "slot": 3,
+                "mob": "bone_shield"
+              },
+              {
+                "slot": 5,
+                "mob": "cursed_scarecrow"
+              },
+              {
+                "slot": 8,
+                "mob": "night_archer"
+              }
+            ],
+            "mechanic": "【诅咒草人】每回合使己方随机 1 名英雄进入【流血】状态，持续掉血。",
+            "tactics": "两只骨盾勇士顶前后，草人在中间放诅咒、暗夜弓手点你后排 —— 需配备带净化能力的辅助（如 UR 依莲）解除流血，否则血条一边打一边漏。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 5500,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 6500,
+                "icon": "res://assets/icons/icon_star.svg"
+              },
+              {
+                "id": "break_stone_3",
+                "name": "3阶突破石",
+                "count": 8,
+                "icon": "res://assets/icons/icon_def.svg"
+              }
+            ],
+            "no": 2,
+            "power_scale": 6.999,
+            "theme": {
+              "sky_top": "#2A2140",
+              "sky_bottom": "#544272",
+              "sun": "#7A6AA0",
+              "ground": "#28203C",
+              "rim": "#150F26",
+              "haze": "#3A2E56"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3003,
+            "name": "影之祭坛",
+            "kind": "elite",
+            "subtitle": "精英挑战 · 小精英",
+            "recommend_power": 25800,
+            "stamina": 10,
+            "pre_stage_id": 3002,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "headless_knight"
+              },
+              {
+                "slot": 5,
+                "mob": "night_assassin"
+              },
+              {
+                "slot": 8,
+                "mob": "soul_priest"
+              }
+            ],
+            "mechanic": "【噬魂祭司】击杀己方单位时会立即复活一名敌方前排。",
+            "tactics": "祭司不删，前排杀了又活 —— 必须优先集火切后：绕过无头骑士，抢先把噬魂祭司和暗夜刺客带走，才能断掉复活链。",
+            "rewards": [
+              {
+                "id": "bound_gem",
+                "name": "绑钻",
+                "count": 100,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "equip_shadow_boots",
+                "name": "SSR级套装【暗影之靴】",
+                "count": 1,
+                "icon": "res://assets/icons/icon_dark.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 8000,
+                "icon": "res://assets/icons/icon_star.svg"
+              }
+            ],
+            "no": 3,
+            "power_scale": 10.2237,
+            "theme": {
+              "sky_top": "#4A2650",
+              "sky_bottom": "#7E4684",
+              "sun": "#B06AC0",
+              "ground": "#381E40",
+              "rim": "#220F28",
+              "haze": "#5A2E60"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3004,
+            "name": "虚空裂缝",
+            "kind": "elite",
+            "subtitle": "高危支线 · 极限生存",
+            "recommend_power": 27000,
+            "stamina": 10,
+            "pre_stage_id": 3003,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 4,
+                "mob": "void_demon"
+              },
+              {
+                "slot": 6,
+                "mob": "void_demon"
+              },
+              {
+                "slot": 8,
+                "mob": "shadow_blade"
+              }
+            ],
+            "mechanic": "环境效果【虚空侵蚀】：全体非暗系英雄每回合损失 5% 最大生命值（描述性环境机制）。",
+            "tactics": "裂缝里全是虚空腐蚀，非暗系英雄每回合都在掉血，拖得越久越亏：暗系队天然免疫这条 Debuff，配奶妈硬顶也要在血被榨干前把两只虚空恶魔清掉，别让暗影武者·刃开出无影刃。",
+            "rewards": [
+              {
+                "id": "bound_gem",
+                "name": "绑钻",
+                "count": 200,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "ticket_advanced",
+                "name": "高级召唤卷轴",
+                "count": 2,
+                "icon": "res://assets/icons/icon_gift.svg"
+              },
+              {
+                "id": "scroll_dark",
+                "name": "暗元素召唤卷轴",
+                "count": 1,
+                "icon": "res://assets/icons/icon_dark.svg"
+              }
+            ],
+            "no": 4,
+            "power_scale": 9.7772,
+            "theme": {
+              "sky_top": "#1E2A48",
+              "sky_bottom": "#3E5A82",
+              "sun": "#6E8CC0",
+              "ground": "#1A2338",
+              "rim": "#0F1524",
+              "haze": "#2E4266"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3005,
+            "name": "噬魂泉水",
+            "kind": "event",
+            "subtitle": "随机抉择 · 险境求生",
+            "recommend_power": 0,
+            "stamina": 0,
+            "pre_stage_id": 3004,
+            "is_boss": false,
+            "enemies": [],
+            "mechanic": "非战斗节点：在噬魂泉水前做出抉择，风险与收益全凭一瞬。",
+            "options": [
+              {
+                "id": "drink",
+                "name": "饮用泉水（高风险高回报）",
+                "cost": {},
+                "grant": {
+                  "buff": {
+                    "stat": "crit",
+                    "mult": 1.2,
+                    "scope": "team",
+                    "battles": 2,
+                    "name": "深渊之力",
+                    "desc": "饮用泉水：50% 概率全队恢复 100% 能量，50% 概率全队当前生命值减少 30%（近似以临时暴击增益呈现高风险高回报）"
+                  }
+                }
+              },
+              {
+                "id": "purify",
+                "name": "净化泉水（消耗光系英雄能量）",
+                "cost": {},
+                "grant": {
+                  "buff": {
+                    "stat": "spd",
+                    "mult": 1.1,
+                    "scope": "team",
+                    "battles": 1,
+                    "name": "净化光环",
+                    "desc": "获得【净化光环】：下一场战斗全队免疫首次控制"
+                  }
+                }
+              },
+              {
+                "id": "leave",
+                "name": "绕道而行",
+                "cost": {},
+                "grant": {}
+              }
+            ],
+            "rewards": [],
+            "no": 5,
+            "power_scale": 0.0,
+            "theme": {
+              "sky_top": "#22483F",
+              "sky_bottom": "#3F7A68",
+              "sun": "#6FBFA0",
+              "ground": "#1C3A32",
+              "rim": "#102420",
+              "haze": "#2E5A4C"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3006,
+            "name": "暗影迷宫",
+            "kind": "battle",
+            "subtitle": "普通战斗",
+            "recommend_power": 28500,
+            "stamina": 8,
+            "pre_stage_id": 3005,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "bone_shield"
+              },
+              {
+                "slot": 4,
+                "mob": "night_assassin"
+              },
+              {
+                "slot": 6,
+                "mob": "night_archer"
+              },
+              {
+                "slot": 8,
+                "mob": "void_mage"
+              }
+            ],
+            "mechanic": "敌方双刺客/弓手阵容，专挑后排下手，生存压力极大。",
+            "tactics": "暗夜刺客和暗夜弓手都盯着你最脆的后排，虚空法师还会扫中排 —— 需靠地系/前排嘲讽英雄把伤害吸走，否则后排站不住两回合。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 6500,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "hero_exp",
+                "name": "英雄经验",
+                "count": 7500,
+                "icon": "res://assets/icons/icon_star.svg"
+              }
+            ],
+            "no": 6,
+            "power_scale": 8.8194,
+            "theme": {
+              "sky_top": "#2E2340",
+              "sky_bottom": "#5A4676",
+              "sun": "#8874B0",
+              "ground": "#2A2038",
+              "rim": "#181024",
+              "haze": "#40305C"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3007,
+            "name": "封印之门",
+            "kind": "rest",
+            "subtitle": "宝箱 / 休息节点",
+            "recommend_power": 0,
+            "stamina": 0,
+            "pre_stage_id": 3006,
+            "is_boss": false,
+            "enemies": [],
+            "mechanic": "节点效果：恢复全队 80% 生命值，并获得【深渊魔盒】。",
+            "restore": {
+              "hp_pct": 0.8,
+              "scope": "team"
+            },
+            "rewards": [
+              {
+                "id": "gem",
+                "name": "彩虹钻石",
+                "count": 150,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "shard_ssr",
+                "name": "SSR英雄碎片",
+                "count": 10,
+                "icon": "res://assets/icons/icon_star.svg"
+              }
+            ],
+            "no": 7,
+            "power_scale": 0.0,
+            "theme": {
+              "sky_top": "#3A2A52",
+              "sky_bottom": "#6E5290",
+              "sun": "#A488D0",
+              "ground": "#302448",
+              "rim": "#1C1430",
+              "haze": "#4E3A6C"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3008,
+            "name": "暗夜密室",
+            "kind": "elite",
+            "subtitle": "隐藏挑战 · 精英限时战",
+            "recommend_power": 31000,
+            "stamina": 12,
+            "pre_stage_id": 3007,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "cedric_guardian"
+              },
+              {
+                "slot": 8,
+                "mob": "katherine_judge"
+              }
+            ],
+            "mechanic": "限时挑战：5 回合内击杀所有敌人即通关，超时判负。",
+            "tactics": "塞德里克硬到令人发指（物理减伤 35% 还会给全队套盾），凯瑟琳每 2 回合降一轮高额圣光爆发 —— 拼的是极限单体点杀与破盾能力，奶盾都救不了超时，5 回合内必须把两只一起带走。",
+            "rewards": [
+              {
+                "id": "shard_ur",
+                "name": "UR英雄碎片",
+                "count": 5,
+                "icon": "res://assets/icons/icon_star.svg"
+              },
+              {
+                "id": "equip_holy_robe",
+                "name": "UR套装【圣光法袍】",
+                "count": 1,
+                "icon": "res://assets/icons/icon_light.svg"
+              }
+            ],
+            "no": 8,
+            "power_scale": 13.1123,
+            "theme": {
+              "sky_top": "#243A4A",
+              "sky_bottom": "#4E6E82",
+              "sun": "#8AC0A0",
+              "ground": "#1E303C",
+              "rim": "#122028",
+              "haze": "#2E4C5C"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3009,
+            "name": "影魔前哨",
+            "kind": "battle",
+            "subtitle": "Boss 前哨战",
+            "recommend_power": 32500,
+            "stamina": 8,
+            "pre_stage_id": 3008,
+            "is_boss": false,
+            "difficulty": 0.85,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "headless_knight"
+              },
+              {
+                "slot": 3,
+                "mob": "bone_shield"
+              },
+              {
+                "slot": 5,
+                "mob": "cursed_scarecrow"
+              },
+              {
+                "slot": 8,
+                "mob": "soul_priest"
+              }
+            ],
+            "mechanic": "Boss 战前的阵容综合检验，必须在 4 回合内打破敌方防线。",
+            "tactics": "双前排扛伤、草人放诅咒、祭司续命复活，是 Boss 阵容的缩水版；能 4 回合内强拆防线又断得掉祭司，3010 才有得打。",
+            "rewards": [
+              {
+                "id": "gold",
+                "name": "金币",
+                "count": 7500,
+                "icon": "res://assets/icons/icon_coin.svg"
+              },
+              {
+                "id": "break_stone_3",
+                "name": "3阶突破石",
+                "count": 20,
+                "icon": "res://assets/icons/icon_def.svg"
+              }
+            ],
+            "no": 9,
+            "power_scale": 9.3394,
+            "theme": {
+              "sky_top": "#40203A",
+              "sky_bottom": "#72405E",
+              "sun": "#A86A8C",
+              "ground": "#341A30",
+              "rim": "#1E0F1C",
+              "haze": "#56304E"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          },
+          {
+            "id": 3010,
+            "name": "影之魔王·萨尔加斯",
+            "kind": "boss",
+            "subtitle": "章节最终 Boss 战",
+            "recommend_power": 35000,
+            "stamina": 12,
+            "pre_stage_id": 3009,
+            "is_boss": true,
+            "difficulty": 0.85,
+            "first_clear_only": true,
+            "enemies": [
+              {
+                "slot": 1,
+                "mob": "headless_knight"
+              },
+              {
+                "slot": 3,
+                "mob": "headless_knight"
+              },
+              {
+                "slot": 4,
+                "mob": "void_demon"
+              },
+              {
+                "slot": 5,
+                "mob": "shadow_lord"
+              },
+              {
+                "slot": 6,
+                "mob": "void_demon"
+              },
+              {
+                "slot": 8,
+                "mob": "soul_priest"
+              }
+            ],
+            "mechanic": "Boss 特性：【永夜降临】光系伤害对其提升 50%，但非光系英雄物理/魔法防御降低 30%；【暗影爆发】满能量时对己方全体造成 300% 极高魔法伤害并附加 2 回合【沉默】；被动【灵魂吸噬】每当场上有单位（含敌我）死亡，Boss 恢复 15% 最大生命并提升 20% 攻击力。",
+            "tactics": "光系队被永夜降临加成、能打出更高爆发，但非光系英雄防御被削 30% —— 编队要在「光系点杀」和「暗系扛线」间权衡；灵魂吸噬让场上任何死亡都在给 Boss 回血加攻，切忌用自杀式换血流；抢在暗影爆发满能量前，先切掉两侧虚空恶魔与噬魂祭司，再集火把萨尔加斯带走。",
+            "rewards": [
+              {
+                "id": "gem",
+                "name": "彩虹钻石",
+                "count": 800,
+                "icon": "res://assets/icons/icon_gem.svg"
+              },
+              {
+                "id": "ticket_advanced",
+                "name": "高级召唤卷轴",
+                "count": 10,
+                "icon": "res://assets/icons/icon_gift.svg"
+              },
+              {
+                "id": "hero_shadow_blade",
+                "name": "UR英雄【暗影武者·刃】",
+                "count": 1,
+                "icon": "res://assets/icons/icon_dark.svg",
+                "first_clear": true
+              }
+            ],
+            "no": 10,
+            "power_scale": 4.8177,
+            "theme": {
+              "sky_top": "#160F24",
+              "sky_bottom": "#3A1E48",
+              "sun": "#7A2E6E",
+              "ground": "#120B1E",
+              "rim": "#0A0612",
+              "haze": "#2A1438"
+            },
+            "theme_note": "战场环境配色。填了 bg（整张背景图路径）时 theme 失效，直接换成美术图。",
+            "bg": ""
+          }
+        ]
       }
     ]
   },
@@ -4857,7 +5935,20 @@
       "auto_shield_guard",
       "energy_relay",
       "rune_priest",
-      "mech_colossus"
+      "mech_colossus",
+      "shadow_spiderling",
+      "void_mage",
+      "bone_shield",
+      "cursed_scarecrow",
+      "night_archer",
+      "headless_knight",
+      "night_assassin",
+      "soul_priest",
+      "void_demon",
+      "shadow_blade",
+      "cedric_guardian",
+      "katherine_judge",
+      "shadow_lord"
     ],
     "table": {
       "slime": {
@@ -5781,6 +6872,433 @@
         ],
         "id": "mech_colossus",
         "icon": "res://assets/icons/monsters/mob_mech_colossus.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "shadow_spiderling": {
+        "name": "暗影幼蛛",
+        "element": "dark",
+        "role": "warrior",
+        "desc": "深渊里孵化的小蛛，成群扑上来，被迷雾遮着时更难瞄得准。",
+        "base": {
+          "hp": 480,
+          "atk": 96,
+          "def": 70,
+          "mres": 46,
+          "crit": 0.08,
+          "crit_dmg": 1.5,
+          "spd": 112
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "shadow_spiderling",
+        "icon": "res://assets/icons/monsters/mob_shadow_spiderling.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "void_mage": {
+        "name": "虚空法师",
+        "element": "dark",
+        "role": "mage",
+        "desc": "操纵虚空能量的施法者，一挥手裂隙乱流就扫过中排。",
+        "base": {
+          "hp": 560,
+          "atk": 150,
+          "def": 72,
+          "mres": 140,
+          "crit": 0.06,
+          "crit_dmg": 1.5,
+          "spd": 98
+        },
+        "action": {
+          "kind": "attack",
+          "target": "middle_row",
+          "damage": "magic",
+          "mult": 0.9,
+          "aoe": true
+        },
+        "id": "void_mage",
+        "icon": "res://assets/icons/monsters/mob_void_mage.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "bone_shield": {
+        "name": "骨盾勇士",
+        "element": "dark",
+        "role": "tank",
+        "desc": "举着巨兽肩胛骨的重装亡兵，正面几乎推不动。",
+        "base": {
+          "hp": 1150,
+          "atk": 82,
+          "def": 240,
+          "mres": 96,
+          "crit": 0.03,
+          "crit_dmg": 1.5,
+          "spd": 64
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "traits": [
+          {
+            "id": "bone_wall",
+            "name": "骸骨壁垒",
+            "desc": "物理减伤 28%",
+            "phys_reduction": 0.28
+          }
+        ],
+        "id": "bone_shield",
+        "icon": "res://assets/icons/monsters/mob_bone_shield.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "cursed_scarecrow": {
+        "name": "诅咒草人",
+        "element": "dark",
+        "role": "support",
+        "desc": "钉满骨钉的邪法人偶，每回合缠上一个倒霉蛋，让他持续流血。",
+        "base": {
+          "hp": 700,
+          "atk": 100,
+          "def": 80,
+          "mres": 130,
+          "crit": 0.05,
+          "crit_dmg": 1.5,
+          "spd": 92
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.6
+        },
+        "skill": {
+          "kind": "attack",
+          "target": "lowest_hp_back",
+          "damage": "magic",
+          "mult": 0.8,
+          "interval": 1,
+          "offset": 0,
+          "stun_chance": 0.35,
+          "stun_actions": 1,
+          "name": "荆棘诅咒",
+          "desc": "每回合缠上己方随机一名英雄，使其陷入【流血】持续掉血（近似：概率定身 1 回合）"
+        },
+        "id": "cursed_scarecrow",
+        "icon": "res://assets/icons/monsters/mob_cursed_scarecrow.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "night_archer": {
+        "name": "暗夜弓手",
+        "element": "dark",
+        "role": "archer",
+        "desc": "潜伏在暗处的狙击手，专挑阵型最后排最脆的那一个。",
+        "base": {
+          "hp": 500,
+          "atk": 118,
+          "def": 58,
+          "mres": 50,
+          "crit": 0.14,
+          "crit_dmg": 1.6,
+          "spd": 122
+        },
+        "action": {
+          "kind": "attack",
+          "target": "lowest_hp_back",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "id": "night_archer",
+        "icon": "res://assets/icons/monsters/mob_night_archer.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "headless_knight": {
+        "name": "无头骑士",
+        "element": "dark",
+        "role": "tank",
+        "desc": "夹着头颅巡逻的亡魂骑士，越挨打越凶。",
+        "base": {
+          "hp": 1050,
+          "atk": 104,
+          "def": 200,
+          "mres": 110,
+          "crit": 0.06,
+          "crit_dmg": 1.5,
+          "spd": 86
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.05
+        },
+        "traits": [
+          {
+            "id": "doom_aura",
+            "name": "亡者威压",
+            "desc": "物理减伤 15%（描述性光环）",
+            "phys_reduction": 0.15
+          }
+        ],
+        "id": "headless_knight",
+        "icon": "res://assets/icons/monsters/mob_headless_knight.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "night_assassin": {
+        "name": "暗夜刺客",
+        "element": "dark",
+        "role": "assassin",
+        "desc": "藏在影子里的刀客，只为一击致命。",
+        "base": {
+          "hp": 640,
+          "atk": 148,
+          "def": 72,
+          "mres": 60,
+          "crit": 0.18,
+          "crit_dmg": 1.7,
+          "spd": 130
+        },
+        "action": {
+          "kind": "attack",
+          "target": "lowest_hp_back",
+          "damage": "phys",
+          "mult": 1.15
+        },
+        "id": "night_assassin",
+        "icon": "res://assets/icons/monsters/mob_night_assassin.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "soul_priest": {
+        "name": "噬魂祭司",
+        "element": "dark",
+        "role": "healer",
+        "desc": "捧着魂灯的祭司，只要它站着，倒下的同伙就会被重新唤回战场。",
+        "base": {
+          "hp": 820,
+          "atk": 86,
+          "def": 90,
+          "mres": 170,
+          "crit": 0.04,
+          "crit_dmg": 1.5,
+          "spd": 106
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.7
+        },
+        "skill": {
+          "kind": "heal_lowest",
+          "interval": 1,
+          "mult": 1.9,
+          "name": "噬魂续命",
+          "desc": "每次行动治疗己方血量最低单位（描述性：击杀己方单位时立即复活一名敌方前排），务必优先集火切后"
+        },
+        "id": "soul_priest",
+        "icon": "res://assets/icons/monsters/mob_soul_priest.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "void_demon": {
+        "name": "虚空恶魔",
+        "element": "dark",
+        "role": "mage",
+        "desc": "从虚空裂缝里爬出的魔物，浑身腐蚀着周围的生命。",
+        "base": {
+          "hp": 880,
+          "atk": 132,
+          "def": 110,
+          "mres": 120,
+          "crit": 0.07,
+          "crit_dmg": 1.5,
+          "spd": 94
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 1.0
+        },
+        "id": "void_demon",
+        "icon": "res://assets/icons/monsters/mob_void_demon.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "shadow_blade": {
+        "name": "暗影武者·刃",
+        "element": "dark",
+        "role": "assassin",
+        "desc": "手握影刃的武者，刀光一闪便掠过整条战线。",
+        "base": {
+          "hp": 760,
+          "atk": 172,
+          "def": 110,
+          "mres": 110,
+          "crit": 0.2,
+          "crit_dmg": 1.8,
+          "spd": 128
+        },
+        "action": {
+          "kind": "attack",
+          "target": "lowest_hp_back",
+          "damage": "phys",
+          "mult": 1.2
+        },
+        "skill": {
+          "kind": "attack",
+          "target": "all_foes",
+          "damage": "phys",
+          "mult": 1.3,
+          "aoe": true,
+          "interval": 3,
+          "offset": 2,
+          "name": "无影刃",
+          "desc": "每 3 回合释放无影刃，横扫敌方全队"
+        },
+        "id": "shadow_blade",
+        "icon": "res://assets/icons/monsters/mob_shadow_blade.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "cedric_guardian": {
+        "name": "森林守护者·塞德里克",
+        "element": "earth",
+        "role": "tank",
+        "desc": "被深渊腐化却仍守着最后绿意的守护者，硬得像一座活体堡垒。",
+        "base": {
+          "hp": 1600,
+          "atk": 90,
+          "def": 300,
+          "mres": 150,
+          "crit": 0.03,
+          "crit_dmg": 1.5,
+          "spd": 60
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.0
+        },
+        "traits": [
+          {
+            "id": "bark_skin",
+            "name": "古树之皮",
+            "desc": "物理减伤 35%",
+            "phys_reduction": 0.35
+          }
+        ],
+        "skill": {
+          "kind": "shield_all",
+          "interval": 3,
+          "offset": 2,
+          "target": "all_allies",
+          "mult": 1.0,
+          "name": "盘根护盾",
+          "desc": "每 3 回合为己方全队附加护盾"
+        },
+        "id": "cedric_guardian",
+        "icon": "res://assets/icons/monsters/mob_cedric_guardian.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "katherine_judge": {
+        "name": "圣光审判者·凯瑟琳",
+        "element": "light",
+        "role": "mage",
+        "desc": "手持圣焰的审判官，一击便能把整支队伍照得透亮。",
+        "base": {
+          "hp": 900,
+          "atk": 196,
+          "def": 96,
+          "mres": 176,
+          "crit": 0.1,
+          "crit_dmg": 1.6,
+          "spd": 104
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "magic",
+          "mult": 0.8
+        },
+        "skill": {
+          "kind": "attack",
+          "target": "all_foes",
+          "damage": "magic",
+          "mult": 1.5,
+          "aoe": true,
+          "interval": 2,
+          "offset": 1,
+          "name": "圣光审判",
+          "desc": "每 2 回合对敌方全队降下一轮高额圣光爆发"
+        },
+        "id": "katherine_judge",
+        "icon": "res://assets/icons/monsters/mob_katherine_judge.svg",
+        "portrait": "",
+        "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
+      },
+      "shadow_lord": {
+        "name": "影之魔王·萨尔加斯",
+        "element": "dark",
+        "role": "tank",
+        "desc": "深渊暗界的主宰，永夜之王，吞噬一切亡魂为己用。",
+        "boss": true,
+        "base": {
+          "hp": 5600,
+          "atk": 268,
+          "def": 360,
+          "mres": 260,
+          "crit": 0.06,
+          "crit_dmg": 1.6,
+          "spd": 72
+        },
+        "action": {
+          "kind": "attack",
+          "target": "nearest_front",
+          "damage": "phys",
+          "mult": 1.1
+        },
+        "traits": [
+          {
+            "id": "eternal_night",
+            "name": "永夜降临",
+            "desc": "光系伤害对其提升 50%，但非光系英雄物理/魔法防御降低 30%（描述性领域）",
+            "phys_reduction": 0.2
+          },
+          {
+            "id": "soul_devour",
+            "name": "灵魂吸噬",
+            "desc": "每当有场上单位（含敌我）死亡，Boss 恢复 15% 最大生命并提升 20% 攻击力（描述性被动）"
+          }
+        ],
+        "skill": {
+          "kind": "attack",
+          "target": "all_foes",
+          "damage": "magic",
+          "mult": 3.0,
+          "aoe": true,
+          "interval": 3,
+          "offset": 2,
+          "stun_chance": 1.0,
+          "stun_actions": 1,
+          "name": "暗影爆发",
+          "desc": "满能量时对己方全体造成 300% 极高魔法伤害，并附加 2 回合【沉默】（近似：眩晕 1 回合无法行动）"
+        },
+        "id": "shadow_lord",
+        "icon": "res://assets/icons/monsters/mob_shadow_lord.svg",
         "portrait": "",
         "portrait_note": "暂无立绘，战场用 icon 占位；有立绘后填 portrait 即可切过去"
       }

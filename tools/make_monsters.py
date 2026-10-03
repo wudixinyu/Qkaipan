@@ -586,6 +586,106 @@ def arch_mech_boss(m, d, a):
     return s
 
 
+# --------------------------------------------------------------------------- 第三章《深渊暗界·影之迷宫》暗系原型
+# 深渊风格：紫黑剪影 + 幽光点缀，沿用同一套描边/阴影规范，与前两章同场不打架
+def arch_scarecrow(m, d, a):
+    """诅咒草人：十字木桩 + 麻布袋头 + 枯草 + X 形邪眼"""
+    s = shadow(rx=52)
+    # 十字桩（竖 + 横）
+    s += '<rect x="93" y="74" width="14" height="100" rx="4" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    s += '<rect x="52" y="96" width="96" height="12" rx="5" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    # 麻布袍（斜披在横臂上）
+    s += ('<path d="M100 78 C72 82 60 118 56 168 L144 168 C140 118 128 82 100 78 Z" '
+          'fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>' % (m, STROKE, SW))
+    # 头（麻布袋）
+    s += '<circle cx="100" cy="60" r="24" fill="%s" stroke="%s" stroke-width="%.1f"/>' % (m, STROKE, SW)
+    s += ('<path d="M86 52 L98 64 M98 52 L86 64" stroke="%s" stroke-width="5" stroke-linecap="round"/>' % a)
+    s += ('<path d="M102 52 L114 64 M114 52 L102 64" stroke="%s" stroke-width="5" stroke-linecap="round"/>' % a)
+    s += '<path d="M90 72 Q100 66 110 72" fill="none" stroke="%s" stroke-width="4" stroke-linecap="round"/>' % STROKE
+    # 枯草束
+    s += ('<path d="M56 96 L44 82 M144 96 L156 82 M60 108 L46 108 M140 108 L154 108" '
+          'stroke="%s" stroke-width="5" stroke-linecap="round"/>' % a)
+    return s
+
+
+def arch_shadow_knight(m, d, a, gear="knight"):
+    """亡魂武者家族：无头骑士（悬浮盔 + 长枪）/ 暗影武者·刃（兜帽 + 太刀）"""
+    s = shadow(rx=58)
+    s += '<rect x="66" y="150" width="24" height="28" rx="7" fill="%s" stroke="%s" stroke-width="4.5"/>' % (d, STROKE)
+    s += '<rect x="110" y="150" width="24" height="28" rx="7" fill="%s" stroke="%s" stroke-width="4.5"/>' % (d, STROKE)
+    s += ('<rect x="58" y="82" width="84" height="76" rx="16" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (m, STROKE, SW))
+    s += '<rect x="58" y="112" width="84" height="12" fill="%s" stroke="%s" stroke-width="3.5"/>' % (a, STROKE)
+    if gear == "blade":
+        # 暗影武者·刃：兜帽 + 横太刀 + 一道寒光
+        s += ('<path d="M100 44 C78 44 66 66 66 86 L134 86 C134 66 122 44 100 44 Z" '
+              'fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>' % (d, STROKE, SW))
+        s += '<ellipse cx="100" cy="74" rx="16" ry="12" fill="#20161F"/>'
+        s += '<circle cx="94" cy="74" r="4" fill="%s"/><circle cx="106" cy="74" r="4" fill="%s"/>' % (a, a)
+        s += ('<path d="M40 148 Q100 108 168 96" fill="none" stroke="%s" stroke-width="%.1f" stroke-linecap="round"/>'
+              % (a, SW + 2))
+        s += '<line x1="40" y1="148" x2="30" y2="156" stroke="%s" stroke-width="7" stroke-linecap="round"/>' % d
+    else:
+        # 无头骑士：颈上悬浮空盔 + 长枪 + 盔缨鬼火
+        s += ('<path d="M66 76 A34 34 0 0 1 134 76 Z" fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>'
+              % (d, STROKE, SW))
+        s += '<rect x="70" y="52" width="60" height="22" rx="9" fill="#20161F" stroke="%s" stroke-width="4"/>' % STROKE
+        s += stroke_eyes(100, 62, 16, 13, 8, a)
+        s += ('<path d="M100 20 C112 26 114 40 104 44 L96 44 C86 40 88 26 100 20 Z" fill="%s" stroke="%s" stroke-width="4.5"/>'
+              % (a, STROKE))
+        s += '<line x1="150" y1="176" x2="150" y2="74" stroke="%s" stroke-width="7" stroke-linecap="round"/>' % d
+        s += ('<path d="M150 74 L138 58 L150 44 L162 58 Z" fill="%s" stroke="%s" stroke-width="4.5" stroke-linejoin="round"/>'
+              % (a, STROKE))
+    return s
+
+
+def arch_void_demon(m, d, a):
+    """虚空恶魔：犄角 + 蝠翼 + 幽光竖瞳"""
+    s = shadow(rx=58)
+    # 蝠翼
+    s += ('<path d="M58 92 L18 66 L30 104 L16 118 L44 128 Z" fill="%s" stroke="%s" stroke-width="5" stroke-linejoin="round"/>' % (d, STROKE))
+    s += ('<path d="M142 92 L182 66 L170 104 L184 118 L156 128 Z" fill="%s" stroke="%s" stroke-width="5" stroke-linejoin="round"/>' % (d, STROKE))
+    # 躯干
+    s += ('<path d="M100 74 C74 78 60 112 56 170 L144 170 C140 112 126 78 100 74 Z" '
+          'fill="%s" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>' % (m, STROKE, SW))
+    # 头 + 双犄角
+    s += '<circle cx="100" cy="62" r="26" fill="%s" stroke="%s" stroke-width="%.1f"/>' % (d, STROKE, SW)
+    s += '<path d="M80 44 C66 30 64 18 72 10" fill="none" stroke="%s" stroke-width="8" stroke-linecap="round"/>' % d
+    s += '<path d="M120 44 C134 30 136 18 128 10" fill="none" stroke="%s" stroke-width="8" stroke-linecap="round"/>' % d
+    # 幽光竖瞳
+    s += '<ellipse cx="91" cy="60" rx="6" ry="9" fill="%s"/><ellipse cx="109" cy="60" rx="6" ry="9" fill="%s"/>' % (a, a)
+    s += '<rect x="89.5" y="55" width="3" height="10" rx="1.5" fill="#20161F"/>'
+    s += '<rect x="107.5" y="55" width="3" height="10" rx="1.5" fill="#20161F"/>'
+    s += ('<path d="M88 76 L96 70 L104 76 L112 70" fill="none" stroke="%s" stroke-width="4" stroke-linecap="round"/>' % STROKE)
+    return s
+
+
+def arch_shadow_lord(m, d, a):
+    """影之魔王·萨尔加斯（Boss）：王冠犄角 + 斗篷 + 胸口暗影核"""
+    s = shadow(rx=84, cy=182, alpha=0.30)
+    s += '<rect x="54" y="150" width="34" height="40" rx="8" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    s += '<rect x="112" y="150" width="34" height="40" rx="8" fill="%s" stroke="%s" stroke-width="5"/>' % (d, STROKE)
+    # 斗篷
+    s += ('<path d="M100 40 C60 46 40 108 34 176 L166 176 C160 108 140 46 100 40 Z" '
+          'fill="%s" fill-opacity="0.9" stroke="%s" stroke-width="%.1f" stroke-linejoin="round"/>' % (d, STROKE, SW))
+    s += ('<rect x="40" y="66" width="120" height="90" rx="18" fill="%s" stroke="%s" stroke-width="%.1f"/>'
+          % (m, STROKE, SW))
+    # 肩刺
+    s += ('<path d="M44 66 L22 34 L54 58 Z" fill="%s" stroke="%s" stroke-width="5" stroke-linejoin="round"/>' % (d, STROKE))
+    s += ('<path d="M156 66 L178 34 L146 58 Z" fill="%s" stroke="%s" stroke-width="5" stroke-linejoin="round"/>' % (d, STROKE))
+    # 头 + 王冠犄角
+    s += '<rect x="74" y="24" width="52" height="46" rx="12" fill="%s" stroke="%s" stroke-width="%.1f"/>' % (d, STROKE, SW)
+    s += '<path d="M74 30 C56 22 52 8 62 0" fill="none" stroke="%s" stroke-width="9" stroke-linecap="round"/>' % a
+    s += '<path d="M126 30 C144 22 148 8 138 0" fill="none" stroke="%s" stroke-width="9" stroke-linecap="round"/>' % a
+    s += '<rect x="82" y="40" width="36" height="12" rx="6" fill="%s"/>' % a
+    s += '<circle cx="90" cy="46" r="4" fill="#FFFFFF"/><circle cx="110" cy="46" r="4" fill="#FFFFFF"/>'
+    # 胸口暗影核 + 环绕暗焰
+    s += '<circle cx="100" cy="112" r="22" fill="%s" stroke="%s" stroke-width="5"/>' % (a, STROKE)
+    s += '<circle cx="100" cy="112" r="10" fill="%s"/>' % d
+    s += layered_arcs(100, 112, [30, 40], a, 4, sweep=300, start=120)
+    return s
+
+
 # --------------------------------------------------------------------------- 规格表
 # 键 = 文件名，值 = (原型, 元素, 装备变体)
 SPECS = [
@@ -621,6 +721,20 @@ SPECS = [
     ("mob_energy_relay",       "energy_node",  "wind",  "relay"),
     ("mob_rune_priest",        "rune_statue",  "dark",  "priest"),
     ("mob_mech_colossus",      "mech_boss",    "fire",  None),
+    # 第三章《深渊暗界·影之迷宫》：暗系谱系（共 13 只）
+    ("mob_shadow_spiderling",  "mech_spider",  "dark",  None),
+    ("mob_void_mage",          "puppet",       "dark",  None),
+    ("mob_bone_shield",        "guard",        "dark",  None),
+    ("mob_cursed_scarecrow",   "scarecrow",    "dark",  None),
+    ("mob_night_archer",       "archer",       "dark",  None),
+    ("mob_headless_knight",    "shadow_knight","dark",  "knight"),
+    ("mob_night_assassin",     "archer",       "dark",  None),
+    ("mob_soul_priest",        "rune_statue",  "dark",  "priest"),
+    ("mob_void_demon",         "void_demon",   "dark",  None),
+    ("mob_shadow_blade",       "shadow_knight","dark",  "blade"),
+    ("mob_cedric_guardian",    "ruin",         "earth", None),
+    ("mob_katherine_judge",    "rune_statue",  "light", "runemaster"),
+    ("mob_shadow_lord",        "shadow_lord",  "dark",  None),
 ]
 
 ARCH = {
@@ -644,6 +758,10 @@ ARCH = {
     "energy_node": arch_energy_node,
     "rune_statue": arch_rune_statue,
     "mech_boss": arch_mech_boss,
+    "scarecrow": arch_scarecrow,
+    "shadow_knight": arch_shadow_knight,
+    "void_demon": arch_void_demon,
+    "shadow_lord": arch_shadow_lord,
 }
 
 TEMPLATE = (

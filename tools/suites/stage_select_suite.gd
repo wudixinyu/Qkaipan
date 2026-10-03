@@ -112,25 +112,45 @@ func _check_skeleton() -> void:
 
 # ---------------------------------------------------------------- 背景
 
-## 选关页背景 = 概念稿底图，节点锚点就是按这张图的浮岛位置量出来的。
-## 一旦背景被换回 bg_islands.png 或别的图，锚点就全错位了，所以这里钉死。
+## 选关页按章切大地图底图（chapter_tabs.items[].bg）：入场时当前章（ch1）的背景
+## 应已换成该章专属底图；每个有 bg 的章都应能解析出 1920x1080 的可铺纹理。
+## 各章节点均以叠加图标落位、背景纯作氛围底，故换图不影响锚点校验（见 _check_map_nodes）。
 func _check_background() -> void:
-	print("\n· 背景底图")
+	print("\n· 章节大地图背景")
 	var bg: TextureRect = _scene.get_node_or_null("Background")
 	_ok("Background 存在", bg != null)
 	if bg == null:
 		return
-	var tex := bg.texture
-	_ok("背景纹理已加载", tex != null)
-	if tex == null:
-		return
-	_ok("用的是选关页专用底图",
-		str(tex.resource_path).ends_with("bg_stage_select.png"), str(tex.resource_path))
-	_ok("已预处理成 1920x1080，运行时 1:1 无缩放",
-		tex.get_width() == 1920 and tex.get_height() == 1080,
-		"%dx%d" % [tex.get_width(), tex.get_height()])
-	_eq("铺满模式为 cover",
-		bg.stretch_mode, TextureRect.STRETCH_KEEP_ASPECT_COVERED)
+	_eq("铺满模式为 cover", bg.stretch_mode, TextureRect.STRETCH_KEEP_ASPECT_COVERED)
+
+	# 入场态：当前章（ch1）的背景应已由 _apply_chapter_bg 换好
+	var cur := str(_scene.get("_current_chapter"))
+	var want_cur := GameDB.chapter_bg(cur)
+	_ok("当前章 #%s 背景纹理已加载" % cur, bg.texture != null)
+	if bg.texture != null:
+		_ok("当前章 #%s 背景取自配置" % cur,
+			str(bg.texture.resource_path) == want_cur,
+			"got=%s want=%s" % [str(bg.texture.resource_path), want_cur])
+
+	# 逐章验证：切 _current_chapter → _apply_chapter_bg → 背景应为该章 bg 且 1920x1080
+	var restore := cur
+	for raw in GameDB.chapter_tabs():
+		var tab: Dictionary = raw
+		var id := str(tab.get("id", ""))
+		var want := GameDB.chapter_bg(id)
+		if want == str(tab.get("bg", "")):
+			_scene.set("_current_chapter", id)
+			_scene.call("_apply_chapter_bg")
+			_ok("章 #%s 背景切到 %s" % [id, want],
+				bg.texture != null and str(bg.texture.resource_path) == want,
+				str(bg.texture.resource_path) if bg.texture != null else "<null>")
+			if bg.texture != null:
+				_ok("章 #%s 底图为 1920x1080" % id,
+					bg.texture.get_width() == 1920 and bg.texture.get_height() == 1080,
+					"%dx%d" % [bg.texture.get_width(), bg.texture.get_height()])
+	# 还原入场章节，别把背景状态留给后续用例
+	_scene.set("_current_chapter", restore)
+	_scene.call("_apply_chapter_bg")
 
 
 # ---------------------------------------------------------------- 节点落位
@@ -142,8 +162,8 @@ func _check_map_nodes() -> void:
 	if layer == null:
 		return
 
-	# 聚合口径：stage_nodes() 汇总所有小节（第一章 10 + 第二章 10），供底部「N 关」统计与 stage_node() 查询
-	_eq("GameDB.stage_nodes() 聚合 20 关", GameDB.stage_nodes().size(), 20)
+	# 聚合口径：stage_nodes() 汇总所有小节（第一章 10 + 第二章 10 + 第三章 10），供底部「N 关」统计与 stage_node() 查询
+	_eq("GameDB.stage_nodes() 聚合 30 关", GameDB.stage_nodes().size(), 30)
 
 	# NodeLayer 只铺当前小节（新档无通关 → frontier = 第一节 ch1_s1）
 	var cur_sec := str(_scene.get("_current_section"))
@@ -514,6 +534,7 @@ func _check_interact() -> void:
 
 ## 顶部页签：当前章高亮、有地图但未达进度的章「尚未解锁」、无地图的章「敬请期待」；
 ## 点未达/无地图章只弹提示不切地图；达标后（通关 ch1 Boss 1010）方可切入 ch2。
+## 接入 ch3 后三章皆有地图：ch2 需清 1010、ch3 需清 2010，新档下二/三章均为「有地图未解锁」。
 func _check_chapter_tabs() -> void:
 	print("\n· 章节切换栏")
 	var box: HBoxContainer = _scene.get_node_or_null("%ChapterTabs")
@@ -548,12 +569,12 @@ func _check_chapter_tabs() -> void:
 	var toast: Panel = _scene.get_node_or_null("%Toast")
 	var tl: Label = _scene.get_node_or_null("%ToastLabel")
 
-	# 点无地图章（ch3）：弹「敬请期待」、当前章不变
+	# 点有地图但未解锁章（ch3 未清 2010）：弹「尚未解锁」、当前章不变
 	var ch3_btn: Button = box.get_node_or_null("ChapterTab_ch3")
 	if ch3_btn != null and toast != null and tl != null:
 		ch3_btn.pressed.emit()
-		_ok("点无地图章弹敬请期待", tl.text.contains("敬请期待"), tl.text.replace("\n", " / "))
-		_eq("点无地图章不切换", str(_scene.get("_current_chapter")), cur)
+		_ok("点未解锁 ch3 弹尚未解锁", tl.text.contains("尚未解锁"), tl.text.replace("\n", " / "))
+		_eq("未清 2010 点 ch3 不切换", str(_scene.get("_current_chapter")), cur)
 
 	# 点有地图但未解锁章（ch2 未清 1010）：弹「尚未解锁」、当前章不变
 	var ch2_btn: Button = box.get_node_or_null("ChapterTab_ch2")

@@ -125,6 +125,8 @@ func _owned_count() -> int:
 	return n
 
 
+const RARITY_ORDER := {"R": 0, "SR": 1, "SSR": 2, "UR": 3}
+
 func _filtered() -> Array:
 	var out: Array = []
 	for e in _entries:
@@ -133,7 +135,16 @@ func _filtered() -> Array:
 		if _filter == "unowned" and bool(e["owned"]):
 			continue
 		out.append(e)
+	out.sort_custom(_compare_by_rarity)
 	return out
+
+
+func _compare_by_rarity(a: Dictionary, b: Dictionary) -> bool:
+	var oa: int = int(RARITY_ORDER.get(str(a["rarity"]), 99))
+	var ob: int = int(RARITY_ORDER.get(str(b["rarity"]), 99))
+	if oa != ob:
+		return oa < ob
+	return str(a["char_id"]) < str(b["char_id"])
 
 
 # ---------------------------------------------------------------- 筛选与网格

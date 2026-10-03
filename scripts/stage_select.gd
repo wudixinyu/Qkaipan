@@ -39,6 +39,7 @@ const TEAM_SLOTS := 3                    ## 底部预览条的物理格数（概
 @onready var _node_layer: Control = %NodeLayer
 @onready var _guide_layer: Control = %GuideLayer
 @onready var _decor_layer: Control = %DecorLayer
+@onready var _bg: TextureRect = get_node_or_null("Background")
 @onready var _chapter_tabs: HBoxContainer = %ChapterTabs
 @onready var _section_tabs: HBoxContainer = %SectionTabs
 @onready var _team_slots: HBoxContainer = %TeamSlots
@@ -73,6 +74,7 @@ var _intro_done := false
 func _ready() -> void:
 	_bind_player()
 	_current_chapter = GameDB.current_chapter_id()
+	_apply_chapter_bg()
 	_build_chapter_tabs()
 	# 默认停在已解锁的最高小节（frontier）；打完返回时按存档重算，自然展示新解锁小节
 	var order: Array = GameDB.section_order(_current_chapter)
@@ -188,15 +190,29 @@ func _on_chapter_pressed(id: String, has_map: bool, unlocked: bool, label: Strin
 	_switch_chapter(id)
 
 
-## 切到某个章节：换当前章 → 定位该章 frontier 小节 → 重铺章节/小节页签 → 重画子地图
+## 切到某个章节：换当前章 → 换大地图背景 → 定位该章 frontier 小节 → 重铺章节/小节页签 → 重画子地图
 func _switch_chapter(id: String) -> void:
 	_current_chapter = id
+	_apply_chapter_bg()
 	var order: Array = GameDB.section_order(id)
 	_current_section = str(order[_frontier_section_index(order)]) if not order.is_empty() else ""
 	_build_chapter_tabs()
 	_build_section_tabs()
 	_build_map()
 	_select_stage(_default_stage())
+
+
+## 把大地图背景换成当前章的底图（GameDB.chapter_bg）。各章节点均以叠加图标落位，
+## 背景纯作氛围底，换图不会使锚点错位；路径无效时保持现图不动，不会闪成空白。
+func _apply_chapter_bg() -> void:
+	if _bg == null:
+		return
+	var path := GameDB.chapter_bg(_current_chapter)
+	if path == "" or not ResourceLoader.exists(path):
+		return
+	var tex := load(path)
+	if tex != null:
+		_bg.texture = tex
 
 
 # ---------------------------------------------------------------- 小节切换栏
